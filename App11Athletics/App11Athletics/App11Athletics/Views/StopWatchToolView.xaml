@@ -1,19 +1,38 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="App11Athletics.Views.StopWatchToolView"
-             xmlns:svm="clr-namespace:App11Athletics.ViewModels;assembly=App11Athletics">
-  <ContentPage.BindingContext><svm:StopwatchToolViewModel/></ContentPage.BindingContext>
-<ContentPage.Resources>
-  <ResourceDictionary>
-    <Style TargetType="StackLayout">
-      <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
-    </Style>
-  </ResourceDictionary>
-</ContentPage.Resources>
-  <StackLayout>
-    <Label Text="{Binding DateTime.Millisecond}" FontSize="Large" HorizontalTextAlignment="Center"/>
-     <Label Text="{Binding DateTime, StringFormat='{0:ff}'}" FontSize="Large" HorizontalTextAlignment="Center"/>
-     <Label Text="{Binding DateTime, StringFormat='{0:fff}'}" FontSize="Large" HorizontalTextAlignment="Center"/>
-  </StackLayout>
+﻿<?xml version = "1.0"
+      encoding = "utf-8" ?>
+
+<ContentPage xmlns = "http://xamarin.com/schemas/2014/forms"
+             xmlns:x = "http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class = "App11Athletics.Views.StopWatchToolView"
+             xmlns:svm = "clr-namespace:App11Athletics.ViewModels;assembly=App11Athletics" >
+    <ContentPage.BindingContext>
+        <svm:StopwatchToolViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType = "StackLayout" >
+                <Setter Property = "VerticalOptions"
+                        Value = "CenterAndExpand" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout>
+        <Label Text = "{Binding TimerDateTime.Ticks}"
+               FontSize = "Large"
+               HorizontalTextAlignment = "Center" />
+        <Label
+            Text = "{Binding TimerDateTime, StringFormat='{0:ss}'}"
+            FontSize = "Large"
+            HorizontalTextAlignment = "Center" />
+        <Label
+            Text = "{Binding TimerDateTime, StringFormat='{0:ff}'}"
+            FontSize = "Large"
+            HorizontalTextAlignment = "Center" />
+        <Button Command = "{Binding StartTimerCommand}"
+                Text = "Hello" />
+        <Button Command = "{Binding StopTimerCommand}"
+                Text = "Hello" />
+        <Button Command = "{Binding ResetTimerCommand}"
+                Text = "Hello" />
+    </StackLayout>
 </ContentPage>

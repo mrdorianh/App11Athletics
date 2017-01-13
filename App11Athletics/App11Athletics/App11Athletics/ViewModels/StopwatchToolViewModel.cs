@@ -14,31 +14,68 @@ namespace App11Athletics.ViewModels
     {
         public StopwatchToolViewModel()
         {
-            Device.StartTimer(TimeSpan.FromMilliseconds(15), OnTimerTick);
-            DownloadCommand = new Command(async () => await DownloadAsync());
+            TimerDateTime = TimeSpan.Zero;
+            StartTimerCommand = new Command(async () => { await StartTimerAsync(); });
+            StopTimerCommand = new Command(async () => { await StopTimerAsync(); });
+            ResetTimerCommand = new Command(async () => { await ResetTimerAsync(); });
         }
 
-        public Command DownloadCommand { get; set; }
+        public DateTime StartDateTime { get; set; }
+        public TimeSpan TimerDateTime { get; set; }
+        public bool TimerRunning { get; set; }
+        public bool Reset { get; set; }
 
-        bool OnTimerTick()
+        public ICommand StartTimerCommand { get; set; }
+
+        public ICommand StopTimerCommand { get; set; }
+
+        public ICommand ResetTimerCommand { get; set; }
+
+        private async Task StartTimerAsync()
         {
-            DateTime = DateTime.Now;
-            return true;
+            await Task.Run(() => StartTimer());
         }
 
-        public DateTime DateTime { get; set; }
+        private void StartTimer()
+        {
+            StartDateTime = DateTime.Now;
+            TimerRunning = true;
+            Device.StartTimer(TimeSpan.FromMilliseconds(15), OnTimerTick);
+        }
+
+        private async Task StopTimerAsync()
+        {
+            await Task.Run(() => StopTimer());
+        }
+
+        public void StopTimer()
+        {
+            TimerDateTime = TimerDateTime;
+            TimerRunning = false;
+        }
+
+        private async Task ResetTimerAsync()
+        {
+          var t = await Task.Run(() =>TimerRunning = false);
+           ResetTimer();
+            
+        }
+
+        private void ResetTimer()
+        {  
+            TimerDateTime = TimeSpan.Zero;
+        }
+
+        private bool OnTimerTick()
+        {
+            TimerDateTime = DateTime.Now.Subtract(StartDateTime);
+            return TimerRunning;
+        }
 
         #region Implementation of INotifyPropertyChanged
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         #endregion
-
-        async Task DownloadAsync()
-        {
-            await Task.Run(() => Download());
-        }
-
-        void Download() {}
     }
 }

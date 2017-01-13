@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using App11Athletics.Views;
 using Xamarin.Forms;
 
 namespace App11Athletics
@@ -13,7 +13,7 @@ namespace App11Athletics
         {
             InitializeComponent();
 
-            MainPage = new App11Athletics.MainPage();
+            MainPage = new StopWatchToolView();
         }
 
         protected override void OnStart()

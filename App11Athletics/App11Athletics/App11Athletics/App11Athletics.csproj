@@ -43,7 +43,10 @@
     </Compile>
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\BaseTimerViewModel.cs" />
+    <Compile Include="ViewModels\RoundCounterFeatureViewModel.cs" />
     <Compile Include="ViewModels\StopwatchToolViewModel.cs" />
+    <Compile Include="ViewModels\TabataFeatureViewModel.cs" />
     <Compile Include="Views\StopWatchToolView.xaml.cs">
       <DependentUpon>StopWatchToolView.xaml</DependentUpon>
     </Compile>

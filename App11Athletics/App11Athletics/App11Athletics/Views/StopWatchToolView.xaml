@@ -6,7 +6,7 @@
              x:Class = "App11Athletics.Views.StopWatchToolView"
              xmlns:svm = "clr-namespace:App11Athletics.ViewModels;assembly=App11Athletics" >
     <ContentPage.BindingContext>
-        <svm:StopwatchToolViewModel />
+        <svm:TabataFeatureViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -17,15 +17,15 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <StackLayout>
-        <Label Text = "{Binding TimerDateTime.Ticks}"
+        <Label Text = "{Binding CurrentRound}"
                FontSize = "Large"
                HorizontalTextAlignment = "Center" />
         <Label
-            Text = "{Binding TimerDateTime, StringFormat='{0:ss}'}"
+            Text = "{Binding TimerTimeSpan, StringFormat='{0:ss}'}"
             FontSize = "Large"
             HorizontalTextAlignment = "Center" />
         <Label
-            Text = "{Binding TimerDateTime, StringFormat='{0:ff}'}"
+            Text = "{Binding TimerTimeSpan, StringFormat='{0:ff}'}"
             FontSize = "Large"
             HorizontalTextAlignment = "Center" />
         <Button Command = "{Binding StartTimerCommand}"

@@ -41,8 +41,12 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\StopwatchToolViewModel.cs" />
+    <Compile Include="ViewModels\Timers\BaseTimerViewModel.cs" />
+    <Compile Include="ViewModels\Timers\RoundCounterFeatureViewModel.cs" />
+    <Compile Include="ViewModels\Timers\StopwatchToolViewModel.cs" />
+    <Compile Include="ViewModels\Timers\TabataFeatureViewModel.cs" />
     <Compile Include="Views\StopWatchToolView.xaml.cs">
       <DependentUpon>StopWatchToolView.xaml</DependentUpon>
     </Compile>
@@ -73,6 +77,9 @@
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Android">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v6.0\Mono.Android.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>

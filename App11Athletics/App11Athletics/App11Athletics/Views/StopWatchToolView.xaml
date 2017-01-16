@@ -17,6 +17,10 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <StackLayout>
+      <Label Text="Hello"
+             FontSize="50" /> 
+      <Label Text="{Binding DebugMessage}"
+             FontSize="50" />
         <Label Text = "{Binding CurrentRound}"
                FontSize = "Large"
                HorizontalTextAlignment = "Center" />
@@ -29,7 +33,7 @@
             FontSize = "Large"
             HorizontalTextAlignment = "Center" />
         <Button Command = "{Binding StartTimerCommand}"
-                Text = "Hello" />
+                Text = "OgrereeeeOke" />
         <Button Command = "{Binding StopTimerCommand}"
                 Text = "Hello" />
         <Button Command = "{Binding ResetTimerCommand}"

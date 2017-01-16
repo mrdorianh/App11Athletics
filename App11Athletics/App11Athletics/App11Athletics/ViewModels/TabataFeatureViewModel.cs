@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using App11Athletics.Annotations;
 
 namespace App11Athletics.ViewModels
 {
@@ -10,6 +12,7 @@ namespace App11Athletics.ViewModels
     {
         public TabataFeatureViewModel()
         {
+
             WorkRound = true;
             TotalRoundTimeTimeSpan = TimeSpan.FromSeconds(10);
             TotalTimeOffTimeSpan = TimeSpan.FromSeconds(5);
@@ -31,29 +34,46 @@ namespace App11Athletics.ViewModels
 
         public override bool OnTimerTick()
         {
-            if (TimerRunning)
-            {
-                TimerTimeSpan = DateTime.Now.Subtract(StartDateTime);
-            }
+            if (!TimerRunning)
+                return TimerRunning;
+
+            TimerTimeSpan = DateTime.Now.Subtract(StartDateTime);
+
 
             if (WorkRound)
                 if (TimerTimeSpan < TotalRoundTimeTimeSpan)
                 {
                     return TimerRunning;
                 }
-            WorkRound = false;
-            if (!WorkRound)
-            {
-                if (TimerTimeSpan < TotalTimeOffTimeSpan)
+                else
+                {
+                    WorkRound = false;
+                    StartDateTime = DateTime.Now;
                     return TimerRunning;
-            }
+                }
 
-            //            TimerTimeSpan = TimeSpan.Zero;
+            if (TimerTimeSpan < TotalTimeOffTimeSpan)
+                return TimerRunning;
+
+
             CurrentRound = UpdateRound(CurrentRound, TotalRounds);
+            WorkRound = true;
             StartDateTime = DateTime.Now;
             return TimerRunning;
         }
 
+        #region Overrides of RoundCounterFeatureViewModel
+
+        public override void ResetTimer()
+        {
+            WorkRound = true;
+            base.ResetTimer();
+        }
+
+        #endregion
+
         public bool WorkRound { get; set; }
+
+        public string DebugMessage => WorkRound.ToString();
     }
 }

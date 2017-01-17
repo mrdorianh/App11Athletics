@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Dynamic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using PropertyChanged;
 using Xamarin.Forms;
 
-namespace App11Athletics.ViewModels
+namespace App11Athletics.ViewModels.Timers
 {
     public class BaseTimerViewModel : INotifyPropertyChanged
     {
@@ -20,57 +17,25 @@ namespace App11Athletics.ViewModels
             TimerTimeSpan = TimeSpan.Zero;
 
             // Initialize your Commands
-            StartTimerCommand = new Command(execute: () =>
+            StartTimerCommand = new Command(() =>
             {
                 TimerRunning = true;
                 StartTimer();
                 RefreshCanExecutes();
-            }, canExecute: () => !TimerRunning);
+            }, () => !TimerRunning);
             StopTimerCommand = new Command(() =>
             {
                 TimerRunning = false;
                 StopTimer();
                 RefreshCanExecutes();
-            }, canExecute: () => TimerRunning);
+            }, () => TimerRunning);
             ResetTimerCommand = new Command(() =>
             {
                 TimerRunning = false;
                 TimerTimeSpan = TimeSpan.Zero;
                 ResetTimer();
                 RefreshCanExecutes();
-            }, () => !Reset || TimerRunning);
-        }
-
-        private void RefreshCanExecutes()
-        {
-            ((Command)StartTimerCommand).ChangeCanExecute();
-            ((Command)StopTimerCommand).ChangeCanExecute();
-            ((Command)ResetTimerCommand).ChangeCanExecute();
-        }
-
-        public virtual void StartTimer()
-        {
-            StartDateTime = Reset ? DateTime.Now : DateTime.Now.Subtract(ResumeDateTime);
-            Device.StartTimer(TimeSpan.FromMilliseconds(15), OnTimerTick);
-        }
-
-        public virtual bool OnTimerTick()
-        {
-            if (TimerRunning)
-            {
-                TimerTimeSpan = DateTime.Now.Subtract(StartDateTime);
-            }
-
-            return TimerRunning;
-        }
-
-        public void StopTimer()
-        {
-            ResumeDateTime = TimerTimeSpan;
-        }
-
-        public virtual void ResetTimer()
-        {
+            }, () => !TimerRunning && !Reset);
 
         }
 
@@ -83,11 +48,47 @@ namespace App11Athletics.ViewModels
         public ICommand ResetTimerCommand { get; set; }
         public ICommand StopTimerCommand { get; set; }
         public ICommand StartTimerCommand { get; set; }
+        public ICommand LapTimerCommand { get; set; }
+
+        #region INotifyPropertyChanged Members
 
         #region Implementation of INotifyPropertyChanged
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         #endregion
+
+        #endregion
+
+        protected virtual void RefreshCanExecutes()
+        {
+            ((Command)StartTimerCommand).ChangeCanExecute();
+            ((Command)StopTimerCommand).ChangeCanExecute();
+            ((Command)ResetTimerCommand).ChangeCanExecute();
+
+        }
+
+        public virtual void StartTimer()
+        {
+            StartDateTime = Reset ? DateTime.Now : DateTime.Now.Subtract(ResumeDateTime);
+            Device.StartTimer(TimeSpan.FromMilliseconds(15), OnTimerTick);
+        }
+
+        public virtual bool OnTimerTick()
+        {
+            if (TimerRunning)
+                TimerTimeSpan = DateTime.Now.Subtract(StartDateTime);
+            return TimerRunning;
+        }
+
+        public void StopTimer()
+        {
+            ResumeDateTime = TimerTimeSpan;
+        }
+
+        public virtual void ResetTimer()
+        {
+
+        }
     }
 }

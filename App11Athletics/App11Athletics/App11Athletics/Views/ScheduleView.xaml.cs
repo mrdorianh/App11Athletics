@@ -8,9 +8,9 @@ using Xamarin.Forms;
 
 namespace App11Athletics.Views
 {
-    public partial class StopWatchToolView : ContentPage
+    public partial class ScheduleView : ContentPage
     {
-        public StopWatchToolView()
+        public ScheduleView()
         {
             InitializeComponent();
         }

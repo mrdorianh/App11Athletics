@@ -1,8 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="App11Athletics.Views.WorkoutLogOptionsView">
-  <Label Text="{Binding MainText}"
-         VerticalOptions="Center"
-         HorizontalOptions="Center" />
+             xmlns:local = "clr-namespace:App11Athletics.Views.Controls;assembly=App11Athletics"
+             x:Class="App11Athletics.Views.WorkoutLogOptionsView" Title="{Binding Name}">
+    <ScrollView>
+        <StackLayout VerticalOptions = "StartAndExpand"
+                     Padding = "20" >
+            <Label Text = "Name" />
+            <local:MyEntry x:Name = "nameEntry"
+                           Text = "{Binding Name}"
+                           Uppercase = "True"
+                           TextChanged = "NameEntry_OnTextChanged"
+                           Keyboard = "Text"
+                           PropertyChanging = "NameEntry_OnPropertyChanging"
+                           Placeholder = "Add Exercise"
+                           PlaceholderColor = "Gray" />
+            <Label Text = "Sets" />
+            <Entry x:Name = "SetEntry"
+                   Text = "{Binding WSets}"
+                   TextChanged = "SetEntry_OnTextChanged"
+                   Keyboard = "Numeric"
+                   Placeholder = "#"
+                   PlaceholderColor = "Gray"
+                   Focused = "SetEntry_OnFocused" />
+            <Label Text = "Reps" />
+            <Entry x:Name = "RepEntry"
+                   Text = "{Binding WReps}"
+                   TextChanged = "RepEntry_OnTextChanged"
+                   Keyboard = "Numeric"
+                   Placeholder = "#"
+                   PlaceholderColor = "Gray"
+                   Focused = "RepEntry_OnFocused" />
+            <Label Text = "Notes" />
+            <Entry x:Name = "notesEntry"
+                   Text = "{Binding Notes}" />
+            <Label Text = "Done" />
+            <Switch x:Name = "doneEntry"
+                    IsToggled = "{Binding Done}" />
+            <Button x:Name = "buttonSave"
+                    Text = "Save"
+                    Clicked = "OnSaveClicked" />
+            <Button Text = "Delete"
+                    Clicked = "OnDeleteClicked" />
+            <Button Text = "Cancel"
+                    Clicked = "OnCancelClicked" />
+            <Button Text = "Speak"
+                    Clicked = "OnSpeakClicked" />
+        </StackLayout></ScrollView>
+
 </ContentPage>

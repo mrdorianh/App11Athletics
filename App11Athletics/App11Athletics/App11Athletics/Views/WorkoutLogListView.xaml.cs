@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,78 +15,32 @@ namespace App11Athletics.Views
         public WorkoutLogListView()
         {
             InitializeComponent();
-
-             #region toolbar
-
-            ToolbarItem tbi = null;
-            if (Device.OS == TargetPlatform.iOS)
-            {
-                tbi = new ToolbarItem("+", null, () =>
-                {
-                    var todoItem = new TodoItem();
-                    var todoPage = new WorkoutLogOptionsView();
-                    todoPage.BindingContext = todoItem;
-                    Navigation.PushAsync(todoPage);
-                }, 0, 0);
-            }
-            if (Device.OS == TargetPlatform.Android)
-            {
-                // BUG: Android doesn't support the icon being null
-                tbi = new ToolbarItem("+", "plus", () =>
-                {
-                    var todoItem = new TodoItem();
-                    var todoPage = new WorkoutLogOptionsView();
-                    todoPage.BindingContext = todoItem;
-                    Navigation.PushAsync(todoPage);
-                }, 0, 0);
-            }
-            ToolbarItems.Add(tbi);
-
-            if (Device.OS == TargetPlatform.iOS)
-            {
-                var tbi2 = new ToolbarItem("?", null, () =>
-                {
-                    var todos = App.Database.GetItemsNotDone();
-                    var tospeak = "";
-                    foreach (var t in todos)
-                        tospeak += t.Name + " ";
-                    if (tospeak == "")
-                        tospeak = "there are no tasks to do";
-
-                    DependencyService.Get<ITextToSpeech>().Speak(tospeak);
-                }, 0, 0);
-                ToolbarItems.Add(tbi2);
-            }
-
-            #endregion
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
-            // reset the 'resume' id, since we just want to re-start here
-            ((App) Application.Current).ResumeAtTodoId = -1;
-            listView.ItemsSource = App.Database.GetItems();
-            if (listView.ItemsSource != null) labelEmptyList.IsVisible = false;
-            else labelEmptyList.IsVisible = true;
+
+            // Reset the 'resume' id, since we just want to re-start here
+            ((App)App.Current).ResumeAtTodoId = -1;
+            listView.ItemsSource = await App.Database.GetItemsAsync();
         }
 
-        void listItemSelected(object sender, SelectedItemChangedEventArgs e)
+        async void OnItemAdded(object sender, EventArgs e)
         {
-            var todoItem = (TodoItem) e.SelectedItem;
-            var todoPage = new WorkoutLogOptionsView {BindingContext = todoItem};
-
-            ((App) Application.Current).ResumeAtTodoId = todoItem.ID;
-            Debug.WriteLine("setting ResumeAtTodoId = " + todoItem.ID);
-
-            Navigation.PushAsync(todoPage);
+            await Navigation.PushAsync(new WorkoutLogOptionsView { BindingContext = new TodoItem() });
         }
 
-        private void TodoItemListX_OnPropertyChanging(object sender, PropertyChangingEventArgs e) {}
+        async void OnListItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            ((App)App.Current).ResumeAtTodoId = (e.SelectedItem as TodoItem).ID;
+            Debug.WriteLine("setting ResumeAtTodoId = " + (e.SelectedItem as TodoItem).ID);
+            await Navigation.PushAsync(new WorkoutLogOptionsView { BindingContext = e.SelectedItem as TodoItem });
+        }
 
         private void ListView_OnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if (App.Database.Count > 0)
+            if (App.Database.GetItemsAsync().Result.Count > 0)
             {
                 try
                 {
@@ -95,10 +50,10 @@ namespace App11Athletics.Views
                         {
                             labelEmptyList.IsVisible = false;
                             boxViewBack.IsVisible = false;
-                        }); 
+                        });
                     }
                 }
-                catch (NullReferenceException) {}
+                catch (NullReferenceException) { }
             }
             else
             {

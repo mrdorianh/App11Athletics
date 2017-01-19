@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using App11Athletics.Data;
+using App11Athletics.Helpers;
 using App11Athletics.Views;
 using App11Athletics.Views.Timers;
 using Xamarin.Forms;
@@ -11,12 +13,30 @@ namespace App11Athletics
 {
     public partial class App : Application
     {
+        static TodoItemDatabase database;
+
         public App()
         {
             InitializeComponent();
-
-            MainPage = new NavigationPage(new Discover11AthleticsView());
+            MainPage = new NavigationPage(new WorkoutLogListView());
         }
+
+        public static TodoItemDatabase Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database =
+                        new TodoItemDatabase(
+                            DependencyService.Get<IFileHelper>().GetLocalFilePath("TodoSQLite.db3"));
+                }
+
+                return database;
+            }
+        }
+
+        public int ResumeAtTodoId { get; set; }
 
         protected override void OnStart()
         {

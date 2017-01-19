@@ -2,10 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App11Athletics.Views.WorkoutLogListView">
+  <ContentPage.ToolbarItems>
+		<ToolbarItem Text="+" Clicked="OnItemAdded">
+		</ToolbarItem>
+	</ContentPage.ToolbarItems>
   <Grid>
         <BoxView x:Name="boxViewBack" HorizontalOptions="FillAndExpand"
                  VerticalOptions="FillAndExpand" BackgroundColor="{DynamicResource ColorBrandGlobalBlue}" Opacity=".6" />
-        <ListView x:Name="listView" ItemSelected="listItemSelected"
+        <ListView x:Name="listView" ItemSelected="OnListItemSelected"
                   PropertyChanged="ListView_OnPropertyChanged" SeparatorVisibility="Default" SeparatorColor="Gray"
                   HasUnevenRows="True">
             <ListView.ItemTemplate>

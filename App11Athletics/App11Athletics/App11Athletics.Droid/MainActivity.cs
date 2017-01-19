@@ -21,7 +21,9 @@ namespace App11Athletics.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+
             ImageCircleRenderer.Init();
+
             LoadApplication(new App());
         }
     }

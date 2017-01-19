@@ -15,7 +15,7 @@ namespace App11Athletics
         {
             InitializeComponent();
 
-            MainPage = new TabataFeatureView();
+            MainPage = new NavigationPage(new Discover11AthleticsView());
         }
 
         protected override void OnStart()

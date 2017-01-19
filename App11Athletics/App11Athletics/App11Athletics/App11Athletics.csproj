@@ -38,10 +38,15 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DHCToolkit\CaseToUpper.cs" />
+    <Compile Include="DHCToolkit\StringToBoolConverter.cs" />
     <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="Interfaces\ISQLite.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\TodoItem.cs" />
+    <Compile Include="Models\TodoLog.cs" />
     <Compile Include="Models\Discover11AthleticsModel.cs" />
     <Compile Include="Models\Trainer.cs" />
     <Compile Include="Properties\Annotations.cs" />
@@ -56,7 +61,7 @@
     <Compile Include="ViewModels\Timers\TabataFeatureViewModel.cs" />
     <Compile Include="ViewModels\UserProfileViewModel.cs" />
     <Compile Include="ViewModels\WorkoutLogFeatureViewModel.cs" />
-    <Compile Include="Views\Controllers\ImageCircleProportional.xaml.cs">
+    <Compile Include="Views\Controls\ImageCircleProportional.xaml.cs">
       <DependentUpon>ImageCircleProportional.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Discover11AthleticsView.xaml.cs">
@@ -89,7 +94,12 @@
     <Compile Include="Views\UserProfileView.xaml.cs">
       <DependentUpon>UserProfileView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\WorkoutLogFeatureView.cs" />
+    <Compile Include="Views\WorkoutLogListView.xaml.cs">
+      <DependentUpon>WorkoutLogListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WorkoutLogOptionsView.xaml.cs">
+      <DependentUpon>WorkoutLogOptionsView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainPage.xaml">
@@ -225,9 +235,20 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Views\Controllers\ImageCircleProportional.xaml">
+    <EmbeddedResource Include="Views\WorkoutLogListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Controls\ImageCircleProportional.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\WorkoutLogOptionsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

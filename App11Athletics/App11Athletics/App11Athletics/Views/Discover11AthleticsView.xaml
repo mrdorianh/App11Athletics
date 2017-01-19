@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
            xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
              xmlns:viewmodel="clr-namespace:App11Athletics.ViewModels;assembly=App11Athletics"
-             x:Class="App11Athletics.Views.Discover11AthleticsView">
+             xmlns:controlsx="clr-namespace:App11Athletics.Views.Controls;assembly=App11Athletics"
+             x:Class="App11Athletics.Views.Discover11AthleticsView"
+             SizeChanged = "ContentPage_OnSizeChanged" >
   
   <ContentPage.ToolbarItems>
         <ToolbarItem Text="Call 11Athletics" Command="{Binding OnCallCommand}" Priority="0" Order="Primary" />
@@ -26,20 +28,27 @@
                             BackgroundColor="White">
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="1.2*" />
+                                    <ColumnDefinition Width="1.2*"  x:Name="columnDefinitionFirst"/>
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-                                <controls:CircleImage
-                                    Grid.Column="0"
-                                    Aspect="AspectFill"
-                                    HorizontalOptions="Center"
-                                    Source="{Binding ImageUrl}"
-                                    HeightRequest="170"
-                                    BorderThickness="2"
-                                    BorderColor="{Binding Color}"
-                                    VerticalOptions="Center"
-                                    WidthRequest="170" />
-                            
+                              <controlsx:ImageCircleProportional
+                                 Grid.Column="0"
+                                 HorizontalOptions="CenterAndExpand"
+                                 VerticalOptions="CenterAndExpand"
+                               
+                                />
+<!--                                <controls:CircleImage-->
+<!--                                    Grid.Column="0"-->
+<!--                                    Aspect="AspectFill"-->
+<!--                                    HorizontalOptions="Center"-->
+<!--                                    Source="{Binding ImageUrl}"-->
+<!--                                    HeightRequest="{Binding}"-->
+<!--                                    BorderThickness="2"-->
+<!--                                    BorderColor="{Binding Color}"-->
+<!--                                    VerticalOptions="Center"-->
+<!--                                    WidthRequest="{Binding}" />-->
+<!--                              <controls:CircleImage/>-->
+                              
                                 <StackLayout Grid.Column="1" VerticalOptions="EndAndExpand"
                                              Margin="0,0,0,10">
                                     <Label

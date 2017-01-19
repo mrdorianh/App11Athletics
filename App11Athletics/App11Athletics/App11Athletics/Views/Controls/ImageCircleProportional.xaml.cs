@@ -4,21 +4,25 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ImageCircle.Forms.Plugin.Abstractions;
-using PropertyChanged;
+
 using Xamarin.Forms;
 
-namespace App11Athletics.Views.Controllers
+namespace App11Athletics.Views.Controls
 {
-    public partial class ImageCircleProportional : INotifyPropertyChanged
+    public partial class ImageCircleProportional : ContentView
     {
-        public double ViewWidth => Width;
-
-        public double ViewHeight => ViewWidth;
-
         public ImageCircleProportional()
         {
+
             InitializeComponent();
+
+
+        }
+
+        public void ImageCircleProportional_OnSizeChanged(object sender, EventArgs e)
+        {
+
+
         }
     }
 }

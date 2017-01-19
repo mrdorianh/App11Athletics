@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace App11Athletics.Views
+namespace App11Athletics.Interfaces
 {
-    class WorkoutLogFeatureView
+    interface ISQLite
     {
     }
 }

@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App11Athletics.Views.WorkoutLogListView">
+  <Grid>
+        <BoxView x:Name="boxViewBack" HorizontalOptions="FillAndExpand"
+                 VerticalOptions="FillAndExpand" BackgroundColor="{DynamicResource ColorBrandGlobalBlue}" Opacity=".6" />
+        <ListView x:Name="listView" ItemSelected="listItemSelected"
+                  PropertyChanged="ListView_OnPropertyChanged" SeparatorVisibility="Default" SeparatorColor="Gray"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Grid VerticalOptions="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="4*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Grid.Column="0" Grid.Row="0" VerticalOptions="Center"
+                                             HorizontalOptions="Center" Padding="10">
+                                    <Label Text="{Binding Name}"
+                                           VerticalTextAlignment="Center"
+                                           LineBreakMode="TailTruncation"
+                                           HorizontalTextAlignment="Center"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"
+                                           FontAttributes="Bold" FontSize="Large"
+                                           TextColor="{DynamicResource ColorBrandGlobalBlue}" />
+                                    <StackLayout
+                                        Orientation="Horizontal"
+                                        HorizontalOptions="Center"
+                                        Spacing="15"
+                                        VerticalOptions="CenterAndExpand">
+                                        <StackLayout Orientation="Horizontal"
+                                                     HorizontalOptions="Center"
+                                                     VerticalOptions="Center">
+                                            <Label Text="{Binding WSets, StringFormat='{0}'}"
+                                                   VerticalTextAlignment="Center"
+                                                   HorizontalTextAlignment="Center"
+                                                   VerticalOptions="Center"
+                                                   FontAttributes="Bold"
+                                                   FontSize="Medium"
+                                                   TextColor="{DynamicResource ColorBrandGlobalBlue}"
+                                                   IsVisible="{Binding WSets, Converter={StaticResource NullToVisibility}}" />
+                                            <Label Text="SETS"
+                                                   FontSize="Small"
+                                                   TextColor="{DynamicResource ColorBrandGlobalBlue}"
+                                                   VerticalTextAlignment="Center"
+                                                   HorizontalTextAlignment="Center"
+                                                   VerticalOptions="Center"
+                                                   IsVisible="{Binding WSets}" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal"
+                                                     HorizontalOptions="Center"
+                                                     VerticalOptions="Center">
+                                            <Label Text="{Binding WReps, StringFormat='{0}'} "
+                                                   VerticalTextAlignment="Center"
+                                                   HorizontalTextAlignment="Center"
+                                                   VerticalOptions="Center"
+                                                   FontAttributes="Bold" FontSize="Medium"
+                                                   TextColor="{DynamicResource ColorBrandGlobalBlue}"
+                                                   IsVisible="{Binding WReps, Converter={StaticResource NullToVisibility}}" />
+                                            <Label Text="REPS"
+                                                   FontSize="Small"
+                                                   TextColor="{DynamicResource ColorBrandGlobalBlue}"
+                                                   VerticalTextAlignment="Center"
+                                                   HorizontalTextAlignment="Center"
+                                                   VerticalOptions="Center"
+                                                   IsVisible="{Binding WReps}" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <Image Grid.Column="1" Source="check.png"
+                                       WidthRequest="50"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       IsVisible="{Binding Done}" />
+                            </Grid>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Label x:Name="labelEmptyList" Text="Add Some Exercises!" FontSize="40" TextColor="White" FontAttributes="Bold"
+               HorizontalOptions="CenterAndExpand"
+               VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" />
+    </Grid>
+</ContentPage>

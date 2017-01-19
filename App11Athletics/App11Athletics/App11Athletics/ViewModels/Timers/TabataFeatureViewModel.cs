@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using App11Athletics.Annotations;
+using Xamarin.Forms;
 
-namespace App11Athletics.ViewModels
+namespace App11Athletics.ViewModels.Timers
 {
     public class TabataFeatureViewModel : RoundCounterFeatureViewModel
     {
@@ -32,30 +31,48 @@ namespace App11Athletics.ViewModels
             }
         }
 
+        public bool WorkRound { get; set; }
+        public string WorkTime
+        {
+            get
+            {
+                switch (WorkRound)
+                {
+                    case true:
+                        return "Work Time!";
+                    case false:
+                        return "RestTime";
+                    default:
+                        return string.Empty;
+                }
+            }
+        }
+
+
         public override bool OnTimerTick()
         {
-            if (!TimerRunning)
-                return TimerRunning;
-
-            TimerTimeSpan = DateTime.Now.Subtract(StartDateTime);
-
+            if (TimerRunning)
+            {
+                TimerTimeSpan = DateTime.Now.Subtract(StartDateTime);
+            }
 
             if (WorkRound)
+            {
                 if (TimerTimeSpan < TotalRoundTimeTimeSpan)
                 {
                     return TimerRunning;
                 }
-                else
-                {
-                    WorkRound = false;
-                    StartDateTime = DateTime.Now;
-                    return TimerRunning;
-                }
+                TimerTimeSpan = TimeSpan.Zero;
+                WorkRound = false;
+                StartDateTime = DateTime.Now;
+                return TimerRunning;
+            }
+
 
             if (TimerTimeSpan < TotalTimeOffTimeSpan)
                 return TimerRunning;
 
-
+            TimerTimeSpan = TimeSpan.Zero;
             CurrentRound = UpdateRound(CurrentRound, TotalRounds);
             WorkRound = true;
             StartDateTime = DateTime.Now;
@@ -71,9 +88,5 @@ namespace App11Athletics.ViewModels
         }
 
         #endregion
-
-        public bool WorkRound { get; set; }
-
-        public string DebugMessage => WorkRound.ToString();
     }
 }

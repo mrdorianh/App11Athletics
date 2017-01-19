@@ -1,18 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Dynamic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Input;
-using PropertyChanged;
+using Plugin.Vibrate;
 using Xamarin.Forms;
 
-namespace App11Athletics.ViewModels
+namespace App11Athletics.ViewModels.Timers
 {
     public class RoundCounterFeatureViewModel : BaseTimerViewModel
     {
@@ -22,6 +16,14 @@ namespace App11Athletics.ViewModels
             CurrentRound = 1;
             TotalRounds = 69;
         }
+
+        public TimeSpan TotalRoundTimeTimeSpan { get; set; }
+
+        public double RoundTimeHoursTimeSpan { get; set; }
+        public double RoundTimeMinutesTimeSpan { get; set; }
+        public double RoundTimeSecondsTimeSpan { get; set; }
+        public int CurrentRound { get; set; }
+        public int TotalRounds { get; set; }
 
         public override bool OnTimerTick()
         {
@@ -54,19 +56,8 @@ namespace App11Athletics.ViewModels
                 return currentRound;
 
             }
+            CrossVibrate.Current.Vibration();
             return currentRound + 1;
         }
-
-
-
-        public TimeSpan TotalRoundTimeTimeSpan { get; set; }
-
-
-        public double RoundTimeHoursTimeSpan { get; set; }
-        public double RoundTimeMinutesTimeSpan { get; set; }
-        public double RoundTimeSecondsTimeSpan { get; set; }
-        public int CurrentRound { get; set; }
-        public int TotalRounds { get; set; }
-
     }
 }

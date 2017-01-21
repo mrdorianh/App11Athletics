@@ -18,7 +18,7 @@ namespace App11Athletics
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationPage(new WorkoutLogListView());
+            MainPage = new UserProfileView();
         }
 
         public static TodoItemDatabase Database

@@ -4,6 +4,7 @@
 <Application xmlns = "http://xamarin.com/schemas/2014/forms"
              xmlns:x = "http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:dhcToolkit = "clr-namespace:App11Athletics.DHCToolkit;assembly=App11Athletics"
+             xmlns:abstractions = "clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
              x:Class = "App11Athletics.App" >
     <Application.Resources>
         <!-- Application resource dictionary -->
@@ -19,8 +20,9 @@
             <!--      <ControlTemplate/>-->
             <ControlTemplate x:Key = "ControlTemplateFrameContainer" >
                 <Grid>
-                    <Frame HasShadow="False" />
-                    <Frame Margin="4" BackgroundColor="White"  />
+                    <Frame HasShadow = "False" />
+                    <Frame Margin = "4"
+                           BackgroundColor = "White" />
                     <ContentPresenter />
                 </Grid>
             </ControlTemplate>
@@ -29,8 +31,7 @@
                 <Setter Property = "BackgroundColor"
                         Value = "{StaticResource ColorBrandGlobalBlue}" />
             </Style>
-            <Style TargetType = "BoxView"
-                   >
+            <Style TargetType = "BoxView" >
                 <Setter Property = "Margin"
                         Value = "4" />
                 <Setter Property = "Color"
@@ -44,8 +45,15 @@
                 <Setter Property = "Padding"
                         Value = "{StaticResource MyPadding}" />
             </Style>
-           <dhcToolkit:CaseToUpper x:Key = "CaseToUpper" />
-            <dhcToolkit:StringToBoolConverter x:Key = "NullToVisibility" />
+          <Style TargetType="abstractions:CircleImage">
+                 <Setter Property="BorderColor" Value="{DynamicResource ColorBrandGlobalBlue}"  />
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="FillColor" Value="{DynamicResource ColorBrandGlobalBlue}"/>
+            <Setter Property="Aspect" Value="AspectFill"/>
+            </Style>
+            <dhcToolkit:CaseToUpper x:Key = "CaseToUpper" />
+            <dhcToolkit:StringToBoolConverter
+                x:Key = "NullToVisibility" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

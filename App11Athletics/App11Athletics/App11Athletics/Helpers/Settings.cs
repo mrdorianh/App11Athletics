@@ -1,4 +1,8 @@
 // Helpers/Settings.cs
+
+using System;
+using System.Collections.Generic;
+using App11Athletics.Models;
 using Plugin.Settings;
 using Plugin.Settings.Abstractions;
 
@@ -39,32 +43,32 @@ namespace App11Athletics.Helpers
         //      }
         //    }
         private const string SettingsUserBmr = "user_bmr";
-        private static readonly double SettingsUserBmrDefault = 0.0;
+        private static readonly string SettingsUserBmrDefault = string.Empty;
 
         //
         private const string SettingsUserDce = "user_dce";
-        private static readonly double SettingsUserDceDefault = 0.0;
+        private static readonly string SettingsUserDceDefault = string.Empty;
 
         //
         private const string SettingsUserAge = "user_age";
-        private static readonly double SettingsUserAgeDefault = 20;
+        private static readonly string SettingsUserAgeDefault = "69";
 
         //
         private const string SettingsUserHeightFt = "user_heightFt";
-        private static readonly double SettingsUserHeightFtDefault = 5;
+        private static readonly string SettingsUserHeightFtDefault = "6";
 
         //
         private const string SettingsUserHeightIn = "user_heightIn";
-        private static readonly double SettingsUserHeightInDefault = 10;
+        private static readonly string SettingsUserHeightInDefault = "1";
 
         private const string SettingsUserWeight = "user_weight";
-        private static readonly double SettingsUserWeightDefault = 195;
+        private static readonly string SettingsUserWeightDefault = string.Empty;
 
         private const string SettingsUserAlf = "user_alf";
         private static readonly double SettingsUserAlfDefault = 1.0;
 
         private const string SettingsUserAlfString = "user_alfString";
-        private static readonly string SettingsUserAlfStringDefault = "Unspecified";
+        private static readonly string SettingsUserAlfStringDefault = string.Empty;
 
         //
         private const string SettingsUserEmail = "user_email";
@@ -76,7 +80,7 @@ namespace App11Athletics.Helpers
 
         //
         private const string SettingsUserGender = "user_gender";
-        private static readonly string SettingsUserGenderDefault = "Male";
+        private static readonly string SettingsUserGenderDefault = string.Empty;
 
         //
         private const string SettingsUserGivenName = "user_given_name";
@@ -90,7 +94,36 @@ namespace App11Athletics.Helpers
         private const string SettingsUserRefreshToken = "user_refreshToken";
         private static readonly string SettingsUserRefreshTokenDefault = string.Empty;
 
+        private const string SettingsUserName = "user_name";
+        private static readonly string SettingsUserNameDefault = string.Empty;
 
+        private const string SettingsEmailVerified = "user_email_verified";
+        private static readonly bool SettingsEmailVerifiedDefault = false;
+
+        private const string SettingsUserLocale = "user_locale";
+        private static readonly string SettingsUserLocaleDefault = string.Empty;
+
+        private const string SettingsUserUpdatedAt = "user_updated_at";
+        private static readonly DateTime SettingsUserUpdatedAtDefault = DateTime.Now;
+
+        private const string SettingsUserId = "user_id";
+        private static readonly string SettingsUserIdDefault = string.Empty;
+
+
+        private const string SettingsUserNickname = "user_nickname";
+        private static readonly string SettingsUserNicknameDefault = string.Empty;
+
+        private const string SettingsUserProvider = "user_provider";
+        private static readonly string SettingsUserProviderDefault = string.Empty;
+
+        private const string SettingsUserIdNumber = "user_id_number";
+        private static readonly string SettingsUserIdNumberDefault = string.Empty;
+
+        private const string SettingsUserConnection = "user_connection";
+        private static readonly string SettingsUserConnectionDefault = string.Empty;
+
+        private const string SettingsUserIsSocial = "user_provider";
+        private static readonly bool SettingsUserIsSocialDefault = false;
 
 
 
@@ -102,53 +135,53 @@ namespace App11Athletics.Helpers
         //  set{AppSettings.AddOrUpdateValue<string>(SettingsKey, value);
         //  }
         //}
-        public static double UserBmr
+        public static string UserBmr
         {
-            get { return AppSettings.GetValueOrDefault<double>(SettingsUserBmr, SettingsUserBmrDefault); }
+            get { return AppSettings.GetValueOrDefault<string>(SettingsUserBmr, SettingsUserBmrDefault); }
             set
             {
-                AppSettings.AddOrUpdateValue<double>(SettingsUserBmr, value);
+                AppSettings.AddOrUpdateValue<string>(SettingsUserBmr, value);
             }
         }
 
-        public static double UserDce
+        public static string UserDce
         {
-            get { return AppSettings.GetValueOrDefault<double>(SettingsUserDce, SettingsUserDceDefault); }
+            get { return AppSettings.GetValueOrDefault<string>(SettingsUserDce, SettingsUserDceDefault); }
             set
             {
-                AppSettings.AddOrUpdateValue<double>(SettingsUserDce, value);
+                AppSettings.AddOrUpdateValue<string>(SettingsUserDce, value);
             }
         }
-        public static double UserAge
+        public static string UserAge
         {
-            get { return AppSettings.GetValueOrDefault<double>(SettingsUserAge, SettingsUserAgeDefault); }
+            get { return AppSettings.GetValueOrDefault<string>(SettingsUserAge, SettingsUserAgeDefault); }
             set
             {
-                AppSettings.AddOrUpdateValue<double>(SettingsUserAge, value);
+                AppSettings.AddOrUpdateValue<string>(SettingsUserAge, value);
             }
         }
-        public static double UserHeightFt
+        public static string UserHeightFt
         {
-            get { return AppSettings.GetValueOrDefault<double>(SettingsUserHeightFt, SettingsUserHeightFtDefault); }
+            get { return AppSettings.GetValueOrDefault<string>(SettingsUserHeightFt, SettingsUserHeightFtDefault); }
             set
             {
-                AppSettings.AddOrUpdateValue<double>(SettingsUserHeightFt, value);
+                AppSettings.AddOrUpdateValue<string>(SettingsUserHeightFt, value);
             }
         }
-        public static double UserHeightIn
+        public static string UserHeightIn
         {
-            get { return AppSettings.GetValueOrDefault<double>(SettingsUserHeightIn, SettingsUserHeightInDefault); }
+            get { return AppSettings.GetValueOrDefault<string>(SettingsUserHeightIn, SettingsUserHeightInDefault); }
             set
             {
-                AppSettings.AddOrUpdateValue<double>(SettingsUserHeightIn, value);
+                AppSettings.AddOrUpdateValue<string>(SettingsUserHeightIn, value);
             }
         }
-        public static double UserWeight
+        public static string UserWeight
         {
-            get { return AppSettings.GetValueOrDefault<double>(SettingsUserWeight, SettingsUserWeightDefault); }
+            get { return AppSettings.GetValueOrDefault<string>(SettingsUserWeight, SettingsUserWeightDefault); }
             set
             {
-                AppSettings.AddOrUpdateValue<double>(SettingsUserWeight, value);
+                AppSettings.AddOrUpdateValue<string>(SettingsUserWeight, value);
             }
         }
 
@@ -212,10 +245,100 @@ namespace App11Athletics.Helpers
         }
         public static string UserRefreshToken
         {
-            get { return AppSettings.GetValueOrDefault<string>(SettingsUserRefreshToken, SettingsUserRefreshToken); }
+            get { return AppSettings.GetValueOrDefault<string>(SettingsUserRefreshToken, SettingsUserRefreshTokenDefault); }
             set
             {
                 AppSettings.AddOrUpdateValue<string>(SettingsUserRefreshToken, value);
+            }
+        }
+
+        public static bool EmailVerified
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault<bool>(SettingsEmailVerified, SettingsEmailVerifiedDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue<bool>(SettingsEmailVerified, value);
+            }
+        }
+
+        public static string UserName
+        {
+            get { return AppSettings.GetValueOrDefault<string>(SettingsUserName, SettingsUserNameDefault); }
+            set
+            {
+                AppSettings.AddOrUpdateValue<string>(SettingsUserName, value);
+            }
+        }
+
+        public static string UserLocale
+        {
+            get { return AppSettings.GetValueOrDefault<string>(SettingsUserLocale, SettingsUserLocaleDefault); }
+            set
+            {
+                AppSettings.AddOrUpdateValue<string>(SettingsUserLocale, value);
+            }
+        }
+
+        public static DateTime UserUpdatedAt
+        {
+            get { return AppSettings.GetValueOrDefault<DateTime>(SettingsUserUpdatedAt, SettingsUserUpdatedAtDefault); }
+            set
+            {
+                AppSettings.AddOrUpdateValue<DateTime>(SettingsUserUpdatedAt, value);
+            }
+        }
+
+        public static string UserId
+        {
+            get { return AppSettings.GetValueOrDefault<string>(SettingsUserId, SettingsUserIdDefault); }
+            set
+            {
+                AppSettings.AddOrUpdateValue<string>(SettingsUserId, value);
+            }
+        }
+
+        public static string UserNickname
+        {
+            get { return AppSettings.GetValueOrDefault<string>(SettingsUserNickname, SettingsUserNicknameDefault); }
+            set
+            {
+                AppSettings.AddOrUpdateValue<string>(SettingsUserNickname, value);
+            }
+        }
+
+        public static string UserProvider
+        {
+            get { return AppSettings.GetValueOrDefault<string>(SettingsUserProvider, SettingsUserProviderDefault); }
+            set
+            {
+                AppSettings.AddOrUpdateValue<string>(SettingsUserProvider, value);
+            }
+        }
+        public static string UserIdNumber
+        {
+            get { return AppSettings.GetValueOrDefault<string>(SettingsUserIdNumber, SettingsUserIdNumberDefault); }
+            set
+            {
+                AppSettings.AddOrUpdateValue<string>(SettingsUserIdNumber, value);
+            }
+        }
+        public static string UserConnection
+        {
+            get { return AppSettings.GetValueOrDefault<string>(SettingsUserConnection, SettingsUserConnectionDefault); }
+            set
+            {
+                AppSettings.AddOrUpdateValue<string>(SettingsUserConnection, value);
+            }
+        }
+        public static bool UserIsSocial
+        {
+            get { return AppSettings.GetValueOrDefault<bool>(SettingsUserIsSocial, SettingsUserIsSocialDefault); }
+            set
+            {
+                AppSettings.AddOrUpdateValue<bool>(SettingsUserIsSocial, value);
             }
         }
     }

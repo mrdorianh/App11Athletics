@@ -4,7 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using App11Athletics.Helpers;
+using App11Athletics.Models;
+using App11Athletics.ViewModels;
 using Xamarin.Forms;
+using static App11Athletics.Models.UserProfileModel;
 
 namespace App11Athletics.Views
 {
@@ -14,12 +18,30 @@ namespace App11Athletics.Views
         {
             InitializeComponent();
             PageLabels = new List<Label>();
+
             PageLabels.AddRange(new[]
             {
                 labelAge, labelGender, labelHeightFt, labelHeightInMark, labelHeightInch, labelHeightftMark,
-                labelWeight, labelActivityLevel, labelBmr, labelDCE
+                labelWeight, labelActivityLevel, labelBmr, labelDce
             });
+
+
+
         }
+
+        public string GivenName => Settings.UserGivenName;
+
+        public static string st;
+
+        #region Overrides of Page
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+        }
+
+        #endregion
 
         public List<Label> PageLabels { get; set; }
 
@@ -38,6 +60,17 @@ namespace App11Athletics.Views
             {
                 label.FontSize = DFontSize;
             }
+        }
+
+        private async void MenuItem_OnClicked(object sender, EventArgs e)
+        {
+            //            await Navigation.PushModalAsync(new NavigationPage(new AuthUserSignIn()));
+            await DependencyService.Get<IAuthSignIn>().AuthRefresh();
+        }
+
+        private async void Logout_OnClicked(object sender, EventArgs e)
+        {
+            await DependencyService.Get<IAuthSignIn>().AuthLogOut();
         }
     }
 }

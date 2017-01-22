@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using App11Athletics.Data;
 using App11Athletics.Helpers;
+using App11Athletics.Models;
 using App11Athletics.Views;
 using App11Athletics.Views.Timers;
 using Xamarin.Forms;
@@ -15,10 +16,12 @@ namespace App11Athletics
     {
         static TodoItemDatabase database;
 
+        public UserProfileModel AppUser;
+
         public App()
         {
             InitializeComponent();
-            MainPage = new UserProfileView();
+            MainPage = new NavigationPage(new UserProfileView());
         }
 
         public static TodoItemDatabase Database
@@ -37,6 +40,7 @@ namespace App11Athletics
         }
 
         public int ResumeAtTodoId { get; set; }
+        public static bool IsUserLoggedIn { get; set; }
 
         protected override void OnStart()
         {

@@ -26,6 +26,7 @@ namespace App11Athletics.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::Auth0.SDK.Resource.String.library_name = global::App11Athletics.Droid.Resource.String.library_name;
 			global::Plugin.Vibrate.Resource.String.ApplicationName = global::App11Athletics.Droid.Resource.String.ApplicationName;
 			global::Plugin.Vibrate.Resource.String.Hello = global::App11Athletics.Droid.Resource.String.Hello;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::App11Athletics.Droid.Resource.Attribute.actionBarSize;
@@ -3026,6 +3027,9 @@ namespace App11Athletics.Droid
 			
 			// aapt resource value: 0x7f090025
 			public const int character_counter_pattern = 2131296293;
+			
+			// aapt resource value: 0x7f090028
+			public const int library_name = 2131296296;
 			
 			// aapt resource value: 0x7f090000
 			public const int mr_button_content_description = 2131296256;

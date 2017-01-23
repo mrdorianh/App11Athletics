@@ -50,6 +50,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\CarouselModel.cs" />
     <Compile Include="Models\TodoItem.cs" />
     <Compile Include="Models\TodoLog.cs" />
     <Compile Include="Models\Discover11AthleticsModel.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Templates\FrameBoxTemplate.xaml.cs">
       <DependentUpon>FrameBoxTemplate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\CarouselViewModel.cs" />
     <Compile Include="Views\AuthUserSignIn.cs" />
     <Compile Include="ViewModels\Discover11AthleticsViewModel.cs" />
     <Compile Include="ViewModels\HomeMenuViewModel.cs" />
@@ -187,6 +189,10 @@
     </Reference>
     <Reference Include="SQLitePCLRaw.core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SQLitePCLRaw.core.1.1.2\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.SfCarousel.XForms, Version=14.4451.0.20, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Syncfusion.Xamarin.SfCarousel.14.4.0.20\lib\portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Syncfusion.SfCarousel.XForms.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">

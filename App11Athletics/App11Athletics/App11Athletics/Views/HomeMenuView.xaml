@@ -1,8 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="App11Athletics.Views.HomeMenuView">
-  <Label Text="{Binding MainText}"
-         VerticalOptions="Center"
-         HorizontalOptions="Center" />
+             x:Class="App11Athletics.Views.HomeMenuView"
+             xmlns:carousel="clr-namespace:Syncfusion.SfCarousel.XForms;assembly=Syncfusion.SfCarousel.XForms">
+  <ContentPage.Resources>
+    	<ResourceDictionary>
+     	 	<DataTemplate x:Key="itemTemplate">
+       	 		<Image Source="{Binding Image}" 
+					Aspect="AspectFit"></Image>
+      		</DataTemplate>
+    	</ResourceDictionary>
+ 	 </ContentPage.Resources>
+
+		<carousel:SfCarousel x:Name="carousel"  ItemTemplate="{StaticResource itemTemplate}" DataSource="{Binding ImageCollection}"  Offset="40" SelectedItemOffset="10" ScaleOffset="0.6"  HeightRequest="400" WidthRequest="800"  ></carousel:SfCarousel>	
+
 </ContentPage>

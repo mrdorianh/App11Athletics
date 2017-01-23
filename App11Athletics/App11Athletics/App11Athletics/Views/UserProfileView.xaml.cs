@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using App11Athletics.Helpers;
 using App11Athletics.Models;
+using App11Athletics.Templates;
 using App11Athletics.ViewModels;
 using Xamarin.Forms;
 using static App11Athletics.Models.UserProfileModel;
@@ -24,7 +25,7 @@ namespace App11Athletics.Views
                 labelAge, labelGender, labelHeightFt, labelHeightInMark, labelHeightInch, labelHeightftMark,
                 labelWeight, labelActivityLevel, labelBmr, labelDce
             });
-
+            gridMain.BindingContext = new UserProfileModel();
 
 
         }

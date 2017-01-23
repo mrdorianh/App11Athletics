@@ -27,6 +27,9 @@
                 <Setter Property = "BackgroundColor"
                         Value = "#1FFF0000" />
             </Style>
+          <Style TargetType="ContentView" > 
+            
+          </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
@@ -39,9 +42,9 @@
     </ContentPage.ToolbarItems>
     <Grid Padding = "5"
           x:Name = "gridMain" >
-      <Grid.BindingContext>
-        <settings:UserProfileModel/>
-      </Grid.BindingContext>
+<!--      <Grid.BindingContext>-->
+<!--        <settings:UserProfileModel/>-->
+<!--      </Grid.BindingContext>-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width = "*" />
             <ColumnDefinition Width = "*" />

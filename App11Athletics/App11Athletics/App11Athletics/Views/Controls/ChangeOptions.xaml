@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App11Athletics.Views.Controls.ChangeOptions"
+             xmlns:templates="clr-namespace:App11Athletics.Templates;assembly=App11Athletics"
+             xmlns:controls = "clr-namespace:App11Athletics.Views.Controls;assembly=App11Athletics"
+             x:Name="viewOptions" SizeChanged="ChangeOptions_OnSizeChanged">
+  <ContentView.Content>
+   
+      <Grid Margin="10" x:Name="gridEntry">
+          <Grid.RowDefinitions>
+              <RowDefinition Height="0.4*" />
+              <RowDefinition  Height="0.6*"/>
+          </Grid.RowDefinitions>
+          <templates:FrameBoxTemplate x:Name="frameBoxTemplate" Grid.Row="0" Grid.RowSpan="2" />
+        
+      <Entry Grid.Row = "1"
+             x:Name="entry" Margin="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Completed="Entry_OnCompleted" BindingContext="{x:Reference viewOptions}" IsVisible="False" Keyboard="Numeric" Opacity="0"  HeightRequest="{Binding Source= {x:Reference gridEntry}, Path=Height}" WidthRequest="{Binding Source= {x:Reference gridEntry}, Path=Width}" Unfocused="Entry_OnUnfocused" PlaceholderColor="Gray" Placeholder="{Binding Source={x:Reference viewOptions}, Path=OptionsPlaceholder}" Text="{Binding Source={x:Reference viewOptions}, Path=OptionsInput}" />
+        <Label x:Name="labelTitleEntry" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="{Binding Source={x:Reference viewOptions}, Path=OptionsPlaceHolderFontSize}" Text="{Binding Source={x:Reference entry}, Path=Placeholder}" Grid.Row="0"/>
+        <Label x:Name="labelEntry" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="{Binding Source={x:Reference viewOptions}, Path=OptionsFontSize}" Text="{Binding Source={x:Reference entry}, Path=Text}"  Grid.Row="1"/>
+      </Grid>
+  </ContentView.Content>
+</ContentView>

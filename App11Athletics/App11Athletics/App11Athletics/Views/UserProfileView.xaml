@@ -9,10 +9,17 @@
              xmlns:settings="clr-namespace:App11Athletics.Models;assembly=App11Athletics"
              xmlns:app11Athletics = "clr-namespace:App11Athletics.Views;assembly=App11Athletics"
              x:Class = "App11Athletics.Views.UserProfileView"
+             x:Name="pageUserProfile"
              BackgroundColor = "White"
              SizeChanged = "UserProfileView_OnSizeChanged" >
     <ContentPage.Resources>
         <ResourceDictionary>
+          <Style TargetType="BoxView" x:Key="tap" > 
+            <Setter Property="VerticalOptions" Value="Fill"/>
+            <Setter Property="HorizontalOptions" Value="Fill"/>
+            <Setter Property="Color" Value="Transparent"/>
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+          </Style>
             <Style TargetType = "Label" >
                 <Setter Property = "Text"
                         Value = "Sample" />
@@ -24,8 +31,9 @@
                         Value = "Center" />
                 <Setter Property = "VerticalTextAlignment"
                         Value = "Center" />
-                <Setter Property = "BackgroundColor"
-                        Value = "#1FFF0000" />
+<!--                <Setter Property = "BackgroundColor"-->
+<!--                        Value = "#1FFF0000" />-->
+              <Setter Property="InputTransparent" Value="True"/>
             </Style>
           <Style TargetType="ContentView" > 
             
@@ -99,6 +107,11 @@
                    VerticalOptions = "CenterAndExpand"
                    Text="{Binding GenderSymbol}"
                     />
+          <BoxView Grid.Row = "0" Grid.RowSpan="2" Grid.Column="0" Style="{StaticResource tap}">
+            <BoxView.GestureRecognizers> 
+            <TapGestureRecognizer x:Name="tapGestureRecognizerGender" Tapped="TapGestureRecognizerGender_OnTapped"/>
+          </BoxView.GestureRecognizers>
+             </BoxView>
         </Grid>
         <Grid x:Name = "gridAge"
               Grid.Column = "1"
@@ -225,5 +238,6 @@
                        Text="{Binding Dce}"/>
             </StackLayout>
         </Grid>
+      <controls:ChangeOptions x:Name="changeOptions" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" Grid.RowSpan="2" VerticalOptions="Fill" OptionsInput="" OptionsPlaceholder="" HorizontalOptions="Fill" Opacity="1"/>
     </Grid>
 </ContentPage>

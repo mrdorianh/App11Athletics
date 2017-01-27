@@ -17,7 +17,6 @@ using Auth0.SDK;
 using Xamarin.Forms;
 using Xamarin.Auth;
 using Xamarin.Android;
-using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using Application = Xamarin.Forms.Application;
 

@@ -116,6 +116,9 @@
     <CodesignKey>iPhone Distribution</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>App11Athletics.iOS.Application</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Main.cs" />
@@ -312,6 +315,9 @@
     <BundleResource Include="Resources\speedtimer.png" />
     <BundleResource Include="Resources\speedtimer%402x.png" />
     <BundleResource Include="Resources\speedtimer%403x.png" />
+    <BundleResource Include="Resources\bluedot.png" />
+    <BundleResource Include="Resources\bluedot%402x.png" />
+    <BundleResource Include="Resources\bluedot%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="Auth0Client">

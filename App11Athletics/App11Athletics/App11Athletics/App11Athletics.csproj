@@ -39,6 +39,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Data\TodoItemDatabase.cs" />
+    <Compile Include="DHCToolkit\AnimatePages.cs" />
     <Compile Include="DHCToolkit\CaseToUpper.cs" />
     <Compile Include="DHCToolkit\ShadowEffect.cs" />
     <Compile Include="DHCToolkit\StringToBoolConverter.cs" />
@@ -62,7 +63,7 @@
       <DependentUpon>FrameBoxTemplate.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\CarouselViewModel.cs" />
-    <Compile Include="Views\AuthUserSignIn.cs" />
+    <Compile Include="ViewModels\AuthUserSignIn.cs" />
     <Compile Include="ViewModels\Discover11AthleticsViewModel.cs" />
     <Compile Include="ViewModels\HomeMenuViewModel.cs" />
     <Compile Include="ViewModels\OneRepMaxFeatureViewModel.cs" />
@@ -73,6 +74,10 @@
     <Compile Include="ViewModels\Timers\TabataFeatureViewModel.cs" />
     <Compile Include="ViewModels\UserProfileViewModel.cs" />
     <Compile Include="ViewModels\WorkoutLogFeatureViewModel.cs" />
+    <Compile Include="Views\AnimateInOrOut.cs" />
+    <Compile Include="Views\Controls\ChangeOptions.xaml.cs">
+      <DependentUpon>ChangeOptions.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Controls\ImageCircleProportional.xaml.cs">
       <DependentUpon>ImageCircleProportional.xaml</DependentUpon>
     </Compile>
@@ -86,11 +91,17 @@
     <Compile Include="Views\HomeMenuView.xaml.cs">
       <DependentUpon>HomeMenuView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\OneRepMaxFeatureView.xaml.cs">
       <DependentUpon>OneRepMaxFeatureView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ScheduleView.xaml.cs">
       <DependentUpon>ScheduleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TimerMenu.xaml.cs">
+      <DependentUpon>TimerMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Timers\BaseTimeView.xaml.cs">
       <DependentUpon>BaseTimeView.xaml</DependentUpon>
@@ -153,7 +164,7 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="Plugin.Settings, Version=2.5.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xam.Plugins.Settings.2.5.1.0\lib\portable-net45+wp80+win8+wpa81\Plugin.Settings.dll</HintPath>
@@ -297,6 +308,24 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Templates\FrameBoxTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\LoginView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\TimerMenu.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Controls\ChangeOptions.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

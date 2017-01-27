@@ -5,66 +5,61 @@
              xmlns:viewmodel="clr-namespace:App11Athletics.ViewModels;assembly=App11Athletics"
              xmlns:controlsx="clr-namespace:App11Athletics.Views.Controls;assembly=App11Athletics"
              x:Class="App11Athletics.Views.Discover11AthleticsView"
-             SizeChanged = "ContentPage_OnSizeChanged" >
+             SizeChanged = "ContentPage_OnSizeChanged"
+             x:Name="pageDiscover">
   
   <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Call 11Athletics" Command="{Binding OnCallCommand}" Priority="0" Order="Primary" />
-        <ToolbarItem Text="|"  Command="{Binding OnCallCommand}" Priority="1" Order="Primary" />
-      <ToolbarItem Text="Schedule" Command="{Binding ToScheduleCommand}" Priority="2" ></ToolbarItem>
+        <ToolbarItem Text="Call 11Athletics" Clicked="OnCall"/>
+        <ToolbarItem Text="|"  />
+ <ToolbarItem Text="Schedule" Clicked="Schedule_OnClicked"/>
     </ContentPage.ToolbarItems>
   
-  <Grid> 
-   
+  <Grid x:Name="gridDiscover"> 
      <ListView  x:Name="trainersListView" 
                   ItemSelected="TrainersListView_ItemSelected"
+                  ChildAdded="TrainersListView_OnChildAdded"
                   ItemsSource="{Binding}"
                   ListView.HasUnevenRows="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Frame
+                        <Frame 
                             Margin="10"
                             Padding="5"
                             BackgroundColor="White">
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="1.2*"  x:Name="columnDefinitionFirst"/>
-                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="0.45*"/>
+                                    <ColumnDefinition Width="0.55*" />
                                 </Grid.ColumnDefinitions>
-                              <controlsx:ImageCircleProportional
-                                 Grid.Column="0"
-                                 HorizontalOptions="CenterAndExpand"
-                                 VerticalOptions="CenterAndExpand"
-                               
-                                />
-<!--                                <controls:CircleImage-->
-<!--                                    Grid.Column="0"-->
-<!--                                    Aspect="AspectFill"-->
-<!--                                    HorizontalOptions="Center"-->
-<!--                                    Source="{Binding ImageUrl}"-->
-<!--                                    HeightRequest="{Binding}"-->
-<!--                                    BorderThickness="2"-->
-<!--                                    BorderColor="{Binding Color}"-->
-<!--                                    VerticalOptions="Center"-->
-<!--                                    WidthRequest="{Binding}" />-->
-<!--                              <controls:CircleImage/>-->
-                              
-                                <StackLayout Grid.Column="1" VerticalOptions="EndAndExpand"
-                                             Margin="0,0,0,10">
+                              <Grid Grid.Column="0" x:Name="gridCircle">
+                                <controls:CircleImage
+                                    Grid.Column="0"
+                                    Aspect="AspectFill"
+                                    HorizontalOptions="Center"
+                                    Source="{Binding ImageUrl}"
+                                    HeightRequest="{Binding Source={x:Reference gridCircle}, Path=Width}"
+                                    BorderThickness="2"
+                                    BorderColor="{Binding Color}"
+                                    VerticalOptions="Center"
+                                    WidthRequest="{Binding Source={x:Reference gridCircle}, Path=Width}" />
+                              </Grid>
+                                <StackLayout Grid.Column="1" VerticalOptions="End"
+                                             Margin="0,0,0,10" HorizontalOptions="EndAndExpand">
                                     <Label
                                         FontAttributes="Bold"
-                                        FontSize="18"
+                                        FontSize="Medium"
                                         Text="{Binding Name}"
                                         TextColor="{Binding Color}"
-                                        HorizontalTextAlignment="Start"
+                                        HorizontalTextAlignment="Center"
                                         VerticalTextAlignment="End"
 
                                         LineBreakMode="TailTruncation" />
                                     <Label
-                                        FontSize="14"
+                                        FontSize="Small"
                                         Text="{Binding Detail}"
                                         TextColor="{Binding Color}"
-                                        HorizontalTextAlignment="Start"
+                                        HorizontalTextAlignment="Center"
                                         VerticalTextAlignment="End" />
                                 </StackLayout>
                             </Grid>

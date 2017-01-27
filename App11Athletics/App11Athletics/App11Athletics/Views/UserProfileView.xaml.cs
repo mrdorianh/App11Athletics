@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,7 @@ namespace App11Athletics.Views
             });
             gridMain.BindingContext = new UserProfileModel();
 
+            changeOptions.TranslationY = 1500;
 
         }
 
@@ -73,5 +75,35 @@ namespace App11Athletics.Views
         {
             await DependencyService.Get<IAuthSignIn>().AuthLogOut();
         }
+
+        private void TapGestureRecognizerGender_OnTapped(object sender, EventArgs e)
+        {
+            changeOptions.Focus();
+            changeOptions.OptionsPlaceholder = "Gender";
+
+            changeOptions.TranslateTo(0, 0, 400U, Easing.CubicInOut);
+            changeOptions.Donefocused += ChangeOptions_Donefocused;
+
+        }
+
+        private void ChangeOptions_Donefocused(object sender, FocusEventArgs e)
+        {
+            changeOptions.TranslateTo(0, 1500, 600U, Easing.CubicInOut);
+            changeOptions.Donefocused -= ChangeOptions_Donefocused;
+        }
+
+        public void Entry_OnUnfocused(object sender, FocusEventArgs e)
+        {
+            changeOptions.Entry_OnUnfocused(sender, e);
+
+        }
+
+
+
+
+
+
+
+
     }
 }

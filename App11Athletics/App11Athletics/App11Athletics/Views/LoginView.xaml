@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App11Athletics.Views.LoginView" BackgroundColor="White"   x:Name="contentPageLoginView" SizeChanged="LoginView_OnSizeChanged" NavigationPage.HasNavigationBar="False">
+  <RelativeLayout >
+   <Image Source="BG.png"   Aspect="AspectFill" 
+                RelativeLayout.WidthConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+          RelativeLayout.HeightConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Height}"
+            />
+    <Grid RelativeLayout.WidthConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+           RelativeLayout.HeightConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Height}" >
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width = "*" />
+        <ColumnDefinition Width = "2*" />
+        <ColumnDefinition Width = "*" />
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height = "1.5*" />
+        <RowDefinition Height = "*" />
+      </Grid.RowDefinitions>
+
+      <StackLayout x:Name="stackLayoutLoginView"
+                   Grid.Column="1"
+                   Grid.Row="0"
+                   VerticalOptions="End">
+        <Image Aspect="AspectFit"
+               Source="iconbevel.png" ><Image.GestureRecognizers><TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" NumberOfTapsRequired="1" /></Image.GestureRecognizers>
+        </Image>
+          <Label BindingContext="{x:Reference contentPageLoginView}"
+               Text="Login" HorizontalTextAlignment="Center" FontAttributes="Bold"
+              TextColor="{StaticResource ColorBrandGlobalBlue}"
+               FontSize="{Binding LabelLoginText}"/>
+      </StackLayout>
+    </Grid>
+  </RelativeLayout>
+</ContentPage>

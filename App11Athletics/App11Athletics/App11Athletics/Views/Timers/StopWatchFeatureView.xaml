@@ -1,42 +1,46 @@
-﻿<?xml version = "1.0"
-      encoding = "utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 
-<ContentPage xmlns = "http://xamarin.com/schemas/2014/forms"
-             xmlns:x = "http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class = "App11Athletics.Views.Timers.StopwatchFeatureView"
-             xmlns:svm = "clr-namespace:App11Athletics.Views.Timers;assembly=App11Athletics"
-             xmlns:timers = "clr-namespace:App11Athletics.ViewModels.Timers;assembly=App11Athletics"
-             xmlns:app11Athletics = "clr-namespace:App11Athletics;assembly=App11Athletics" >
-  
-  
+<ContentPage x:Class="App11Athletics.Views.Timers.StopwatchFeatureView"
+             xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:app11Athletics="clr-namespace:App11Athletics;assembly=App11Athletics" xmlns:svm="clr-namespace:App11Athletics.Views.Timers;assembly=App11Athletics" xmlns:timers="clr-namespace:App11Athletics.ViewModels.Timers;assembly=App11Athletics">
+
+
     <ContentPage.BindingContext>
         <timers:StopwatchFeatureViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style TargetType = "StackLayout" >
-                <Setter Property = "VerticalOptions"
-                        Value = "CenterAndExpand" />
+            <Style TargetType="StackLayout">
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <Grid>
-      <Grid.RowDefinitions> 
-        <RowDefinition Height="*"/>
-        <RowDefinition Height="2*"/>
-        <RowDefinition Height="Auto"/>
-      </Grid.RowDefinitions>
-     
-    
-        <svm:BaseTimeView Scale="1" Grid.Row="0" Padding="10"/>
-       
-      
-    <ListView x:Name="listLapTime" Grid.Row="1"
-                     BackgroundColor="Transparent"
-                      SeparatorColor="#4C005EBF" SeparatorVisibility="Default" 
-           ItemsSource="{Binding LapTime}" IsEnabled="False"  ItemAppearing="ListLapTime_OnItemAppearing"><ListView.ItemTemplate>
-             <DataTemplate ><TextCell TextColor="{StaticResource ColorBrandGlobalBlue}" Text="{Binding}"/></DataTemplate>
-           </ListView.ItemTemplate></ListView>
-   <svm:TimerButtonsView Grid.Row="2" Padding="5" Margin="10"/>
-     </Grid>
+    <Grid x:Name="gridStopwatch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+
+        <svm:BaseTimeView Grid.Row="0"
+                          Padding="10"
+                          Scale="1" />
+
+
+        <ListView x:Name="listLapTime"
+                  Grid.Row="1"
+                  IsEnabled="False" ItemAppearing="ListLapTime_OnItemAppearing"
+                  ItemsSource="{Binding LapTime}"
+                  SeparatorColor="#4C005EBF" SeparatorVisibility="Default"
+                  BackgroundColor="Transparent">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell TextColor="{StaticResource ColorBrandGlobalBlue}" Text="{Binding}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <svm:TimerButtonsView Grid.Row="2"
+                              Margin="10" Padding="5" />
+    </Grid>
 </ContentPage>

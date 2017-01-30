@@ -76,6 +76,7 @@ namespace App11Athletics.Views
             var p = (Image)sender;
             var sI = Convert.ToInt32(p.StyleId);
             var cI = carouselMain.SelectedIndex.ToString();
+
             if (p.StyleId != cI)
             {
                 carouselMain.SelectedIndex = sI;
@@ -103,6 +104,7 @@ namespace App11Athletics.Views
             }
             else
             {
+                var index = carouselMain.SelectedIndex;
                 disable = true;
                 if (running)
                 {
@@ -110,14 +112,39 @@ namespace App11Athletics.Views
                     this.AbortAnimation("AnimationDot");
                     this.AbortAnimation("AnimationText");
                 }
+                if (index == 0)
+                {
+                    var nav = new UserProfileView();
+                    AnimateDotToNav(p, nav);
+                }
+                else if (index == 1)
+                {
+                    {
+                        var nav = new StopwatchFeatureView();
+                        AnimateDotToNav(p, nav);
+                    }
+                }
+                else if (index == 2)
+                {
+                    {
+                        var nav = new WorkoutLogListView();
+                        AnimateDotToNav(p, nav);
+                    }
+                }
+                else if (index == 3)
+                {
+                    {
+                        var nav = new Discover11AthleticsView();
+                        AnimateDotToNav(p, nav);
+                    }
+                }
 
-                AnimateDotToNav(p);
             }
         }
 
 
 
-        private void AnimateDotToNav(Image p)
+        private void AnimateDotToNav(Image p, Page page)
         {
             Animation parentAnimation = new Animation();
             Animation upAnimation = new Animation(v => p.TranslationY = v, 0, -100, Easing.CubicInOut,
@@ -127,7 +154,7 @@ namespace App11Athletics.Views
             {
                 await AnimatePages.AnimatePageOut(gridHomeMenu);
                 await Task.Delay(250);
-                await Navigation.PushAsync(new Discover11AthleticsView());
+                await Navigation.PushAsync(page);
                 p.Scale = 1;
                 p.TranslationY = 0;
                 disable = false;

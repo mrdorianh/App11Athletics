@@ -34,7 +34,7 @@ namespace App11Athletics.Views
         public async void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
         {
             var p = (Image)sender;
-            await Task.WhenAll(p.FadeTo(0, 500), p.ScaleTo(2, 600));
+            await Task.WhenAll(p.FadeTo(0, 300), p.ScaleTo(2, 350), label.FadeTo(0, 300), label.ScaleTo(2, 350));
             LoggedInNavigate();
             //            Application.Current.MainPage = new NavigationPage(new Discover11AthleticsView());
             //            Navigation.InsertPageBefore(new Discover11AthleticsView(), this);
@@ -59,7 +59,7 @@ namespace App11Athletics.Views
             }
             else
             {
-                Navigation.InsertPageBefore(new Discover11AthleticsView(), this);
+                Navigation.InsertPageBefore(new HomeMenuView(), this);
                 //lets test this later as Reset Main
 
                 //Navigation.InsertPageBefore(new CarouselPageMenu(), this);

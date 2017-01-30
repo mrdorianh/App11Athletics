@@ -1,101 +1,76 @@
-﻿<?xml version = "1.0"
-      encoding = "utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 
-<ContentPage xmlns = "http://xamarin.com/schemas/2014/forms"
-             xmlns:x = "http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class = "App11Athletics.Views.HomeMenuView"
-             xmlns:carousel = "clr-namespace:Syncfusion.SfCarousel.XForms;assembly=Syncfusion.SfCarousel.XForms"
-             xmlns:controls = "clr-namespace:ImageCircle;assembly=ImageCircle.Forms.Plugin.Abstractions"
-             SizeChanged = "HomeMenuView_OnSizeChanged"
-             x:Name = "pageHomeMenu"
-             Title = "Home" >
+<ContentPage x:Class="App11Athletics.Views.HomeMenuView" x:Name="pageHomeMenu" Title="Home"
+             xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:carousel="clr-namespace:Syncfusion.SfCarousel.XForms;assembly=Syncfusion.SfCarousel.XForms" xmlns:controls="clr-namespace:ImageCircle;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             SizeChanged="HomeMenuView_OnSizeChanged">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <DataTemplate x:Key = "itemTemplate" >
-                <Image Source = "{Binding Image}"
-                       Aspect = "AspectFit" />
+            <DataTemplate x:Key="itemTemplate">
+                <Image Aspect="AspectFit" Source="{Binding Image}" />
             </DataTemplate>
         </ResourceDictionary>
     </ContentPage.Resources>
     <Grid x:Name="gridHomeMenu">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width = "*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height = "*" />
-            <RowDefinition Height = "Auto" />
-            <RowDefinition Height = "*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Grid x:Name = "gridLabel" >
-            <Label BindingContext = "{x:Reference pageHomeMenu}"
-                   x:Name = "labelMenuTitle"
-                   Text = "{Binding Title}"
-                   HorizontalTextAlignment = "Center"
-                   VerticalTextAlignment = "Center"
-                   FontSize = "{Binding MenuTitle}"
+        <Grid x:Name="gridLabel">
+            <Label x:Name="labelMenuTitle"
+                   BindingContext="{x:Reference pageHomeMenu}"
+                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                   FontSize="{Binding MenuTitle}"
                    FontAttributes="Bold"
                    TextColor="{StaticResource ColorBrandGlobalBlue}"
-                    />
+                   Text="{Binding Title}" />
         </Grid>
-        <Grid x:Name = "gridCara"
-              Grid.Row = "1" >
-            <carousel:SfCarousel x:Name = "carouselMain"
-                                 ItemTemplate = "{StaticResource itemTemplate}"
-                                 DataSource = "{Binding ImageCollection}"
-                                 HeightRequest = "250"
-                                 ItemHeight = "200"
-                                 Offset="50"
-                                 ScaleOffset="0.2"
-                                 SelectedItemOffset="100"
-                                 RotationAngle = "40"
-                                 SelectionChanged = "CarouselMain_OnSelectionChanged" />
-            <BoxView VerticalOptions = "FillAndExpand"
-                     HorizontalOptions = "FillAndExpand"
-                     Color = "Transparent" />
+        <Grid x:Name="gridCara" Grid.Row="1">
+            <carousel:SfCarousel x:Name="carouselMain"
+                                 HeightRequest="250"
+                                 DataSource="{Binding ImageCollection}"
+                                 ItemHeight="200"
+                                 ItemTemplate="{StaticResource itemTemplate}"
+                                 RotationAngle="40" ScaleOffset="0.2" SelectedItemOffset="100" SelectionChanged="CarouselMain_OnSelectionChanged"
+                                 Offset="50" />
+            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                     Color="Transparent" />
         </Grid>
-        <Grid Grid.Row = "2"
-              Padding = "20"
-              x:Name = "griddots" >
+        <Grid x:Name="griddots"
+              Grid.Row="2"
+              Padding="20">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Image Source = "bluedot.png"
-                   Aspect = "AspectFit"
-                   Grid.Column = "0"
-                   StyleId = "0" >
+            <Image Grid.Column="0"
+                   Aspect="AspectFit" Source="bluedot.png" StyleId="0">
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer CommandParameter = "0"
-                                          Tapped = "TapGestureRecognizer_OnTapped" />
+                    <TapGestureRecognizer CommandParameter="0" Tapped="TapGestureRecognizer_OnTapped" />
                 </Image.GestureRecognizers>
             </Image>
-            <Image Source = "bluedot.png"
-                   Grid.Column = "1"
-                   Aspect = "AspectFit"
-                   StyleId = "1" >
+            <Image Grid.Column="1"
+                   Aspect="AspectFit" Source="bluedot.png" StyleId="1">
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer CommandParameter = "1"
-                                          Tapped = "TapGestureRecognizer_OnTapped" />
+                    <TapGestureRecognizer CommandParameter="1" Tapped="TapGestureRecognizer_OnTapped" />
                 </Image.GestureRecognizers>
             </Image>
-            <Image Source = "bluedot.png"
-                   Grid.Column = "2"
-                   Aspect = "AspectFit"
-                   StyleId = "2" >
+            <Image Grid.Column="2"
+                   Aspect="AspectFit" Source="bluedot.png" StyleId="2">
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer CommandParameter = "2"
-                                          Tapped = "TapGestureRecognizer_OnTapped" />
+                    <TapGestureRecognizer CommandParameter="2" Tapped="TapGestureRecognizer_OnTapped" />
                 </Image.GestureRecognizers>
             </Image>
-            <Image Source = "bluedot.png"
-                   Grid.Column = "3"
-                   Aspect = "AspectFit"
-                   StyleId = "3" >
+            <Image Grid.Column="3"
+                   Aspect="AspectFit" Source="bluedot.png" StyleId="3">
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer CommandParameter = "3"
-                                          Tapped = "TapGestureRecognizer_OnTapped" />
+                    <TapGestureRecognizer CommandParameter="3" Tapped="TapGestureRecognizer_OnTapped" />
                 </Image.GestureRecognizers>
             </Image>
         </Grid>

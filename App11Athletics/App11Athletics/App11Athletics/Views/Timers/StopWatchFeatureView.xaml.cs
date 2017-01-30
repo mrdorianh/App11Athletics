@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using App11Athletics.DHCToolkit;
 using Xamarin.Forms;
 
 namespace App11Athletics.Views.Timers
@@ -16,5 +17,11 @@ namespace App11Athletics.Views.Timers
         }
 
         private void ListLapTime_OnItemAppearing(object sender, ItemVisibilityEventArgs e) { }
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await AnimatePages.AnimatePageIn(gridStopwatch);
+
+        }
     }
 }

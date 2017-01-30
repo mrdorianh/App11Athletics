@@ -94,13 +94,13 @@ namespace App11Athletics.Models
             set { Settings.UserUpdatedAt = value; }
         }
 
-        public static string UserId
+        public string UserId
         {
             get { return Settings.UserId; }
             set { Settings.UserId = value; }
         }
 
-        public static string Nickname
+        public string Nickname
         {
             get { return Settings.UserNickname; }
             set { Settings.UserNickname = value; }

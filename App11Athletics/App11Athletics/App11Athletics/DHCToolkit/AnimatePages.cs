@@ -12,20 +12,22 @@ namespace App11Athletics.DHCToolkit
         public static async Task AnimatePageIn(Grid grid)
         {
             var h = 1500;
-            var t = 250;
-            var tu = 450U;
+            var t = 150;
+            var tu = 350U;
+            var children = 1U;
             foreach (var view in grid.Children)
             {
-
                 view.TranslationY = h;
+
             }
-            await Task.Delay(300);
+            await Task.Delay(200);
             foreach (var view in grid.Children)
             {
                 await Task.WhenAny(view.TranslateTo(0, 0, tu, Easing.CubicOut),
                     view.ScaleTo(1, tu, Easing.SinInOut), Task.Delay(t));
-
-                tu = tu + 75U;
+                children++;
+                var offset = children * 5U;
+                tu = tu + 25U;
             }
         }
         public static async Task AnimatePageIn(StackLayout stackLayout)
@@ -35,10 +37,9 @@ namespace App11Athletics.DHCToolkit
             var tu = 450U;
             foreach (var view in stackLayout.Children)
             {
-
                 view.TranslationY = h;
             }
-            await Task.Delay(300);
+            await Task.Delay(200);
             foreach (var view in stackLayout.Children)
             {
                 await Task.WhenAny(view.TranslateTo(0, 0, tu, Easing.CubicOut),
@@ -62,6 +63,7 @@ namespace App11Athletics.DHCToolkit
                 await Task.WhenAny(view.TranslateTo(0, h, tu, Easing.CubicIn),
                     view.ScaleTo(0.7, tu, Easing.CubicIn), Task.Delay(t));
             }
+            await Task.Delay(250);
         }
 
         public static async Task AnimatePageOut(StackLayout stackLayout)

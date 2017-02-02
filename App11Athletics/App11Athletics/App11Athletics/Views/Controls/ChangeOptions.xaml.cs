@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Android.Media.Audiofx;
 using Xamarin.Forms;
 
 namespace App11Athletics.Views.Controls
@@ -25,8 +26,10 @@ namespace App11Athletics.Views.Controls
         public string OptionsOutput { get; set; }
         public double OptionsFontSize { get; set; }
         public double OptionsPlaceHolderFontSize { get; set; }
-        public string HeightFtOutput { get; private set; }
-        public string HeightInOutput { get; private set; }
+        public string HeightFtOutput { get; set; }
+        public string HeightInOutput { get; set; }
+        public double HeightFtValue { get; set; }
+        public double HeightInValue { get; set; }
         public string GenderOutput { get; private set; }
 
         public Keyboard OptionsKeyboard { get; set; }

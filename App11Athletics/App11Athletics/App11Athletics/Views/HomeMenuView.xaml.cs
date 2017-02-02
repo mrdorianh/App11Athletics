@@ -41,21 +41,21 @@ namespace App11Athletics.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            foreach (var view in griddots.Children)
-            {
-                // if (!string.Equals(view.StyleId, cI, StringComparison.Ordinal))
-                if (view.StyleId != carouselMain.SelectedIndex.ToString())
-                {
-                    view.FadeTo(0.5);
-                    view.ScaleTo(1);
-                }
-                else
-                {
-                    view.FadeTo(1);
-                    view.ScaleTo(2);
-                    AnimateDot((Image)view);
-                }
-            }
+            //            foreach (var view in griddots.Children)
+            //            {
+            //                // if (!string.Equals(view.StyleId, cI, StringComparison.Ordinal))
+            //                if (view.StyleId != carouselMain.SelectedIndex.ToString())
+            //                {
+            //                    view.FadeTo(0.5);
+            //                    view.ScaleTo(1);
+            //                }
+            //                else
+            //                {
+            //                    view.FadeTo(1);
+            //                    view.ScaleTo(2);
+            //                    AnimateDot((Image)view);
+            //                }
+            //            }
             await AnimatePages.AnimatePageIn(gridHomeMenu);
         }
 
@@ -69,78 +69,78 @@ namespace App11Athletics.Views
         }
 
 
-        private async void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
-        {
-            if (this.disable)
-                return;
-            var p = (Image)sender;
-            var sI = Convert.ToInt32(p.StyleId);
-            var cI = carouselMain.SelectedIndex.ToString();
-
-            if (p.StyleId != cI)
-            {
-                carouselMain.SelectedIndex = sI;
-                CarouselMain_OnSelectionChanged(null, null);
-                foreach (var view in griddots.Children)
-                {
-                    // if (!string.Equals(view.StyleId, cI, StringComparison.Ordinal))
-                    if (view != p)
-                    {
-                        view.FadeTo(0.5);
-                        view.ScaleTo(1);
-                    }
-                }
-
-                p.FadeTo(1);
-                p.ScaleTo(2);
-                if (running)
-                {
-                    running = false;
-                    var ty = p.TranslationY;
-                    this.AbortAnimation("AnimationDot");
-                }
-
-                AnimateDot(p);
-            }
-            else
-            {
-                var index = carouselMain.SelectedIndex;
-                disable = true;
-                if (running)
-                {
-                    running = false;
-                    this.AbortAnimation("AnimationDot");
-                    this.AbortAnimation("AnimationText");
-                }
-                if (index == 0)
-                {
-                    var nav = new UserProfileView();
-                    AnimateDotToNav(p, nav);
-                }
-                else if (index == 1)
-                {
-                    {
-                        var nav = new StopwatchFeatureView();
-                        AnimateDotToNav(p, nav);
-                    }
-                }
-                else if (index == 2)
-                {
-                    {
-                        var nav = new WorkoutLogListView();
-                        AnimateDotToNav(p, nav);
-                    }
-                }
-                else if (index == 3)
-                {
-                    {
-                        var nav = new Discover11AthleticsView();
-                        AnimateDotToNav(p, nav);
-                    }
-                }
-
-            }
-        }
+        //        private async void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
+        //        {
+        //            if (this.disable)
+        //                return;
+        //            var p = (Image)sender;
+        //            var sI = Convert.ToInt32(p.StyleId);
+        //            var cI = carouselMain.SelectedIndex.ToString();
+        //
+        //            if (p.StyleId != cI)
+        //            {
+        //                carouselMain.SelectedIndex = sI;
+        //                CarouselMain_OnSelectionChanged(null, null);
+        //                foreach (var view in griddots.Children)
+        //                {
+        //                    // if (!string.Equals(view.StyleId, cI, StringComparison.Ordinal))
+        //                    if (view != p)
+        //                    {
+        //                        view.FadeTo(0.5);
+        //                        view.ScaleTo(1);
+        //                    }
+        //                }
+        //
+        //                p.FadeTo(1);
+        //                p.ScaleTo(2);
+        //                if (running)
+        //                {
+        //                    running = false;
+        //                    var ty = p.TranslationY;
+        //                    this.AbortAnimation("AnimationDot");
+        //                }
+        //
+        //                AnimateDot(p);
+        //            }
+        //            else
+        //            {
+        //                var index = carouselMain.SelectedIndex;
+        //                disable = true;
+        //                if (running)
+        //                {
+        //                    running = false;
+        //                    this.AbortAnimation("AnimationDot");
+        //                    this.AbortAnimation("AnimationText");
+        //                }
+        //                if (index == 0)
+        //                {
+        //                    var nav = new UserProfileView();
+        //                    AnimateDotToNav(p, nav);
+        //                }
+        //                else if (index == 1)
+        //                {
+        //                    {
+        //                        var nav = new StopwatchFeatureView();
+        //                        AnimateDotToNav(p, nav);
+        //                    }
+        //                }
+        //                else if (index == 2)
+        //                {
+        //                    {
+        //                        var nav = new WorkoutLogListView();
+        //                        AnimateDotToNav(p, nav);
+        //                    }
+        //                }
+        //                else if (index == 3)
+        //                {
+        //                    {
+        //                        var nav = new Discover11AthleticsView();
+        //                        AnimateDotToNav(p, nav);
+        //                    }
+        //                }
+        //
+        //            }
+        //        }
 
 
 
@@ -187,40 +187,84 @@ namespace App11Athletics.Views
 
         private async void CarouselMain_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            AnimateText(labelMenuTitle);
+
+            disable = true;
+            var s = carouselMain.SelectedIndex;
+            if (!running)
+            {
+                AnimateText(labelMenuTitle);
+
+                //                this.AbortAnimation("AnimationText");
+            }
+
+
+            await Task.Delay(400);
+
+            if (s == carouselMain.SelectedIndex)
+            {
+                ChangeTitleText(carouselMain.SelectedIndex, labelMenuTitle, "Profile", "Timers",
+                     "Workout Log", "Discover 11");
+                await AnimateTextIn(labelMenuTitle);
+            }
+
+
+
+
         }
 
-        private void AnimateText(Label label)
+
+
+        private async void AnimateText(Label label)
         {
+
             running = true;
             Animation parentAnimation = new Animation();
+
 
             // Create "up" animation and add to parent. 
             Animation upAnimation = new Animation(v => label.TranslationY = v, 0, -10, Easing.CubicInOut);
 
-            parentAnimation.Add(0, 0.5, upAnimation);
+            parentAnimation.Add(0, 1, upAnimation);
             Animation fadeOutAnimation = new Animation(v => label.Opacity = v, 1, 0, Easing.CubicInOut,
                 () =>
                 {
-                    ChangeTitleText(carouselMain.SelectedIndex, labelMenuTitle, "Profile", "Timers",
-                        "Workout Log", "Discover 11");
+
 
                 });
-            parentAnimation.Add(0, 0.5, fadeOutAnimation);
-            Animation fadeInAnimation = new Animation(v => label.Opacity = v, 0, 1, Easing.CubicInOut);
-            parentAnimation.Add(0.5, 1, fadeInAnimation);
+            parentAnimation.Add(0, 1, fadeOutAnimation);
 
-            // Create "down" animation and add to parent.
-            Animation downAnimation = new Animation(v => label.TranslationY = v, -10, 0, Easing.CubicOut,
-                () => Debug.WriteLine("down finished"));
-            parentAnimation.Insert(0.5, 1, downAnimation);
-            parentAnimation.Commit(this, "AnimationText", 16, 250U, null, (v, c) =>
+            parentAnimation.Commit(this, "AnimationText", 16, 350U, Easing.CubicInOut, async (v, c) =>
             {
-                label.Opacity = 1;
+                label.Opacity = 0;
                 //                ChangeTitleText(carouselMain.SelectedIndex, labelMenuTitle, "Profile", "Timers", "Workout Log",
                 //                    "Discover 11");
             });
         }
+
+        private async Task AnimateTextIn(Label label)
+        {
+            Animation parent2Animation = new Animation();
+            Animation fadeInAnimation = new Animation(v => label.Opacity = v, 0, 1, Easing.CubicInOut);
+            parent2Animation.Add(0, 1, fadeInAnimation);
+
+            // Create "down" animation and add to parent.
+            Animation downAnimation = new Animation(v => label.TranslationY = v, -10, 0, Easing.CubicOut,
+                () => Debug.WriteLine("down finished"));
+            parent2Animation.Add(0, 1, downAnimation);
+            parent2Animation.Commit(this, "Animation2Text", 16, 350U, Easing.CubicInOut);
+            running = false;
+            disable = false;
+        }
+
+        private async void HoldTextFade(Animation parent2Animation)
+        {
+            var s = carouselMain.SelectedIndex;
+            await Task.Delay(700);
+            if (s == carouselMain.SelectedIndex)
+                parent2Animation.Commit(this, "Animation2Text", 16, 350U, Easing.CubicInOut);
+
+        }
+
         public async void ChangeTitleText(int selectedIndex, Label label, string title1 = null,
             string title2 = null, string title3 = null, string title4 = null)
         {
@@ -265,6 +309,55 @@ namespace App11Athletics.Views
             }
         }
 
+        private async void TapGestureRecognizerBox_OnTapped(object sender, EventArgs e)
+        {
+            if (running || disable)
+                return;
+            disable = true;
+            var index = carouselMain.SelectedIndex;
+            disable = true;
+            if (running)
+            {
+                running = false;
+                this.AbortAnimation("AnimationText");
+            }
+            await AnimatePages.AnimatePageOut(gridHomeMenu);
+            switch (index)
+            {
+                case 0:
+                    {
+                        var nav = new UserProfileView();
+                        await Navigation.PushAsync(nav, true);
+                        disable = false;
+                    }
+                    break;
+                case 1:
+                    {
 
+                        var nav = new StopwatchFeatureView();
+                        await Navigation.PushAsync(nav, true);
+                        disable = false;
+
+                    }
+                    break;
+                case 2:
+                    {
+
+                        var nav = new WorkoutLogListView();
+                        await Navigation.PushAsync(nav, true);
+                        disable = false;
+                    }
+                    break;
+                case 3:
+                    {
+
+                        var nav = new Discover11AthleticsView();
+                        await Navigation.PushAsync(nav, true);
+                        disable = false;
+                    }
+                    break;
+            }
+
+        }
     }
 }

@@ -31,221 +31,223 @@
         <ToolbarItem Clicked="LPMenuItem_OnClicked" Order="Primary" Text="LoginPage" />
         <ToolbarItem Clicked="Logout_OnClicked" Order="Secondary" Text="Logout" />
     </ContentPage.ToolbarItems>
-    <Grid x:Name="gridMain"
-          BindingContext="{x:Reference pageUserProfile}"
-          Padding="5">
-        <!--      <Grid.BindingContext>-->
-        <!--        <settings:UserProfileModel/>-->
-        <!--      </Grid.BindingContext>-->
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <Grid x:Name="gridHeader"
-              Grid.Row="0"
-              Grid.Column="0" Grid.ColumnSpan="4">
+    <Grid>
+        <Grid x:Name="gridMain"
+              BindingContext="{x:Reference pageUserProfile}"
+              Padding="5">
+            <!--      <Grid.BindingContext>-->
+            <!--        <settings:UserProfileModel/>-->
+            <!--      </Grid.BindingContext>-->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <templates:FrameBoxTemplate Grid.ColumnSpan="3" />
-            <abstractions:CircleImage Grid.Column="0"
-                                      Margin="10"
-                                      Source="{Binding Picture}" />
-            <Label x:Name="labelName"
-                   Grid.Column="1" Grid.ColumnSpan="2"
-                   VerticalTextAlignment="End"
-                   Margin="15"
-                   HorizontalOptions="EndAndExpand"
-                   Text="{Binding GivenName}" />
-        </Grid>
-        <Grid x:Name="gridGender"
-              Grid.Row="1"
-              Grid.Column="0">
-            <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
-                <RowDefinition Height="2.5*" />
-            </Grid.RowDefinitions>
-            <templates:FrameBoxTemplate Grid.RowSpan="2" />
-            <Label Grid.Row="0"
-                   Text="Gender" VerticalOptions="End" />
-            <Label x:Name="labelGender"
-                   Grid.Row="1"
-                   StyleId="dL"
-                   Text="{Binding GenderSymbol}"
-                   VerticalOptions="CenterAndExpand" />
-            <BoxView Grid.Row="0" Grid.RowSpan="2"
-                     Grid.Column="0"
-                     Style="{StaticResource tap}"
-                     StyleId="Gender">
-                <BoxView.GestureRecognizers>
-                    <TapGestureRecognizer x:Name="tapGestureRecognizerGender" Tapped="TapGestureRecognizer_OnTapped" />
-                </BoxView.GestureRecognizers>
-            </BoxView>
-        </Grid>
-        <Grid x:Name="gridAge"
-              Grid.Row="1"
-              Grid.Column="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
-                <RowDefinition Height="2.5*" />
-            </Grid.RowDefinitions>
-            <templates:FrameBoxTemplate Grid.RowSpan="2" />
-            <Label Grid.Row="0"
-                   Text="Age" VerticalOptions="End" />
-            <Label x:Name="labelAge"
-                   Grid.Row="1"
-                   StyleId="dL"
-                   Text="{Binding Age}"
-                   VerticalOptions="CenterAndExpand" />
-            <BoxView Grid.Row="0" Grid.RowSpan="2"
-                     Grid.Column="0"
-                     Style="{StaticResource tap}"
-                     StyleId="Age">
-                <BoxView.GestureRecognizers>
-                    <TapGestureRecognizer x:Name="tapGestureRecognizerAge" Tapped="TapGestureRecognizer_OnTapped" />
-                </BoxView.GestureRecognizers>
-            </BoxView>
-        </Grid>
-        <Grid x:Name="gridWeight"
-              Grid.Row="1"
-              Grid.Column="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
-                <RowDefinition Height="2.5*" />
-            </Grid.RowDefinitions>
-            <templates:FrameBoxTemplate Grid.RowSpan="2" />
-            <Label Grid.Row="0"
-                   Text="Weight" VerticalOptions="End" />
-            <Label x:Name="labelWeight"
-                   Grid.Row="1"
-                   StyleId="dL"
-                   Text="{Binding Weight}"
-                   VerticalOptions="CenterAndExpand" />
-            <BoxView Grid.Row="0" Grid.RowSpan="2"
-                     Grid.Column="0"
-                     Style="{StaticResource tap}"
-                     StyleId="Weight">
-                <BoxView.GestureRecognizers>
-                    <TapGestureRecognizer x:Name="tapGestureRecognizerWeight" Tapped="TapGestureRecognizer_OnTapped" />
-                </BoxView.GestureRecognizers>
-            </BoxView>
-        </Grid>
-        <Grid Grid.Row="1"
-              Grid.Column="3"
-              ColumnSpacing="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
-                <RowDefinition Height="2.5*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <templates:FrameBoxTemplate Grid.RowSpan="2" />
-            <Label Grid.Row="0"
-                   Text="Height" VerticalOptions="End" />
-            <StackLayout Grid.Row="1"
-                         HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                <StackLayout x:Name="stackHeightFt"
-                             HorizontalOptions="CenterAndExpand" Orientation="Horizontal" Spacing="0" VerticalOptions="Center">
-                    <Label x:Name="labelHeightFt"
-                           StyleId="dL"
-                           Text="{Binding HeightFt}" />
-                    <Label x:Name="labelHeightftMark"
-                           VerticalTextAlignment="Start"
-                           StyleId="dL" Text="'" />
+            <Grid x:Name="gridHeader"
+                  Grid.Row="0"
+                  Grid.Column="0" Grid.ColumnSpan="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <templates:FrameBoxTemplate Grid.ColumnSpan="3" />
+                <abstractions:CircleImage Grid.Column="0"
+                                          Margin="10"
+                                          Source="{Binding Picture}" />
+                <Label x:Name="labelName"
+                       Grid.Column="1" Grid.ColumnSpan="2"
+                       VerticalTextAlignment="End"
+                       Margin="15"
+                       HorizontalOptions="EndAndExpand"
+                       Text="{Binding GivenName}" />
+            </Grid>
+            <Grid x:Name="gridGender"
+                  Grid.Row="1"
+                  Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="2.5*" />
+                </Grid.RowDefinitions>
+                <templates:FrameBoxTemplate Grid.RowSpan="2" />
+                <Label Grid.Row="0"
+                       Text="Gender" VerticalOptions="End" />
+                <Label x:Name="labelGender"
+                       Grid.Row="1"
+                       StyleId="dL"
+                       Text="{Binding GenderSymbol}"
+                       VerticalOptions="CenterAndExpand" />
+                <BoxView Grid.Row="0" Grid.RowSpan="2"
+                         Grid.Column="0"
+                         Style="{StaticResource tap}"
+                         StyleId="Gender">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="tapGestureRecognizerGender" Tapped="TapGestureRecognizer_OnTapped" />
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+            </Grid>
+            <Grid x:Name="gridAge"
+                  Grid.Row="1"
+                  Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="2.5*" />
+                </Grid.RowDefinitions>
+                <templates:FrameBoxTemplate Grid.RowSpan="2" />
+                <Label Grid.Row="0"
+                       Text="Age" VerticalOptions="End" />
+                <Label x:Name="labelAge"
+                       Grid.Row="1"
+                       StyleId="dL"
+                       Text="{Binding Age}"
+                       VerticalOptions="CenterAndExpand" />
+                <BoxView Grid.Row="0" Grid.RowSpan="2"
+                         Grid.Column="0"
+                         Style="{StaticResource tap}"
+                         StyleId="Age">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="tapGestureRecognizerAge" Tapped="TapGestureRecognizer_OnTapped" />
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+            </Grid>
+            <Grid x:Name="gridWeight"
+                  Grid.Row="1"
+                  Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="2.5*" />
+                </Grid.RowDefinitions>
+                <templates:FrameBoxTemplate Grid.RowSpan="2" />
+                <Label Grid.Row="0"
+                       Text="Weight" VerticalOptions="End" />
+                <Label x:Name="labelWeight"
+                       Grid.Row="1"
+                       StyleId="dL"
+                       Text="{Binding Weight}"
+                       VerticalOptions="CenterAndExpand" />
+                <BoxView Grid.Row="0" Grid.RowSpan="2"
+                         Grid.Column="0"
+                         Style="{StaticResource tap}"
+                         StyleId="Weight">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="tapGestureRecognizerWeight" Tapped="TapGestureRecognizer_OnTapped" />
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+            </Grid>
+            <Grid Grid.Row="1"
+                  Grid.Column="3"
+                  ColumnSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="2.5*" />
+                </Grid.RowDefinitions>
+                <templates:FrameBoxTemplate Grid.RowSpan="2" />
+                <Label Grid.Row="0"
+                       Text="Height" VerticalOptions="End" />
+                <StackLayout Grid.Row="1"
+                             HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <StackLayout x:Name="stackHeightFt"
+                                 HorizontalOptions="CenterAndExpand" Orientation="Horizontal" Spacing="0" VerticalOptions="Center">
+                        <Label x:Name="labelHeightFt"
+                               StyleId="dL"
+                               Text="{Binding HeightFt}" />
+                        <Label x:Name="labelHeightftMark"
+                               VerticalTextAlignment="Start"
+                               StyleId="dL" Text="'" />
+                    </StackLayout>
+                    <StackLayout x:Name="stackHeightIn"
+                                 HorizontalOptions="CenterAndExpand" Orientation="Horizontal" Spacing="0" VerticalOptions="Center">
+                        <Label x:Name="labelHeightInch"
+                               StyleId="dL"
+                               Text="{Binding HeightIn}" />
+                        <Label x:Name="labelHeightInMark"
+                               VerticalTextAlignment="Start"
+                               StyleId="dL" Text="&quot;" />
+                    </StackLayout>
                 </StackLayout>
-                <StackLayout x:Name="stackHeightIn"
-                             HorizontalOptions="CenterAndExpand" Orientation="Horizontal" Spacing="0" VerticalOptions="Center">
-                    <Label x:Name="labelHeightInch"
-                           StyleId="dL"
-                           Text="{Binding HeightIn}" />
-                    <Label x:Name="labelHeightInMark"
-                           VerticalTextAlignment="Start"
-                           StyleId="dL" Text="&quot;" />
+                <BoxView Grid.Row="0" Grid.RowSpan="2"
+                         Grid.Column="0"
+                         Style="{StaticResource tap}"
+                         StyleId="Height">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="tapGestureRecognizerHeight" Tapped="TapGestureRecognizer_OnTapped" />
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+            </Grid>
+            <Grid Grid.Row="2" Grid.ColumnSpan="4">
+                <templates:FrameBoxTemplate />
+                <StackLayout Padding="10,5"
+                             Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                    <Label HorizontalOptions="Start" Text="Activity Level" />
+                    <Label x:Name="labelActivityLevel"
+                           HorizontalOptions="EndAndExpand"
+                           Text="{Binding ActivityLevel,
+                                          Mode=TwoWay}" />
                 </StackLayout>
-            </StackLayout>
-            <BoxView Grid.Row="0" Grid.RowSpan="2"
-                     Grid.Column="0"
-                     Style="{StaticResource tap}"
-                     StyleId="Height">
-                <BoxView.GestureRecognizers>
-                    <TapGestureRecognizer x:Name="tapGestureRecognizerHeight" Tapped="TapGestureRecognizer_OnTapped" />
-                </BoxView.GestureRecognizers>
-            </BoxView>
-        </Grid>
-        <Grid Grid.Row="2" Grid.ColumnSpan="4">
-            <templates:FrameBoxTemplate />
-            <StackLayout Padding="10,5"
-                         Orientation="Horizontal" VerticalOptions="CenterAndExpand">
-                <Label HorizontalOptions="Start" Text="Activity Level" />
-                <Label x:Name="labelActivityLevel"
-                       HorizontalOptions="EndAndExpand"
-                       Text="{Binding ActivityLevel,
-                                      Mode=TwoWay}" />
-            </StackLayout>
-            <Picker x:Name="alfPicker" Title="How often do you really exercise?"
-                    Margin="5"
-                    IsVisible="False" Opacity="1" SelectedIndex="-1" SelectedIndexChanged="AlfPicker_OnSelectedIndexChanged"
-                    BackgroundColor="Transparent">
-                <Picker.Items>
-                    <x:String>Little to none</x:String>
-                    <x:String>Active 1 to 3 days/week</x:String>
-                    <x:String>Active 3 to 5 days/week</x:String>
-                    <x:String>Active 5 to 7 days/week</x:String>
-                    <x:String>Through the roof</x:String>
-                </Picker.Items>
-            </Picker>
-            <BoxView Style="{StaticResource tap}">
-                <BoxView.GestureRecognizers>
-                    <TapGestureRecognizer x:Name="tapGestureRecognizerActivityLevel" Tapped="TapGestureRecognizerActivityLevel_OnTapped" />
-                </BoxView.GestureRecognizers>
-            </BoxView>
-        </Grid>
-        <Grid Grid.Row="3"
-              Grid.Column="0" Grid.ColumnSpan="4">
-            <templates:FrameBoxTemplate />
-            <StackLayout Padding="10,5"
-                         Orientation="Horizontal" VerticalOptions="CenterAndExpand">
-                <Label HorizontalOptions="Start" Text="Basal Metabolic Rate" />
-                <Label x:Name="labelBmr"
-                       HorizontalOptions="EndAndExpand"
-                       Text="{Binding Bmr}" />
-            </StackLayout>
-        </Grid>
-        <Grid Grid.Row="4"
-              Grid.Column="0" Grid.ColumnSpan="4">
-            <templates:FrameBoxTemplate />
-            <StackLayout Padding="10,5"
-                         Orientation="Horizontal" VerticalOptions="CenterAndExpand">
-                <Label HorizontalOptions="Start" Text="Daily Caloric Expenditure" />
-                <Label x:Name="labelDce"
-                       HorizontalOptions="EndAndExpand"
-                       Text="{Binding Dce}" />
-            </StackLayout>
+                <Picker x:Name="alfPicker" Title="How often do you really exercise?"
+                        Margin="5"
+                        IsVisible="False" Opacity="1" SelectedIndex="-1" SelectedIndexChanged="AlfPicker_OnSelectedIndexChanged"
+                        BackgroundColor="Transparent">
+                    <Picker.Items>
+                        <x:String>Little to none</x:String>
+                        <x:String>Active 1 to 3 days/week</x:String>
+                        <x:String>Active 3 to 5 days/week</x:String>
+                        <x:String>Active 5 to 7 days/week</x:String>
+                        <x:String>Through the roof</x:String>
+                    </Picker.Items>
+                </Picker>
+                <BoxView Style="{StaticResource tap}">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="tapGestureRecognizerActivityLevel" Tapped="TapGestureRecognizerActivityLevel_OnTapped" />
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+            </Grid>
+            <Grid x:Name="gridBmr"
+                  Grid.Row="3"
+                  Grid.Column="0" Grid.ColumnSpan="4">
+                <templates:FrameBoxTemplate />
+                <StackLayout Padding="10,5"
+                             Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                    <Label HorizontalOptions="Start" Text="Basal Metabolic Rate" />
+                    <Label x:Name="labelBmr"
+                           HorizontalOptions="EndAndExpand"
+                           Text="{Binding BMR}" />
+                </StackLayout>
+            </Grid>
+            <Grid x:Name="gridDce"
+                  Grid.Row="4"
+                  Grid.Column="0" Grid.ColumnSpan="4">
+                <templates:FrameBoxTemplate />
+                <StackLayout Padding="10,5"
+                             Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                    <Label HorizontalOptions="Start" Text="Daily Caloric Expenditure" />
+                    <Label x:Name="labelDce"
+                           HorizontalOptions="EndAndExpand"
+                           Text="{Binding DCE}" />
+                </StackLayout>
+            </Grid>
         </Grid>
         <controls:ChangeOptions x:Name="changeOptions"
-                                Grid.Row="0" Grid.RowSpan="4"
-                                Grid.Column="0" Grid.ColumnSpan="4"
                                 HorizontalOptions="Fill" Opacity="1" OptionsInput="" OptionsPlaceholder="" StyleId="changeOptions" VerticalOptions="StartAndExpand" />
     </Grid>
 </ContentPage>

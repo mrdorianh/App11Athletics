@@ -3,7 +3,7 @@
 <ContentPage x:Class="App11Athletics.Views.HomeMenuView" x:Name="pageHomeMenu" Title="Home"
              xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:carousel="clr-namespace:Syncfusion.SfCarousel.XForms;assembly=Syncfusion.SfCarousel.XForms" xmlns:controls="clr-namespace:ImageCircle;assembly=ImageCircle.Forms.Plugin.Abstractions"
-             SizeChanged="HomeMenuView_OnSizeChanged">
+             NavigationPage.HasNavigationBar="False" SizeChanged="HomeMenuView_OnSizeChanged">
     <ContentPage.Resources>
         <ResourceDictionary>
             <DataTemplate x:Key="itemTemplate">
@@ -35,44 +35,50 @@
                                  DataSource="{Binding ImageCollection}"
                                  ItemHeight="200"
                                  ItemTemplate="{StaticResource itemTemplate}"
-                                 RotationAngle="40" ScaleOffset="0.2" SelectedItemOffset="100" SelectionChanged="CarouselMain_OnSelectionChanged"
-                                 Offset="50" />
-            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
-                     Color="Transparent" />
+                                 RotationAngle="40" ScaleOffset="0.5" SelectionChanged="CarouselMain_OnSelectionChanged"
+                                 Offset="10" />
+            <BoxView x:Name="boxViewTap"
+                     HeightRequest="200" WidthRequest="125"
+                     HorizontalOptions="Center" Opacity="0.3" VerticalOptions="Center"
+                     Color="Transparent">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="tapGestureRecognizerBox" Tapped="TapGestureRecognizerBox_OnTapped" />
+                </BoxView.GestureRecognizers>
+            </BoxView>
         </Grid>
-        <Grid x:Name="griddots"
-              Grid.Row="2"
-              Padding="20">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <Image Grid.Column="0"
-                   Aspect="AspectFit" Source="bluedot.png" StyleId="0">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer CommandParameter="0" Tapped="TapGestureRecognizer_OnTapped" />
-                </Image.GestureRecognizers>
-            </Image>
-            <Image Grid.Column="1"
-                   Aspect="AspectFit" Source="bluedot.png" StyleId="1">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer CommandParameter="1" Tapped="TapGestureRecognizer_OnTapped" />
-                </Image.GestureRecognizers>
-            </Image>
-            <Image Grid.Column="2"
-                   Aspect="AspectFit" Source="bluedot.png" StyleId="2">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer CommandParameter="2" Tapped="TapGestureRecognizer_OnTapped" />
-                </Image.GestureRecognizers>
-            </Image>
-            <Image Grid.Column="3"
-                   Aspect="AspectFit" Source="bluedot.png" StyleId="3">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer CommandParameter="3" Tapped="TapGestureRecognizer_OnTapped" />
-                </Image.GestureRecognizers>
-            </Image>
-        </Grid>
+        <!--  <Grid x:Name="griddots"  -->
+        <!--  Grid.Row="2"  -->
+        <!--  Padding="20">  -->
+        <!--            <Grid.ColumnDefinitions>-->
+        <!--                <ColumnDefinition />-->
+        <!--                <ColumnDefinition />-->
+        <!--                <ColumnDefinition />-->
+        <!--                <ColumnDefinition />-->
+        <!--            </Grid.ColumnDefinitions>-->
+        <!--  <Image Grid.Column="0"  -->
+        <!--  Aspect="AspectFit" Source="bluedot.png" StyleId="0">  -->
+        <!--                <Image.GestureRecognizers>-->
+        <!--                    <TapGestureRecognizer CommandParameter="0" Tapped="TapGestureRecognizer_OnTapped" />-->
+        <!--                </Image.GestureRecognizers>-->
+        <!--            </Image>-->
+        <!--  <Image Grid.Column="1"  -->
+        <!--  Aspect="AspectFit" Source="bluedot.png" StyleId="1">  -->
+        <!--                <Image.GestureRecognizers>-->
+        <!--                    <TapGestureRecognizer CommandParameter="1" Tapped="TapGestureRecognizer_OnTapped" />-->
+        <!--                </Image.GestureRecognizers>-->
+        <!--            </Image>-->
+        <!--  <Image Grid.Column="2"  -->
+        <!--  Aspect="AspectFit" Source="bluedot.png" StyleId="2">  -->
+        <!--                <Image.GestureRecognizers>-->
+        <!--                    <TapGestureRecognizer CommandParameter="2" Tapped="TapGestureRecognizer_OnTapped" />-->
+        <!--                </Image.GestureRecognizers>-->
+        <!--            </Image>-->
+        <!--  <Image Grid.Column="3"  -->
+        <!--  Aspect="AspectFit" Source="bluedot.png" StyleId="3">  -->
+        <!--                <Image.GestureRecognizers>-->
+        <!--                    <TapGestureRecognizer CommandParameter="3" Tapped="TapGestureRecognizer_OnTapped" />-->
+        <!--                </Image.GestureRecognizers>-->
+        <!--            </Image>-->
+        <!--        </Grid>-->
     </Grid>
 </ContentPage>

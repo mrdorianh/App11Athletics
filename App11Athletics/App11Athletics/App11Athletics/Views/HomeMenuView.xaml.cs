@@ -334,7 +334,7 @@ namespace App11Athletics.Views
                 case 1:
                     {
 
-                        var nav = new StopwatchFeatureView();
+                        var nav = new TimerMenu();
                         await Navigation.PushAsync(nav, true);
                         disable = false;
 

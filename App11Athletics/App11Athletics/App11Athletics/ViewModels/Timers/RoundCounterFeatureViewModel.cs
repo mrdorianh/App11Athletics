@@ -45,6 +45,7 @@ namespace App11Athletics.ViewModels.Timers
         public override void ResetTimer()
         {
             CurrentRound = 1;
+            
         }
 
         #endregion

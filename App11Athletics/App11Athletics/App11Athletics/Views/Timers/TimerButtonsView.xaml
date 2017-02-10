@@ -1,42 +1,38 @@
-﻿<?xml version = "1.0"
-      encoding = "UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 
-<ContentView xmlns = "http://xamarin.com/schemas/2014/forms"
-             xmlns:x = "http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class = "App11Athletics.Views.Timers.TimerButtonsView" >
+<ContentView x:Class="App11Athletics.Views.Timers.TimerButtonsView"
+             xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ContentView.Resources>
         <ResourceDictionary>
-            <Style TargetType = "Button" >
-                <Setter Property = "BackgroundColor"
-                        Value = "Transparent" />
-              <Setter Property="FontSize" Value="Large"/>
-              <Setter Property="BorderRadius" Value="5"/>
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="BorderRadius" Value="5" />
             </Style>
         </ResourceDictionary>
     </ContentView.Resources>
     <ContentView.Content>
         <Grid x:Name="gridbuttons">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width = "*" />
-                <ColumnDefinition Width = "*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Button Text = "Start"
-                    StyleId="startid"
-                    TextColor = "{StaticResource ColorBrandGlobalGreen}"
-                    Command = "{Binding StartTimerCommand}" Grid.Column="0" PropertyChanged="BindableObject_OnPropertyChanged" />
-            <Button Text = "Stop"
-                    StyleId="stopid"
-                    TextColor = "{StaticResource ColorBrandGlobalRed}"
-                    Command = "{Binding StopTimerCommand}" Grid.Column="1" PropertyChanged="BindableObject_OnPropertyChanged" />
-            <Button Text = "Reset"
-                    StyleId="resetid"
-                    TextColor = "{StaticResource ColorBrandGlobalRed}"
-                    Command = "{Binding ResetTimerCommand}" Grid.Column="1" PropertyChanged="BindableObject_OnPropertyChanged"/>
-            <Button Text = "Lap"
-                    StyleId="lapid"
-                    IsEnabled="False"
-                    TextColor = "{StaticResource ColorBrandGlobalBlue}"
-                    Command = "{Binding LapTimerCommand}" Grid.Column="0" PropertyChanged="BindableObject_OnPropertyChanged" />
+            <Button Grid.Column="0"
+                    TextColor="{StaticResource ColorBrandGlobalGreen}"
+                    Command="{Binding StartTimerCommand}"
+                    PropertyChanged="BindableObject_OnPropertyChanged" StyleId="startid" Text="Start" />
+            <Button Grid.Column="1"
+                    TextColor="{StaticResource ColorBrandGlobalRed}"
+                    Command="{Binding StopTimerCommand}"
+                    PropertyChanged="BindableObject_OnPropertyChanged" StyleId="stopid" Text="Stop" />
+            <Button Grid.Column="1"
+                    TextColor="{StaticResource ColorBrandGlobalRed}"
+                    Command="{Binding ResetTimerCommand}"
+                    PropertyChanged="BindableObject_OnPropertyChanged" StyleId="resetid" Text="Reset" />
+            <Button Grid.Column="0"
+                    TextColor="{StaticResource ColorBrandGlobalBlue}"
+                    Command="{Binding LapTimerCommand}"
+                    IsEnabled="False" PropertyChanged="BindableObject_OnPropertyChanged" StyleId="lapid" Text="Lap" />
         </Grid>
     </ContentView.Content>
 </ContentView>

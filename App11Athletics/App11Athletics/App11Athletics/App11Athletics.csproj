@@ -71,7 +71,6 @@
     <Compile Include="ViewModels\Timers\TabataFeatureViewModel.cs" />
     <Compile Include="ViewModels\UserProfileViewModel.cs" />
     <Compile Include="ViewModels\WorkoutLogFeatureViewModel.cs" />
-    <Compile Include="Views\AnimateInOrOut.cs" />
     <Compile Include="Views\Controls\ChangeOptions.xaml.cs">
       <DependentUpon>ChangeOptions.xaml</DependentUpon>
     </Compile>
@@ -117,6 +116,9 @@
     </Compile>
     <Compile Include="Views\Timers\TimerButtonsView.xaml.cs">
       <DependentUpon>TimerButtonsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdateTimerStatusAnimation.xaml.cs">
+      <DependentUpon>UpdateTimerStatusAnimation.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserProfileView.xaml.cs">
       <DependentUpon>UserProfileView.xaml</DependentUpon>
@@ -328,6 +330,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Controls\OneRepMax.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\UpdateTimerStatusAnimation.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

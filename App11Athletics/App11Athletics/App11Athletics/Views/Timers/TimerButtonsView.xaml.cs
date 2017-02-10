@@ -25,7 +25,7 @@ namespace App11Athletics.Views.Timers
         //                button.IsVisible = button.IsEnabled;
         //            }
         //        }
-        private void BindableObject_OnPropertyChanged(object sender, PropertyChangedEventArgs e)
+        public void BindableObject_OnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             var b = (Button)sender;
             b.IsVisible = b.IsEnabled;

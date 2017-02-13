@@ -12,29 +12,35 @@ namespace App11Athletics.ViewModels.Timers
     {
         public RoundCounterFeatureViewModel()
         {
-            TotalRoundTimeTimeSpan = TimeSpan.FromSeconds(10);
+            TotalRoundTimeTimeSpan = TimeSpan.Zero;
             CurrentRound = 1;
-            TotalRounds = 69;
+            TotalRounds = 1;
         }
 
         public TimeSpan TotalRoundTimeTimeSpan { get; set; }
-
         public double RoundTimeHoursTimeSpan { get; set; }
         public double RoundTimeMinutesTimeSpan { get; set; }
         public double RoundTimeSecondsTimeSpan { get; set; }
         public int CurrentRound { get; set; }
         public int TotalRounds { get; set; }
+        public bool Stop => false;
 
         public override bool OnTimerTick()
         {
             if (TimerRunning)
             {
-                TimerTimeSpan = DateTime.Now.Subtract(StartDateTime);
+                TimerTimeSpan = TotalRoundTimeTimeSpan - DateTime.Now.Subtract(StartDateTime);
+                //                TimerTimeSpan = DateTime.Now.Subtract(StartDateTime);
             }
-            if (TimerTimeSpan < TotalRoundTimeTimeSpan)
+            if (TimerTimeSpan < TotalRoundTimeTimeSpan && TimerTimeSpan > TimeSpan.Zero)
                 return TimerRunning;
 
             TimerTimeSpan = TimeSpan.Zero;
+            if (CurrentRound == TotalRounds)
+            {
+                ResetCommandMethod();
+                return Stop;
+            }
             CurrentRound = UpdateRound(CurrentRound, TotalRounds);
             StartDateTime = DateTime.Now;
             return TimerRunning;
@@ -45,7 +51,7 @@ namespace App11Athletics.ViewModels.Timers
         public override void ResetTimer()
         {
             CurrentRound = 1;
-            
+
         }
 
         #endregion

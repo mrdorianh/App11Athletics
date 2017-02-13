@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
-<ContentPage x:Class="App11Athletics.Views.HomeMenuView" x:Name="pageHomeMenu" Title="Home"
+<ContentPage x:Class="App11Athletics.Views.HomeMenuView" x:Name="pageHomeMenu"
              xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:carousel="clr-namespace:Syncfusion.SfCarousel.XForms;assembly=Syncfusion.SfCarousel.XForms" xmlns:controls="clr-namespace:ImageCircle;assembly=ImageCircle.Forms.Plugin.Abstractions"
              NavigationPage.HasNavigationBar="False" SizeChanged="HomeMenuView_OnSizeChanged">
@@ -38,8 +38,8 @@
                                  RotationAngle="40" ScaleOffset="0.5" SelectionChanged="CarouselMain_OnSelectionChanged"
                                  Offset="10" />
             <BoxView x:Name="boxViewTap"
-                     HeightRequest="200" WidthRequest="125"
-                     HorizontalOptions="Center" Opacity="0.3" VerticalOptions="Center"
+                     HeightRequest="200" WidthRequest="100"
+                     HorizontalOptions="Center" Opacity="0.1" VerticalOptions="Center"
                      Color="Transparent">
                 <BoxView.GestureRecognizers>
                     <TapGestureRecognizer x:Name="tapGestureRecognizerBox" Tapped="TapGestureRecognizerBox_OnTapped" />

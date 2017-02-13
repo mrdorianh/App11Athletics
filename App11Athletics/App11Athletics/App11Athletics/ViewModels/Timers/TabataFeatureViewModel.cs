@@ -16,28 +16,17 @@ namespace App11Athletics.ViewModels.Timers
         {
 
             WorkRound = true;
-            TotalRoundTimeTimeSpan = TimeSpan.FromSeconds(6);
-            TotalTimeOffTimeSpan = TimeSpan.FromSeconds(5);
+            TotalRoundTimeTimeSpan = TimeSpan.Zero;
+            //            TotalTimeOffTimeSpan = TimeSpan.Zero;
             CurrentRound = 1;
-            TotalRounds = 5;
+            TotalRounds = 1;
 
         }
 
         public TimeSpan TotalTimeOffTimeSpan { get; set; }
-
-        public int TotalOffRounds
-        {
-            get { return TotalRounds - 1; }
-            set
-            {
-                if (value <= 0)
-                    throw new ArgumentOutOfRangeException(nameof(value));
-            }
-        }
-
         public bool WorkRound { get; set; }
         public string WorkTime { get; set; }
-        public bool Stop { get; private set; }
+
 
         //public string WorkTime
         //        {
@@ -60,11 +49,11 @@ namespace App11Athletics.ViewModels.Timers
             if (CurrentRound == 1 && WorkRound && WorkTime != "WorkTime")
             {
                 WorkTime = "WorkTime";
-
             }
             if (TimerRunning)
             {
-                TimerTimeSpan = DateTime.Now.Subtract(StartDateTime);
+
+                TimerTimeSpan = TotalRoundTimeTimeSpan - DateTime.Now.Subtract(StartDateTime);
             }
 
             if (WorkRound)
@@ -75,6 +64,12 @@ namespace App11Athletics.ViewModels.Timers
                 }
                 TimerTimeSpan = TimeSpan.Zero;
                 WorkRound = false;
+                if (CurrentRound == TotalRounds)
+                {
+                    ResetCommandMethod();
+                    WorkTime = "Finished!";
+                    return Stop;
+                }
                 WorkTime = "Rest Time!";
 
                 StartDateTime = DateTime.Now;
@@ -82,7 +77,7 @@ namespace App11Athletics.ViewModels.Timers
             }
 
 
-            if (TimerTimeSpan < TotalTimeOffTimeSpan)
+            if (TimerTimeSpan > TimeSpan.Zero)
                 return TimerRunning;
 
             TimerTimeSpan = TimeSpan.Zero;

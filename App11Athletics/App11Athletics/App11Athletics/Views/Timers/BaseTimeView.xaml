@@ -1,112 +1,106 @@
-﻿<?xml version = "1.0"
-      encoding = "UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 
-<ContentView xmlns = "http://xamarin.com/schemas/2014/forms"
-             xmlns:x = "http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class = "App11Athletics.Views.Timers.BaseTimeView" 
-            SizeChanged="BaseTimeView_OnSizeChanged">
+<ContentView x:Class="App11Athletics.Views.Timers.BaseTimeView"
+             xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             SizeChanged="BaseTimeView_OnSizeChanged">
     <ContentView.Resources>
         <ResourceDictionary>
-            <Style CanCascade="False" TargetType = "Label" >
-                <Setter Property = "HorizontalOptions"
-                        Value = "CenterAndExpand" />
+            <Style CanCascade="False" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
 
-                <Setter Property = "VerticalTextAlignment"
-                        Value = "Center" />
-<!--              <Setter Property="Scale" Value="3"/>-->
-                <Setter Property = "LineBreakMode"
-                        Value = "TailTruncation" />
-                <Setter Property = "VerticalOptions"
-                        Value = "Center"/>
-              <Setter Property="BackgroundColor" Value="Transparent"/>
-<!--              <Setter Property="AnchorY" Value=".5"/>-->
-              <Setter Property="TextColor" Value="{StaticResource ColorBrandGlobalBlue}"/>
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <!--              <Setter Property="Scale" Value="3"/>-->
+                <Setter Property="LineBreakMode" Value="TailTruncation" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <!--              <Setter Property="AnchorY" Value=".5"/>-->
+                <Setter Property="TextColor" Value="{StaticResource ColorBrandGlobalBlue}" />
             </Style>
-            <Style TargetType = "Label"
-                   x:Key = "StyleSep" >
-                <Setter Property = "HorizontalOptions"
-                        Value = "Center" />
-                <Setter Property = "FontSize"
-                        Value = "Large" />
-              
-              <Setter Property="Scale" Value="1"/>
-                <Setter Property = "VerticalTextAlignment"
-                        Value = "Center" />
-                <Setter Property = "LineBreakMode"
-                        Value = "NoWrap" />
-                <Setter Property = "VerticalOptions"
-                        Value = "Center" />
+            <Style x:Key="StyleSep" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="Large" />
+
+                <Setter Property="Scale" Value="1" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="LineBreakMode" Value="NoWrap" />
+                <Setter Property="VerticalOptions" Value="Center" />
             </Style>
         </ResourceDictionary>
     </ContentView.Resources>
-  <Grid >
-    <ContentView ControlTemplate="{StaticResource ControlTemplateFrameContainer}"/>
-        <Grid ColumnSpacing="0" Margin="0" Padding="2" x:Name="gridTime">
+    <Grid>
+        <ContentView ControlTemplate="{StaticResource ControlTemplateFrameContainer}" />
+        <Grid x:Name="gridTime"
+              Margin="0" Padding="2"
+              ColumnSpacing="0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width = "*"/>
-                <ColumnDefinition Width = "Auto" />
-                <ColumnDefinition Width = "*" />
-                <ColumnDefinition Width = "Auto" />
-                <ColumnDefinition Width = "*" />
-                <ColumnDefinition Width = "Auto" />
-                <ColumnDefinition Width = "*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height = "*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-                    <Label x:Name="hoursLabel" Text = "{Binding TimerTimeSpan, StringFormat='{0:hh}'}"
-                           Grid.Row="0"
-                           Grid.Column="0"
-                           />
-                    <Label Text=":"
-                           Grid.Row="0"
-                           Grid.Column="1"/>
-                    <Label Text = "{Binding TimerTimeSpan, StringFormat='{0:mm}'}"
-                           Grid.Row="0"
-                           Grid.Column="2"/>
-                    <Label Text=":"
-                           Grid.Row="0"
-                           Grid.Column="3"/>
-                    <Label Text = "{Binding TimerTimeSpan, StringFormat='{0:ss}'}"
-                           Grid.Row="0"
-                           Grid.Column="4"/>
-                    <Label Text=":"
-                           Grid.Row="0"
-                           Grid.Column="5"/>
-                    <Label Text = "{Binding TimerTimeSpan, StringFormat='{0:ff}'}"
-                           Grid.Row="0"
-                           Grid.Column="6"/>
-                
-<!--            <Label x:Name = "hoursLabel"-->
-<!--                   Text = "00"-->
-<!--                   Grid.Row = "0"-->
-<!--                   Grid.Column = "0"-->
-<!--                   StyleId="timeDisplay"-->
-<!--                   />-->
-<!--            <Label Text = ":"-->
-<!--                   Grid.Row = "0"-->
-<!--                   Grid.Column = "1"-->
-<!--                   Style = "{DynamicResource StyleSep}" />-->
-<!--            <Label Text = "00"-->
-<!--                   Grid.Row = "0"-->
-<!--                   Grid.Column = "2" -->
-<!--                   StyleId="timeDisplay"/>-->
-<!--            <Label Text = ":"-->
-<!--                   Grid.Row = "0"-->
-<!--                   Grid.Column = "3"-->
-<!--                   Style = "{DynamicResource StyleSep}" />-->
-<!--            <Label Text = "00"-->
-<!--                   Grid.Row = "0"-->
-<!--                   Grid.Column = "4"-->
-<!--                   StyleId="timeDisplay"/>-->
-<!--            <Label Text = ":"-->
-<!--                   Grid.Row = "0"-->
-<!--                   Grid.Column = "5"-->
-<!--                   Style = "{DynamicResource StyleSep}" />-->
-<!--            <Label Text = "00"-->
-<!--                   Grid.Row = "0"-->
-<!--                   Grid.Column = "6"-->
-<!--                   StyleId="timeDisplay" />-->
+            <Label x:Name="hoursLabel"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   Text="{Binding TimerTimeSpan,
+                                  StringFormat='{0:hh}'}" />
+            <Label Grid.Row="0"
+                   Grid.Column="1"
+                   Text=":" />
+            <Label Grid.Row="0"
+                   Grid.Column="2"
+                   Text="{Binding TimerTimeSpan,
+                                  StringFormat='{0:mm}'}" />
+            <Label Grid.Row="0"
+                   Grid.Column="3"
+                   Text=":" />
+            <Label Grid.Row="0"
+                   Grid.Column="4"
+                   Text="{Binding TimerTimeSpan,
+                                  StringFormat='{0:ss}'}" />
+            <Label Grid.Row="0"
+                   Grid.Column="5"
+                   Text=":" />
+            <Label Grid.Row="0"
+                   Grid.Column="6"
+                   Text="{Binding TimerTimeSpan,
+                                  StringFormat='{0:ff}'}" />
+
+            <!--  <Label x:Name = "hoursLabel"  -->
+            <!--  Text = "00"  -->
+            <!--  Grid.Row = "0"  -->
+            <!--  Grid.Column = "0"  -->
+            <!--  StyleId="timeDisplay"  -->
+            <!--  />  -->
+            <!--  <Label Text = ":"  -->
+            <!--  Grid.Row = "0"  -->
+            <!--  Grid.Column = "1"  -->
+            <!--  Style = "{DynamicResource StyleSep}" />  -->
+            <!--  <Label Text = "00"  -->
+            <!--  Grid.Row = "0"  -->
+            <!--  Grid.Column = "2"  -->
+            <!--  StyleId="timeDisplay"/>  -->
+            <!--  <Label Text = ":"  -->
+            <!--  Grid.Row = "0"  -->
+            <!--  Grid.Column = "3"  -->
+            <!--  Style = "{DynamicResource StyleSep}" />  -->
+            <!--  <Label Text = "00"  -->
+            <!--  Grid.Row = "0"  -->
+            <!--  Grid.Column = "4"  -->
+            <!--  StyleId="timeDisplay"/>  -->
+            <!--  <Label Text = ":"  -->
+            <!--  Grid.Row = "0"  -->
+            <!--  Grid.Column = "5"  -->
+            <!--  Style = "{DynamicResource StyleSep}" />  -->
+            <!--  <Label Text = "00"  -->
+            <!--  Grid.Row = "0"  -->
+            <!--  Grid.Column = "6"  -->
+            <!--  StyleId="timeDisplay" />  -->
         </Grid>
-     </Grid>
-     </ContentView>
+    </Grid>
+</ContentView>

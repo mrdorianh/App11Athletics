@@ -13,7 +13,6 @@ namespace App11Athletics.Views.Timers
         public StopwatchFeatureView()
         {
             InitializeComponent();
-
         }
 
         private void ListLapTime_OnItemAppearing(object sender, ItemVisibilityEventArgs e) { }

@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage x:Class="App11Athletics.Views.Timers.TabataFeatureView"
+<ContentPage x:Class="App11Athletics.Views.Timers.TabataFeatureView" Title="Tabata Timer"
              xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:anim="clr-namespace:App11Athletics.Views;assembly=App11Athletics" xmlns:timers="clr-namespace:App11Athletics.ViewModels.Timers;assembly=App11Athletics" xmlns:timers1="clr-namespace:App11Athletics.Views.Timers;assembly=App11Athletics">
-    <ContentPage.BindingContext>
-        <timers:TabataFeatureViewModel />
-    </ContentPage.BindingContext>
+             xmlns:anim="clr-namespace:App11Athletics.Views;assembly=App11Athletics" xmlns:controls="clr-namespace:App11Athletics.Views.Controls;assembly=App11Athletics" xmlns:templates="clr-namespace:App11Athletics.Templates;assembly=App11Athletics" xmlns:timers="clr-namespace:App11Athletics.ViewModels.Timers;assembly=App11Athletics" xmlns:timers1="clr-namespace:App11Athletics.Views.Timers;assembly=App11Athletics">
+    <!--    <ContentPage.BindingContext>-->
+    <!--        <timers:TabataFeatureViewModel />-->
+    <!--    </ContentPage.BindingContext>-->
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="StackLayout">
@@ -17,6 +17,9 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Clicked="MenuItem_OnClicked" Order="Primary" Text="Edit Parameters" />
+    </ContentPage.ToolbarItems>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -72,6 +75,9 @@
         <timers1:TimerButtonsView x:Name="timerButtonsView"
                                   Grid.Row="2"
                                   Margin="10" Padding="5" />
-
+        <Grid x:Name="gridTabataOptions"
+              Grid.Row="0" Grid.RowSpan="3">
+            <controls:TabataOptions x:Name="tabataOptions" Clicked="TabataOptions_OnClicked" />
+        </Grid>
     </Grid>
 </ContentPage>

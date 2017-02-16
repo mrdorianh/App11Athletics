@@ -31,7 +31,10 @@
         <ToolbarItem Clicked="LPMenuItem_OnClicked" Order="Primary" Text="LoginPage" />
         <ToolbarItem Clicked="Logout_OnClicked" Order="Secondary" Text="Logout" />
     </ContentPage.ToolbarItems>
-    <Grid>
+
+    <Grid x:Name="gridUserProfile">
+        <Image WidthRequest="{Binding BGWidth}"
+               InputTransparent="True" Opacity="0.4" Source="iconbevel.png" />
         <Grid x:Name="gridMain"
               BindingContext="{x:Reference pageUserProfile}"
               Padding="5">
@@ -51,6 +54,7 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
+
             <Grid x:Name="gridHeader"
                   Grid.Row="0"
                   Grid.Column="0" Grid.ColumnSpan="4">
@@ -247,7 +251,11 @@
                 </StackLayout>
             </Grid>
         </Grid>
+        <BoxView x:Name="boxView"
+                 HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                 Color="Transparent" BackgroundColor="Transparent" />
         <controls:ChangeOptions x:Name="changeOptions"
                                 HorizontalOptions="Fill" Opacity="1" OptionsInput="" OptionsPlaceholder="" StyleId="changeOptions" VerticalOptions="StartAndExpand" />
     </Grid>
+
 </ContentPage>

@@ -23,7 +23,12 @@
 
     <item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>
   </style>
-
+ <style name="Theme.Splash"
+         parent="android:style/Theme.Holo.Light">
+    
+    <item name="android:windowNoTitle">true</item>
+   <item name="android:windowDisablePreview">true</item>
+  </style>
   <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
     <item name="colorAccent">#005EBF</item>
   </style>

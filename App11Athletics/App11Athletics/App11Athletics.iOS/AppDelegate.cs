@@ -20,6 +20,7 @@ namespace App11Athletics.iOS
         // You have 17 seconds to return from this method, or iOS will terminate your application.
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            Rox.VideoIos.Init();
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
             new SfCarouselRenderer();

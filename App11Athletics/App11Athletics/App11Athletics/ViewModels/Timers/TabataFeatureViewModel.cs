@@ -52,13 +52,12 @@ namespace App11Athletics.ViewModels.Timers
             }
             if (TimerRunning)
             {
-
                 TimerTimeSpan = TotalRoundTimeTimeSpan - DateTime.Now.Subtract(StartDateTime);
             }
 
             if (WorkRound)
             {
-                if (TimerTimeSpan < TotalRoundTimeTimeSpan)
+                if (TimerTimeSpan < TotalRoundTimeTimeSpan && TimerTimeSpan > TimeSpan.Zero)
                 {
                     return TimerRunning;
                 }

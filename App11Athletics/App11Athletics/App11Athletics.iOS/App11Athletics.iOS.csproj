@@ -187,12 +187,12 @@
       <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="Plugin.Settings, Version=2.5.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xam.Plugins.Settings.2.5.1.0\lib\Xamarin.iOS10\Plugin.Settings.dll</HintPath>
+    <Reference Include="Plugin.Settings, Version=2.5.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugins.Settings.2.5.4\lib\Xamarin.iOS10\Plugin.Settings.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Plugin.Settings.Abstractions, Version=2.5.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xam.Plugins.Settings.2.5.1.0\lib\Xamarin.iOS10\Plugin.Settings.Abstractions.dll</HintPath>
+    <Reference Include="Plugin.Settings.Abstractions, Version=2.5.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugins.Settings.2.5.4\lib\Xamarin.iOS10\Plugin.Settings.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Plugin.Vibrate, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -201,6 +201,14 @@
     </Reference>
     <Reference Include="Plugin.Vibrate.Abstractions, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xam.Plugins.Vibrate.2.0.0\lib\Xamarin.iOS10\Plugin.Vibrate.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Rox.Xamarin.Video.Ios, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Rox.Xamarin.Video.2.1.0\lib\Xamarin.iOS10\Rox.Xamarin.Video.Ios.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Rox.Xamarin.Video.Portable, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Rox.Xamarin.Video.2.1.0\lib\Xamarin.iOS10\Rox.Xamarin.Video.Portable.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SQLite-net, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -223,16 +231,16 @@
       <HintPath>..\..\packages\SQLitePCLRaw.provider.sqlite3.ios_unified.1.1.2\lib\Xamarin.iOS10\SQLitePCLRaw.provider.sqlite3.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Syncfusion.SfCarousel.iOS, Version=14.4451.0.20, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Syncfusion.Xamarin.SfCarousel.14.4.0.20\lib\Xamarin.iOS10\Syncfusion.SfCarousel.iOS.dll</HintPath>
+    <Reference Include="Syncfusion.SfCarousel.iOS, Version=15.1451.0.33, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Syncfusion.Xamarin.SfCarousel.15.1.0.33\lib\Xamarin.iOS10\Syncfusion.SfCarousel.iOS.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Syncfusion.SfCarousel.XForms, Version=14.4451.0.20, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Syncfusion.Xamarin.SfCarousel.14.4.0.20\lib\Xamarin.iOS10\Syncfusion.SfCarousel.XForms.dll</HintPath>
+    <Reference Include="Syncfusion.SfCarousel.XForms, Version=15.1451.0.33, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Syncfusion.Xamarin.SfCarousel.15.1.0.33\lib\Xamarin.iOS10\Syncfusion.SfCarousel.XForms.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Syncfusion.SfCarousel.XForms.iOS, Version=14.4451.0.20, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Syncfusion.Xamarin.SfCarousel.14.4.0.20\lib\Xamarin.iOS10\Syncfusion.SfCarousel.XForms.iOS.dll</HintPath>
+    <Reference Include="Syncfusion.SfCarousel.XForms.iOS, Version=15.1451.0.33, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Syncfusion.Xamarin.SfCarousel.15.1.0.33\lib\Xamarin.iOS10\Syncfusion.SfCarousel.XForms.iOS.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -318,6 +326,7 @@
     <BundleResource Include="Resources\bluedot.png" />
     <BundleResource Include="Resources\bluedot%402x.png" />
     <BundleResource Include="Resources\bluedot%403x.png" />
+    <Content Include="Resources\video.mp4" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="Auth0Client">

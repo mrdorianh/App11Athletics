@@ -13,6 +13,7 @@ namespace App11Athletics.Views.Controls
         public TabataOptions()
         {
             InitializeComponent();
+            OriginalColor = buttonSave.BackgroundColor;
             ListTotalRounds = new List<string>();
             ListMinOn = new List<string>();
             ListSecOn = new List<string>();
@@ -63,9 +64,18 @@ namespace App11Athletics.Views.Controls
             }
             pickerSecOn.SelectedIndex = 5;
             pickerSecOff.SelectedIndex = 5;
+            CheckParameters();
         }
 
+        private void CheckParameters()
+        {
+            var picked = Convert.ToInt32(pickerRounds.Items[pickerRounds.SelectedIndex]);
+            buttonSave.BackgroundColor = picked < 2 ? NewColor : OriginalColor;
+        }
 
+        public Color OriginalColor { get; set; }
+
+        public Color NewColor => Color.FromHex("#DF0000");
 
         public string TabataOptionsHeader { get; set; }
         public double TotalRounds { get; set; }
@@ -84,7 +94,12 @@ namespace App11Athletics.Views.Controls
         public IList<string> ListSecOn;
         public IList<string> ListSecOff;
 
-        private void Picker_OnSelectedIndexChanged(object sender, EventArgs e) { }
+        private void Picker_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            Picker picker = (Picker)sender;
+
+            CheckParameters();
+        }
 
         private void TabataOptions_OnSizeChanged(object sender, EventArgs e)
         {

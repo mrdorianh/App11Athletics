@@ -5,9 +5,10 @@
     <ContentView.Resources>
         <ResourceDictionary>
             <Style TargetType="Button">
-                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="BackgroundColor" Value="White" />
                 <Setter Property="FontSize" Value="Large" />
                 <Setter Property="BorderRadius" Value="5" />
+
             </Style>
         </ResourceDictionary>
     </ContentView.Resources>
@@ -18,19 +19,19 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0"
-                    TextColor="{StaticResource ColorBrandGlobalGreen}"
+                    TextColor="{DynamicResource ColorBrandGlobalGreen}"
                     Command="{Binding StartTimerCommand}"
                     PropertyChanged="BindableObject_OnPropertyChanged" StyleId="startid" Text="Start" />
             <Button Grid.Column="1"
-                    TextColor="{StaticResource ColorBrandGlobalRed}"
+                    TextColor="{DynamicResource ColorBrandGlobalRed}"
                     Command="{Binding StopTimerCommand}"
                     PropertyChanged="BindableObject_OnPropertyChanged" StyleId="stopid" Text="Stop" />
             <Button Grid.Column="1"
-                    TextColor="{StaticResource ColorBrandGlobalRed}"
+                    TextColor="{DynamicResource ColorBrandGlobalRed}"
                     Command="{Binding ResetTimerCommand}"
                     PropertyChanged="BindableObject_OnPropertyChanged" StyleId="resetid" Text="Reset" />
             <Button Grid.Column="0"
-                    TextColor="{StaticResource ColorBrandGlobalBlue}"
+                    TextColor="{DynamicResource ColorBrandGlobalBlue}"
                     Command="{Binding LapTimerCommand}"
                     IsEnabled="False" PropertyChanged="BindableObject_OnPropertyChanged" StyleId="lapid" Text="Lap" />
         </Grid>

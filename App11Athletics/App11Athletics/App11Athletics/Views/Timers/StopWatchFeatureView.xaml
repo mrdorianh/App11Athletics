@@ -15,32 +15,44 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <Grid x:Name="gridStopwatch">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="2*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
+    <RelativeLayout>
+        <Image Aspect="AspectFill" Opacity="0.5"
+               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Height}"
+               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                     Property=Width}"
+               Source="BG.png" />
+        <Grid x:Name="gridStopwatch"
+              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                     Property=Height}"
+              RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                    Property=Width}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
 
-        <svm:BaseTimeView Grid.Row="0"
-                          Padding="10"
-                          Scale="1" />
+            <svm:BaseTimeView Grid.Row="0"
+                              Padding="10"
+                              Scale="1" />
 
 
-        <ListView x:Name="listLapTime"
-                  Grid.Row="1"
-                  IsEnabled="False" ItemAppearing="ListLapTime_OnItemAppearing"
-                  ItemsSource="{Binding LapTime}"
-                  SeparatorColor="#4C005EBF" SeparatorVisibility="Default"
-                  BackgroundColor="Transparent">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell TextColor="{StaticResource ColorBrandGlobalBlue}" Text="{Binding}" />
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <svm:TimerButtonsView Grid.Row="2"
-                              Margin="10" Padding="5" />
-    </Grid>
+            <ListView x:Name="listLapTime"
+                      Grid.Row="1"
+                      IsEnabled="False" ItemAppearing="ListLapTime_OnItemAppearing"
+                      ItemsSource="{Binding LapTime}"
+                      SeparatorColor="#4C005EBF" SeparatorVisibility="Default"
+                      BackgroundColor="Transparent">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell TextColor="{StaticResource ColorBrandGlobalBlue}" Text="{Binding}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <svm:TimerButtonsView Grid.Row="2"
+                                  Margin="10" Padding="5" />
+        </Grid>
+    </RelativeLayout>
 </ContentPage>

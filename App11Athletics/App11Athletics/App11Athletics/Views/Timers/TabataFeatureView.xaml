@@ -20,64 +20,76 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Clicked="MenuItem_OnClicked" Order="Primary" Text="Edit Parameters" />
     </ContentPage.ToolbarItems>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="2*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <timers1:BaseTimeView Grid.Row="0"
-                              Padding="10"
-                              Scale="1" />
-        <Grid Grid.Row="1">
+    <RelativeLayout>
+        <Image Aspect="AspectFill" Opacity="0.5"
+               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Height}"
+               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                     Property=Width}"
+               Source="BG.png" />
+        <Grid x:Name="gridTabataPage"
+              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                     Property=Height}"
+              RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                    Property=Width}">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0"
-                  RowSpacing="20" VerticalOptions="StartAndExpand">
+            <timers1:BaseTimeView Grid.Row="0"
+                                  Padding="10"
+                                  Scale="1" />
+            <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label Grid.Row="0"
-                       Grid.Column="0"
-                       Text="{Binding CurrentRound}" />
-                <Label Grid.Row="0" Grid.RowSpan="2"
-                       Grid.Column="1"
-                       Text="of" />
-                <Label Grid.Row="0"
-                       Grid.Column="2"
-                       Text="{Binding TotalRounds}" />
+                <Grid Grid.Row="0"
+                      RowSpacing="20" VerticalOptions="StartAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0"
+                           Grid.Column="0"
+                           Text="{Binding CurrentRound}" />
+                    <Label Grid.Row="0" Grid.RowSpan="2"
+                           Grid.Column="1"
+                           Text="of" />
+                    <Label Grid.Row="0"
+                           Grid.Column="2"
+                           Text="{Binding TotalRounds}" />
 
-                <Label Grid.Row="1"
-                       Grid.Column="0"
-                       FontSize="Small"
-                       Text="Round" />
-                <Label Grid.Row="1"
-                       Grid.Column="2"
-                       FontSize="Small"
-                       Text="Total Rounds" />
+                    <Label Grid.Row="1"
+                           Grid.Column="0"
+                           FontSize="Small"
+                           Text="Round" />
+                    <Label Grid.Row="1"
+                           Grid.Column="2"
+                           FontSize="Small"
+                           Text="Total Rounds" />
+                </Grid>
+                <Grid Grid.Row="1">
+                    <anim:UpdateTimerStatusAnimation x:Name="statusAnimation" />
+                    <Label x:Name="labelAnimateStatus"
+                           PropertyChanged="BindableObject_OnPropertyChanged" PropertyChanging="LabelAnimateStatus_OnPropertyChanging"
+                           Text="{Binding WorkTime}"
+                           VerticalOptions="Center" />
+                </Grid>
             </Grid>
-            <Grid Grid.Row="1">
-                <anim:UpdateTimerStatusAnimation x:Name="statusAnimation" />
-                <Label x:Name="labelAnimateStatus"
-                       PropertyChanged="BindableObject_OnPropertyChanged" PropertyChanging="LabelAnimateStatus_OnPropertyChanging"
-                       Text="{Binding WorkTime}"
-                       VerticalOptions="Center" />
+            <timers1:TimerButtonsView x:Name="timerButtonsView"
+                                      Grid.Row="2"
+                                      Margin="10" Padding="5" />
+            <Grid x:Name="gridTabataOptions"
+                  Grid.Row="0" Grid.RowSpan="3">
+                <controls:TabataOptions x:Name="tabataOptions" Clicked="TabataOptions_OnClicked" />
             </Grid>
         </Grid>
-        <timers1:TimerButtonsView x:Name="timerButtonsView"
-                                  Grid.Row="2"
-                                  Margin="10" Padding="5" />
-        <Grid x:Name="gridTabataOptions"
-              Grid.Row="0" Grid.RowSpan="3">
-            <controls:TabataOptions x:Name="tabataOptions" Clicked="TabataOptions_OnClicked" />
-        </Grid>
-    </Grid>
+    </RelativeLayout>
 </ContentPage>

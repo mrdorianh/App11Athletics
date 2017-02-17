@@ -34,14 +34,14 @@
             <templates:FrameBoxTemplate Grid.RowSpan="6" />
             <Label x:Name="labelTabataOptionsHeader"
                    Grid.Row="0"
-                   WidthRequest="{Binding Width}"
                    HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
                    FontSize="{Binding FontSizeLarge}"
                    TextColor="{StaticResource ColorBrandGlobalBlue}"
                    Text="Tabata Options" />
             <StackLayout Grid.Row="1"
                          Orientation="Horizontal" VerticalOptions="CenterAndExpand">
-                <Label FontSize="{Binding FontSize}"
+                <Label x:Name="labelTotalRounds"
+                       FontSize="{Binding FontSize}"
                        TextColor="{StaticResource ColorBrandGlobalBlue}"
                        StyleId="r" Text="Total Rounds" />
                 <Grid WidthRequest="{Binding FrameSize}" HorizontalOptions="EndAndExpand">
@@ -60,9 +60,10 @@
             </StackLayout>
             <StackLayout Grid.Row="2"
                          Orientation="Horizontal" Spacing="15" VerticalOptions="CenterAndExpand">
-                <Label FontSize="{Binding FontSize}"
+                <Label x:Name="labelTimeOn"
+                       FontSize="{Binding FontSize}"
                        TextColor="{StaticResource ColorBrandGlobalBlue}"
-                       Text="Total Rounds" />
+                       Text="Time On" />
                 <Grid WidthRequest="{Binding FrameSize}" HorizontalOptions="EndAndExpand">
                     <templates:FrameBoxTemplate VerticalOptions="Center" />
                     <Picker x:Name="pickerMinOn"
@@ -92,9 +93,10 @@
             </StackLayout>
             <StackLayout Grid.Row="3"
                          Orientation="Horizontal" Spacing="15" VerticalOptions="CenterAndExpand">
-                <Label FontSize="{Binding FontSize}"
+                <Label x:Name="labelTimeOff"
+                       FontSize="{Binding FontSize}"
                        TextColor="{StaticResource ColorBrandGlobalBlue}"
-                       Text="Total Rounds" />
+                       Text="Time Off" />
                 <Grid WidthRequest="{Binding FrameSize}" HorizontalOptions="EndAndExpand">
                     <templates:FrameBoxTemplate VerticalOptions="Center" />
                     <Picker x:Name="pickerMinOff"
@@ -125,7 +127,7 @@
             <Button x:Name="buttonSave"
                     Grid.Row="4"
                     Clicked="Button_OnClicked"
-                    Style="{StaticResource styleGreenSaveButton}"
+                    Style="{DynamicResource styleGreenSaveButton}"
                     VerticalOptions="Start" />
         </Grid>
     </ContentView.Content>

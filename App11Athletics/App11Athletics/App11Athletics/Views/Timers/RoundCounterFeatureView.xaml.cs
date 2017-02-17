@@ -33,26 +33,25 @@ namespace App11Athletics.Views.Timers
             RoundOptionsUp = false;
         }
 
-        private void MenuItem_OnClicked(object sender, EventArgs e)
+        private async void MenuItem_OnClicked(object sender, EventArgs e)
         {
-            if (RoundOptionsUp)
+            if (RoundOptionsUp || RoundCounterFeatureViewModel.TimerRunning)
                 return;
             RoundOptionsUp = true;
-            RoundOptions.TranslateTo(0, 0, 350U, Easing.CubicIn);
+            await RoundOptions.TranslateTo(0, 0, 350U, Easing.CubicIn);
+            RoundCounterFeatureViewModel.ResetCommandMethod();
         }
         protected override bool OnBackButtonPressed()
         {
             if (RoundOptionsUp)
             {
+                if (!RoundOptions.Valid)
+                    return true;
                 RoundOptions.TranslateTo(0, Height, 350U, Easing.CubicOut);
                 RoundOptionsUp = false;
                 return true;
             }
-            else
-            {
-                return base.OnBackButtonPressed();
-            }
-
+            return base.OnBackButtonPressed();
         }
 
         private void BindableObject_OnPropertyChanged(object sender, PropertyChangedEventArgs e)

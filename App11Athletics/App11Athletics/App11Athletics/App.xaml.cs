@@ -5,6 +5,7 @@ using System.Text;
 using App11Athletics.Data;
 using App11Athletics.Helpers;
 using App11Athletics.Models;
+using App11Athletics.ViewModels;
 using App11Athletics.Views;
 using App11Athletics.Views.Timers;
 using Xamarin.Forms;
@@ -21,8 +22,11 @@ namespace App11Athletics
         public App()
         {
             InitializeComponent();
+
             MainPage = new NavigationPage(new HomeMenuView());
+            //            MainPage = new NavigationPage(new Splash());
         }
+
 
         public static TodoItemDatabase Database
         {

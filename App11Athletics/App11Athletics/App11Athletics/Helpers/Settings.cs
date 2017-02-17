@@ -51,7 +51,7 @@ namespace App11Athletics.Helpers
 
         //
         private const string SettingsUserAge = "user_age";
-        private static readonly string SettingsUserAgeDefault = "69";
+        private static readonly string SettingsUserAgeDefault = "23";
 
         //
         private const string SettingsUserHeightFt = "user_heightFt";

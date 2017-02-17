@@ -61,12 +61,48 @@ namespace App11Athletics.Views.Controls
                     p.SelectedIndex = 1;
 
             }
-            pickerSecOn.SelectedIndex = 5;
-            pickerSecOff.SelectedIndex = 5;
+            pickerRounds.SelectedIndex = 5;
+            pickerSecOn.SelectedIndex = 30;
+            pickerSecOff.SelectedIndex = 30;
+            CheckParameters();
         }
 
+        private void CheckParameters()
+        {
+            Button_OnClicked(null, null);
+            var picked = Convert.ToInt32(pickerRounds.Items[pickerRounds.SelectedIndex]);
+            if (picked < 2 || TimeSpan.FromMinutes(TimeOnMinutes) + TimeSpan.FromSeconds(TimeOnSeconds) < TimeSpan.FromSeconds(5) || TimeSpan.FromMinutes(TimeOffMinutes) + TimeSpan.FromSeconds(TimeOffSeconds) < TimeSpan.FromSeconds(5))
+            {
+                Valid = false;
+                buttonSave.IsEnabled = Valid;
+                buttonSave.BackgroundColor = NewColor;
+                if (picked < 2)
+                {
+                    labelTotalRounds.TextColor = NewColor;
+                }
+                else if (TimeSpan.FromMinutes(TimeOnMinutes) + TimeSpan.FromSeconds(TimeOnSeconds) < TimeSpan.FromSeconds(5))
+                {
+                    labelTimeOn.TextColor = NewColor;
+                }
+                else if (TimeSpan.FromMinutes(TimeOffMinutes) + TimeSpan.FromSeconds(TimeOffSeconds) <
+                         TimeSpan.FromSeconds(5))
+                {
+                    labelTimeOff.TextColor = NewColor;
+                }
+            }
+            else
+            {
+                Valid = true;
+                buttonSave.BackgroundColor = OriginalColor;
+                labelTotalRounds.TextColor = OriginalColor;
+                labelTimeOn.TextColor = OriginalColor;
+                labelTimeOff.TextColor = OriginalColor;
+                buttonSave.IsEnabled = Valid;
+            }
+        }
 
-
+        public Color OriginalColor => Color.FromHex("#029902");
+        public Color NewColor => Color.FromHex("#DF0000");
         public string TabataOptionsHeader { get; set; }
         public double TotalRounds { get; set; }
         public double TimeOnSeconds { get; set; }
@@ -76,6 +112,8 @@ namespace App11Athletics.Views.Controls
         public double FontSize { get; set; }
         public double FontSizeLarge { get; set; }
         public double FrameSize { get; set; }
+        public bool Valid { get; set; }
+
 
         public IList<string> ListTotalRounds;
         public IList<Picker> ListPickers;
@@ -84,7 +122,12 @@ namespace App11Athletics.Views.Controls
         public IList<string> ListSecOn;
         public IList<string> ListSecOff;
 
-        private void Picker_OnSelectedIndexChanged(object sender, EventArgs e) { }
+        private void Picker_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+            CheckParameters();
+        }
 
         private void TabataOptions_OnSizeChanged(object sender, EventArgs e)
         {

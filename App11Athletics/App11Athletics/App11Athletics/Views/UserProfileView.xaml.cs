@@ -49,8 +49,10 @@ namespace App11Athletics.Views
             {
                 labelGender.Text = "F";
             }
-            labelBmr.Text = Settings.UserBmr;
-            labelDce.Text = Settings.UserDce;
+            //            labelBmr.Text = Settings.UserBmr;
+            //            labelDce.Text = Settings.UserDce;
+            CalorieCalc();
+            boxView.InputTransparent = true;
         }
 
         public string GivenName => Settings.UserGivenName;
@@ -79,8 +81,13 @@ namespace App11Athletics.Views
 
         public double DFontSize { get; private set; }
 
+        public double BGWidth { get; set; }
+
+
+
         private void UserProfileView_OnSizeChanged(object sender, EventArgs e)
         {
+            BGWidth = Width / 2;
             if (PageLabels == null)
                 return;
             DFontSize = gridGender.Width / 3;
@@ -109,6 +116,7 @@ namespace App11Athletics.Views
 
         private void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
         {
+            boxView.InputTransparent = false;
             var boxtap = (BoxView)sender;
 
             var cp = boxtap.StyleId;
@@ -162,6 +170,7 @@ namespace App11Athletics.Views
 
         private void ChangeOptionsOnHeightClicked(object sender, EventArgs eventArgs)
         {
+            boxView.InputTransparent = true;
             foreach (var view in gridMain.Children)
             {
                 view.FadeTo(1, 400U, Easing.SinInOut);
@@ -177,28 +186,49 @@ namespace App11Athletics.Views
             if (Settings.UserHeightFt != vf || vi != Settings.UserHeightIn)
                 CalorieCalc();
 
+
+
         }
 
         private void ChangeOptionsOnWeightUnfocused(object sender, FocusEventArgs focusEventArgs)
         {
-
+            boxView.InputTransparent = true;
             foreach (var view in gridMain.Children)
             {
                 view.FadeTo(1, 400U, Easing.SinInOut);
             }
             changeOptions.TranslateTo(0, 1500, 600U, Easing.CubicInOut);
             changeOptions.WeightUnfocused -= ChangeOptionsOnWeightUnfocused;
-            labelWeight.Text = changeOptions.OptionsOutput;
-            var v = Settings.UserWeight;
-            Settings.UserWeight = labelWeight.Text;
-            if (Settings.UserWeight != v)
+            if (!string.IsNullOrEmpty(changeOptions.OptionsOutput))
+                labelWeight.Text = changeOptions.OptionsOutput;
+            else
+            {
+                labelWeight.Text = "--";
                 CalorieCalc();
+                return;
+            }
+            var v = Settings.UserWeight;
+            if (!string.IsNullOrEmpty(labelWeight.Text))
+            {
+                Settings.UserWeight = labelWeight.Text;
+                if (Settings.UserWeight == v)
+                    return;
+            }
+            else
+            {
+                labelWeight.Text = "--";
+            }
+            if (Convert.ToDouble(labelWeight.Text) < 85)
+                labelWeight.Text = "--";
+            CalorieCalc();
+
         }
 
 
 
         private void ChangeOptionsOnMaleClicked(object sender, EventArgs eventArgs)
         {
+            boxView.InputTransparent = true;
             foreach (var view in gridMain.Children)
             {
                 view.FadeTo(1, 400U, Easing.SinInOut);
@@ -218,25 +248,46 @@ namespace App11Athletics.Views
             Settings.UserGender = g;
             if (Settings.UserGender != v)
                 CalorieCalc();
+
         }
 
         public void ChangeOptionsAgeUnfocused(object sender, FocusEventArgs e)
         {
+            boxView.InputTransparent = true;
             foreach (var view in gridMain.Children)
             {
                 view.FadeTo(1, 400U, Easing.SinInOut);
             }
             changeOptions.TranslateTo(0, 1500, 600U, Easing.CubicInOut);
             changeOptions.AgeUnfocused -= ChangeOptionsAgeUnfocused;
-            labelAge.Text = changeOptions.OptionsOutput;
-            var v = Settings.UserAge;
-            Settings.UserAge = labelAge.Text;
-            if (Settings.UserAge != v)
+            if (!string.IsNullOrEmpty(changeOptions.OptionsOutput))
+                labelAge.Text = changeOptions.OptionsOutput;
+            else
+            {
+                labelAge.Text = "--";
                 CalorieCalc();
+                return;
+            }
+            var v = Settings.UserAge;
+            if (!string.IsNullOrEmpty(labelAge.Text))
+            {
+                Settings.UserAge = labelAge.Text;
+                if (Settings.UserAge == v)
+                    return;
+            }
+            else
+            {
+                labelAge.Text = "--";
+            }
+            if (Convert.ToDouble(labelAge.Text) < 10)
+                labelAge.Text = "--";
+            CalorieCalc();
+
         }
 
         private void TapGestureRecognizerActivityLevel_OnTapped(object sender, EventArgs e)
         {
+            boxView.InputTransparent = false;
             alfPicker.Focus();
         }
 
@@ -244,31 +295,56 @@ namespace App11Athletics.Views
         {
             //            Women: BMR = 655 + (4.35 x weight in pounds) + (4.7 x height in inches) - (4.7 x age in years)
             //            Men: BMR = 66 + (6.23 x weight in pounds) + (12.7 x height in inches) - (6.8 x age in years)
+            if (labelAge.Text == "" || labelAge.Text == "--" || labelWeight.Text == "" ||
+                labelWeight.Text == "--")
+            {
+                labelBmr.Text = "";
+                labelDce.Text = "";
+                Settings.UserBmr = labelBmr.Text;
+                Settings.UserDce = labelDce.Text;
+                Settings.UserAge = labelAge.Text;
+                Settings.UserWeight = labelWeight.Text;
+                gridBmr.FadeTo(0.4, 400U, Easing.SinInOut);
+                await gridDce.FadeTo(0.4, 400U, Easing.SinInOut);
+                return;
+            }
             await Task.Run(() =>
             {
-                var w = Settings.UserWeight;
                 var hF = Settings.UserHeightFt;
                 var hI = Settings.UserHeightIn;
-                var a = Settings.UserAge;
                 var g = Settings.UserGender;
                 var af = Settings.UserAlf;
                 var h = (Convert.ToDouble(hF) * 12) + Convert.ToDouble(hI);
-                var weight = Convert.ToDouble(w);
-                var age = Convert.ToDouble(a);
+                var userWeight = Settings.UserWeight;
+
+                var userAge = Settings.UserAge;
+                var listD = new List<double> { af, h, Convert.ToDouble(userWeight), Convert.ToDouble(userAge) };
+                var listS = new List<string> { hF, hI, g };
+                foreach (var s in listS)
+                {
+                    if (string.IsNullOrEmpty(s))
+                        return;
+                }
+                foreach (var d in listD)
+                {
+                    if (d <= 0)
+                        return;
+                }
                 double bmr;
                 double dce;
+
                 switch (g.ToLower())
                 {
                     case "female":
                         //                    Female BMR
-                        bmr = 655 + (4.35 * weight) + (4.7 * h) - (4.7 * age);
+                        bmr = 655 + (4.35 * Convert.ToDouble(userWeight)) + (4.7 * h) - (4.7 * Convert.ToDouble(userAge));
                         dce = af * bmr;
                         Settings.UserDce = dce.ToString();
                         Settings.UserBmr = bmr.ToString();
                         break;
                     case "male":
                         //                    Male BMR
-                        bmr = 66 + (6.23 * weight) + (12.7 * h) - (6.8 * age);
+                        bmr = 66 + (6.23 * Convert.ToDouble(userWeight)) + (12.7 * h) - (6.8 * Convert.ToDouble(userAge));
                         dce = af * bmr;
                         Settings.UserDce = dce.ToString();
                         Settings.UserBmr = bmr.ToString();
@@ -282,6 +358,8 @@ namespace App11Athletics.Views
         {
             await Task.WhenAny(gridBmr.TranslateTo(1000, 0, 300U, Easing.CubicIn), Task.Delay(150));
             await Task.WhenAny(gridDce.TranslateTo(-1000, 0, 350U, Easing.CubicIn), Task.Delay(150));
+            gridBmr.Opacity = 1;
+            gridDce.Opacity = 1;
             labelBmr.Text = Settings.UserBmr;
             labelDce.Text = Settings.UserDce;
             await Task.Delay(250);
@@ -292,6 +370,7 @@ namespace App11Athletics.Views
 
         public void AlfPicker_OnSelectedIndexChanged(object sender, EventArgs e)
         {
+            boxView.InputTransparent = true;
             var p = (Picker)sender;
             ActivityLevel = alfPicker.Items[alfPicker.SelectedIndex];
             labelActivityLevel.Text = ActivityLevel;
@@ -335,6 +414,11 @@ namespace App11Athletics.Views
         private async void LPMenuItem_OnClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new LoginView());
+        }
+
+        private void AlfPicker_OnUnfocused(object sender, FocusEventArgs e)
+        {
+            boxView.InputTransparent = true;
         }
     }
 }

@@ -47,8 +47,9 @@ namespace App11Athletics.Views.Controls
             FontSize = Width / 16;
             FontSizeLarge = Width / 10;
             FrameSize = Width / 5;
-            pickerSecOn.SelectedIndex = 5;
-
+            pickerRounds.SelectedIndex = 5;
+            pickerSecOn.SelectedIndex = 30;
+            CheckParameters();
         }
         public double TotalRounds { get; set; }
         public double FontSize { get; set; }
@@ -56,7 +57,14 @@ namespace App11Athletics.Views.Controls
         public double TimeOnSeconds { get; set; }
         public double FontSizeLarge { get; set; }
         public double FrameSize { get; set; }
-        private void Picker_OnSelectedIndexChanged(object sender, EventArgs e) { }
+        public bool Valid { get; set; }
+        public Color OriginalColor => Color.FromHex("#029902");
+        public Color NewColor => Color.FromHex("#DF0000");
+
+        private void Picker_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            CheckParameters();
+        }
         private void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
         {
             var box = (BoxView)sender;
@@ -91,6 +99,33 @@ namespace App11Athletics.Views.Controls
             FontSize = Width / 16;
             FontSizeLarge = Width / 10;
             FrameSize = Width / 5;
+        }
+        private void CheckParameters()
+        {
+            Button_OnClicked(null, null);
+            var picked = Convert.ToInt32(pickerRounds.Items[pickerRounds.SelectedIndex]);
+            if (picked < 1 || TimeSpan.FromMinutes(TimeOnMinutes) + TimeSpan.FromSeconds(TimeOnSeconds) < TimeSpan.FromSeconds(5))
+            {
+                Valid = false;
+                buttonSave.IsEnabled = Valid;
+                buttonSave.BackgroundColor = NewColor;
+                if (picked < 2)
+                {
+                    labelTotalRounds.TextColor = NewColor;
+                }
+                else if (TimeSpan.FromMinutes(TimeOnMinutes) + TimeSpan.FromSeconds(TimeOnSeconds) < TimeSpan.FromSeconds(5))
+                {
+                    labelTimeOn.TextColor = NewColor;
+                }
+            }
+            else
+            {
+                Valid = true;
+                labelTotalRounds.TextColor = OriginalColor;
+                labelTimeOn.TextColor = OriginalColor;
+                buttonSave.BackgroundColor = OriginalColor;
+                buttonSave.IsEnabled = Valid;
+            }
         }
     }
 }

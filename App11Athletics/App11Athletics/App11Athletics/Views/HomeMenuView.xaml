@@ -11,74 +11,53 @@
             </DataTemplate>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <Grid x:Name="gridHomeMenu">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <Grid x:Name="gridLabel">
-            <Label x:Name="labelMenuTitle"
-                   BindingContext="{x:Reference pageHomeMenu}"
-                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
-                   FontSize="{Binding MenuTitle}"
-                   FontAttributes="Bold"
-                   TextColor="{StaticResource ColorBrandGlobalBlue}"
-                   Text="{Binding Title}" />
+    <RelativeLayout>
+        <Image Aspect="AspectFill"
+               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Height}"
+               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                     Property=Width}"
+               Source="BG.png" />
+        <Grid x:Name="gridHomeMenu"
+              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                     Property=Height}"
+              RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                    Property=Width}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid x:Name="gridLabel">
+                <Label x:Name="labelMenuTitle"
+                       BindingContext="{x:Reference pageHomeMenu}"
+                       HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                       FontSize="{Binding MenuTitle}"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource ColorBrandGlobalBlue}"
+                       Text="{Binding Title}" />
+            </Grid>
+            <Grid x:Name="gridCara" Grid.Row="1">
+                <carousel:SfCarousel x:Name="carouselMain"
+                                     HeightRequest="250"
+                                     DataSource="{Binding ImageCollection}"
+                                     ItemHeight="200"
+                                     ItemTemplate="{StaticResource itemTemplate}"
+                                     RotationAngle="40" ScaleOffset="0.5" SelectionChanged="CarouselMain_OnSelectionChanged"
+                                     Offset="10" />
+                <BoxView x:Name="boxViewTap"
+                         HeightRequest="200" WidthRequest="100"
+                         HorizontalOptions="Center" Opacity="0.1" VerticalOptions="Center"
+                         Color="Transparent">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="tapGestureRecognizerBox" Tapped="TapGestureRecognizerBox_OnTapped" />
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+            </Grid>
+
         </Grid>
-        <Grid x:Name="gridCara" Grid.Row="1">
-            <carousel:SfCarousel x:Name="carouselMain"
-                                 HeightRequest="250"
-                                 DataSource="{Binding ImageCollection}"
-                                 ItemHeight="200"
-                                 ItemTemplate="{StaticResource itemTemplate}"
-                                 RotationAngle="40" ScaleOffset="0.5" SelectionChanged="CarouselMain_OnSelectionChanged"
-                                 Offset="10" />
-            <BoxView x:Name="boxViewTap"
-                     HeightRequest="200" WidthRequest="100"
-                     HorizontalOptions="Center" Opacity="0.1" VerticalOptions="Center"
-                     Color="Transparent">
-                <BoxView.GestureRecognizers>
-                    <TapGestureRecognizer x:Name="tapGestureRecognizerBox" Tapped="TapGestureRecognizerBox_OnTapped" />
-                </BoxView.GestureRecognizers>
-            </BoxView>
-        </Grid>
-        <!--  <Grid x:Name="griddots"  -->
-        <!--  Grid.Row="2"  -->
-        <!--  Padding="20">  -->
-        <!--            <Grid.ColumnDefinitions>-->
-        <!--                <ColumnDefinition />-->
-        <!--                <ColumnDefinition />-->
-        <!--                <ColumnDefinition />-->
-        <!--                <ColumnDefinition />-->
-        <!--            </Grid.ColumnDefinitions>-->
-        <!--  <Image Grid.Column="0"  -->
-        <!--  Aspect="AspectFit" Source="bluedot.png" StyleId="0">  -->
-        <!--                <Image.GestureRecognizers>-->
-        <!--                    <TapGestureRecognizer CommandParameter="0" Tapped="TapGestureRecognizer_OnTapped" />-->
-        <!--                </Image.GestureRecognizers>-->
-        <!--            </Image>-->
-        <!--  <Image Grid.Column="1"  -->
-        <!--  Aspect="AspectFit" Source="bluedot.png" StyleId="1">  -->
-        <!--                <Image.GestureRecognizers>-->
-        <!--                    <TapGestureRecognizer CommandParameter="1" Tapped="TapGestureRecognizer_OnTapped" />-->
-        <!--                </Image.GestureRecognizers>-->
-        <!--            </Image>-->
-        <!--  <Image Grid.Column="2"  -->
-        <!--  Aspect="AspectFit" Source="bluedot.png" StyleId="2">  -->
-        <!--                <Image.GestureRecognizers>-->
-        <!--                    <TapGestureRecognizer CommandParameter="2" Tapped="TapGestureRecognizer_OnTapped" />-->
-        <!--                </Image.GestureRecognizers>-->
-        <!--            </Image>-->
-        <!--  <Image Grid.Column="3"  -->
-        <!--  Aspect="AspectFit" Source="bluedot.png" StyleId="3">  -->
-        <!--                <Image.GestureRecognizers>-->
-        <!--                    <TapGestureRecognizer CommandParameter="3" Tapped="TapGestureRecognizer_OnTapped" />-->
-        <!--                </Image.GestureRecognizers>-->
-        <!--            </Image>-->
-        <!--        </Grid>-->
-    </Grid>
+    </RelativeLayout>
 </ContentPage>

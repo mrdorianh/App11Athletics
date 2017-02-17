@@ -16,5 +16,6 @@ namespace App11Athletics.Models
         public int WReps { get; set; }
         public string Notes { get; set; }
         public bool Done { get; set; }
+        public bool NotDone => !Done;
     }
 }

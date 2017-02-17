@@ -8,6 +8,7 @@
             <Style TargetType="Label">
                 <Setter Property="VerticalTextAlignment" Value="Center" />
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="TextColor" Value="{StaticResource ColorBrandGlobalBlue}" />
             </Style>
         </ResourceDictionary>
     </ContentView.Resources>
@@ -23,19 +24,19 @@
             <templates:FrameBoxTemplate Grid.Row="0" Grid.RowSpan="5" />
             <controls:MyEntry x:Name="myEntry"
                               Grid.Row="1"
-                              IsVisible="False" Keyboard="Text" Placeholder="&quot;Lift&quot;" TextChanged="MyEntry_OnTextChanged" Uppercase="True" />
+                              Focused="MyEntry_OnFocused" IsVisible="False" Keyboard="Text" TextChanged="MyEntry_OnTextChanged" Unfocused="MyEntry_OnUnfocused" Uppercase="True" />
             <Label Grid.Row="0"
                    FontSize="{Binding TitleFontSize}"
-                   Text="One Rep Max">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
-                </Label.GestureRecognizers>
-            </Label>
+                   Text="One Rep Max" />
             <Label x:Name="labelentry"
                    Grid.Row="1"
                    FontSize="{Binding LiftFontSize}"
                    Text="{Binding Source={x:Reference myEntry},
-                                  Path=Text}" />
+                                  Path=Text}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
+                </Label.GestureRecognizers>
+            </Label>
             <StackLayout Grid.Row="2"
                          Padding="20"
                          HorizontalOptions="FillAndExpand" Orientation="Horizontal" VerticalOptions="Center">
@@ -56,12 +57,13 @@
                        HorizontalOptions="Start"
                        Text="{Binding Source={x:Reference myEntryWeight},
                                       Path=Text,
-                                      StringFormat='{0} lbs'}" />
+                                      StringFormat='{0}lbs'}" />
                 <controls:MyEntry x:Name="myEntryWeight"
                                   HorizontalOptions="EndAndExpand" IsVisible="False" Keyboard="Numeric" MaxLength="3" Text="175" TextChanged="MyEntryWeight_OnTextChanged" Unfocused="MyEntryWeight_OnUnfocused" />
                 <Button x:Name="buttonWeight"
-                        FontSize="Small"
-                        Clicked="Button_OnClicked" HorizontalOptions="EndAndExpand" Text="Change Weight" />
+                        FontSize="Small" TextColor="White"
+                        Clicked="Button_OnClicked" HorizontalOptions="EndAndExpand" Text="Change Weight"
+                        BackgroundColor="{StaticResource ColorBrandGlobalBlue}" />
             </StackLayout>
             <Button x:Name="buttonSaveOneRepMax"
                     Grid.Row="4"

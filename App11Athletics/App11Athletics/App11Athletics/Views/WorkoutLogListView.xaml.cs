@@ -5,6 +5,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Android.Media.Audiofx;
+using App11Athletics.Helpers;
 using App11Athletics.Models;
 using Xamarin.Forms;
 
@@ -17,6 +19,9 @@ namespace App11Athletics.Views
             InitializeComponent();
             oneRepMaxView.TranslationY = 1500;
             viewWeightOptions.TranslationY = -1000;
+            //            OneRepMaxView_Clicked(null, null);
+            labelMaxLift.Text = Settings.UserOneRMLift;
+            labelMaxWeight.Text = Settings.UserOneRMWeight + "lbs";
         }
 
         public string MaxLift { get; set; }
@@ -26,6 +31,8 @@ namespace App11Athletics.Views
         public double WOneRepMaxFontSize { get; set; }
 
         public double labelWeightOptionsFontSize { get; set; }
+        public bool MaxUp { get; set; }
+
 
         protected override async void OnAppearing()
         {
@@ -79,30 +86,38 @@ namespace App11Athletics.Views
             }
         }
 
-        private void TapGestureRecognizerOneRepMax_OnTapped(object sender, EventArgs e)
+        private async void TapGestureRecognizerOneRepMax_OnTapped(object sender, EventArgs e)
         {
-            oneRepMaxView.TranslateTo(0, 0, 350U, Easing.CubicOut);
-            oneRepMaxView.Clicked += OneRepMaxView_Clicked;
             oneRepMaxView.FocusEntry();
+            oneRepMaxView.Clicked += OneRepMaxView_Clicked;
+            await oneRepMaxView.TranslateTo(0, 0, 350U, Easing.CubicOut);
+            MaxUp = true;
+
+
         }
 
-        private void OneRepMaxView_Clicked(object sender, EventArgs e)
+        private async void OneRepMaxView_Clicked(object sender, EventArgs e)
         {
             labelMaxLift.Text = oneRepMaxView.Lift;
-            labelMaxWeight.Text = OneRepMaxCalc(oneRepMaxView.WeightLifted, oneRepMaxView.StepperRepValue) + " lbs";
-            oneRepMaxView.TranslateTo(0, 1500, 350U, Easing.CubicIn);
+            if (!string.IsNullOrEmpty(oneRepMaxView.Lift))
+                labelMaxWeight.Text = OneRepMaxCalc(oneRepMaxView.WeightLifted, oneRepMaxView.StepperRepValue) + " lbs";
+            await oneRepMaxView.TranslateTo(0, 1500, 350U, Easing.CubicIn);
 
             WorkoutLogListView_OnSizeChanged(null, null);
-
+            MaxUp = false;
 
         }
         private string OneRepMaxCalc(string weightlifted, double reps)
         {
-            var dweightLifted = Convert.ToDouble(weightlifted);
+            if (!string.IsNullOrEmpty(weightlifted))
+            {
+                var dweightLifted = Convert.ToDouble(weightlifted);
 
-            var Max = (dweightLifted / (1.0278 - (0.0278 * reps)));
+                var Max = (dweightLifted / (1.0278 - (0.0278 * reps)));
 
-            return Convert.ToInt32(Max).ToString();
+                return Convert.ToInt32(Max).ToString();
+            }
+            return string.Empty;
         }
 
         private void WorkoutLogListView_OnSizeChanged(object sender, EventArgs e)
@@ -139,5 +154,31 @@ namespace App11Athletics.Views
             oneRepMaxView.FadeTo(0.2, 350U, Easing.CubicIn);
             listView.FadeTo(0, 350U, Easing.CubicIn);
         }
+
+        public void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
+        {
+            var image = (Image)sender;
+            if (image.StyleId == "d")
+            {
+                image.IsVisible = false;
+            }
+            else
+            {
+
+            }
+
+        }
+
+        #region Overrides of Page
+
+        protected override bool OnBackButtonPressed()
+        {
+            if (!MaxUp)
+                return base.OnBackButtonPressed();
+            oneRepMaxView.TranslateTo(0, 1500, 350U, Easing.CubicIn);
+            return true;
+        }
+
+        #endregion
     }
 }

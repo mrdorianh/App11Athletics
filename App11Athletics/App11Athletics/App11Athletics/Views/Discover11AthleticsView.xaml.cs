@@ -62,7 +62,7 @@ namespace App11Athletics.Views
 
             Trainer TrainerItem =
                 (from itm in Models.Discover11AthleticsModel.Trainers where itm.Equals(selItem) select itm).FirstOrDefault<Trainer>();
-            var das = await DisplayActionSheet(TrainerItem.ShortName, "Cancel", "Kill", "View Bio", "Email");
+            var das = await DisplayActionSheet(TrainerItem.ShortName, "Cancel", null, "View Bio", "Email");
 
             switch (das)
             {

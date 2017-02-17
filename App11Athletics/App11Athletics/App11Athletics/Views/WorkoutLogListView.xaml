@@ -87,8 +87,15 @@
                                     <Image Grid.Column="1"
                                            WidthRequest="50"
                                            HorizontalOptions="Center"
-                                           IsVisible="{Binding Done}"
+                                           IsVisible="{Binding NotDone}"
                                            Source="check.png" VerticalOptions="Center" />
+                                    <Image x:Name="imageCheck"
+                                           Grid.Column="1"
+                                           WidthRequest="50"
+                                           HorizontalOptions="Center"
+                                           IsVisible="{Binding Done,
+                                                               Mode=TwoWay}"
+                                           Source="checkgreen.png" StyleId="d" VerticalOptions="Center" />
                                 </Grid>
                             </ViewCell.View>
                         </ViewCell>
@@ -130,12 +137,14 @@
                            VerticalTextAlignment="Center"
                            FontSize="{Binding Source={x:Reference pageWorkoutLogList},
                                               Path=OneRepMaxFontSize}"
+                           TextColor="{DynamicResource ColorBrandGlobalBlue}"
                            Margin="5,0"
                            HorizontalOptions="StartAndExpand" />
                     <Label x:Name="labelMaxWeight"
                            VerticalTextAlignment="Center"
                            FontSize="{Binding Source={x:Reference pageWorkoutLogList},
                                               Path=WOneRepMaxFontSize}"
+                           TextColor="{DynamicResource ColorBrandGlobalBlue}"
                            Margin="5,0"
                            HorizontalOptions="EndAndExpand" />
                 </StackLayout>
@@ -167,6 +176,7 @@
                        HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
                        FontSize="{Binding Source={x:Reference pageWorkoutLogList},
                                           Path=labelWeightOptionsFontSize}"
+                       TextColor="{StaticResource ColorBrandGlobalBlue}"
                        Text="{Binding WeightLifted}" />
             </Grid>
         </Grid>

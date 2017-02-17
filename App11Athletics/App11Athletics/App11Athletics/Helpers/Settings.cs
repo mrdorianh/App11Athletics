@@ -125,7 +125,11 @@ namespace App11Athletics.Helpers
         private const string SettingsUserIsSocial = "user_provider";
         private static readonly bool SettingsUserIsSocialDefault = false;
 
+        private const string SettingsOneRMLift = "user_OneRMLift";
+        private static readonly string SettingsOneRMLiftDefault = string.Empty;
 
+        private const string SettingsOneRMWeight = "user_OneRMWeight";
+        private static readonly string SettingsOneRMWeightDefault = string.Empty;
 
 
 
@@ -135,6 +139,24 @@ namespace App11Athletics.Helpers
         //  set{AppSettings.AddOrUpdateValue<string>(SettingsKey, value);
         //  }
         //}
+        public static string UserOneRMLift
+        {
+            get { return AppSettings.GetValueOrDefault<string>(SettingsOneRMLift, SettingsOneRMLiftDefault); }
+            set
+            {
+                AppSettings.AddOrUpdateValue<string>(SettingsOneRMLift, value);
+            }
+        }
+
+        public static string UserOneRMWeight
+        {
+            get { return AppSettings.GetValueOrDefault<string>(SettingsOneRMWeight, SettingsOneRMWeightDefault); }
+            set
+            {
+                AppSettings.AddOrUpdateValue<string>(SettingsOneRMWeight, value);
+            }
+        }
+
         public static string UserBmr
         {
             get { return AppSettings.GetValueOrDefault<string>(SettingsUserBmr, SettingsUserBmrDefault); }

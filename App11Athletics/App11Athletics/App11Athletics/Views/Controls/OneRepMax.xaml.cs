@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using App11Athletics.Helpers;
 using Xamarin.Forms;
 
 namespace App11Athletics.Views.Controls
@@ -15,9 +15,16 @@ namespace App11Athletics.Views.Controls
         public OneRepMax()
         {
             InitializeComponent();
+            myEntry.Text = Settings.UserOneRMLift;
+            myEntryWeight.Text = Settings.UserOneRMWeight;
             if (myEntry.Text == string.Empty)
-                labelentry.Text = myEntry.Placeholder;
-
+            {
+                myEntry.Text = "Add Exercise";
+            }
+            else
+            {
+                labelentry.TextColor = OriginalColor;
+            }
         }
 
         public double TitleFontSize { get; set; }
@@ -26,11 +33,14 @@ namespace App11Athletics.Views.Controls
         public double StepperRepValue { get; set; }
         public string Lift { get; set; }
         public string WeightLifted { get; set; }
+        public Color OriginalColor => Color.FromHex("#005EBF");
+        public Color NewColor => Color.Silver;
 
 
 
         private void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
         {
+
             myEntry.Focus();
         }
 
@@ -49,6 +59,14 @@ namespace App11Athletics.Views.Controls
 
         private void MyEntry_OnTextChanged(object sender, TextChangedEventArgs e)
         {
+            if (myEntry.Text == string.Empty)
+            {
+                labelentry.TextColor = NewColor;
+            }
+            else
+            {
+                labelentry.TextColor = OriginalColor;
+            }
             if (myEntry.Text.Length > 6)
                 LiftFontSize = Width / Convert.ToDouble(myEntry.Text.Length);
             else
@@ -71,14 +89,19 @@ namespace App11Athletics.Views.Controls
         private void MyEntryWeight_OnUnfocused(object sender, FocusEventArgs e)
         {
             wdisabled = false;
+            if (myEntryWeight.Text.Length <= 0)
+                myEntryWeight.Text = "0";
+
 
         }
 
         private void ButtonSaveOneRepMax_OnClicked(object sender, EventArgs e)
         {
+            Settings.UserOneRMLift = labelentry.Text;
+            Settings.UserOneRMWeight = myEntryWeight.Text;
             StepperRepValue = stepperReps.Value;
-            Lift = labelentry.Text;
-            WeightLifted = myEntryWeight.Text;
+            Lift = Settings.UserOneRMLift;
+            WeightLifted = Settings.UserOneRMWeight;
 
         }
 
@@ -113,6 +136,27 @@ namespace App11Athletics.Views.Controls
         public void FocusEntry()
         {
             myEntry.Focus();
+
+        }
+
+        private void MyEntry_OnFocused(object sender, FocusEventArgs e)
+        {
+            myEntry.Text = string.Empty;
+            labelentry.Opacity = 1;
+        }
+
+        private void MyEntry_OnUnfocused(object sender, FocusEventArgs e)
+        {
+            if (myEntry.Text == string.Empty)
+            {
+                labelentry.Opacity = 0.4;
+                myEntry.Text = "Add Exercise";
+            }
+            else
+            {
+                labelentry.Opacity = 1;
+                labelentry.TextColor = OriginalColor;
+            }
         }
     }
 }

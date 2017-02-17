@@ -30,12 +30,20 @@
                     <Label Text="Notes" />
                     <Entry x:Name="notesEntry" Text="{Binding Notes}" />
                     <Label Text="Done" />
-                    <Switch x:Name="doneEntry" IsToggled="{Binding Done}" />
+                    <Switch x:Name="doneEntry"
+                            HeightRequest="50"
+                            IsToggled="{Binding Done}" />
                     <Button x:Name="buttonSave"
-                            Clicked="OnSaveClicked" Text="Save" />
-                    <Button Clicked="OnDeleteClicked" Text="Delete" />
-                    <Button Clicked="OnCancelClicked" Text="Cancel" />
-                    <Button Clicked="OnSpeakClicked" Text="Speak" />
+                            TextColor="White"
+                            Clicked="OnSaveClicked" Text="Save"
+                            BackgroundColor="{StaticResource ColorBrandGlobalGreen}" />
+                    <Button TextColor="White"
+                            Clicked="OnDeleteClicked" Text="Delete"
+                            BackgroundColor="{StaticResource ColorBrandGlobalRed}" />
+                    <Button TextColor="White"
+                            Clicked="OnCancelClicked" Text="Cancel"
+                            BackgroundColor="Silver" />
+                    <!--                                        <Button Clicked="OnSpeakClicked" Text="Speak" />-->
                 </StackLayout>
             </ScrollView>
         </Grid>

@@ -32,15 +32,13 @@ namespace App11Athletics.Views.Timers
         {
             if (TabataOptionsUp)
             {
+                if (!tabataOptions.Valid)
+                    return true;
                 tabataOptions.TranslateTo(0, Height, 350U, Easing.CubicOut);
                 TabataOptionsUp = false;
                 return true;
             }
-            else
-            {
-                return base.OnBackButtonPressed();
-            }
-
+            return base.OnBackButtonPressed();
         }
 
         #endregion
@@ -109,12 +107,13 @@ namespace App11Athletics.Views.Timers
             TabataOptionsUp = false;
         }
 
-        private void MenuItem_OnClicked(object sender, EventArgs e)
+        private async void MenuItem_OnClicked(object sender, EventArgs e)
         {
-            if (TabataOptionsUp)
+            if (TabataOptionsUp || TabataFeatureViewModel.TimerRunning)
                 return;
             TabataOptionsUp = true;
-            tabataOptions.TranslateTo(0, 0, 350U, Easing.CubicIn);
+            await tabataOptions.TranslateTo(0, 0, 350U, Easing.CubicIn);
+            TabataFeatureViewModel.ResetCommandMethod();
         }
     }
 }

@@ -210,7 +210,7 @@
                 </StackLayout>
                 <Picker x:Name="alfPicker" Title="How often do you really exercise?"
                         Margin="5"
-                        IsVisible="False" Opacity="1" SelectedIndex="-1" SelectedIndexChanged="AlfPicker_OnSelectedIndexChanged"
+                        IsVisible="False" Opacity="1" SelectedIndex="-1" SelectedIndexChanged="AlfPicker_OnSelectedIndexChanged" Unfocused="AlfPicker_OnUnfocused"
                         BackgroundColor="Transparent">
                     <Picker.Items>
                         <x:String>Little to none</x:String>

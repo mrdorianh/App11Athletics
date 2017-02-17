@@ -15,6 +15,7 @@
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="FontSize" Value="56" />
                 <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{StaticResource ColorBrandGlobalBlue}" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>

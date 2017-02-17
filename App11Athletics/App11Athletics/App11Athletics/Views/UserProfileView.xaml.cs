@@ -415,5 +415,10 @@ namespace App11Athletics.Views
         {
             await Navigation.PushAsync(new LoginView());
         }
+
+        private void AlfPicker_OnUnfocused(object sender, FocusEventArgs e)
+        {
+            boxView.InputTransparent = true;
+        }
     }
 }

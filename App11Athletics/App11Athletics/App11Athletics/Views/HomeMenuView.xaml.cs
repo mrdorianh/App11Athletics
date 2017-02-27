@@ -25,6 +25,8 @@ namespace App11Athletics.Views
             InitializeComponent();
             carouselMain.BindingContext = new CarouselViewModel();
             CarouselMain_OnSelectionChanged(null, null);
+            MenuTitle = gridLabel.Width / 8;
+            Opacity = 0;
 
         }
 
@@ -40,7 +42,11 @@ namespace App11Athletics.Views
 
         protected override async void OnAppearing()
         {
+            //            Opacity = 0;
             base.OnAppearing();
+            await Task.Delay(100);
+            Opacity = 0;
+            MenuTitle = gridLabel.Width / 8;
             //            foreach (var view in griddots.Children)
             //            {
             //                // if (!string.Equals(view.StyleId, cI, StringComparison.Ordinal))
@@ -56,7 +62,17 @@ namespace App11Athletics.Views
             //                    AnimateDot((Image)view);
             //                }
             //            }
-            await AnimatePages.AnimatePageIn(gridHomeMenu);
+
+            //            null.ScaleTo(1, 350U, Easing.CubicOut);
+            //            this.FadeTo(1, 400U, Easing.CubicOut);
+            imageBG.TranslationX = Width / 2;
+            imageBG.TranslationY = -Height;
+            this.FadeTo(1, 400U, Easing.CubicOut);
+            AnimatePages.BgLogoTask(imageBG, Width / 2, Height / 2);
+
+            AnimatePages.AnimatePageIn(gridHomeMenu, null);
+
+            await Task.Delay(400);
         }
 
 
@@ -152,7 +168,7 @@ namespace App11Athletics.Views
             parentAnimation.Add(0, 0.6, upAnimation);
             parentAnimation.Commit(this, "AnimationDotToNav", 16, 1200, null, async (v, c) =>
             {
-                await AnimatePages.AnimatePageOut(gridHomeMenu);
+                //                await AnimatePages.AnimatePageOut(gridHomeMenu, null);
                 await Task.Delay(250);
                 await Navigation.PushAsync(page);
                 p.Scale = 1;
@@ -189,6 +205,8 @@ namespace App11Athletics.Views
         {
 
             disable = true;
+            imageArrowsLeft.IsVisible = false;
+            imageArrowsRight.IsVisible = false;
             var s = carouselMain.SelectedIndex;
             if (!running)
             {
@@ -206,8 +224,21 @@ namespace App11Athletics.Views
                      "Workout Log", "Discover 11");
                 await AnimateTextIn(labelMenuTitle);
             }
-
-
+            if (carouselMain.SelectedIndex <= 0)
+            {
+                imageArrowsLeft.IsVisible = false;
+                imageArrowsRight.IsVisible = true;
+            }
+            else if (carouselMain.SelectedIndex >= 3)
+            {
+                imageArrowsLeft.IsVisible = true;
+                imageArrowsRight.IsVisible = false;
+            }
+            else
+            {
+                imageArrowsLeft.IsVisible = true;
+                imageArrowsRight.IsVisible = true;
+            }
 
 
         }
@@ -321,13 +352,16 @@ namespace App11Athletics.Views
                 running = false;
                 this.AbortAnimation("AnimationText");
             }
-            await AnimatePages.AnimatePageOut(gridHomeMenu);
+            //            null.ScaleTo(0, 350U, Easing.CubicOut);
+            //            await AnimatePages.AnimatePageOut(gridHomeMenu, null); 
+
+            Opacity = 0;
             switch (index)
             {
                 case 0:
                     {
                         var nav = new UserProfileView();
-                        await Navigation.PushAsync(nav, true);
+                        await Navigation.PushAsync(nav);
                         disable = false;
                     }
                     break;

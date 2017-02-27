@@ -21,18 +21,10 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Clicked="MenuItem_OnClicked" Order="Primary" Text="Edit Parameters" />
     </ContentPage.ToolbarItems>
-    <RelativeLayout>
-        <Image Aspect="AspectFill" Opacity="0.5"
-               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                      Property=Height}"
-               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                     Property=Width}"
-               Source="BG.png" />
-        <Grid x:Name="gridTabataPage"
-              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                     Property=Height}"
-              RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                    Property=Width}">
+    <Grid>
+        <Image x:Name="imageBG"
+               Aspect="AspectFit" Opacity="0.2" Source="iconbevel.png" />
+        <Grid x:Name="gridTabataPage">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="2*" />
@@ -92,5 +84,5 @@
                 <controls:TabataOptions x:Name="tabataOptions" Clicked="TabataOptions_OnClicked" />
             </Grid>
         </Grid>
-    </RelativeLayout>
+    </Grid>
 </ContentPage>

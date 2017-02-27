@@ -6,7 +6,7 @@
     <ContentView.Resources>
         <ResourceDictionary>
             <Style CanCascade="False" TargetType="Label">
-                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="HorizontalOptions" Value="Center" />
 
                 <Setter Property="VerticalTextAlignment" Value="Center" />
                 <!--              <Setter Property="Scale" Value="3"/>-->

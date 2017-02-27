@@ -73,8 +73,8 @@ namespace App11Athletics.Views.Controls
         public void Entry_OnCompleted(object sender, EventArgs e)
         {
             OptionsOutput = entry.Text;
-            if (entry.IsFocused)
-                entry.Unfocus();
+            //            if (entry.IsFocused)
+            //                entry.Unfocus();
         }
 
         private void ChangeOptions_OnSizeChanged(object sender, EventArgs e)

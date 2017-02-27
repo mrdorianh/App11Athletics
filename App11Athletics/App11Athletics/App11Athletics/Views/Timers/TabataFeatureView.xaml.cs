@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Android.Bluetooth;
+using App11Athletics.DHCToolkit;
 using App11Athletics.ViewModels.Timers;
 using Xamarin.Forms;
 
@@ -16,14 +17,17 @@ namespace App11Athletics.Views.Timers
         public TabataFeatureView()
         {
             InitializeComponent();
+            gridTabataPage.Opacity = 0;
+            imageBG.Opacity = 0;
             TabataFeatureViewModel = new TabataFeatureViewModel();
             BindingContext = TabataFeatureViewModel;
 
             if (labelAnimateStatus.Text != null)
                 WorkTimePrevious = labelAnimateStatus.Text;
             WorkTimeText = WorkTimePrevious;
-            tabataOptions.TranslationY = 0;
-            labelAnimateStatus.Opacity = 0;
+            //            tabataOptions.TranslationY = 0;
+            //            labelAnimateStatus.Opacity = 0;
+
         }
 
         #region Overrides of Page
@@ -40,7 +44,32 @@ namespace App11Athletics.Views.Timers
             }
             return base.OnBackButtonPressed();
         }
+        protected override async void OnAppearing()
+        {
+            gridTabataPage.Opacity = 0;
+            imageBG.Opacity = 0;
+            base.OnAppearing();
+            await Task.Delay(100);
 
+            //            imageBG.ScaleTo(1, 350U, Easing.CubicOut);
+            imageBG.TranslationX = Width / 2;
+            imageBG.TranslationY = -Height;
+            imageBG.FadeTo(0.5, 200U, Easing.CubicOut);
+            AnimatePages.BgLogoTask(imageBG, Width / 2, Height / 2);
+            await Task.Delay(1000);
+            gridTabataPage.FadeTo(1, 200U, Easing.CubicOut);
+            await AnimatePages.AnimatePageIn(gridTabataPage, imageBG);
+
+            await Task.Delay(400);
+            //            imageBG.ScaleTo(1, 350U, Easing.CubicOut);
+
+        }
+        protected override async void OnDisappearing()
+        {
+            base.OnDisappearing();
+            //            imageBG.ScaleTo(0, 350U, Easing.CubicOut);
+            await AnimatePages.AnimatePageOut(gridTabataPage, imageBG);
+        }
         #endregion
 
         public TabataFeatureViewModel TabataFeatureViewModel;

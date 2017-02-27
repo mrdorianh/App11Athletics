@@ -9,7 +9,6 @@ using App11Athletics.ViewModels;
 using App11Athletics.Views;
 using App11Athletics.Views.Timers;
 using Xamarin.Forms;
-using StopwatchFeatureView = App11Athletics.Views.Timers.StopwatchFeatureView;
 
 namespace App11Athletics
 {
@@ -22,8 +21,17 @@ namespace App11Athletics
         public App()
         {
             InitializeComponent();
-
-            MainPage = new NavigationPage(new HomeMenuView());
+            if (string.IsNullOrEmpty(Settings.UserRefreshToken))
+            {
+                IsUserLoggedIn = false;
+                MainPage = new NavigationPage(new LoginView());
+            }
+            else
+            {
+                IsUserLoggedIn = true;
+                //                DependencyService.Get<IAuthSignIn>().AuthRefresh();
+                MainPage = new NavigationPage(new HomeMenuView());
+            }
             //            MainPage = new NavigationPage(new Splash());
         }
 

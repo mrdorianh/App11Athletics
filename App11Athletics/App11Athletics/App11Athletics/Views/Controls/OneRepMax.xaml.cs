@@ -41,7 +41,7 @@ namespace App11Athletics.Views.Controls
         private void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
         {
 
-            myEntry.Focus();
+            //            myEntry.Focus();
         }
 
         public event EventHandler Clicked
@@ -110,7 +110,11 @@ namespace App11Athletics.Views.Controls
             add { buttonWeight.Clicked += value; }
             remove { buttonWeight.Clicked -= value; }
         }
-
+        public event EventHandler LiftClicked
+        {
+            add { tapGestureRecognizerLabelEntry.Tapped += value; }
+            remove { tapGestureRecognizerLabelEntry.Tapped -= value; }
+        }
         public event EventHandler<FocusEventArgs> WUnfocused
         {
             add { myEntryWeight.Unfocused += value; }
@@ -136,7 +140,6 @@ namespace App11Athletics.Views.Controls
         public void FocusEntry()
         {
             myEntry.Focus();
-
         }
 
         private void MyEntry_OnFocused(object sender, FocusEventArgs e)

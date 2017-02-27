@@ -4,13 +4,18 @@
              NavigationPage.HasNavigationBar="False" SizeChanged="LoginView_OnSizeChanged"
              BackgroundColor="White">
     <RelativeLayout>
-        <Image Aspect="AspectFill"
+        <Image x:Name="imageBG"
+               AnchorX="1" AnchorY="1" Aspect="AspectFill"
                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                       Property=Height}"
                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                      Property=Width}"
                Source="BG.png" />
-        <Grid RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}">
+        <Grid x:Name="gridLogin"
+              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                     Property=Height}"
+              RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                    Property=Width}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="2*" />

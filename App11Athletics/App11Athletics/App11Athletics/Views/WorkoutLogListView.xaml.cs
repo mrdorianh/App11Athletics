@@ -58,39 +58,39 @@ namespace App11Athletics.Views
 
         private void ListView_OnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if (App.Database.GetItemsAsync().Result.Count > 0)
-            {
-                try
-                {
-                    if (labelEmptyList != null)
-                    {
-                        Device.BeginInvokeOnMainThread(() =>
-                        {
-                            labelEmptyList.IsVisible = false;
-                            boxViewBack.IsVisible = false;
-                        });
-                    }
-                }
-                catch (NullReferenceException) { }
-            }
-            else
-            {
-                if (labelEmptyList != null)
-                {
-                    Device.BeginInvokeOnMainThread(() =>
-                    {
-                        labelEmptyList.IsVisible = true;
-                        boxViewBack.IsVisible = true;
-                    });
-                }
-            }
+            //            if (App.Database.GetItemsAsync().Result.Count > 0)
+            //            {
+            //                try
+            //                {
+            //                    if (labelEmptyList != null)
+            //                    {
+            //                        Device.BeginInvokeOnMainThread(() =>
+            //                        {
+            //                            labelEmptyList.IsVisible = false;
+            //                            boxViewBack.IsVisible = false;
+            //                        });
+            //                    }
+            //                }
+            //                catch (NullReferenceException) { }
+            //            }
+            //            else
+            //            {
+            //                if (labelEmptyList != null)
+            //                {
+            //                    Device.BeginInvokeOnMainThread(() =>
+            //                    {
+            //                        labelEmptyList.IsVisible = true;
+            //                        boxViewBack.IsVisible = true;
+            //                    });
+            //                }
+            //            }
         }
 
         private async void TapGestureRecognizerOneRepMax_OnTapped(object sender, EventArgs e)
         {
-            oneRepMaxView.FocusEntry();
-            oneRepMaxView.Clicked += OneRepMaxView_Clicked;
             await oneRepMaxView.TranslateTo(0, 0, 350U, Easing.CubicOut);
+            oneRepMaxView.Clicked += OneRepMaxView_Clicked;
+            oneRepMaxView.FocusEntry();
             MaxUp = true;
 
 
@@ -180,5 +180,11 @@ namespace App11Athletics.Views
         }
 
         #endregion
+
+        private async void OneRepMaxView_OnLiftClicked(object sender, EventArgs e)
+        {
+            Device.BeginInvokeOnMainThread(() => oneRepMaxView.FocusEntry());
+
+        }
     }
 }

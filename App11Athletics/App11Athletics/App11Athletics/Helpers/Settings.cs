@@ -68,7 +68,7 @@ namespace App11Athletics.Helpers
         private static readonly double SettingsUserAlfDefault = 1.0;
 
         private const string SettingsUserAlfString = "user_alfString";
-        private static readonly string SettingsUserAlfStringDefault = string.Empty;
+        private static readonly string SettingsUserAlfStringDefault = "Little to none";
 
         //
         private const string SettingsUserEmail = "user_email";
@@ -126,10 +126,10 @@ namespace App11Athletics.Helpers
         private static readonly bool SettingsUserIsSocialDefault = false;
 
         private const string SettingsOneRMLift = "user_OneRMLift";
-        private static readonly string SettingsOneRMLiftDefault = string.Empty;
+        private static readonly string SettingsOneRMLiftDefault = "ADD EXERCISE";
 
         private const string SettingsOneRMWeight = "user_OneRMWeight";
-        private static readonly string SettingsOneRMWeightDefault = string.Empty;
+        private static readonly string SettingsOneRMWeightDefault = "0";
 
 
 

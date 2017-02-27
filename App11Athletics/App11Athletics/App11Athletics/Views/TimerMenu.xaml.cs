@@ -28,8 +28,8 @@ namespace App11Athletics.Views
         {
             base.OnAppearing();
             CurrentButton = null;
-            AnimatePages.AnimatePageIn(gridTimer);
-            await AnimatePages.AnimatePageIn(gridButtons);
+            AnimatePages.AnimatePageIn(gridTimer, null);
+            await AnimatePages.AnimatePageIn(gridButtons, null);
         }
 
         #endregion
@@ -77,8 +77,8 @@ namespace App11Athletics.Views
                 disabled = true;
                 await imagetimer.RotateTo(180, 350U, Easing.CubicOut);
                 await Task.Delay(100);
-                await AnimatePages.AnimatePageOut(gridTimer);
-                await AnimatePages.AnimatePageOut(gridButtons);
+                await AnimatePages.AnimatePageOut(gridTimer, null);
+                await AnimatePages.AnimatePageOut(gridButtons, null);
                 switch (button.StyleId)
                 {
                     case "t":

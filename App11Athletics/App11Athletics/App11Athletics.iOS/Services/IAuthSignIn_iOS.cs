@@ -10,6 +10,7 @@ using App11Athletics.iOS.Services;
 using Auth0.SDK;
 using Xamarin.Forms.Platform.iOS;
 using Foundation;
+using Newtonsoft.Json;
 using UIKit;
 
 [assembly: Xamarin.Forms.Dependency(typeof(IAuthSignIn_iOS))]
@@ -49,7 +50,7 @@ namespace App11Athletics.iOS.Services
             {
                 var rt = Settings.UserRefreshToken;
                 await client.RefreshToken(rt);
-                var user = this.client.CurrentUser;
+                var user = client.CurrentUser;
                 if (!string.IsNullOrEmpty(user?.RefreshToken))
                 {
                     App.IsUserLoggedIn = true;

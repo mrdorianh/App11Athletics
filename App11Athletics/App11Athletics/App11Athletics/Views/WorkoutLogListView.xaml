@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage x:Class="App11Athletics.Views.WorkoutLogListView" x:Name="pageWorkoutLogList"
+<ContentPage x:Class="App11Athletics.Views.WorkoutLogListView" x:Name="pageWorkoutLogList" Title="Workout Log"
              xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:App11Athletics.Views.Controls;assembly=App11Athletics" xmlns:templates="clr-namespace:App11Athletics.Templates;assembly=App11Athletics"
              SizeChanged="WorkoutLogListView_OnSizeChanged">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Clicked="OnItemAdded" Icon="plusgreen.png" Text="+" />
-    </ContentPage.ToolbarItems>
+    <!--    <ContentPage.ToolbarItems>-->
+    <!--        <ToolbarItem Clicked="OnItemAdded" Icon="plusgreen.png" Text="+" />-->
+    <!--    </ContentPage.ToolbarItems>-->
     <RelativeLayout>
         <Image Aspect="AspectFill"
                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
@@ -19,14 +19,24 @@
               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
                                                                     Property=Width}">
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.85*" />
+                <RowDefinition Height="0.10*" />
+                <RowDefinition Height="0.75*" />
                 <RowDefinition Height="0.15*" />
             </Grid.RowDefinitions>
             <BoxView x:Name="boxViewBack"
                      HorizontalOptions="FillAndExpand" Opacity=".6" VerticalOptions="FillAndExpand"
                      BackgroundColor="{DynamicResource ColorBrandGlobalBlue}" />
+            <Grid Grid.Row="0" Padding="5">
+                <templates:FrameBoxTemplate />
+                <Image Margin="10"
+                       Aspect="AspectFit" Source="plusgreen.png">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnItemAdded" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
             <ListView x:Name="listView"
-                      Grid.Row="0"
+                      Grid.Row="1"
                       HasUnevenRows="True" ItemSelected="OnListItemSelected" PropertyChanged="ListView_OnPropertyChanged" SeparatorColor="Gray" SeparatorVisibility="Default">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -103,12 +113,12 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <Label x:Name="labelEmptyList"
-                   HorizontalTextAlignment="Center"
-                   FontSize="40" FontAttributes="Bold" TextColor="White"
-                   HorizontalOptions="CenterAndExpand" Text="Add Some Exercises!" VerticalOptions="CenterAndExpand" />
+            <!--  <Label x:Name="labelEmptyList"  -->
+            <!--  HorizontalTextAlignment="Center"  -->
+            <!--  FontSize="40" FontAttributes="Bold" TextColor="White"  -->
+            <!--  HorizontalOptions="CenterAndExpand" Text="Add Some Exercises!" VerticalOptions="CenterAndExpand" />  -->
             <Grid x:Name="gridOneRepMax"
-                  Grid.Row="1"
+                  Grid.Row="2"
                   Padding="5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -165,9 +175,9 @@
             </Grid>
             <controls:OneRepMax x:Name="oneRepMaxView"
                                 Grid.Row="0" Grid.RowSpan="2"
-                                WClicked="OneRepMaxView_OnWClicked" WFocused="OneRepMaxView_OnWFocused" WUnfocused="OneRepMaxView_OnWUnfocused" />
+                                LiftClicked="OneRepMaxView_OnLiftClicked" WClicked="OneRepMaxView_OnWClicked" WFocused="OneRepMaxView_OnWFocused" WUnfocused="OneRepMaxView_OnWUnfocused" />
             <Grid x:Name=" viewWeightOptions"
-                  Grid.Row="0"
+                  Grid.Row="1"
                   Margin="30"
                   HorizontalOptions="FillAndExpand" VerticalOptions="Center">
                 <templates:FrameBoxTemplate />

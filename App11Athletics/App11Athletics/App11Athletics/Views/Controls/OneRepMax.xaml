@@ -34,7 +34,7 @@
                    Text="{Binding Source={x:Reference myEntry},
                                   Path=Text}">
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
+                    <TapGestureRecognizer x:Name="tapGestureRecognizerLabelEntry" Tapped="TapGestureRecognizer_OnTapped" />
                 </Label.GestureRecognizers>
             </Label>
             <StackLayout Grid.Row="2"
@@ -46,7 +46,7 @@
                                       Path=Value,
                                       StringFormat='{0} Reps'}" />
                 <Stepper x:Name="stepperReps"
-                         HorizontalOptions="EndAndExpand" Minimum="2"
+                         HorizontalOptions="EndAndExpand" Minimum="2" VerticalOptions="Center"
                          Value="2" />
             </StackLayout>
             <StackLayout Grid.Row="3"
@@ -61,7 +61,8 @@
                 <controls:MyEntry x:Name="myEntryWeight"
                                   HorizontalOptions="EndAndExpand" IsVisible="False" Keyboard="Numeric" MaxLength="3" Text="175" TextChanged="MyEntryWeight_OnTextChanged" Unfocused="MyEntryWeight_OnUnfocused" />
                 <Button x:Name="buttonWeight"
-                        FontSize="Small" TextColor="White"
+                        FontSize="Micro" TextColor="White"
+                        Margin="5,0" WidthRequest="120"
                         Clicked="Button_OnClicked" HorizontalOptions="EndAndExpand" Text="Change Weight"
                         BackgroundColor="{StaticResource ColorBrandGlobalBlue}" />
             </StackLayout>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Android.Widget;
 using App11Athletics.Helpers;
 using App11Athletics.Models;
 using Xamarin.Forms;
@@ -14,6 +15,13 @@ namespace App11Athletics.Views
         public WorkoutLogOptionsView()
         {
             InitializeComponent();
+            Device.StartTimer(TimeSpan.FromMilliseconds(100), OnTimerTick);
+        }
+
+        private bool OnTimerTick()
+        {
+            buttonSave.IsEnabled = !string.IsNullOrEmpty(nameEntry.Text);
+            return true;
         }
 
         async void OnSaveClicked(object sender, EventArgs e)

@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using App11Athletics.Helpers;
 using App11Athletics.Models;
-using App11Athletics.Models;
 using App11Athletics.Templates;
 using App11Athletics.DHCToolkit;
 using App11Athletics.ViewModels;
@@ -20,11 +19,14 @@ namespace App11Athletics.Views
         public UserProfileView()
         {
             InitializeComponent();
+
+            imageBG.Opacity = 0;
+            gridMain.Opacity = 0;
             PageLabels = new List<Label>();
             BigGridLabels = new List<Label>();
             PageLabels.AddRange(new[]
             {
-                labelAge, labelGender, labelHeightFt, labelHeightInMark, labelHeightInch, labelHeightftMark,
+                labelAge, labelGender, labelHeightFt, labelHeightInMark, labelHeightIn, labelHeightftMark,
                 labelWeight
             });
             BigGridLabels.AddRange(new[]
@@ -32,15 +34,24 @@ namespace App11Athletics.Views
                 labelActivityLevel, labelBmr, labelDce
             });
             gridMain.BindingContext = new UserProfileModel();
-            changeOptions.TranslationY = 1500;
+
+            gridGenderOptions.TranslationY = 1500;
+            gridAgeOptions.TranslationY = 1500;
+            gridWeightOptions.TranslationY = 1500;
+            gridHeightOptions.TranslationY = 1500;
+
             ActivityLevel = Settings.UserAlfString;
             labelWeight.Text = Settings.UserWeight;
             labelAge.Text = Settings.UserAge;
             labelHeightFt.Text = Settings.UserHeightFt;
-            labelHeightInch.Text = Settings.UserHeightIn;
-            changeOptions.HeightFtValue = Convert.ToDouble(labelHeightFt.Text);
-            changeOptions.HeightInValue = Convert.ToDouble(labelHeightInch.Text);
+            labelHeightIn.Text = Settings.UserHeightIn;
+            stepperHeightFt.Value = Convert.ToDouble(Settings.UserHeightFt);
+            stepperHeightIn.Value = Convert.ToDouble(Settings.UserHeightIn);
+
+            //            changeOptions.HeightFtValue = Convert.ToDouble(labelHeightFt.Text);
+            //            changeOptions.HeightInValue = Convert.ToDouble(labelHeightInch.Text);
             var g = Settings.UserGender;
+
             if (g == "male")
             {
                 labelGender.Text = "M";
@@ -52,8 +63,10 @@ namespace App11Athletics.Views
             //            labelBmr.Text = Settings.UserBmr;
             //            labelDce.Text = Settings.UserDce;
             CalorieCalc();
-            boxView.InputTransparent = true;
+
         }
+
+        public bool Disable { get; set; }
 
         public string GivenName => Settings.UserGivenName;
         public string HeightFt { get; set; }
@@ -67,9 +80,17 @@ namespace App11Athletics.Views
 
         protected override async void OnAppearing()
         {
+            imageBG.Opacity = 0;
+            gridMain.Opacity = 0;
+            imageBG.Scale = 0;
+            imageBG.Opacity = 0.4;
             base.OnAppearing();
-            await AnimatePages.AnimatePageIn(gridMain);
+            await Task.Delay(100);
+            await imageBG.ScaleTo(0.8, 400U, Easing.SpringOut);
 
+            AnimatePages.AnimatePageIn(gridMain, imageBG);
+            await gridMain.FadeTo(1, 350, Easing.CubicOut);
+            //            Disable = true;
         }
 
         #endregion
@@ -80,6 +101,7 @@ namespace App11Athletics.Views
         public ICommand labelchange { get; set; }
 
         public double DFontSize { get; private set; }
+        public double OptionsTitleFontSize { get; set; }
 
         public double BGWidth { get; set; }
 
@@ -88,6 +110,7 @@ namespace App11Athletics.Views
         private void UserProfileView_OnSizeChanged(object sender, EventArgs e)
         {
             BGWidth = Width / 2;
+            OptionsTitleFontSize = Width / 6;
             if (PageLabels == null)
                 return;
             DFontSize = gridGender.Width / 3;
@@ -101,193 +124,52 @@ namespace App11Athletics.Views
             {
                 label.FontSize = DFontSize / 1.5;
             }
-        }
+            GenderTitle.FontSize = OptionsTitleFontSize;
+            AgeTitle.FontSize = OptionsTitleFontSize;
+            labelAgeEntry.FontSize = OptionsTitleFontSize / 1.2;
+            WeightTitle.FontSize = OptionsTitleFontSize;
+            labelWeightEntry.FontSize = OptionsTitleFontSize / 1.2;
+            HeightTitle.FontSize = OptionsTitleFontSize;
 
-        private async void MenuItem_OnClicked(object sender, EventArgs e)
-        {
-            // await Navigation.PushModalAsync(new NavigationPage(new AuthUserSignIn()));
-            await DependencyService.Get<IAuthSignIn>().AuthRefresh();
         }
 
         private async void Logout_OnClicked(object sender, EventArgs e)
         {
-            await DependencyService.Get<IAuthSignIn>().AuthLogOut();
-        }
+            var das = await DisplayActionSheet("Are you sure you want to Logout?", "Cancel", null, "Yes");
 
-        private void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
-        {
-            boxView.InputTransparent = false;
-            var boxtap = (BoxView)sender;
-
-            var cp = boxtap.StyleId;
-            changeOptions.OptionsPlaceholder = cp;
-            foreach (var view in gridMain.Children)
+            switch (das)
             {
-                view.FadeTo(0.4, 400U, Easing.SinInOut);
+                case "View Bio":
+                    await DependencyService.Get<IAuthSignIn>().AuthLogOut();
+                    Navigation.InsertPageBefore(new LoginView(), Navigation.NavigationStack[0]);
+                    await Task.Delay(100);
+                    await Navigation.PopToRootAsync();
+                    break;
             }
-            changeOptions.EntryVisible = false;
-            changeOptions.GenderVisible = false;
-            changeOptions.HeightVisible = false;
-            switch (cp)
-            {
-                case "Gender":
-                    {
-                        changeOptions.GenderVisible = true;
-                        changeOptions.MaleClicked += ChangeOptionsOnMaleClicked;
-                        //                        changeOptions.GenderFocus();
-                        break;
-                    }
-                case "Age":
-                    {
-                        changeOptions.OptionsInput = "";
-                        changeOptions.OptionsMaxLength = 3;
-                        changeOptions.OptionsKeyboard = Keyboard.Numeric;
-                        changeOptions.EntryVisible = true;
-                        changeOptions.AgeUnfocused += ChangeOptionsAgeUnfocused;
-                        changeOptions.Focus();
-                        break;
-                    }
-                case "Weight":
-                    {
-                        changeOptions.OptionsInput = "";
-                        changeOptions.OptionsMaxLength = 3;
-                        changeOptions.OptionsKeyboard = Keyboard.Numeric;
-                        changeOptions.EntryVisible = true;
-                        changeOptions.WeightUnfocused += ChangeOptionsOnWeightUnfocused;
-                        changeOptions.Focus();
-                        break;
-                    }
-                case "Height":
-                    {
-                        changeOptions.HeightVisible = true;
-                        changeOptions.HeightClicked += ChangeOptionsOnHeightClicked;
-                        break;
-                    }
-
-            }
-            changeOptions.TranslateTo(0, 0, 400U, Easing.CubicInOut);
-        }
-
-        private void ChangeOptionsOnHeightClicked(object sender, EventArgs eventArgs)
-        {
-            boxView.InputTransparent = true;
-            foreach (var view in gridMain.Children)
-            {
-                view.FadeTo(1, 400U, Easing.SinInOut);
-            }
-            changeOptions.TranslateTo(0, 1500, 600U, Easing.CubicInOut);
-            changeOptions.HeightClicked -= ChangeOptionsOnHeightClicked;
-            labelHeightFt.Text = changeOptions.HeightFtOutput;
-            labelHeightInch.Text = changeOptions.HeightInOutput;
-            var vf = Settings.UserHeightFt;
-            var vi = Settings.UserHeightIn;
-            Settings.UserHeightFt = labelHeightFt.Text;
-            Settings.UserHeightIn = labelHeightInch.Text;
-            if (Settings.UserHeightFt != vf || vi != Settings.UserHeightIn)
-                CalorieCalc();
-
-
+            //            await DependencyService.Get<IAuthSignIn>().AuthLogOut();
+            //            Navigation.InsertPageBefore(new LoginView(), Navigation.NavigationStack[0]);
+            //            await Task.Delay(100);
+            //            await Navigation.PopToRootAsync();
 
         }
 
-        private void ChangeOptionsOnWeightUnfocused(object sender, FocusEventArgs focusEventArgs)
+        #region Overrides of Page
+
+        protected override async void OnDisappearing()
         {
-            boxView.InputTransparent = true;
-            foreach (var view in gridMain.Children)
-            {
-                view.FadeTo(1, 400U, Easing.SinInOut);
-            }
-            changeOptions.TranslateTo(0, 1500, 600U, Easing.CubicInOut);
-            changeOptions.WeightUnfocused -= ChangeOptionsOnWeightUnfocused;
-            if (!string.IsNullOrEmpty(changeOptions.OptionsOutput))
-                labelWeight.Text = changeOptions.OptionsOutput;
-            else
-            {
-                labelWeight.Text = "--";
-                CalorieCalc();
+            base.OnDisappearing();
+            //            imageBG.ScaleTo(0, 350U, Easing.CubicOut);
+            await AnimatePages.AnimatePageOut(gridMain, imageBG);
+        }
+
+        #endregion
+
+        private async void TapGestureRecognizerActivityLevel_OnTapped(object sender, EventArgs e)
+        {
+            //            Disable = false;
+            if (alfPicker.IsFocused)
                 return;
-            }
-            var v = Settings.UserWeight;
-            if (!string.IsNullOrEmpty(labelWeight.Text))
-            {
-                Settings.UserWeight = labelWeight.Text;
-                if (Settings.UserWeight == v)
-                    return;
-            }
-            else
-            {
-                labelWeight.Text = "--";
-            }
-            if (Convert.ToDouble(labelWeight.Text) < 85)
-                labelWeight.Text = "--";
-            CalorieCalc();
-
-        }
-
-
-
-        private void ChangeOptionsOnMaleClicked(object sender, EventArgs eventArgs)
-        {
-            boxView.InputTransparent = true;
-            foreach (var view in gridMain.Children)
-            {
-                view.FadeTo(1, 400U, Easing.SinInOut);
-            }
-            changeOptions.TranslateTo(0, 1500, 600U, Easing.CubicInOut);
-            var g = changeOptions.GenderOutput;
-            if (g == "male")
-            {
-                labelGender.Text = "M";
-            }
-            else if (g == "female")
-            {
-                labelGender.Text = "F";
-            }
-            changeOptions.MaleClicked -= ChangeOptionsOnMaleClicked;
-            var v = Settings.UserGender;
-            Settings.UserGender = g;
-            if (Settings.UserGender != v)
-                CalorieCalc();
-
-        }
-
-        public void ChangeOptionsAgeUnfocused(object sender, FocusEventArgs e)
-        {
-            boxView.InputTransparent = true;
-            foreach (var view in gridMain.Children)
-            {
-                view.FadeTo(1, 400U, Easing.SinInOut);
-            }
-            changeOptions.TranslateTo(0, 1500, 600U, Easing.CubicInOut);
-            changeOptions.AgeUnfocused -= ChangeOptionsAgeUnfocused;
-            if (!string.IsNullOrEmpty(changeOptions.OptionsOutput))
-                labelAge.Text = changeOptions.OptionsOutput;
-            else
-            {
-                labelAge.Text = "--";
-                CalorieCalc();
-                return;
-            }
-            var v = Settings.UserAge;
-            if (!string.IsNullOrEmpty(labelAge.Text))
-            {
-                Settings.UserAge = labelAge.Text;
-                if (Settings.UserAge == v)
-                    return;
-            }
-            else
-            {
-                labelAge.Text = "--";
-            }
-            if (Convert.ToDouble(labelAge.Text) < 10)
-                labelAge.Text = "--";
-            CalorieCalc();
-
-        }
-
-        private void TapGestureRecognizerActivityLevel_OnTapped(object sender, EventArgs e)
-        {
-            boxView.InputTransparent = false;
+            await Task.Delay(100);
             alfPicker.Focus();
         }
 
@@ -346,11 +228,12 @@ namespace App11Athletics.Views
                         //                    Male BMR
                         bmr = 66 + (6.23 * Convert.ToDouble(userWeight)) + (12.7 * h) - (6.8 * Convert.ToDouble(userAge));
                         dce = af * bmr;
-                        Settings.UserDce = dce.ToString();
-                        Settings.UserBmr = bmr.ToString();
+                        Settings.UserDce = $"{dce:#}";
+                        Settings.UserBmr = $"{bmr:#}";
                         break;
                 }
             });
+            //            boxView.InputTransparent = true;
             await AnimateCalories();
         }
 
@@ -368,15 +251,17 @@ namespace App11Athletics.Views
 
         }
 
-        public void AlfPicker_OnSelectedIndexChanged(object sender, EventArgs e)
+        private void AlfPicker_OnUnfocused(object sender, FocusEventArgs e)
         {
-            boxView.InputTransparent = true;
-            var p = (Picker)sender;
-            ActivityLevel = alfPicker.Items[alfPicker.SelectedIndex];
-            labelActivityLevel.Text = ActivityLevel;
-            var v = Settings.UserAlf;
-            Settings.UserAlfString = labelActivityLevel.Text;
-
+            //            Disable = true;
+            if (alfPicker.SelectedIndex != -1)
+                ActivityLevel = alfPicker.Items[alfPicker.SelectedIndex];
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                labelActivityLevel.Text = ActivityLevel;
+                Settings.UserAlfString = labelActivityLevel.Text;
+            }
+        );
             if (alfPicker.SelectedIndex == -1)
             { }
             else
@@ -409,16 +294,133 @@ namespace App11Athletics.Views
                 }
             }
             CalorieCalc();
+            //            Disable = false;
         }
 
-        private async void LPMenuItem_OnClicked(object sender, EventArgs e)
+        private async void TapGestureRecognizerHeight_OnTapped(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new LoginView());
+            await gridHeightOptions.TranslateTo(0, 0, 400U, Easing.CubicInOut);
         }
 
-        private void AlfPicker_OnUnfocused(object sender, FocusEventArgs e)
+        private async void TapGestureRecognizerWeight_OnTapped(object sender, EventArgs e)
         {
-            boxView.InputTransparent = true;
+            await gridWeightOptions.TranslateTo(0, 0, 400U, Easing.CubicInOut);
+            WeightOptionsEntry.Focus();
+        }
+
+        private async void TapGestureRecognizerAge_OnTapped(object sender, EventArgs e)
+        {
+            await gridAgeOptions.TranslateTo(0, 0, 400U, Easing.CubicInOut);
+            AgeOptionsEntry.Focus();
+        }
+
+        private async void TapGestureRecognizerGender_OnTapped(object sender, EventArgs e)
+        {
+            await gridGenderOptions.TranslateTo(0, 0, 400U, Easing.CubicInOut);
+        }
+
+        private async void GenderMaleButton_OnClicked(object sender, EventArgs e)
+        {
+            labelGender.Text = "M";
+            var v = Settings.UserGender;
+            var g = "male";
+            Settings.UserGender = g;
+            await gridGenderOptions.TranslateTo(0, 1500, 400U, Easing.CubicInOut);
+            if (Settings.UserGender != v)
+                CalorieCalc();
+        }
+
+        private async void GenderFemaleButton_OnClicked(object sender, EventArgs e)
+        {
+            labelGender.Text = "F";
+            var v = Settings.UserGender;
+            var g = "female";
+            Settings.UserGender = g;
+            await gridGenderOptions.TranslateTo(0, 1500, 400U, Easing.CubicInOut);
+            if (Settings.UserGender != v)
+                CalorieCalc();
+        }
+
+        private void AgeOptionsEntry_OnUnfocused(object sender, FocusEventArgs e)
+        {
+            gridAgeOptions.TranslateTo(0, 1500, 600U, Easing.CubicInOut);
+            if (!string.IsNullOrEmpty(AgeOptionsEntry.Text) && !AgeOptionsEntry.Text.Contains("."))
+                labelAge.Text = AgeOptionsEntry.Text;
+            else
+            {
+                labelAge.Text = "--";
+                CalorieCalc();
+                return;
+            }
+            var v = Settings.UserAge;
+            if (!string.IsNullOrEmpty(labelAge.Text))
+            {
+                Settings.UserAge = labelAge.Text;
+                if (Settings.UserAge == v)
+                    return;
+            }
+            else
+            {
+                labelAge.Text = "--";
+            }
+            if (Convert.ToDouble(labelAge.Text) < 10 || Convert.ToDouble(labelAge.Text) > 100)
+                labelAge.Text = "--";
+            CalorieCalc();
+        }
+
+        private void AgeOptionsEntry_OnFocused(object sender, FocusEventArgs e)
+        {
+            AgeOptionsEntry.Text = string.Empty;
+        }
+
+        private void WeightOptionsEntry_OnFocused(object sender, FocusEventArgs e) { WeightOptionsEntry.Text = string.Empty; }
+
+        private void WeightOptionsEntry_OnUnfocused(object sender, FocusEventArgs e)
+        {
+            gridWeightOptions.TranslateTo(0, 1500, 600U, Easing.CubicInOut);
+            if (!string.IsNullOrEmpty(WeightOptionsEntry.Text) && !WeightOptionsEntry.Text.Contains("."))
+                labelWeight.Text = WeightOptionsEntry.Text;
+            else
+            {
+                labelWeight.Text = "--";
+                CalorieCalc();
+                return;
+            }
+            var v = Settings.UserWeight;
+            if (!string.IsNullOrEmpty(labelWeight.Text))
+            {
+                Settings.UserWeight = labelWeight.Text;
+                if (Settings.UserWeight == v)
+                    return;
+            }
+            else
+            {
+                labelWeight.Text = "--";
+            }
+            if (Convert.ToDouble(labelWeight.Text) < 85)
+                labelWeight.Text = "--";
+
+            CalorieCalc();
+        }
+
+        private void ButtonEnterHeight_OnClicked(object sender, EventArgs e)
+        {
+            HeightFt = stepperHeightFt.Value.ToString();
+            HeightIn = stepperHeightIn.Value.ToString();
+            var hf = Settings.UserHeightFt;
+            var hi = Settings.UserHeightIn;
+            var b = false;
+            if (hf != HeightFt || hi != HeightIn)
+            {
+                Settings.UserHeightFt = HeightFt;
+                Settings.UserHeightIn = HeightIn;
+                b = true;
+            }
+            labelHeightFt.Text = HeightFt;
+            labelHeightIn.Text = HeightIn;
+            gridHeightOptions.TranslateTo(0, 1500, 600U, Easing.CubicInOut);
+            if (b)
+                CalorieCalc();
         }
     }
 }

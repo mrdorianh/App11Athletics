@@ -28,7 +28,7 @@ namespace App11Athletics.Views
         {
             base.OnAppearing();
 
-            await AnimatePages.AnimatePageIn(gridDiscover);
+            await AnimatePages.AnimatePageIn(gridDiscover, null);
         }
 
         #region Overrides of Page
@@ -46,7 +46,7 @@ namespace App11Athletics.Views
         protected override async void OnDisappearing()
         {
             base.OnDisappearing();
-            await AnimatePages.AnimatePageOut(gridDiscover);
+            await AnimatePages.AnimatePageOut(gridDiscover, null);
 
         }
 

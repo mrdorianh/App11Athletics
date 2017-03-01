@@ -48,6 +48,7 @@
     <Compile Include="DHCToolkit\ShadowEffect.cs" />
     <Compile Include="DHCToolkit\StringToBoolConverter.cs" />
     <Compile Include="Helpers\IAuthSignIn.cs" />
+    <Compile Include="Helpers\ICleanUp.cs" />
     <Compile Include="Helpers\IFileHelper.cs" />
     <Compile Include="Helpers\ISQLite.cs" />
     <Compile Include="Helpers\ITextToSpeech.cs" />

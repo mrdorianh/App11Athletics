@@ -83,7 +83,7 @@ namespace App11Athletics.ViewModels.Timers
             return TimerRunning;
         }
 
-        public void StopTimer()
+        public virtual void StopTimer()
         {
             ResumeDateTime = TimerTimeSpan;
         }

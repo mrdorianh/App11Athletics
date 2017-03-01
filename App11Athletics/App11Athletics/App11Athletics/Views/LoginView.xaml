@@ -3,46 +3,41 @@
              xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              NavigationPage.HasNavigationBar="False" SizeChanged="LoginView_OnSizeChanged"
              BackgroundColor="White">
-    <RelativeLayout>
-        <Image x:Name="imageBG"
-               AnchorX="1" AnchorY="1" Aspect="AspectFill"
-               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                      Property=Height}"
-               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                     Property=Width}"
-               Source="BG.png" />
-        <Grid x:Name="gridLogin"
-              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                     Property=Height}"
-              RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                    Property=Width}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1.5*" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
 
-            <StackLayout x:Name="stackLayoutLoginView"
-                         Grid.Row="0"
-                         Grid.Column="1"
-                         VerticalOptions="End">
-                <Image Aspect="AspectFit" Source="iconbevel.png">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_OnTapped" />
-                    </Image.GestureRecognizers>
-                </Image>
-                <Label x:Name="label"
-                       BindingContext="{x:Reference contentPageLoginView}"
-                       HorizontalTextAlignment="Center"
-                       FontSize="{Binding LabelLoginText}"
-                       FontAttributes="Bold"
-                       TextColor="{StaticResource ColorBrandGlobalBlue}"
-                       Text="Login" />
-            </StackLayout>
-        </Grid>
-    </RelativeLayout>
+    <!--  <Image x:Name="imageBG"  -->
+    <!--  AnchorX="1" AnchorY="1" Aspect="AspectFill"  -->
+    <!--  RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,  -->
+    <!--  Property=Height}"  -->
+    <!--  RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,  -->
+    <!--  Property=Width}"  -->
+    <!--  Source="BG.png" />  -->
+    <Grid x:Name="gridLogin">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackLayout x:Name="stackLayoutLoginView"
+                     Grid.Row="0"
+                     Grid.Column="1"
+                     VerticalOptions="End">
+            <Image Aspect="AspectFit" Source="iconbevel.png">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_OnTapped" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Label x:Name="label"
+                   BindingContext="{x:Reference contentPageLoginView}"
+                   HorizontalTextAlignment="Center"
+                   FontSize="{Binding LabelLoginText}"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource ColorBrandGlobalBlue}"
+                   Text="Login" />
+        </StackLayout>
+    </Grid>
 </ContentPage>

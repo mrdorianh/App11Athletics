@@ -7,18 +7,18 @@ using System.Text;
 using System.Threading.Tasks;
 using Android.Bluetooth;
 using App11Athletics.DHCToolkit;
+using App11Athletics.Helpers;
 using App11Athletics.ViewModels.Timers;
 using Xamarin.Forms;
 
 namespace App11Athletics.Views.Timers
 {
-    public partial class TabataFeatureView : ContentPage
+    public partial class TabataFeatureView : ContentPage, ICleanUp
     {
         public TabataFeatureView()
         {
             InitializeComponent();
-            gridTabataPage.Opacity = 0;
-            imageBG.Opacity = 0;
+
             TabataFeatureViewModel = new TabataFeatureViewModel();
             BindingContext = TabataFeatureViewModel;
 
@@ -27,6 +27,8 @@ namespace App11Athletics.Views.Timers
             WorkTimeText = WorkTimePrevious;
             //            tabataOptions.TranslationY = 0;
             //            labelAnimateStatus.Opacity = 0;
+            gridTabataPage.Opacity = 0;
+            imageBG.Opacity = 0;
 
         }
 
@@ -38,7 +40,7 @@ namespace App11Athletics.Views.Timers
             {
                 if (!tabataOptions.Valid)
                     return true;
-                tabataOptions.TranslateTo(0, Height, 350U, Easing.CubicOut);
+                gridTabataOptions.TranslateTo(0, Height, 350U, Easing.CubicOut);
                 TabataOptionsUp = false;
                 return true;
             }
@@ -54,11 +56,11 @@ namespace App11Athletics.Views.Timers
             //            imageBG.ScaleTo(1, 350U, Easing.CubicOut);
             imageBG.TranslationX = Width / 2;
             imageBG.TranslationY = -Height;
-            imageBG.FadeTo(0.5, 200U, Easing.CubicOut);
-            AnimatePages.BgLogoTask(imageBG, Width / 2, Height / 2);
-            await Task.Delay(1000);
+            imageBG.FadeTo(0.2, 200U, Easing.CubicOut);
+            await AnimatePages.BgLogoTask(imageBG, Width / 2, Height / 2);
+            await Task.Delay(200);
             gridTabataPage.FadeTo(1, 200U, Easing.CubicOut);
-            await AnimatePages.AnimatePageIn(gridTabataPage, imageBG);
+            await AnimatePages.AnimatePageIn(gridTabataPage, null);
 
             await Task.Delay(400);
             //            imageBG.ScaleTo(1, 350U, Easing.CubicOut);
@@ -68,7 +70,8 @@ namespace App11Athletics.Views.Timers
         {
             base.OnDisappearing();
             //            imageBG.ScaleTo(0, 350U, Easing.CubicOut);
-            await AnimatePages.AnimatePageOut(gridTabataPage, imageBG);
+            await AnimatePages.AnimatePageOut(gridTabataPage, null);
+            await Cleanup();
         }
         #endregion
 
@@ -127,12 +130,14 @@ namespace App11Athletics.Views.Timers
 
         }
 
-        private void TabataOptions_OnClicked(object sender, EventArgs e)
+        private async void TabataOptions_OnClicked(object sender, EventArgs e)
         {
             TabataFeatureViewModel.TotalRounds = Convert.ToInt32(tabataOptions.TotalRounds);
             TabataFeatureViewModel.TotalRoundTimeTimeSpan = TimeSpan.FromMinutes(tabataOptions.TimeOnMinutes) + TimeSpan.FromSeconds(tabataOptions.TimeOnSeconds);
             TabataFeatureViewModel.TotalTimeOffTimeSpan = TimeSpan.FromMinutes(tabataOptions.TimeOffMinutes) + TimeSpan.FromSeconds(tabataOptions.TimeOffSeconds);
-            tabataOptions.TranslateTo(0, Height, 350U, Easing.CubicIn);
+            TabataFeatureViewModel.ElapsedTimeSpan = TabataFeatureViewModel.TotalRoundTimeTimeSpan;
+            await gridTabataOptions.TranslateTo(0, Height, 350U, Easing.CubicIn);
+            await Task.Delay(100);
             TabataOptionsUp = false;
         }
 
@@ -141,8 +146,26 @@ namespace App11Athletics.Views.Timers
             if (TabataOptionsUp || TabataFeatureViewModel.TimerRunning)
                 return;
             TabataOptionsUp = true;
-            await tabataOptions.TranslateTo(0, 0, 350U, Easing.CubicIn);
+            await gridTabataOptions.TranslateTo(0, 0, 350U, Easing.CubicIn);
             TabataFeatureViewModel.ResetCommandMethod();
         }
+
+        #region Implementation of ICleanUp
+
+        public async Task Cleanup()
+        {
+            await Task.Run(() =>
+            {
+                TabataFeatureViewModel.ResetCommandMethod();
+                TabataFeatureViewModel = null;
+                Content = null;
+                this.BindingContext = null;
+                GC.Collect();
+            });
+        }
+
     }
+
+    #endregion
 }
+

@@ -38,8 +38,8 @@ namespace App11Athletics.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            imageBG.ScaleTo(1, 350U, Easing.CubicOut);
-            await AnimatePages.AnimatePageIn(gridLogin, imageBG);
+
+            await AnimatePages.AnimatePageIn(gridLogin, null);
         }
 
         #endregion
@@ -86,7 +86,7 @@ namespace App11Athletics.Views
                 //lets test this later as Reset Main
                 await Task.Delay(100);
                 //                imageBG.ScaleTo(0, 350U, Easing.CubicOut);
-                await AnimatePages.AnimatePageOut(gridLogin, imageBG);
+                await AnimatePages.AnimatePageOut(gridLogin, null);
                 await Navigation.PopAsync();
                 //Navigation.InsertPageBefore(new CarouselPageMenu(), this);
             }

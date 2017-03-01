@@ -24,8 +24,6 @@
                 <RowDefinition Height="2*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-
-
             <svm:BaseTimeView Grid.Row="0"
                               Padding="10"
                               Scale="1" />
@@ -35,7 +33,7 @@
                       Grid.Row="1"
                       IsEnabled="False" ItemAppearing="ListLapTime_OnItemAppearing"
                       ItemsSource="{Binding LapTime}"
-                      SeparatorColor="#4C005EBF" SeparatorVisibility="Default"
+                      SeparatorColor="#4C005EBF" SeparatorVisibility="None"
                       BackgroundColor="Transparent">
                 <ListView.ItemTemplate>
                     <DataTemplate>

@@ -52,7 +52,7 @@ namespace App11Athletics.ViewModels.Timers
             }
             if (TimerRunning)
             {
-                TimerTimeSpan = TotalRoundTimeTimeSpan - DateTime.Now.Subtract(StartDateTime);
+                TimerTimeSpan = ElapsedTimeSpan - DateTime.Now.Subtract(StartDateTime);
             }
 
             if (WorkRound)
@@ -62,6 +62,7 @@ namespace App11Athletics.ViewModels.Timers
                     return TimerRunning;
                 }
                 TimerTimeSpan = TimeSpan.Zero;
+                ElapsedTimeSpan = TotalTimeOffTimeSpan;
                 WorkRound = false;
                 if (CurrentRound == TotalRounds)
                 {
@@ -87,6 +88,7 @@ namespace App11Athletics.ViewModels.Timers
                 return Stop;
             }
             CurrentRound = UpdateRound(CurrentRound, TotalRounds);
+            ElapsedTimeSpan = TotalRoundTimeTimeSpan;
             WorkRound = true;
             WorkTime = "Work Time!";
             StartDateTime = DateTime.Now;

@@ -72,14 +72,14 @@
     <MtouchUseLlvm>False</MtouchUseLlvm>
     <MtouchUseThumb>False</MtouchUseThumb>
     <MtouchEnableBitcode>False</MtouchEnableBitcode>
-    <MtouchUseSGen>False</MtouchUseSGen>
+    <MtouchUseSGen>True</MtouchUseSGen>
     <MtouchUseRefCounting>False</MtouchUseRefCounting>
     <OptimizePNGs>True</OptimizePNGs>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchFloat32>False</MtouchFloat32>
     <CodesignProvision>3b52130a-27cf-4861-9f02-cb4493e29981</CodesignProvision>
-    <DeviceSpecificBuild>False</DeviceSpecificBuild>
+    <DeviceSpecificBuild>True</DeviceSpecificBuild>
     <MtouchNoSymbolStrip>True</MtouchNoSymbolStrip>
     <IOSDebugOverWiFi>False</IOSDebugOverWiFi>
     <IOSDebuggerPort>10000</IOSDebuggerPort>
@@ -282,31 +282,15 @@
   <ItemGroup>
     <Content Include="FodyWeavers.xml" />
     <BundleResource Include="Resources\addToProfile.png" />
-    <BundleResource Include="Resources\addToProfile%402x.png" />
-    <BundleResource Include="Resources\BG.png" />
-    <BundleResource Include="Resources\BG%401.5x.png" />
     <BundleResource Include="Resources\check.png" />
     <BundleResource Include="Resources\checkgreen.png" />
     <BundleResource Include="Resources\document.png" />
-    <BundleResource Include="Resources\document%402x.png" />
-    <BundleResource Include="Resources\document%403x.png" />
     <BundleResource Include="Resources\icon.png" />
-    <BundleResource Include="Resources\icon%402x.png" />
-    <BundleResource Include="Resources\icon%403x.png" />
-    <BundleResource Include="Resources\icon%404x.png" />
     <BundleResource Include="Resources\iconbevel.png" />
-    <BundleResource Include="Resources\iconbevel%402x.png" />
-    <BundleResource Include="Resources\iconbevel%403x.png" />
     <BundleResource Include="Resources\lightning.png" />
-    <BundleResource Include="Resources\lightning%402x.png" />
-    <BundleResource Include="Resources\lightning%403x.png" />
     <BundleResource Include="Resources\plusblue.png" />
-    <BundleResource Include="Resources\plusblue%402x.png" />
-    <BundleResource Include="Resources\plusblue%403x.png" />
     <BundleResource Include="Resources\plusgreen.png" />
     <BundleResource Include="Resources\speedtimer.png" />
-    <BundleResource Include="Resources\speedtimer%402x.png" />
-    <BundleResource Include="Resources\speedtimer%403x.png" />
     <BundleResource Include="Resources\arrows.png" />
     <BundleResource Include="Resources\bluedot.png" />
     <Content Include="Resources\video.mp4" />

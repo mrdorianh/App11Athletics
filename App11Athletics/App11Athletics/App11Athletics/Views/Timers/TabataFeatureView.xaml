@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage x:Class="App11Athletics.Views.Timers.TabataFeatureView" Title="Tabata Timer"
              xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:anim="clr-namespace:App11Athletics.Views;assembly=App11Athletics" xmlns:controls="clr-namespace:App11Athletics.Views.Controls;assembly=App11Athletics" xmlns:templates="clr-namespace:App11Athletics.Templates;assembly=App11Athletics" xmlns:timers="clr-namespace:App11Athletics.ViewModels.Timers;assembly=App11Athletics" xmlns:timers1="clr-namespace:App11Athletics.Views.Timers;assembly=App11Athletics">
+             xmlns:anim="clr-namespace:App11Athletics.Views;assembly=App11Athletics" xmlns:controls="clr-namespace:App11Athletics.Views.Controls;assembly=App11Athletics" xmlns:templates="clr-namespace:App11Athletics.Templates;assembly=App11Athletics" xmlns:timers="clr-namespace:App11Athletics.ViewModels.Timers;assembly=App11Athletics" xmlns:timers1="clr-namespace:App11Athletics.Views.Timers;assembly=App11Athletics"
+             BindingContext="{Binding}">
     <!--    <ContentPage.BindingContext>-->
     <!--        <timers:TabataFeatureViewModel />-->
     <!--    </ContentPage.BindingContext>-->

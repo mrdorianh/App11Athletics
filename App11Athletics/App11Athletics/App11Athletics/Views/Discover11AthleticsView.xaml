@@ -24,7 +24,7 @@
             <ListView x:Name="trainersListView"
                       ChildAdded="TrainersListView_OnChildAdded" ItemSelected="TrainersListView_ItemSelected"
                       ItemsSource="{Binding}"
-                      ListView.HasUnevenRows="True">
+                      ListView.HasUnevenRows="True" SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

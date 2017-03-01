@@ -18,7 +18,7 @@ namespace App11Athletics.Views
         {
             InitializeComponent();
             trainersListView.ItemsSource = new Discover11AthleticsViewModel().ListCollectionTrainers;
-
+            Opacity = 0;
 
         }
 
@@ -27,8 +27,10 @@ namespace App11Athletics.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-
+            disabled = true;
+            this.FadeTo(1, 350U, Easing.CubicIn);
             await AnimatePages.AnimatePageIn(gridDiscover, null);
+            disabled = false;
         }
 
         #region Overrides of Page
@@ -56,6 +58,8 @@ namespace App11Athletics.Views
 
         public async void TrainersListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+            if(disabled)
+                return;
             if (((ListView)sender).SelectedItem == null)
                 return;
             var selItem = ((ListView)sender).SelectedItem;
@@ -82,6 +86,8 @@ namespace App11Athletics.Views
                     break;
             }
         }
+
+        public bool disabled { get; set; }
 
         public void ContentPage_OnSizeChanged(object sender, EventArgs e)
         {

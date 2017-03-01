@@ -49,7 +49,7 @@ namespace App11Athletics.Views.Controls
             FrameSize = Width / 5;
             pickerRounds.SelectedIndex = 5;
             pickerSecOn.SelectedIndex = 30;
-            CheckParameters();
+            //            CheckParameters();
         }
         public double TotalRounds { get; set; }
         public double FontSize { get; set; }
@@ -65,7 +65,7 @@ namespace App11Athletics.Views.Controls
         {
             CheckParameters();
         }
-        private void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
+        private async void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
         {
             var box = (BoxView)sender;
             var id = box.StyleId;
@@ -74,6 +74,7 @@ namespace App11Athletics.Views.Controls
                 if (p.StyleId != id)
                     continue;
                 var picker = p;
+                await Task.Delay(100);
                 picker.Focus();
                 break;
             }

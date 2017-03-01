@@ -3,23 +3,24 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using App11Athletics.Helpers;
 using System.Threading.Tasks;
 using App11Athletics.DHCToolkit;
 using App11Athletics.ViewModels.Timers;
-
 using Xamarin.Forms;
 
 namespace App11Athletics.Views.Timers
 {
-    public partial class RoundCounterFeatureView : ContentPage
+    public partial class RoundCounterFeatureView : ContentPage, ICleanUp
     {
         public RoundCounterFeatureView()
         {
             InitializeComponent();
             RoundCounterFeatureViewModel = new RoundCounterFeatureViewModel();
             BindingContext = RoundCounterFeatureViewModel;
-            RoundOptions.TranslationY = 0;
-
+            //            gridTabataOptions.TranslationY = 0;
+            gridRoundCounterPage.Opacity = 0;
+            imageBG.Opacity = 0;
         }
         protected override async void OnAppearing()
         {
@@ -27,33 +28,35 @@ namespace App11Athletics.Views.Timers
             imageBG.Opacity = 0;
             base.OnAppearing();
             await Task.Delay(100);
-
             //            imageBG.ScaleTo(1, 350U, Easing.CubicOut);
             imageBG.TranslationX = Width / 2;
             imageBG.TranslationY = -Height;
-            imageBG.FadeTo(0.5, 200U, Easing.CubicOut);
-            AnimatePages.BgLogoTask(imageBG, Width / 2, Height / 2);
-            await Task.Delay(1000);
+            imageBG.FadeTo(0.2, 200U, Easing.CubicOut);
+            await AnimatePages.BgLogoTask(imageBG, Width / 2, Height / 2);
+            await Task.Delay(200);
             gridRoundCounterPage.FadeTo(1, 200U, Easing.CubicOut);
-            await AnimatePages.AnimatePageIn(gridRoundCounterPage, imageBG);
+            await AnimatePages.AnimatePageIn(gridRoundCounterPage, null);
 
             await Task.Delay(400);
         }
         protected override async void OnDisappearing()
         {
-            base.OnAppearing();
+            base.OnDisappearing();
             //            imageBG.ScaleTo(0, 350U, Easing.CubicOut);
-            await AnimatePages.AnimatePageOut(gridRoundCounterPage, imageBG);
+            await AnimatePages.AnimatePageOut(gridRoundCounterPage, null);
+            await Cleanup();
         }
         public RoundCounterFeatureViewModel RoundCounterFeatureViewModel;
+
         public bool RoundOptionsUp { get; set; }
-        private void RoundOptions_OnClicked(object sender, EventArgs e)
+        private async void RoundOptions_OnClicked(object sender, EventArgs e)
         {
             RoundCounterFeatureViewModel.TotalRounds = Convert.ToInt32(RoundOptions.TotalRounds);
             RoundCounterFeatureViewModel.TotalRoundTimeTimeSpan = TimeSpan.FromMinutes(RoundOptions.TimeOnMinutes) + TimeSpan.FromSeconds(RoundOptions.TimeOnSeconds);
             RoundCounterFeatureViewModel.TotalRounds = Convert.ToInt32(RoundOptions.TotalRounds);
-
-            RoundOptions.TranslateTo(0, Height, 350U, Easing.CubicIn);
+            RoundCounterFeatureViewModel.ElapsedTimeSpan = RoundCounterFeatureViewModel.TotalRoundTimeTimeSpan;
+            await gridTabataOptions.TranslateTo(0, Height, 300U, Easing.CubicIn);
+            await Task.Delay(100);
             RoundOptionsUp = false;
         }
 
@@ -62,7 +65,8 @@ namespace App11Athletics.Views.Timers
             if (RoundOptionsUp || RoundCounterFeatureViewModel.TimerRunning)
                 return;
             RoundOptionsUp = true;
-            await RoundOptions.TranslateTo(0, 0, 350U, Easing.CubicIn);
+            await gridTabataOptions.TranslateTo(0, 0, 350U, Easing.CubicIn);
+            await Task.Delay(200);
             RoundCounterFeatureViewModel.ResetCommandMethod();
         }
         protected override bool OnBackButtonPressed()
@@ -71,7 +75,7 @@ namespace App11Athletics.Views.Timers
             {
                 if (!RoundOptions.Valid)
                     return true;
-                RoundOptions.TranslateTo(0, Height, 350U, Easing.CubicOut);
+                gridTabataOptions.TranslateTo(0, Height, 350U, Easing.CubicOut);
                 RoundOptionsUp = false;
                 return true;
             }
@@ -83,5 +87,21 @@ namespace App11Athletics.Views.Timers
             if (RoundCounterFeatureViewModel != null && RoundCounterFeatureViewModel.TimerRunning)
                 statusAnimation.AnimateWorkTimeTask(1);
         }
+
+        #region Implementation of ICleanUp
+
+        public async Task Cleanup()
+        {
+            await Task.Run(() =>
+            {
+                RoundCounterFeatureViewModel.ResetCommandMethod();
+                RoundCounterFeatureViewModel = null;
+                Content = null;
+                this.BindingContext = null;
+                GC.Collect();
+            });
+        }
+
+        #endregion
     }
 }

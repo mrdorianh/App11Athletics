@@ -20,16 +20,22 @@ namespace App11Athletics.Views
             InitializeComponent();
             TimerSize = grid.Width / 4;
             imagetimer.WidthRequest = TimerSize;
+            grid.Opacity = 0;
         }
 
         #region Overrides of Page
 
         protected override async void OnAppearing()
         {
+            grid.Opacity = 0;
             base.OnAppearing();
+            disabled = true;
             CurrentButton = null;
             AnimatePages.AnimatePageIn(gridTimer, null);
+            grid.FadeTo(1, 200U, Easing.CubicIn);
             await AnimatePages.AnimatePageIn(gridButtons, null);
+            await Task.Delay(100);
+            disabled = false;
         }
 
         #endregion

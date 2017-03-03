@@ -33,13 +33,15 @@ namespace App11Athletics.Views
             {
                 labelActivityLevel, labelBmr, labelDce
             });
-            gridMain.BindingContext = new UserProfileModel();
+            //                        gridMain.BindingContext = new UserProfileModel();
 
             gridGenderOptions.TranslationY = 1500;
             gridAgeOptions.TranslationY = 1500;
             gridWeightOptions.TranslationY = 1500;
             gridHeightOptions.TranslationY = 1500;
 
+            circleImage.Source = Settings.UserPicture;
+            labelName.Text = Settings.UserGivenName;
             ActivityLevel = Settings.UserAlfString;
             labelWeight.Text = Settings.UserWeight;
             labelAge.Text = Settings.UserAge;

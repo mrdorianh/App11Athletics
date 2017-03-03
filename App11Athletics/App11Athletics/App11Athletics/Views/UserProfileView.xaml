@@ -66,15 +66,14 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <templates:FrameBoxTemplate Grid.ColumnSpan="3" />
-                    <abstractions:CircleImage Grid.Column="0"
-                                              Margin="10"
-                                              Source="{Binding Picture}" />
+                    <abstractions:CircleImage x:Name="circleImage"
+                                              Grid.Column="0"
+                                              Margin="10" />
                     <Label x:Name="labelName"
                            Grid.Column="1" Grid.ColumnSpan="2"
                            VerticalTextAlignment="End"
                            Margin="15"
-                           HorizontalOptions="EndAndExpand"
-                           Text="{Binding GivenName}" />
+                           HorizontalOptions="EndAndExpand" />
                 </Grid>
                 <Grid x:Name="gridGender"
                       Grid.Row="1"

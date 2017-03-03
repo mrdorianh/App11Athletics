@@ -15,9 +15,7 @@ namespace App11Athletics
     public partial class App : Application
     {
         static TodoItemDatabase database;
-
-        public UserProfileModel AppUser;
-
+        //        public UserProfileModel AppUser;
         public App()
         {
             InitializeComponent();

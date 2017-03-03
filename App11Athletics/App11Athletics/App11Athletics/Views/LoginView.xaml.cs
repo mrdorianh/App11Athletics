@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using App11Athletics.DHCToolkit;
 using App11Athletics.Helpers;
 using App11Athletics.ViewModels;
+using Plugin.Connectivity;
 using Xamarin.Forms;
 
 namespace App11Athletics.Views
@@ -17,7 +18,29 @@ namespace App11Athletics.Views
 
             InitializeComponent();
             LabelLoginText = stackLayoutLoginView.Width / 5;
-            label.AnchorY = 0;
+            labelNoConnection.IsVisible = false;
+            Opacity = 0.0;
+        }
+
+        private void ConnectionCheck()
+        {
+            Device.StartTimer(TimeSpan.FromMilliseconds(750), OnConnectionCheck);
+        }
+
+        private bool OnConnectionCheck()
+        {
+
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                labelNoConnection.IsVisible = true;
+                NotConnected = true;
+            }
+            else
+            {
+                labelNoConnection.IsVisible = false;
+                NotConnected = false;
+            }
+            return NotConnected;
         }
 
         public double LabelLoginText { get; set; }
@@ -29,7 +52,6 @@ namespace App11Athletics.Views
 
         private void LoginView_OnSizeChanged(object sender, EventArgs e)
         {
-
             LabelLoginText = stackLayoutLoginView.Width / 5;
         }
 
@@ -38,7 +60,7 @@ namespace App11Athletics.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-
+            this.FadeTo(1, 300U, Easing.CubicIn);
             await AnimatePages.AnimatePageIn(gridLogin, null);
         }
 
@@ -46,38 +68,36 @@ namespace App11Athletics.Views
 
         public async void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
         {
+            if (disabled)
+                return;
+            disabled = true;
+            var cc = OnConnectionCheck();
+            if (cc)
+            {
+                disabled = false;
+                return;
+            }
             var p = (Image)sender;
-            await Task.WhenAll(p.FadeTo(0, 300), p.ScaleTo(2, 350), label.FadeTo(0, 300), label.ScaleTo(2, 350));
-            LoggedInNavigate();
+            await Task.WhenAll(p.FadeTo(0, 300), p.ScaleTo(2, 350), label.FadeTo(0, 300));
+            LoggedInNavigate(p);
             await Task.Delay(300);
-            p.Scale = 1;
-            p.Opacity = 1;
-            label.Scale = 1;
-            label.Opacity = 1;
-            //            Application.Current.MainPage = new NavigationPage(new Discover11AthleticsView());
-            //            Navigation.InsertPageBefore(new Discover11AthleticsView(), this);
-            //            await Navigation.PopAsync();
-            //            //            if (!App.IsUserLoggedIn)
-            //            //                return;
-            //            //            //            await Navigation.PushModalAsync(new NavigationPage(new AuthUserSignIn()));
-            //            //            if (App.IsUserLoggedIn)
-            //            //            {
-            //            //                Navigation.InsertPageBefore(new HomeMenuView(), this);
-            //            //                await Navigation.PopAsync();
-            //
-            //            //            }
+            disabled = false;
         }
 
-        private async void LoggedInNavigate()
+        public bool disabled { get; set; }
+
+        public bool NotConnected { get; set; }
+
+        private async void LoggedInNavigate(Image image)
         {
+
             await DependencyService.Get<IAuthSignIn>().AuthRefresh();
             if (!App.IsUserLoggedIn)
             {
-                //                Navigation.InsertPageBefore(new LoginView(), this);
-                //                //lets test this later as Reset Main
-                //                await Task.Delay(100);
-                //
-                //                await Navigation.PopAsync();
+                disabled = false;
+                image.Scale = 1;
+                image.Opacity = 1;
+                label.Opacity = 1;
             }
             else
             {

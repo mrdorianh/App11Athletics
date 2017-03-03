@@ -45,21 +45,17 @@ namespace App11Athletics.Helpers
         private const string SettingsUserBmr = "user_bmr";
         private static readonly string SettingsUserBmrDefault = string.Empty;
 
-        //
         private const string SettingsUserDce = "user_dce";
         private static readonly string SettingsUserDceDefault = string.Empty;
 
-        //
         private const string SettingsUserAge = "user_age";
         private static readonly string SettingsUserAgeDefault = "23";
 
-        //
         private const string SettingsUserHeightFt = "user_heightFt";
-        private static readonly string SettingsUserHeightFtDefault = "6";
+        private static readonly string SettingsUserHeightFtDefault = "5";
 
-        //
         private const string SettingsUserHeightIn = "user_heightIn";
-        private static readonly string SettingsUserHeightInDefault = "1";
+        private static readonly string SettingsUserHeightInDefault = "9";
 
         private const string SettingsUserWeight = "user_weight";
         private static readonly string SettingsUserWeightDefault = string.Empty;
@@ -70,26 +66,20 @@ namespace App11Athletics.Helpers
         private const string SettingsUserAlfString = "user_alfString";
         private static readonly string SettingsUserAlfStringDefault = "Little to none";
 
-        //
         private const string SettingsUserEmail = "user_email";
         private static readonly string SettingsUserEmailDefault = string.Empty;
 
-        //
         private const string SettingsUserFamilyName = "user_family_name";
         private static readonly string SettingsUserFamilyNameDefault = string.Empty;
 
-        //
         private const string SettingsUserGender = "user_gender";
         private static readonly string SettingsUserGenderDefault = string.Empty;
 
-        //
         private const string SettingsUserGivenName = "user_given_name";
         private static readonly string SettingsUserGivenNameDefault = string.Empty;
 
-        //
         private const string SettingsUserPicture = "user_picture";
         private static readonly string SettingsUserPictureDefault = "icon.png";
-
 
         private const string SettingsUserRefreshToken = "user_refreshToken";
         private static readonly string SettingsUserRefreshTokenDefault = string.Empty;
@@ -108,8 +98,7 @@ namespace App11Athletics.Helpers
 
         private const string SettingsUserId = "user_id";
         private static readonly string SettingsUserIdDefault = string.Empty;
-
-
+        
         private const string SettingsUserNickname = "user_nickname";
         private static readonly string SettingsUserNicknameDefault = string.Empty;
 
@@ -130,15 +119,7 @@ namespace App11Athletics.Helpers
 
         private const string SettingsOneRMWeight = "user_OneRMWeight";
         private static readonly string SettingsOneRMWeightDefault = "0";
-
-
-
-        //public static string GeneralSettings
-        //{
-        //  get { return AppSettings.GetValueOrDefault<string>(SettingsKey, SettingsDefault);}
-        //  set{AppSettings.AddOrUpdateValue<string>(SettingsKey, value);
-        //  }
-        //}
+        
         public static string UserOneRMLift
         {
             get { return AppSettings.GetValueOrDefault<string>(SettingsOneRMLift, SettingsOneRMLiftDefault); }
@@ -276,10 +257,7 @@ namespace App11Athletics.Helpers
 
         public static bool EmailVerified
         {
-            get
-            {
-                return AppSettings.GetValueOrDefault<bool>(SettingsEmailVerified, SettingsEmailVerifiedDefault);
-            }
+            get{ return AppSettings.GetValueOrDefault<bool>(SettingsEmailVerified, SettingsEmailVerifiedDefault); }
             set
             {
                 AppSettings.AddOrUpdateValue<bool>(SettingsEmailVerified, value);

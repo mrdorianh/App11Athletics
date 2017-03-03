@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using App11Athletics.Models;
 using App11Athletics.ViewModels;
 using ImageCircle.Forms.Plugin.Abstractions;
+using Plugin.Connectivity;
 using Xamarin.Forms;
 using App11Athletics.DHCToolkit;
 
@@ -58,7 +59,7 @@ namespace App11Athletics.Views
 
         public async void TrainersListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            if(disabled)
+            if (disabled)
                 return;
             if (((ListView)sender).SelectedItem == null)
                 return;
@@ -67,10 +68,15 @@ namespace App11Athletics.Views
             Trainer TrainerItem =
                 (from itm in Models.Discover11AthleticsModel.Trainers where itm.Equals(selItem) select itm).FirstOrDefault<Trainer>();
             var das = await DisplayActionSheet(TrainerItem.ShortName, "Cancel", null, "View Bio", "Email");
-
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                ((ListView) sender).SelectedItem = null;
+                return;
+            }
             switch (das)
             {
                 case "View Bio":
+
                     if (!string.IsNullOrEmpty(TrainerItem.BioUrl))
                         Device.OpenUri(new Uri(TrainerItem.BioUrl));
                     ((ListView)sender).SelectedItem = null;
@@ -101,6 +107,8 @@ namespace App11Athletics.Views
 
         private async void Schedule_OnClicked(object sender, EventArgs e)
         {
+            if (!CrossConnectivity.Current.IsConnected)
+                return;
             await Navigation.PushAsync(new ScheduleView());
 
         }

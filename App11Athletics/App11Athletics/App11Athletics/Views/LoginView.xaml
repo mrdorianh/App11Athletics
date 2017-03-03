@@ -38,6 +38,16 @@
                    FontAttributes="Bold"
                    TextColor="{StaticResource ColorBrandGlobalBlue}"
                    Text="Login" />
+            <!--            <Button Clicked="Button_OnClicked" />-->
+
         </StackLayout>
+        <Label x:Name="labelNoConnection"
+               Grid.Row="1"
+               Grid.Column="0" Grid.ColumnSpan="3"
+               HorizontalTextAlignment="Center"
+               FontSize="Large" FontAttributes="Bold" TextColor="White"
+               Margin="10"
+               HorizontalOptions="FillAndExpand" Text="NO CONNECTION" VerticalOptions="Center"
+               BackgroundColor="#7EFF0000" />
     </Grid>
 </ContentPage>

@@ -139,7 +139,7 @@ namespace App11Athletics.Views
 
             switch (das)
             {
-                case "View Bio":
+                case "Yes":
                     await DependencyService.Get<IAuthSignIn>().AuthLogOut();
                     Navigation.InsertPageBefore(new LoginView(), Navigation.NavigationStack[0]);
                     await Task.Delay(100);
@@ -221,8 +221,8 @@ namespace App11Athletics.Views
                         //                    Female BMR
                         bmr = 655 + (4.35 * Convert.ToDouble(userWeight)) + (4.7 * h) - (4.7 * Convert.ToDouble(userAge));
                         dce = af * bmr;
-                        Settings.UserDce = dce.ToString();
-                        Settings.UserBmr = bmr.ToString();
+                        Settings.UserDce = $"{dce:#}";
+                        Settings.UserBmr = $"{bmr:#}";
                         break;
                     case "male":
                         //                    Male BMR
@@ -305,12 +305,14 @@ namespace App11Athletics.Views
         private async void TapGestureRecognizerWeight_OnTapped(object sender, EventArgs e)
         {
             await gridWeightOptions.TranslateTo(0, 0, 400U, Easing.CubicInOut);
+            await Task.Delay(50);
             WeightOptionsEntry.Focus();
         }
 
         private async void TapGestureRecognizerAge_OnTapped(object sender, EventArgs e)
         {
             await gridAgeOptions.TranslateTo(0, 0, 400U, Easing.CubicInOut);
+            await Task.Delay(50);
             AgeOptionsEntry.Focus();
         }
 

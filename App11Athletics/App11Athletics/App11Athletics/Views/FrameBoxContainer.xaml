@@ -1,0 +1,28 @@
+﻿<?xml version = "1.0"
+      encoding = "UTF-8" ?>
+
+<ContentView xmlns = "http://xamarin.com/schemas/2014/forms"
+             xmlns:x = "http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dhcToolkit = "clr-namespace:App11Athletics.DHCToolkit;assembly=App11Athletics"
+             x:Class = "App11Athletics.Views.FrameBoxContainer" >
+    <ContentView.Content>
+        <Frame 
+            BackgroundColor = "{StaticResource ColorBrandGlobalBlue}" >
+            <Frame>
+                <Frame>
+                    <Frame x:Name="framexaml" HasShadow="True"  OutlineColor="Black"><Frame.GestureRecognizers> 
+                      <PanGestureRecognizer TouchPoints="1"  PanUpdated="PanGestureRecognizer_OnPanUpdated" />
+                    </Frame.GestureRecognizers>
+                        <!--                        <Label Text="SHADO" TextColor="White" FontSize="50" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"><Label.Effects>-->
+<!--				<dhcToolkit:ShadowEffect Radius="20" DistanceX="30" DistanceY="30">-->
+<!--					<dhcToolkit:ShadowEffect.Color>-->
+<!--						<OnPlatform x:TypeArguments="Color" iOS="Black" Android="Fuchsia" WinPhone="Red" />-->
+<!--					</dhcToolkit:ShadowEffect.Color>-->
+<!--				</dhcToolkit:ShadowEffect>-->
+<!--			</Label.Effects></Label>-->
+                </Frame>
+            </Frame>
+        </Frame>
+          </Frame>
+    </ContentView.Content>
+</ContentView>

@@ -1,8 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="App11Athletics.Views.HomeMenuView">
-  <Label Text="{Binding MainText}"
-         VerticalOptions="Center"
-         HorizontalOptions="Center" />
+
+<ContentPage x:Class="App11Athletics.Views.HomeMenuView" x:Name="pageHomeMenu"
+             xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:carousel="clr-namespace:Syncfusion.SfCarousel.XForms;assembly=Syncfusion.SfCarousel.XForms" xmlns:controls="clr-namespace:ImageCircle;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             NavigationPage.HasNavigationBar="False" SizeChanged="HomeMenuView_OnSizeChanged"
+             BackgroundColor="White">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="itemTemplate">
+                <Image Aspect="AspectFit" Source="{Binding Image}" />
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        <Image x:Name="imageBG"
+               BindingContext="{x:Reference pageHomeMenu}"
+               Aspect="AspectFit" Opacity="0.5" Source="iconbevel.png" />
+        <Grid x:Name="gridHomeMenu">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="gridLabel">
+                <Label x:Name="labelMenuTitle"
+                       BindingContext="{x:Reference pageHomeMenu}"
+                       HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                       FontSize="{Binding MenuTitle}"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource ColorBrandGlobalBlue}"
+                       Text="{Binding Title}" />
+            </Grid>
+            <Grid x:Name="gridCara"
+                  Grid.Row="1"
+                  IsClippedToBounds="False">
+                <Image x:Name="imageArrowsLeft"
+                       Aspect="AspectFit" HorizontalOptions="Start" Opacity="0.3" Source="arrows.png" VerticalOptions="Center" />
+                <Image x:Name="imageArrowsRight"
+                       HorizontalOptions="End" Opacity="0.3" Rotation="180" Source="arrows.png" VerticalOptions="Center" />
+                <carousel:SfCarousel x:Name="carouselMain"
+                                     DataSource="{Binding ImageCollection}"
+                                     ItemHeight="200"
+                                     ItemTemplate="{StaticResource itemTemplate}"
+                                     RotationAngle="45" SelectedItemOffset="500" SelectionChanged="CarouselMain_OnSelectionChanged" VerticalOptions="CenterAndExpand"
+                                     Offset="100" />
+
+                <BoxView x:Name="boxViewTap"
+                         HeightRequest="200" WidthRequest="100"
+                         HorizontalOptions="Center" Opacity="0.1" VerticalOptions="Center"
+                         Color="Transparent">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="tapGestureRecognizerBox" Tapped="TapGestureRecognizerBox_OnTapped" />
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+            </Grid>
+        </Grid>
+    </Grid>
 </ContentPage>

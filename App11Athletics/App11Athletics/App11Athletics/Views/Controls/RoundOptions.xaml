@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView x:Class="App11Athletics.Views.Controls.RoundOptions" x:Name="viewRoundOptions"
+             xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:templates="clr-namespace:App11Athletics.Templates;assembly=App11Athletics"
+             SizeChanged="RoundOptions_OnSizeChanged">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="TextColor" Value="{StaticResource ColorBrandGlobalBlue}" />
+                <Setter Property="FontSize" Value="Large" />
+            </Style>
+            <Style TargetType="StackLayout">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="Margin" Value="20" />
+            </Style>
+            <Style TargetType="Picker">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid BindingContext="{x:Reference viewRoundOptions}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.25*" />
+                <RowDefinition Height="0.20*" />
+                <RowDefinition Height="0.20*" />
+                <RowDefinition Height="0.20*" />
+                <RowDefinition Height="0.10*" />
+                <RowDefinition Height="0.05*" />
+            </Grid.RowDefinitions>
+            <templates:FrameBoxTemplate Grid.RowSpan="6" />
+            <Label x:Name="labelRoundOptionsHeader"
+                   Grid.Row="0"
+                   WidthRequest="{Binding Width}"
+                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                   FontSize="{Binding FontSizeLarge}"
+                   TextColor="{StaticResource ColorBrandGlobalBlue}"
+                   Text="Round Options" />
+            <StackLayout Grid.Row="1"
+                         Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                <Label x:Name="labelTotalRounds"
+                       FontSize="{Binding FontSize}"
+                       TextColor="{StaticResource ColorBrandGlobalBlue}"
+                       StyleId="r" Text="Total Rounds" />
+                <Grid WidthRequest="{Binding FrameSize}" HorizontalOptions="EndAndExpand">
+                    <templates:FrameBoxTemplate HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
+                    <Picker x:Name="pickerRounds"
+                            WidthRequest="100"
+                            HorizontalOptions="Center" SelectedIndexChanged="Picker_OnSelectedIndexChanged" StyleId="r" />
+                    <Label Text="{Binding Source={x:Reference pickerRounds}, Path=SelectedIndex, StringFormat='{0}'}" />
+                    <BoxView StyleId="r"
+                             Color="Transparent" BackgroundColor="Transparent">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
+                </Grid>
+            </StackLayout>
+            <StackLayout Grid.Row="2"
+                         Orientation="Horizontal" Spacing="15" VerticalOptions="CenterAndExpand">
+                <Label x:Name="labelTimeOn"
+                       FontSize="{Binding FontSize}"
+                       TextColor="{StaticResource ColorBrandGlobalBlue}"
+                       Text="Round Time" />
+                <Grid WidthRequest="{Binding FrameSize}" HorizontalOptions="EndAndExpand">
+                    <templates:FrameBoxTemplate VerticalOptions="Center" />
+                    <Picker x:Name="pickerMinOn"
+                            WidthRequest="100"
+                            HorizontalOptions="Center" SelectedIndexChanged="Picker_OnSelectedIndexChanged" StyleId="mOn" />
+                    <Label Text="{Binding Source={x:Reference pickerMinOn}, Path=SelectedIndex, StringFormat='{0}m'}" />
+                    <BoxView StyleId="mOn"
+                             Color="Transparent" BackgroundColor="Transparent">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
+                </Grid>
+                <Grid WidthRequest="{Binding FrameSize}" HorizontalOptions="End">
+                    <templates:FrameBoxTemplate HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
+                    <Picker x:Name="pickerSecOn"
+                            WidthRequest="100"
+                            HorizontalOptions="Center" SelectedIndexChanged="Picker_OnSelectedIndexChanged" StyleId="sOn" />
+                    <Label Text="{Binding Source={x:Reference pickerSecOn}, Path=SelectedIndex, StringFormat='{0}s'}" />
+                    <BoxView StyleId="sOn"
+                             Color="Transparent" BackgroundColor="Transparent">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
+                </Grid>
+            </StackLayout>
+            <Button x:Name="buttonSave"
+                    Grid.Row="4"
+                    Clicked="Button_OnClicked"
+                    Style="{StaticResource styleGreenSaveButton}"
+                    VerticalOptions="Start" />
+        </Grid>
+    </ContentView.Content>
+</ContentView>

@@ -29,14 +29,16 @@ namespace App11Athletics.ViewModels.Timers
                 StopTimer();
                 RefreshCanExecutes();
             }, () => TimerRunning);
-            ResetTimerCommand = new Command(() =>
-            {
-                TimerRunning = false;
-                TimerTimeSpan = TimeSpan.Zero;
-                ResetTimer();
-                RefreshCanExecutes();
-            }, () => !TimerRunning && !Reset);
+            ResetTimerCommand = new Command(ResetCommandMethod, () => !TimerRunning && !Reset);
 
+        }
+
+        public void ResetCommandMethod()
+        {
+            TimerRunning = false;
+            TimerTimeSpan = TimeSpan.Zero;
+            ResetTimer();
+            RefreshCanExecutes();
         }
 
         public DateTime StartDateTime { get; set; }
@@ -81,7 +83,7 @@ namespace App11Athletics.ViewModels.Timers
             return TimerRunning;
         }
 
-        public void StopTimer()
+        public virtual void StopTimer()
         {
             ResumeDateTime = TimerTimeSpan;
         }

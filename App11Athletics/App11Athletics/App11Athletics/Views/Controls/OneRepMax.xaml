@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView x:Class="App11Athletics.Views.Controls.OneRepMax" x:Name="viewOneRepMax"
+             xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:App11Athletics.Views.Controls;assembly=App11Athletics" xmlns:templates="clr-namespace:App11Athletics.Templates;assembly=App11Athletics"
+             SizeChanged="OneRepMax_OnSizeChanged">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="TextColor" Value="{StaticResource ColorBrandGlobalBlue}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid BindingContext="{x:Reference viewOneRepMax}">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <templates:FrameBoxTemplate Grid.Row="0" Grid.RowSpan="5" />
+            <controls:MyEntry x:Name="myEntry"
+                              Grid.Row="1"
+                              Focused="MyEntry_OnFocused" IsVisible="False" Keyboard="Text" TextChanged="MyEntry_OnTextChanged" Unfocused="MyEntry_OnUnfocused" Uppercase="True" />
+            <Label Grid.Row="0"
+                   FontSize="{Binding TitleFontSize}"
+                   Text="One Rep Max" />
+            <Label x:Name="labelentry"
+                   Grid.Row="1"
+                   FontSize="{Binding LiftFontSize}"
+                   Text="{Binding Source={x:Reference myEntry},
+                                  Path=Text}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="tapGestureRecognizerLabelEntry" Tapped="TapGestureRecognizer_OnTapped" />
+                </Label.GestureRecognizers>
+            </Label>
+            <StackLayout Grid.Row="2"
+                         Padding="20"
+                         HorizontalOptions="FillAndExpand" Orientation="Horizontal" VerticalOptions="Center">
+                <Label FontSize="{Binding RepFontSize}"
+                       HorizontalOptions="Start"
+                       Text="{Binding Source={x:Reference stepperReps},
+                                      Path=Value,
+                                      StringFormat='{0} Reps'}" />
+                <Stepper x:Name="stepperReps"
+                         HorizontalOptions="EndAndExpand" Minimum="2" VerticalOptions="Center"
+                         Value="2" />
+            </StackLayout>
+            <StackLayout Grid.Row="3"
+                         Padding="20"
+                         HorizontalOptions="FillAndExpand" Orientation="Horizontal" VerticalOptions="Center">
+                <Label x:Name="labelweight"
+                       FontSize="{Binding RepFontSize}"
+                       HorizontalOptions="Start"
+                       Text="{Binding Source={x:Reference myEntryWeight},
+                                      Path=Text,
+                                      StringFormat='{0}lbs'}" />
+                <controls:MyEntry x:Name="myEntryWeight"
+                                  HorizontalOptions="EndAndExpand" IsVisible="False" Keyboard="Numeric" MaxLength="3" Text="175" TextChanged="MyEntryWeight_OnTextChanged" Unfocused="MyEntryWeight_OnUnfocused" />
+                <Button x:Name="buttonWeight"
+                        FontSize="Micro" TextColor="White"
+                        Margin="5,0" WidthRequest="120"
+                        Clicked="Button_OnClicked" HorizontalOptions="EndAndExpand" Text="Change Weight"
+                        BackgroundColor="{StaticResource ColorBrandGlobalBlue}" />
+            </StackLayout>
+            <Button x:Name="buttonSaveOneRepMax"
+                    Grid.Row="4"
+                    Clicked="ButtonSaveOneRepMax_OnClicked" HorizontalOptions="CenterAndExpand"
+                    Style="{StaticResource styleGreenSaveButton}" />
+        </Grid>
+    </ContentView.Content>
+</ContentView>

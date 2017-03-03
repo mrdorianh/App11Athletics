@@ -25,7 +25,8 @@ namespace App11Athletics.Views.Timers
             foreach (var view1 in gridTime.Children)
             {
                 var view = (Label)view1;
-                view.FontSize = gridTime.Width / 6;
+                if (view.StyleId != "titles")
+                    view.FontSize = gridTime.Width / 6;
             }
         }
     }

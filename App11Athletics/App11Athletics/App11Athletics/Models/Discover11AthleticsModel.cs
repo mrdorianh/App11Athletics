@@ -106,19 +106,19 @@ namespace App11Athletics.Models
                 BioUrl = "http://www.11athletics.com/personnel/stephanie-gudorf/",
                 Color = "#029902"
             });
-            _Trainers.Add(new Trainer
-            {
-                Name = "Jen Pierce",
-                ShortName = "Jen",
-                Detail = "Massage Therapist",
-                Description =
-                    "Jen Pierce, LMT has been doing Massage Therapy since 2002 and was licensed by the State Medical Board of Ohio in 2007. With a background in Athletic Training and certifications in specialities such as Myofascial Release, she specializes in Therapeutic, Deep Tissue and Sports Massage. Jen will do her best to understand what is causing your pain and to fix the problem. She is compassionate about her trade and her clients. She will always keep the clients best health interests as the main priority.",
-                Email = string.Empty,
-                ImageUrl =
-                    "http://www.11athletics.com/wordpress/wp-content/uploads/2015/07/Jen-38-of-69-1024x683.jpg",
-                BioUrl = "http://www.11athletics.com/personnel/jen-pierce/",
-                Color = "#029902"
-            });
+            //            _Trainers.Add(new Trainer
+            //            {
+            //                Name = "Jen Pierce",
+            //                ShortName = "Jen",
+            //                Detail = "Massage Therapist",
+            //                Description =
+            //                    "Jen Pierce, LMT has been doing Massage Therapy since 2002 and was licensed by the State Medical Board of Ohio in 2007. With a background in Athletic Training and certifications in specialities such as Myofascial Release, she specializes in Therapeutic, Deep Tissue and Sports Massage. Jen will do her best to understand what is causing your pain and to fix the problem. She is compassionate about her trade and her clients. She will always keep the clients best health interests as the main priority.",
+            //                Email = string.Empty,
+            //                ImageUrl =
+            //                    "http://www.11athletics.com/wordpress/wp-content/uploads/2015/07/Jen-38-of-69-1024x683.jpg",
+            //                BioUrl = "http://www.11athletics.com/personnel/jen-pierce/",
+            //                Color = "#029902"
+            //            });
         }
 
         public static Trainer First()

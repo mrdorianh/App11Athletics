@@ -10,7 +10,7 @@ namespace App11Athletics.ViewModels
             //            LoggedInNavigate();
         }
 
-        public async void LoggedInNavigate()
+        public void LoggedInNavigate()
         {
             DependencyService.Get<IAuthSignIn>().AuthRefresh();
             //            if (!App.IsUserLoggedIn)

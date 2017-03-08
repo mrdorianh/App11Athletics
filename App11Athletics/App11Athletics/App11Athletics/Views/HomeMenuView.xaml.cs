@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using App11Athletics.DHCToolkit;
 using App11Athletics.ViewModels;
-using App11Athletics.Views.Timers;
-using ImageCircle.Forms.Plugin.Abstractions;
-using Syncfusion.SfCarousel;
 using Syncfusion.SfCarousel.XForms;
 using Xamarin.Forms;
 

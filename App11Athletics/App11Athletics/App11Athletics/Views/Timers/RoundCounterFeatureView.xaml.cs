@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using App11Athletics.Helpers;
 using System.Threading.Tasks;
 using App11Athletics.DHCToolkit;

@@ -78,7 +78,7 @@
     <MtouchNoSymbolStrip>True</MtouchNoSymbolStrip>
     <IOSDebugOverWiFi>False</IOSDebugOverWiFi>
     <IOSDebuggerPort>10000</IOSDebuggerPort>
-    <BuildIpa>True</BuildIpa>
+    <BuildIpa>False</BuildIpa>
     <IpaIncludeArtwork>False</IpaIncludeArtwork>
     <MtouchSdkVersion>10.2</MtouchSdkVersion>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
@@ -126,7 +126,7 @@
     <BuildIpa>True</BuildIpa>
     <CodesignKey>iPhone Distribution: Dorian Hryniewicki (9HN56BGG26)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <IpaIncludeArtwork>True</IpaIncludeArtwork>
+    <IpaIncludeArtwork>False</IpaIncludeArtwork>
     <MtouchSdkVersion>10.2</MtouchSdkVersion>
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchDebug>False</MtouchDebug>
@@ -142,7 +142,6 @@
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchFloat32>False</MtouchFloat32>
-    <IpaPackageName>11athletics</IpaPackageName>
     <CodesignProvision>fa43e285-cdc6-47d4-b3ea-b5e109095c0c</CodesignProvision>
     <EmbedOnDemandResources>True</EmbedOnDemandResources>
   </PropertyGroup>
@@ -177,13 +176,10 @@
     <StartupObject>App11Athletics.iOS.Application</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="Helpers\Settings.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Services\FileHelper.cs" />
     <Compile Include="Services\IAuthSignIn_iOS.cs" />
-    <Compile Include="Services\TextToSpeech_iOS.cs" />
-    <Compile Include="UIViewControllerSplash.cs" />
     <None Include="app.config" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist">
@@ -270,9 +266,8 @@
       <HintPath>..\..\packages\SQLitePCLRaw.provider.sqlite3.ios_unified.1.1.2\lib\Xamarin.iOS10\SQLitePCLRaw.provider.sqlite3.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Syncfusion.SfCarousel.iOS, Version=15.1451.0.33, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Syncfusion.Xamarin.SfCarousel.15.1.0.33\lib\Xamarin.iOS10\Syncfusion.SfCarousel.iOS.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Syncfusion.SfCarousel.iOS">
+      <HintPath>..\..\..\..\..\AppData\Local\Syncfusion\EssentialStudio\14.4.0.20\Xamarin\lib\ios-unified\Syncfusion.SfCarousel.iOS.dll</HintPath>
     </Reference>
     <Reference Include="Syncfusion.SfCarousel.XForms, Version=15.1451.0.33, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Syncfusion.Xamarin.SfCarousel.15.1.0.33\lib\Xamarin.iOS10\Syncfusion.SfCarousel.XForms.dll</HintPath>
@@ -321,7 +316,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FodyWeavers.xml" />
     <BundleResource Include="Resources\addToProfile.png" />
     <BundleResource Include="Resources\check.png" />
     <BundleResource Include="Resources\checkgreen.png" />
@@ -355,10 +349,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <ITunesArtwork Include="iTunesArtwork" />
-    <ITunesArtwork Include="iTunesArtwork%402x" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

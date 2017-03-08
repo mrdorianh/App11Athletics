@@ -9,64 +9,53 @@
         <ToolbarItem Text="|" />
         <ToolbarItem Clicked="Schedule_OnClicked" Text="Schedule" />
     </ContentPage.ToolbarItems>
-    <RelativeLayout>
-        <Image Aspect="AspectFill"
-               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                      Property=Height}"
-               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                     Property=Width}"
-               Source="BG.png" />
-        <Grid x:Name="gridDiscover"
-              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                     Property=Height}"
-              RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
-                                                                    Property=Width}">
-            <ListView x:Name="trainersListView"
-                      ChildAdded="TrainersListView_OnChildAdded" ItemSelected="TrainersListView_ItemSelected"
-                      ItemsSource="{Binding}"
-                      ListView.HasUnevenRows="True" SeparatorVisibility="None">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Frame Margin="10" Padding="5"
-                                   BackgroundColor="White">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="0.45*" />
-                                        <ColumnDefinition Width="0.55*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid x:Name="gridCircle" Grid.Column="0">
-                                        <controls:CircleImage Grid.Column="0"
-                                                              HeightRequest="{Binding Source={x:Reference gridCircle},
-                                                                                      Path=Width}"
-                                                              WidthRequest="{Binding Source={x:Reference gridCircle},
-                                                                                     Path=Width}"
-                                                              Aspect="AspectFill"
-                                                              BorderColor="{Binding Color}"
-                                                              BorderThickness="2" HorizontalOptions="Center"
-                                                              Source="{Binding ImageUrl}"
-                                                              VerticalOptions="Center" />
-                                    </Grid>
-                                    <StackLayout Grid.Column="1"
-                                                 Margin="0,0,0,10"
-                                                 HorizontalOptions="EndAndExpand" VerticalOptions="End">
-                                        <Label HorizontalTextAlignment="Center" VerticalTextAlignment="End"
-                                               FontSize="Medium" FontAttributes="Bold"
-                                               TextColor="{Binding Color}"
-                                               LineBreakMode="TailTruncation"
-                                               Text="{Binding Name}" />
-                                        <Label HorizontalTextAlignment="Center" VerticalTextAlignment="End"
-                                               FontSize="Small"
-                                               TextColor="{Binding Color}"
-                                               Text="{Binding Detail}" />
-                                    </StackLayout>
-                                </Grid>
-                            </Frame>
+    <Grid x:Name="gridDiscover">
 
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </Grid>
-    </RelativeLayout>
+        <ListView x:Name="trainersListView"
+                  ChildAdded="TrainersListView_OnChildAdded" ItemSelected="TrainersListView_ItemSelected"
+                  ItemsSource="{Binding}"
+                  ListView.HasUnevenRows="True" SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Margin="10" Padding="5"
+                               BackgroundColor="White">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.45*" />
+                                    <ColumnDefinition Width="0.55*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid x:Name="gridCircle" Grid.Column="0">
+                                    <controls:CircleImage Grid.Column="0"
+                                                          HeightRequest="{Binding Source={x:Reference gridCircle},
+                                                                                  Path=Width}"
+                                                          WidthRequest="{Binding Source={x:Reference gridCircle},
+                                                                                 Path=Width}"
+                                                          Aspect="AspectFill"
+                                                          BorderColor="{Binding Color}"
+                                                          BorderThickness="2" HorizontalOptions="Center"
+                                                          Source="{Binding ImageUrl}"
+                                                          VerticalOptions="Center" />
+                                </Grid>
+                                <StackLayout Grid.Column="1"
+                                             Margin="0,0,0,10"
+                                             HorizontalOptions="EndAndExpand" VerticalOptions="End">
+                                    <Label HorizontalTextAlignment="Center" VerticalTextAlignment="End"
+                                           FontSize="Medium" FontAttributes="Bold"
+                                           TextColor="{Binding Color}"
+                                           LineBreakMode="TailTruncation"
+                                           Text="{Binding Name}" />
+                                    <Label HorizontalTextAlignment="Center" VerticalTextAlignment="End"
+                                           FontSize="Small"
+                                           TextColor="{Binding Color}"
+                                           Text="{Binding Detail}" />
+                                </StackLayout>
+                            </Grid>
+                        </Frame>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
 </ContentPage>

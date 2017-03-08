@@ -1,0 +1,1500 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40">
+  <defs>
+    <clipPath id="clip-path">
+      <rect x="9.25" y="10.45" width="7.21" height="21.04" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect x="19.27" y="10.45" width="7.21" height="21.04" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-3">
+      <rect x="5" y="5" width="30" height="30" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-6">
+      <rect x="6.7" y="6.7" width="26.59" height="26.59" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-7">
+      <rect x="19.99" y="32.65" width="0.01" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-8">
+      <path d="M20,32.65h0Z" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-9">
+      <rect x="28.94" y="28.94" width="0.01" height="0.01" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-10">
+      <path d="M28.94,28.95h0Z" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-12">
+      <rect x="20" y="28.95" width="8.94" height="3.7" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-13">
+      <path d="M28.94,28.95A12.6,12.6,0,0,1,20,32.65a12.6,12.6,0,0,0,8.94-3.7" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-15">
+      <rect x="11.06" y="28.94" width="8.93" height="3.7" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-16">
+      <path d="M20,32.65a12.61,12.61,0,0,1-8.93-3.7A12.61,12.61,0,0,0,20,32.65" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-18">
+      <rect x="28.94" y="20.01" width="3.7" height="8.93" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-19">
+      <path d="M32.65,20a12.61,12.61,0,0,1-3.7,8.93A12.61,12.61,0,0,0,32.65,20" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-21">
+      <rect x="7.35" y="20" width="3.7" height="8.94" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-22">
+      <path d="M11.05,28.94A12.61,12.61,0,0,1,7.35,20a12.61,12.61,0,0,0,3.7,8.94h0" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-24">
+      <rect x="7.35" y="11.06" width="3.7" height="8.93" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-25">
+      <path d="M7.35,20a12.6,12.6,0,0,1,3.7-8.93A12.6,12.6,0,0,0,7.35,20" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-27">
+      <rect x="28.95" y="11.06" width="3.7" height="8.94" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-28">
+      <path d="M28.95,11.06A12.61,12.61,0,0,1,32.65,20a12.61,12.61,0,0,0-3.7-8.94" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-30">
+      <rect x="28.94" y="11.06" width="0.01" height="0.01" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-31">
+      <path d="M28.95,11.06h0Z" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-33">
+      <rect x="20.01" y="7.35" width="8.93" height="3.7" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-34">
+      <path d="M20,7.35a12.61,12.61,0,0,1,8.93,3.7A12.61,12.61,0,0,0,20,7.35" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-36">
+      <rect x="11.06" y="7.35" width="8.94" height="3.7" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-37">
+      <path d="M11.06,11.05A12.61,12.61,0,0,1,20,7.35a12.61,12.61,0,0,0-8.94,3.7" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-40">
+      <path d="M20,6.7a13.3,13.3,0,1,1-9.4,3.89A13.26,13.26,0,0,1,20,6.7v.65a12.65,12.65,0,1,0,8.94,3.7A12.61,12.61,0,0,0,20,7.35Z" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-43">
+      <path d="M20,7.35V6.7a13.3,13.3,0,1,1-9.4,3.89A13.26,13.26,0,0,1,20,6.7v.65a12.65,12.65,0,1,0,8.94,3.7A12.61,12.61,0,0,0,20,7.35" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-56">
+      <rect x="11.05" y="28.94" width="0.01" height="0.01" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-57">
+      <polyline points="11.05 28.93 11.06 28.94 11.05 28.93 11.05 28.93" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-65">
+      <rect x="7.35" y="19.99" height="0.01" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-66">
+      <path d="M7.35,20h0Z" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-76">
+      <rect x="11.06" y="11.05" width="0.01" height="0.01" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-77">
+      <path d="M11.06,11.05h0Z" style="fill: none"/>
+    </clipPath>
+    <filter id="luminosity-invert" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feColorMatrix values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/>
+    </filter>
+    <mask id="mask" x="9.25" y="10.45" width="7.21" height="21.04" maskUnits="userSpaceOnUse">
+      <g style="isolation: isolate;filter: url(#luminosity-invert)">
+        <g style="clip-path: url(#clip-path)">
+          <image width="123" height="359" transform="translate(9.25 10.45) scale(0.06 0.06)" xlink:href="data:image/png;base64,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"/>
+        </g>
+      </g>
+    </mask>
+    <clipPath id="clip-path-85">
+      <rect x="9.4" y="10.62" width="6.91" height="20.71" style="fill: none"/>
+    </clipPath>
+    <mask id="mask-2" x="19.27" y="10.45" width="7.21" height="21.04" maskUnits="userSpaceOnUse">
+      <g style="isolation: isolate;filter: url(#luminosity-invert)">
+        <g style="clip-path: url(#clip-path-2)">
+          <image width="123" height="359" transform="translate(19.27 10.45) scale(0.06 0.06)" xlink:href="data:image/png;base64,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"/>
+        </g>
+      </g>
+    </mask>
+    <clipPath id="clip-path-86">
+      <rect x="19.39" y="10.62" width="6.91" height="20.71" style="fill: none"/>
+    </clipPath>
+  </defs>
+  <title>Icon-Small-40</title>
+  <g id="Artwork_2" data-name="Artwork 2">
+    <g style="clip-path: url(#clip-path-3)">
+      <g style="clip-path: url(#clip-path-3)">
+        <g style="clip-path: url(#clip-path-3)">
+          <path d="M35,20A15,15,0,1,1,20,5,15,15,0,0,1,35,20"/>
+          <path d="M33.89,20A13.89,13.89,0,1,1,20,6.11,13.89,13.89,0,0,1,33.89,20" style="fill: #fff"/>
+          <g style="isolation: isolate">
+            <g style="clip-path: url(#clip-path-6)">
+              <path d="M20,7.35a12.65,12.65,0,1,1-8.94,3.7A12.61,12.61,0,0,1,20,7.35" style="fill: #0050a3"/>
+              <g style="isolation: isolate">
+                <g style="clip-path: url(#clip-path-9)">
+                  <g style="clip-path: url(#clip-path-10)">
+                    <g style="isolation: isolate">
+                      <g style="clip-path: url(#clip-path-9)">
+                        <polygon points="28.94 28.94 28.94 28.94 28.94 28.95 28.94 28.94" style="fill: #003e7d"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g style="isolation: isolate">
+                <g style="clip-path: url(#clip-path-12)">
+                  <g style="clip-path: url(#clip-path-13)">
+                    <g style="isolation: isolate">
+                      <g style="clip-path: url(#clip-path-12)">
+                        <path d="M28.94,28.95h0l0,0,0,0" style="fill: #003e7d"/>
+                        <path d="M28.89,29h0l-.16.16.16-.16" style="fill: #003e7e"/>
+                        <path d="M28.73,29.15h0l-.17.16.17-.16" style="fill: #003e7e"/>
+                        <path d="M28.56,29.31h0l-.17.15.17-.15" style="fill: #003e7f"/>
+                        <path d="M28.39,29.46h0l-.17.15.17-.15" style="fill: #003f7f"/>
+                        <path d="M28.22,29.61h0l-.18.15.18-.15" style="fill: #003f80"/>
+                        <path d="M28,29.76h0l-.18.14.18-.14" style="fill: #003f80"/>
+                        <path d="M27.86,29.9h0l-.18.14.18-.14" style="fill: #003f81"/>
+                        <path d="M27.68,30h0l-.19.14.19-.14" style="fill: #004081"/>
+                        <path d="M27.5,30.19h0l-.19.14.19-.14" style="fill: #004082"/>
+                        <path d="M27.31,30.32h0l-.19.13.19-.13" style="fill: #004083"/>
+                        <path d="M27.11,30.46h0l-.2.13.2-.13" style="fill: #004083"/>
+                        <path d="M26.92,30.59h0l-.2.13.2-.13" style="fill: #004184"/>
+                        <path d="M26.71,30.72h0l-.21.13.21-.13" style="fill: #004184"/>
+                        <path d="M26.51,30.85h0L26.3,31l.21-.12" style="fill: #004185"/>
+                        <path d="M26.29,31h0l-.22.12.22-.12" style="fill: #004185"/>
+                        <path d="M26.08,31.09h0l-.22.12.22-.12" style="fill: #004286"/>
+                        <path d="M25.85,31.21h0l-.23.12.23-.12" style="fill: #004286"/>
+                        <path d="M25.62,31.33h0l-.24.12.24-.12" style="fill: #004287"/>
+                        <path d="M25.38,31.45h0l-.25.12.25-.12" style="fill: #004287"/>
+                        <path d="M25.13,31.56h0l-.26.11.26-.11" style="fill: #004388"/>
+                        <path d="M24.87,31.68h0l-.27.11.27-.11" style="fill: #004388"/>
+                        <path d="M24.59,31.79h0l-.29.11.29-.11" style="fill: #004389"/>
+                        <path d="M24.31,31.89h0L24,32l.3-.1" style="fill: #004389"/>
+                        <path d="M24,32h0l-.33.1L24,32" style="fill: #00448a"/>
+                        <path d="M23.68,32.1h0l-.35.1.35-.1" style="fill: #00448a"/>
+                        <path d="M23.33,32.2h0l-.38.1.38-.1" style="fill: #00448b"/>
+                        <path d="M23,32.3h0l-.42.09L23,32.3" style="fill: #00448b"/>
+                        <path d="M22.53,32.39h0l-.49.09.49-.09" style="fill: #00458c"/>
+                        <path d="M22,32.48h0l-.61.08.61-.08" style="fill: #00458c"/>
+                        <path d="M21.43,32.57h0l-.86.07.86-.07" style="fill: #00458d"/>
+                        <path d="M20.57,32.63h0" style="fill: #00458d"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g style="isolation: isolate">
+                <g style="clip-path: url(#clip-path-15)">
+                  <g style="clip-path: url(#clip-path-16)">
+                    <g style="isolation: isolate">
+                      <g style="clip-path: url(#clip-path-15)">
+                        <path d="M20,32.65h0a12.75,12.75,0,0,1-2-.15,12.75,12.75,0,0,0,2,.15" style="fill: #00458d"/>
+                        <path d="M18,32.5h0l-.84-.16.84.16" style="fill: #00458d"/>
+                        <path d="M17.2,32.34h0l-.59-.15.59.15" style="fill: #00458c"/>
+                        <path d="M16.61,32.19h0L16.13,32l.48.14" style="fill: #00458c"/>
+                        <path d="M16.13,32h0l-.41-.14.41.14" style="fill: #00448b"/>
+                        <path d="M15.72,31.9h0l-.37-.14.37.14" style="fill: #00448b"/>
+                        <path d="M15.35,31.76h0L15,31.62l.34.14" style="fill: #00448a"/>
+                        <path d="M15,31.62h0l-.31-.14.31.14" style="fill: #00448a"/>
+                        <path d="M14.7,31.49h0l-.29-.14.29.14" style="fill: #004389"/>
+                        <path d="M14.41,31.35h0l-.28-.14.28.14" style="fill: #004389"/>
+                        <path d="M14.14,31.21h0l-.26-.14.26.14" style="fill: #004388"/>
+                        <path d="M13.88,31.07h0l-.25-.14.25.14" style="fill: #004388"/>
+                        <path d="M13.63,30.93h0l-.24-.14.24.14" style="fill: #004287"/>
+                        <path d="M13.39,30.78h0l-.23-.14.23.14" style="fill: #004287"/>
+                        <path d="M13.16,30.64h0l-.22-.15.22.15" style="fill: #004286"/>
+                        <path d="M12.94,30.5h0l-.21-.14.21.14" style="fill: #004286"/>
+                        <path d="M12.73,30.35h0l-.21-.15.21.15" style="fill: #004185"/>
+                        <path d="M12.53,30.2h0l-.2-.15.2.15" style="fill: #004185"/>
+                        <path d="M12.33,30.06h0l-.19-.15.19.15" style="fill: #004184"/>
+                        <path d="M12.14,29.91h0L12,29.75l.19.15" style="fill: #004184"/>
+                        <path d="M12,29.75h0l-.18-.15.18.15" style="fill: #004083"/>
+                        <path d="M11.77,29.6h0l-.18-.15.18.15" style="fill: #004083"/>
+                        <path d="M11.59,29.45h0l-.17-.16.17.16" style="fill: #004082"/>
+                        <path d="M11.42,29.29h0l-.17-.16.17.16" style="fill: #004081"/>
+                        <path d="M11.25,29.13h0L11.08,29l.17.16" style="fill: #003f81"/>
+                        <path d="M11.08,29h0l0,0,0,0" style="fill: #003f80"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g style="isolation: isolate">
+                <g style="clip-path: url(#clip-path-18)">
+                  <g style="clip-path: url(#clip-path-19)">
+                    <g style="isolation: isolate">
+                      <g style="clip-path: url(#clip-path-18)">
+                        <path d="M32.65,20h0a12.72,12.72,0,0,1-.23,2.38A12.72,12.72,0,0,0,32.65,20" style="fill: #003871"/>
+                        <path d="M32.42,22.39h0q-.07.35-.16.7.09-.35.16-.7" style="fill: #003872"/>
+                        <path d="M32.27,23.09h0q-.07.27-.14.53.08-.26.14-.53" style="fill: #003872"/>
+                        <path d="M32.12,23.62h0l-.14.45.14-.45" style="fill: #003873"/>
+                        <path d="M32,24.06h0l-.14.39.14-.39" style="fill: #003973"/>
+                        <path d="M31.84,24.46h0l-.14.35.14-.35" style="fill: #003974"/>
+                        <path d="M31.7,24.8h0l-.14.32.14-.32" style="fill: #003974"/>
+                        <path d="M31.56,25.13h0l-.14.3.14-.3" style="fill: #003975"/>
+                        <path d="M31.42,25.43h0l-.14.28.14-.28" style="fill: #003a75"/>
+                        <path d="M31.29,25.71h0l-.14.27.14-.27" style="fill: #003a76"/>
+                        <path d="M31.15,26h0l-.14.26.14-.26" style="fill: #003a76"/>
+                        <path d="M31,26.24h0l-.14.24.14-.24" style="fill: #003a77"/>
+                        <path d="M30.86,26.48h0l-.14.23.14-.23" style="fill: #003b77"/>
+                        <path d="M30.72,26.71h0l-.14.22.14-.22" style="fill: #003b78"/>
+                        <path d="M30.58,26.93h0l-.15.22.15-.22" style="fill: #003b78"/>
+                        <path d="M30.43,27.15h0l-.15.21.15-.21" style="fill: #003b79"/>
+                        <path d="M30.29,27.36h0l-.15.2.15-.2" style="fill: #003c79"/>
+                        <path d="M30.14,27.56h0l-.15.2.15-.2" style="fill: #003c7a"/>
+                        <path d="M30,27.76h0l-.15.19.15-.19" style="fill: #003c7a"/>
+                        <path d="M29.84,27.95h0l-.15.18.15-.18" style="fill: #003c7b"/>
+                        <path d="M29.69,28.13h0l-.15.18.15-.18" style="fill: #003d7b"/>
+                        <path d="M29.53,28.31h0l-.16.18.16-.18" style="fill: #003d7c"/>
+                        <path d="M29.38,28.49h0l-.16.17.16-.17" style="fill: #003d7c"/>
+                        <path d="M29.22,28.66h0l-.16.17.16-.17" style="fill: #003d7d"/>
+                        <path d="M29.06,28.83h0l-.11.12.11-.12" style="fill: #003e7d"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g style="isolation: isolate">
+                <g style="clip-path: url(#clip-path-21)">
+                  <g style="clip-path: url(#clip-path-22)">
+                    <g style="isolation: isolate">
+                      <g style="clip-path: url(#clip-path-21)">
+                        <path d="M11.05,28.94h0l-.13-.13.13.13" style="fill: #003f80"/>
+                        <path d="M10.92,28.8h0l-.16-.17.16.17" style="fill: #003f80"/>
+                        <path d="M10.76,28.64h0l-.16-.17.16.17" style="fill: #003f7f"/>
+                        <path d="M10.61,28.47h0l-.15-.17.15.17" style="fill: #003e7f"/>
+                        <path d="M10.45,28.3h0l-.15-.17.15.17" style="fill: #003e7e"/>
+                        <path d="M10.31,28.12h0l-.15-.18.15.18" style="fill: #003e7e"/>
+                        <path d="M10.16,27.94h0L10,27.76l.14.18" style="fill: #003e7d"/>
+                        <path d="M10,27.76h0l-.14-.18.14.18" style="fill: #003d7d"/>
+                        <path d="M9.88,27.58h0l-.14-.19.14.19" style="fill: #003d7c"/>
+                        <path d="M9.74,27.39h0L9.6,27.2l.14.19" style="fill: #003d7c"/>
+                        <path d="M9.6,27.2h0L9.47,27l.13.2" style="fill: #003d7b"/>
+                        <path d="M9.47,27h0l-.13-.2.13.2" style="fill: #003c7b"/>
+                        <path d="M9.34,26.8h0l-.13-.2.13.2" style="fill: #003c7a"/>
+                        <path d="M9.21,26.6h0l-.13-.21.13.21" style="fill: #003c7a"/>
+                        <path d="M9.08,26.39h0L9,26.17l.12.22" style="fill: #003c79"/>
+                        <path d="M9,26.17H9L8.84,26l.12.22" style="fill: #003b79"/>
+                        <path d="M8.84,26h0l-.12-.23.12.23" style="fill: #003b78"/>
+                        <path d="M8.72,25.72h0l-.12-.24.12.24" style="fill: #003b78"/>
+                        <path d="M8.6,25.49h0l-.12-.25.12.25" style="fill: #003b77"/>
+                        <path d="M8.49,25.24h0L8.37,25l.11.25" style="fill: #003a77"/>
+                        <path d="M8.37,25h0l-.11-.27.11.27" style="fill: #003a76"/>
+                        <path d="M8.26,24.72h0l-.11-.28.11.28" style="fill: #003a76"/>
+                        <path d="M8.15,24.44h0L8,24.14l.11.3" style="fill: #003a75"/>
+                        <path d="M8,24.14H8l-.1-.31.1.31" style="fill: #003975"/>
+                        <path d="M7.94,23.83h0l-.1-.33.1.33" style="fill: #003974"/>
+                        <path d="M7.84,23.49h0l-.1-.37.1.37" style="fill: #003974"/>
+                        <path d="M7.74,23.12h0l-.1-.41.1.41" style="fill: #003973"/>
+                        <path d="M7.65,22.72h0q-.05-.23-.09-.46,0,.23.09.46" style="fill: #003873"/>
+                        <path d="M7.55,22.26h0q0-.27-.09-.55,0,.27.09.55" style="fill: #003872"/>
+                        <path d="M7.47,21.71h0q0-.35-.08-.7,0,.35.08.7" style="fill: #003872"/>
+                        <path d="M7.39,21h0q0-.5,0-1,0,.51,0,1" style="fill: #003871"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g style="isolation: isolate">
+                <g style="clip-path: url(#clip-path-24)">
+                  <g style="clip-path: url(#clip-path-25)">
+                    <g style="isolation: isolate">
+                      <g style="clip-path: url(#clip-path-24)">
+                        <path d="M7.35,20h0a12.6,12.6,0,0,1,3.7-8.93A12.6,12.6,0,0,0,7.35,20" style="fill: #003871"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g style="isolation: isolate">
+                <g style="clip-path: url(#clip-path-27)">
+                  <g style="clip-path: url(#clip-path-28)">
+                    <g style="isolation: isolate">
+                      <g style="clip-path: url(#clip-path-27)">
+                        <path d="M28.95,11.06h0A12.61,12.61,0,0,1,32.65,20a12.61,12.61,0,0,0-3.7-8.94" style="fill: #003871"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g style="isolation: isolate">
+                <g style="clip-path: url(#clip-path-30)">
+                  <g style="clip-path: url(#clip-path-31)">
+                    <g style="isolation: isolate">
+                      <g style="clip-path: url(#clip-path-30)">
+                        <polygon points="28.94 11.06 28.94 11.06 28.95 11.06 28.94 11.06" style="fill: #003871"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g style="isolation: isolate">
+                <g style="clip-path: url(#clip-path-33)">
+                  <g style="clip-path: url(#clip-path-34)">
+                    <g style="isolation: isolate">
+                      <g style="clip-path: url(#clip-path-33)">
+                        <path d="M20,7.35h0a12.6,12.6,0,0,1,8.93,3.7A12.6,12.6,0,0,0,20,7.35" style="fill: #003871"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g style="isolation: isolate">
+                <g style="clip-path: url(#clip-path-36)">
+                  <g style="clip-path: url(#clip-path-37)">
+                    <g style="isolation: isolate">
+                      <g style="clip-path: url(#clip-path-36)">
+                        <path d="M11.06,11.05h0A12.61,12.61,0,0,1,20,7.35a12.61,12.61,0,0,0-8.94,3.7" style="fill: #003871"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g style="isolation: isolate">
+                <g style="clip-path: url(#clip-path-6)">
+                  <g style="clip-path: url(#clip-path-40)">
+                    <g style="isolation: isolate">
+                      <g style="clip-path: url(#clip-path-6)">
+                        <path d="M20,6.7v.65a12.71,12.71,0,0,1,2.54.26L22.67,7A13.36,13.36,0,0,0,20,6.7" style="fill: #003a76"/>
+                        <path d="M22.67,7l-.13.64a12.54,12.54,0,0,1,1.82.52l.22-.61A13.2,13.2,0,0,0,22.67,7" style="fill: #003a76"/>
+                        <path d="M24.59,7.52l-.22.61q.56.21,1.09.46L25.74,8q-.56-.27-1.15-.49" style="fill: #003a77"/>
+                        <path d="M25.74,8l-.28.59q.42.2.82.43l.32-.56q-.42-.24-.86-.45" style="fill: #003b77"/>
+                        <path d="M26.6,8.45,26.28,9l.66.41.36-.54-.7-.43" style="fill: #003b78"/>
+                        <path d="M27.3,8.88l-.36.54.56.39.39-.52-.59-.41" style="fill: #003b78"/>
+                        <path d="M27.89,9.29l-.39.52.48.37.41-.5-.51-.39" style="fill: #003b79"/>
+                        <path d="M28.39,9.69l-.41.5.42.36.43-.49-.45-.38" style="fill: #003c79"/>
+                        <path d="M28.84,10.07l-.43.49.38.35.45-.47-.4-.37" style="fill: #003c7a"/>
+                        <path d="M29.24,10.43l-.45.47.16.16.18.18.47-.45-.19-.19-.17-.16" style="fill: #003c7a"/>
+                        <path d="M29.59,10.79l-.47.45.3.33.48-.43-.32-.34" style="fill: #003c7b"/>
+                        <path d="M29.91,11.13l-.48.43.28.32.5-.42-.29-.34" style="fill: #003d7b"/>
+                        <path d="M30.2,11.47l-.5.42.25.31.51-.4-.26-.33" style="fill: #003d7c"/>
+                        <path d="M30.46,11.79l-.51.4.23.3.52-.39-.24-.32" style="fill: #003d7c"/>
+                        <path d="M30.71,12.11l-.52.39.21.29.53-.37-.22-.31" style="fill: #003d7d"/>
+                        <path d="M30.93,12.42l-.53.37.19.29.54-.36-.2-.3" style="fill: #003e7d"/>
+                        <path d="M31.13,12.72l-.54.36.18.28.55-.34-.19-.3" style="fill: #003e7e"/>
+                        <path d="M31.32,13l-.55.34.16.27.56-.33L31.32,13" style="fill: #003e7e"/>
+                        <path d="M31.49,13.3l-.56.33.15.27.57-.31-.16-.28" style="fill: #003e7f"/>
+                        <path d="M31.65,13.59l-.57.31.14.26.58-.3-.15-.28" style="fill: #003f7f"/>
+                        <path d="M31.8,13.86l-.58.3.13.26.58-.29-.14-.27" style="fill: #003f80"/>
+                        <path d="M31.94,14.13l-.58.29.12.25.59-.27-.13-.27" style="fill: #003f80"/>
+                        <path d="M32.06,14.4l-.59.27.11.25.6-.26-.12-.26" style="fill: #003f81"/>
+                        <path d="M32.18,14.66l-.6.26.1.24.6-.25-.11-.26" style="fill: #004081"/>
+                        <path d="M32.29,14.91l-.6.25.1.24.61-.24-.1-.25" style="fill: #004082"/>
+                        <path d="M32.39,15.17l-.61.24.09.24.61-.22-.09-.25" style="fill: #004083"/>
+                        <path d="M32.49,15.41l-.61.22.08.23.62-.21-.09-.24" style="fill: #004083"/>
+                        <path d="M32.57,15.66l-.62.21.08.23.62-.2-.08-.24" style="fill: #004184"/>
+                        <path d="M32.65,15.9l-.62.2.07.22.62-.19-.07-.24" style="fill: #004184"/>
+                        <path d="M32.73,16.13l-.62.19.06.2.63-.18-.06-.22" style="fill: #004185"/>
+                        <path d="M32.79,16.35l-.63.18,0,.16.63-.17,0-.17" style="fill: #004185"/>
+                        <path d="M32.84,16.52l-.63.17,0,.16.63-.16,0-.17" style="fill: #004286"/>
+                        <path d="M32.88,16.68l-.63.16,0,.17.63-.15,0-.18" style="fill: #004286"/>
+                        <path d="M32.93,16.86l-.63.15,0,.2.63-.14,0-.21" style="fill: #004287"/>
+                        <path d="M33,17.07l-.63.14,0,.2.64-.13,0-.21" style="fill: #004287"/>
+                        <path d="M33,17.28l-.64.13,0,.19.64-.12,0-.2" style="fill: #004388"/>
+                        <path d="M33.06,17.49l-.64.12,0,.19.64-.11,0-.2" style="fill: #004388"/>
+                        <path d="M33.1,17.69l-.64.11,0,.19.64-.1,0-.2" style="fill: #004389"/>
+                        <path d="M33.13,17.89l-.64.1,0,.19.64-.09,0-.2" style="fill: #004389"/>
+                        <path d="M33.16,18.09l-.64.09,0,.19.65-.08,0-.2" style="fill: #00448a"/>
+                        <path d="M33.19,18.28l-.65.08,0,.18.65-.07,0-.19" style="fill: #00448a"/>
+                        <path d="M33.21,18.48l-.65.07,0,.18.65-.07,0-.19" style="fill: #00448b"/>
+                        <path d="M33.23,18.67l-.65.07,0,.18.65-.06,0-.19" style="fill: #00448b"/>
+                        <path d="M33.25,18.86l-.65.06v.18l.65,0v-.19" style="fill: #00458c"/>
+                        <path d="M33.26,19l-.65,0v.17l.65,0V19" style="fill: #00458c"/>
+                        <path d="M33.28,19.22l-.65,0v.18l.65,0v-.18" style="fill: #00458d"/>
+                        <path d="M33.28,19.41l-.65,0v.17l.65,0q0-.09,0-.18" style="fill: #00458d"/>
+                        <path d="M33.29,19.59l-.65,0q0,.08,0,.17h.65q0-.09,0-.18" style="fill: #00468e"/>
+                        <path d="M33.3,19.77h-.65q0,.08,0,.17h.65q0-.09,0-.18" style="fill: #00468e"/>
+                        <path d="M33.3,19.94h-.65v.17h.65s0-.08,0-.12v-.06" style="fill: #00468f"/>
+                        <path d="M33.3,20.12h-.65q0,.08,0,.16h.65q0-.09,0-.17" style="fill: #00468f"/>
+                        <path d="M33.29,20.29h-.65q0,.08,0,.16l.65,0q0-.09,0-.17" style="fill: #004790"/>
+                        <path d="M33.29,20.46l-.65,0v.16l.65,0v-.17" style="fill: #004790"/>
+                        <path d="M33.28,20.63l-.65,0v.16l.65,0v-.16" style="fill: #004791"/>
+                        <path d="M33.27,20.79l-.65,0v.16l.65,0v-.16" style="fill: #004791"/>
+                        <path d="M33.26,21l-.65,0v.15l.65.05V21" style="fill: #004892"/>
+                        <path d="M33.25,21.11l-.65-.05v.15l.65.06v-.16" style="fill: #004892"/>
+                        <path d="M33.24,21.27l-.65-.06v.15l.65.07,0-.16" style="fill: #004893"/>
+                        <path d="M33.22,21.43l-.65-.07,0,.15.65.08,0-.15" style="fill: #004893"/>
+                        <path d="M33.2,21.58l-.65-.08,0,.14.65.08,0-.15" style="fill: #004994"/>
+                        <path d="M33.19,21.73l-.65-.08,0,.14.64.09,0-.15" style="fill: #004994"/>
+                        <path d="M33.17,21.88l-.64-.09,0,.14.64.1,0-.15" style="fill: #004995"/>
+                        <path d="M33.14,22l-.64-.1,0,.14.64.11,0-.15" style="fill: #004995"/>
+                        <path d="M33.12,22.18l-.64-.11,0,.14.64.11,0-.14" style="fill: #004a96"/>
+                        <path d="M33.1,22.32l-.64-.11,0,.14.64.12,0-.14" style="fill: #004a96"/>
+                        <path d="M33.07,22.46l-.64-.12,0,.13.64.13,0-.14" style="fill: #004a97"/>
+                        <path d="M33,22.6l-.64-.13,0,.13.64.13,0-.14" style="fill: #004a97"/>
+                        <path d="M33,22.74l-.64-.13,0,.13.64.14,0-.14" style="fill: #004b98"/>
+                        <path d="M33,22.88l-.64-.14,0,.13L33,23l0-.14" style="fill: #004b98"/>
+                        <path d="M33,23l-.63-.15,0,.13.63.15L33,23" style="fill: #004b99"/>
+                        <path d="M32.92,23.15,32.29,23l0,.13.63.16,0-.13" style="fill: #004c99"/>
+                        <path d="M32.89,23.28l-.63-.16,0,.12.63.17,0-.13" style="fill: #004c9a"/>
+                        <path d="M32.85,23.42l-.63-.17,0,.12.63.17,0-.13" style="fill: #004c9a"/>
+                        <path d="M32.82,23.55l-.63-.17,0,.12.63.18,0-.13" style="fill: #004c9b"/>
+                        <path d="M32.78,23.67l-.63-.18,0,.12.62.19,0-.13" style="fill: #004d9b"/>
+                        <path d="M32.75,23.8l-.62-.19,0,.12.62.19,0-.12" style="fill: #004d9c"/>
+                        <path d="M32.71,23.93l-.62-.19,0,.12.62.2,0-.12" style="fill: #004d9c"/>
+                        <path d="M32.67,24.05l-.62-.2L32,24l.62.2,0-.12" style="fill: #004d9d"/>
+                        <path d="M32.63,24.17,32,24l0,.11.62.21,0-.12" style="fill: #004e9d"/>
+                        <path d="M32.59,24.3,32,24.08l0,.11.61.22,0-.12" style="fill: #004e9e"/>
+                        <path d="M32.55,24.41l-.61-.22,0,.11.61.22,0-.12" style="fill: #004e9f"/>
+                        <path d="M32.5,24.53l-.61-.22,0,.11.61.23,0-.12" style="fill: #004e9f"/>
+                        <path d="M32.46,24.65l-.61-.23,0,.11.61.23,0-.12" style="fill: #004fa0"/>
+                        <path d="M32.42,24.77l-.61-.23,0,.11.61.24,0-.11" style="fill: #004fa0"/>
+                        <path d="M32.37,24.88l-.61-.24,0,.11.6.24,0-.11" style="fill: #004fa1"/>
+                        <path d="M32.33,25l-.6-.24,0,.11.6.25,0-.11" style="fill: #004fa1"/>
+                        <path d="M32.28,25.11l-.6-.25,0,.11.6.26,0-.11" style="fill: #0050a2"/>
+                        <path d="M32.23,25.22l-.6-.26,0,.1.6.26,0-.11" style="fill: #0050a2"/>
+                        <path d="M32.19,25.33l-.6-.26,0,.1.59.27,0-.11" style="fill: #0050a3"/>
+                        <path d="M32.14,25.44l-.59-.27,0,.1.59.27,0-.11" style="fill: #0050a3"/>
+                        <path d="M32.09,25.55l-.59-.27,0,.1.59.28.05-.11" style="fill: #0051a4"/>
+                        <path d="M32,25.66l-.59-.28,0,.1.59.28.05-.11" style="fill: #0051a4"/>
+                        <path d="M32,25.76l-.59-.28,0,.1.58.29.05-.1" style="fill: #0051a5"/>
+                        <path d="M31.94,25.87l-.58-.29,0,.1.58.29.05-.1" style="fill: #0051a5"/>
+                        <path d="M31.88,26l-.58-.29-.05.1.58.3.05-.1" style="fill: #0052a6"/>
+                        <path d="M31.83,26.08l-.58-.3-.05.1.58.3.05-.1" style="fill: #0052a6"/>
+                        <path d="M31.78,26.18l-.58-.3-.05.1.57.31.05-.1" style="fill: #0052a7"/>
+                        <path d="M31.72,26.28,31.15,26l-.05.1.57.31.05-.1" style="fill: #0052a7"/>
+                        <path d="M31.67,26.38l-.57-.31-.05.1.57.32.06-.1" style="fill: #0053a8"/>
+                        <path d="M31.61,26.48,31,26.16l-.05.09.57.32.06-.1" style="fill: #0053a8"/>
+                        <path d="M31.56,26.58,31,26.26l-.05.09.56.33.06-.1" style="fill: #0053a9"/>
+                        <path d="M31.5,26.67l-.56-.33-.05.09.56.33.06-.1" style="fill: #0053a9"/>
+                        <path d="M31.45,26.77l-.56-.33-.05.09.56.34.06-.09" style="fill: #0054aa"/>
+                        <path d="M31.39,26.86l-.56-.34-.05.09.55.34.06-.09" style="fill: #0054aa"/>
+                        <path d="M31.33,27l-.55-.34-.06.09.55.35.06-.09" style="fill: #0054ab"/>
+                        <path d="M31.28,27.05l-.55-.35-.06.09.55.35.06-.09" style="fill: #0054ab"/>
+                        <path d="M31.22,27.14l-.55-.35-.06.09.55.35.06-.09" style="fill: #0055ac"/>
+                        <path d="M31.16,27.24l-.55-.35-.06.09.54.36.06-.09" style="fill: #0055ac"/>
+                        <path d="M31.1,27.33,30.56,27l-.06.09.54.36.06-.09" style="fill: #0055ad"/>
+                        <path d="M31,27.42l-.54-.36-.06.08.54.37.06-.09" style="fill: #0055ad"/>
+                        <path d="M31,27.51l-.54-.37-.06.08.53.37.06-.09" style="fill: #0056ae"/>
+                        <path d="M30.92,27.59l-.53-.37-.06.08.53.38.06-.09" style="fill: #0056ae"/>
+                        <path d="M30.85,27.68l-.53-.38-.06.08.53.38.06-.09" style="fill: #0056af"/>
+                        <path d="M30.79,27.77l-.53-.38-.06.08.52.38.06-.09" style="fill: #0056af"/>
+                        <path d="M30.73,27.86l-.52-.38-.06.08.52.39.06-.08" style="fill: #0057b0"/>
+                        <path d="M30.67,27.94l-.52-.39-.06.08.52.39.06-.08" style="fill: #0057b0"/>
+                        <path d="M30.6,28l-.52-.39-.06.08.52.4L30.6,28" style="fill: #0057b1"/>
+                        <path d="M30.54,28.11l-.52-.4-.06.08.51.4.06-.08" style="fill: #0057b1"/>
+                        <path d="M30.47,28.19l-.51-.4-.06.08.51.41.07-.08" style="fill: #0058b2"/>
+                        <path d="M30.41,28.27l-.51-.4-.06.08.51.41.06-.08" style="fill: #0058b2"/>
+                        <path d="M30.35,28.35l-.51-.41-.06.08.5.41.07-.08" style="fill: #0058b3"/>
+                        <path d="M30.28,28.43l-.5-.41-.06.08.5.42.07-.08" style="fill: #0058b3"/>
+                        <path d="M30.21,28.51l-.5-.42-.06.08.5.42.07-.08" style="fill: #0059b4"/>
+                        <path d="M30.15,28.59l-.5-.42-.06.07.49.42.07-.08" style="fill: #0059b4"/>
+                        <path d="M30.08,28.67l-.49-.42-.06.07.49.43.07-.08" style="fill: #0059b5"/>
+                        <path d="M30,28.75l-.49-.43-.06.07.49.43.07-.08" style="fill: #0059b5"/>
+                        <path d="M29.95,28.83l-.49-.43-.06.07.48.44.07-.08" style="fill: #005ab6"/>
+                        <path d="M29.88,28.9l-.48-.44-.07.07.48.44.07-.08" style="fill: #005ab6"/>
+                        <path d="M29.81,29l-.48-.44-.07.07.48.44.07-.07" style="fill: #005ab7"/>
+                        <path d="M29.74,29.05l-.48-.44-.07.07.47.45.07-.07" style="fill: #005ab7"/>
+                        <path d="M29.67,29.13l-.47-.45-.07.07.47.45.07-.07" style="fill: #005bb8"/>
+                        <path d="M29.6,29.2l-.47-.45-.07.07.47.45.07-.07" style="fill: #005bb8"/>
+                        <path d="M29.53,29.27l-.47-.45-.07.07.46.46.07-.07" style="fill: #005bb9"/>
+                        <path d="M29.46,29.34,29,28.88l-.06.06h0l.46.46h0l.06-.06" style="fill: #005bb9"/>
+                        <path d="M29.39,29.41,28.93,29l-.07.07.46.46.07-.07" style="fill: #005cba"/>
+                        <path d="M29.32,29.48,28.87,29l-.07.07.45.47.07-.07" style="fill: #005cba"/>
+                        <path d="M29.25,29.55l-.45-.47-.07.07.45.47.07-.07" style="fill: #005cbb"/>
+                        <path d="M29.18,29.62l-.45-.47-.07.07.45.47.07-.07" style="fill: #005cbc"/>
+                        <path d="M29.11,29.69l-.45-.47-.07.06.44.48.07-.07" style="fill: #005dbc"/>
+                        <path d="M29,29.76l-.44-.48-.07.06.44.48.07-.07" style="fill: #005dbd"/>
+                        <path d="M29,29.83l-.44-.48-.07.06.43.48.07-.07" style="fill: #005dbd"/>
+                        <path d="M28.88,29.89l-.43-.48-.07.06.43.49.07-.07" style="fill: #005dbe"/>
+                        <path d="M28.81,30l-.43-.49-.07.06.43.49.08-.07" style="fill: #005ebe"/>
+                        <path d="M28.74,30l-.43-.49-.07.06.42.49.08-.07" style="fill: #005ebf"/>
+                        <path d="M28.66,30.09l-.42-.49-.07.06.42.5.08-.07" style="fill: #0561c0"/>
+                        <path d="M28.58,30.16l-.42-.5-.07.06.42.5.08-.06" style="fill: #0d66c2"/>
+                        <path d="M28.51,30.22l-.42-.5-.07.06.41.5.08-.06" style="fill: #1269c4"/>
+                        <path d="M28.43,30.28l-.41-.5-.07.06.41.51.08-.06" style="fill: #166cc4"/>
+                        <path d="M28.35,30.35l-.41-.51-.07.06.4.51.08-.06" style="fill: #196ec5"/>
+                        <path d="M28.27,30.41l-.4-.51-.07.06.4.51.08-.06" style="fill: #1c70c6"/>
+                        <path d="M28.19,30.47l-.4-.51-.07.06.4.52.08-.06" style="fill: #1f71c7"/>
+                        <path d="M28.12,30.53l-.4-.52-.07.06.39.52.08-.06" style="fill: #2173c7"/>
+                        <path d="M28,30.59l-.39-.52-.08.06.39.52.08-.06" style="fill: #2374c8"/>
+                        <path d="M28,30.65l-.39-.52-.08.06.39.52.08-.06" style="fill: #2576c8"/>
+                        <path d="M27.88,30.71l-.39-.52-.08.06.38.53.08-.06" style="fill: #2777c9"/>
+                        <path d="M27.8,30.77l-.38-.53-.08.06.38.53.08-.06" style="fill: #2978c9"/>
+                        <path d="M27.72,30.83l-.38-.53-.08.06.37.53.08-.06" style="fill: #2b79ca"/>
+                        <path d="M27.63,30.89l-.37-.53-.08.05.37.54.08-.06" style="fill: #2d7aca"/>
+                        <path d="M27.55,30.95l-.37-.54-.08.05.37.54.08-.06" style="fill: #2e7bcb"/>
+                        <path d="M27.47,31l-.37-.54-.08.05.36.54.08-.06" style="fill: #307ccb"/>
+                        <path d="M27.38,31.06,27,30.52l-.08.05.36.54.09-.06" style="fill: #327dcb"/>
+                        <path d="M27.3,31.12l-.36-.54-.08.05.35.55.09-.06" style="fill: #337ecc"/>
+                        <path d="M27.21,31.17l-.35-.55-.08.05.35.55.09-.06" style="fill: #357fcc"/>
+                        <path d="M27.13,31.23l-.35-.55-.08.05.34.55.09-.05" style="fill: #3680cd"/>
+                        <path d="M27,31.28l-.34-.55-.08.05.34.55.09-.05" style="fill: #3781cd"/>
+                        <path d="M27,31.34l-.34-.55-.08.05.34.56.09-.05" style="fill: #3982cd"/>
+                        <path d="M26.87,31.39l-.34-.56-.08,0,.33.56.09-.05" style="fill: #3a83ce"/>
+                        <path d="M26.78,31.44l-.33-.56-.08,0,.33.56.09-.05" style="fill: #3b83ce"/>
+                        <path d="M26.69,31.49l-.33-.56-.08,0,.32.56.09-.05" style="fill: #3d84ce"/>
+                        <path d="M26.6,31.55,26.28,31l-.09,0,.32.57.09-.05" style="fill: #3e85cf"/>
+                        <path d="M26.51,31.6,26.19,31l-.09,0,.31.57.09-.05" style="fill: #3f86cf"/>
+                        <path d="M26.42,31.65l-.31-.57-.09,0,.31.57.09-.05" style="fill: #4087cf"/>
+                        <path d="M26.33,31.7,26,31.13l-.09,0,.31.57.09,0" style="fill: #4187cf"/>
+                        <path d="M26.24,31.75l-.31-.57-.09,0,.3.58.09,0" style="fill: #4388d0"/>
+                        <path d="M26.14,31.8l-.3-.58-.09,0,.3.58.1,0" style="fill: #4489d0"/>
+                        <path d="M26,31.85l-.3-.58-.09,0,.29.58.1,0" style="fill: #4589d0"/>
+                        <path d="M26,31.89l-.29-.58-.09,0,.29.58.1,0" style="fill: #468ad1"/>
+                        <path d="M25.85,31.94l-.29-.58-.09,0,.28.59.1,0" style="fill: #478bd1"/>
+                        <path d="M25.76,32l-.28-.59-.09,0,.28.59.1,0" style="fill: #488cd1"/>
+                        <path d="M25.66,32l-.28-.59-.1,0,.27.59.1,0" style="fill: #498cd1"/>
+                        <path d="M25.55,32.09l-.27-.59-.1,0,.27.59.1,0" style="fill: #4a8dd2"/>
+                        <path d="M25.45,32.13l-.27-.59-.1,0,.26.6.1,0" style="fill: #4b8dd2"/>
+                        <path d="M25.35,32.18l-.26-.6-.1,0,.26.6.1,0" style="fill: #4c8ed2"/>
+                        <path d="M25.24,32.22l-.26-.6-.1,0,.25.6.11,0" style="fill: #4d8fd2"/>
+                        <path d="M25.14,32.27l-.25-.6-.11,0,.25.6.11,0" style="fill: #4e8fd3"/>
+                        <path d="M25,32.32l-.25-.6-.11,0,.24.6.11,0" style="fill: #4f90d3"/>
+                        <path d="M24.91,32.36l-.24-.6-.11,0,.23.61.11,0" style="fill: #5091d3"/>
+                        <path d="M24.8,32.4l-.23-.61-.11,0,.23.61.11,0" style="fill: #5191d3"/>
+                        <path d="M24.69,32.45l-.23-.61-.11,0,.22.61.12,0" style="fill: #5292d4"/>
+                        <path d="M24.57,32.49l-.22-.61-.11,0,.22.61.12,0" style="fill: #5392d4"/>
+                        <path d="M24.45,32.54l-.22-.61-.12,0,.21.62.12,0" style="fill: #5493d4"/>
+                        <path d="M24.33,32.58,24.12,32,24,32l.21.62.12,0" style="fill: #5593d4"/>
+                        <path d="M24.21,32.62,24,32l-.12,0,.2.62.13,0" style="fill: #5694d4"/>
+                        <path d="M24.08,32.66l-.2-.62-.12,0,.19.62.13,0" style="fill: #5695d5"/>
+                        <path d="M24,32.7l-.19-.62-.12,0,.19.62.13,0" style="fill: #5795d5"/>
+                        <path d="M23.83,32.74l-.19-.62-.12,0,.18.63.13,0" style="fill: #5896d5"/>
+                        <path d="M23.7,32.78l-.18-.63-.14,0,.17.63.15,0" style="fill: #5996d5"/>
+                        <path d="M23.55,32.82l-.17-.63-.14,0,.17.63.15,0" style="fill: #5a97d6"/>
+                        <path d="M23.4,32.86l-.17-.63-.14,0,.16.63.15,0" style="fill: #5b97d6"/>
+                        <path d="M23.26,32.9l-.16-.63-.15,0,.15.63.16,0" style="fill: #5c98d6"/>
+                        <path d="M23.1,32.93l-.15-.63-.16,0,.14.63.17,0" style="fill: #5c98d6"/>
+                        <path d="M22.93,33l-.14-.63-.16,0,.14.64.17,0" style="fill: #5d99d6"/>
+                        <path d="M22.76,33l-.14-.64-.17,0,.13.64.17,0" style="fill: #5e99d7"/>
+                        <path d="M22.59,33l-.13-.64-.17,0,.12.64.18,0" style="fill: #5f9ad7"/>
+                        <path d="M22.41,33.08l-.12-.64-.17,0,.11.64.18,0" style="fill: #609ad7"/>
+                        <path d="M22.23,33.11l-.11-.64-.2,0,.1.64.21,0" style="fill: #609bd7"/>
+                        <path d="M22,33.15l-.1-.64-.22,0,.09.64.23,0" style="fill: #619bd7"/>
+                        <path d="M21.79,33.18l-.09-.64-.24,0,.08.65.25,0" style="fill: #629cd8"/>
+                        <path d="M21.54,33.21l-.08-.65-.27,0,.06.65.29,0" style="fill: #639cd8"/>
+                        <path d="M21.25,33.24l-.06-.65-.32,0,0,.65.33,0" style="fill: #649dd8"/>
+                        <path d="M20.91,33.27l0-.65-.38,0,0,.65.4,0" style="fill: #649dd8"/>
+                        <path d="M20.51,33.29l0-.65h-.64v.65h.67" style="fill: #659ed8"/>
+                        <path d="M19.84,33.3v-.65q-.59,0-1.16-.07l-.07.65q.6.06,1.22.07" style="fill: #669ed9"/>
+                        <path d="M18.62,33.23l.07-.65-.62-.08-.1.64.65.08" style="fill: #659ed8"/>
+                        <path d="M18,33.14l.1-.64-.35-.06-.12.64.37.06" style="fill: #649dd8"/>
+                        <path d="M17.6,33.08l.12-.64-.29-.06-.13.64.31.06" style="fill: #649dd8"/>
+                        <path d="M17.29,33l.13-.64-.26-.06L17,33l.27.06" style="fill: #639cd8"/>
+                        <path d="M17,33l.15-.63-.24-.06-.16.63L17,33" style="fill: #629cd8"/>
+                        <path d="M16.76,32.9l.16-.63-.19,0-.17.63.2.05" style="fill: #619bd7"/>
+                        <path d="M16.56,32.85l.17-.63-.19-.05-.18.63.2.06" style="fill: #609bd7"/>
+                        <path d="M16.36,32.79l.18-.63-.18-.05-.19.62.19.06" style="fill: #609ad7"/>
+                        <path d="M16.17,32.74l.19-.62-.17-.05-.2.62.18.06" style="fill: #5f9ad7"/>
+                        <path d="M16,32.68l.2-.62L16,32l-.21.62.18.06" style="fill: #5e99d7"/>
+                        <path d="M15.81,32.62,16,32l-.14,0-.21.61.15.05" style="fill: #5d99d6"/>
+                        <path d="M15.65,32.57l.21-.61-.14-.05-.22.61.15.05" style="fill: #5c98d6"/>
+                        <path d="M15.5,32.52l.22-.61-.14-.05-.23.61.15.05" style="fill: #5c98d6"/>
+                        <path d="M15.36,32.46l.23-.61-.14-.05-.23.61.14.05" style="fill: #5b97d6"/>
+                        <path d="M15.21,32.41l.23-.61-.13-.05-.24.6.14.06" style="fill: #5a97d6"/>
+                        <path d="M15.07,32.35l.24-.6-.13-.05-.25.6.14.06" style="fill: #5996d5"/>
+                        <path d="M14.93,32.3l.25-.6-.13-.05-.25.6.14.06" style="fill: #5896d5"/>
+                        <path d="M14.8,32.24l.25-.6-.11,0-.26.6.12.05" style="fill: #5795d5"/>
+                        <path d="M14.68,32.19l.26-.6-.11-.05-.27.59.12.05" style="fill: #5695d5"/>
+                        <path d="M14.56,32.14l.27-.59-.11-.05-.27.59.12.05" style="fill: #5694d4"/>
+                        <path d="M14.44,32.08l.27-.59-.11-.05-.28.59.12.06" style="fill: #5593d4"/>
+                        <path d="M14.32,32l.28-.59-.11-.05-.28.59.12.06" style="fill: #5493d4"/>
+                        <path d="M14.21,32l.28-.59-.11-.05-.29.58.11.06" style="fill: #5392d4"/>
+                        <path d="M14.09,31.92l.29-.58-.11-.05-.29.58.11.06" style="fill: #5292d4"/>
+                        <path d="M14,31.86l.29-.58-.11-.05-.3.58.11.06" style="fill: #5191d3"/>
+                        <path d="M13.87,31.8l.3-.58-.1-.05-.31.57.11.06" style="fill: #5091d3"/>
+                        <path d="M13.76,31.74l.31-.57-.1-.05-.31.57.11.06" style="fill: #4f90d3"/>
+                        <path d="M13.65,31.69l.31-.57-.1-.05-.32.57.1.06" style="fill: #4e8fd3"/>
+                        <path d="M13.55,31.63l.32-.57-.1-.06-.32.57.1.06" style="fill: #4d8fd2"/>
+                        <path d="M13.45,31.57l.32-.57L13.67,31l-.33.56.1.06" style="fill: #4c8ed2"/>
+                        <path d="M13.35,31.52l.33-.56-.09-.05-.33.56.1.06" style="fill: #4b8dd2"/>
+                        <path d="M13.25,31.46l.33-.56-.09-.06-.34.56.1.06" style="fill: #4a8dd2"/>
+                        <path d="M13.15,31.4l.34-.56-.09-.06-.34.55.1.06" style="fill: #498cd1"/>
+                        <path d="M13.05,31.34l.34-.55-.09-.06-.34.55.09.06" style="fill: #488cd1"/>
+                        <path d="M13,31.28l.34-.55-.09-.06-.35.55.09.06" style="fill: #478bd1"/>
+                        <path d="M12.87,31.22l.35-.55-.09-.06-.35.55.09.06" style="fill: #468ad1"/>
+                        <path d="M12.78,31.16l.35-.55L13,30.56l-.36.54.09.06" style="fill: #4589d0"/>
+                        <path d="M12.68,31.11l.36-.54L13,30.5l-.36.54.09.06" style="fill: #4489d0"/>
+                        <path d="M12.59,31,13,30.5l-.08-.06-.37.54.09.06" style="fill: #4388d0"/>
+                        <path d="M12.51,31l.37-.54-.08-.06-.37.53.09.06" style="fill: #4187cf"/>
+                        <path d="M12.42,30.93l.37-.53-.08-.06-.38.53.09.06" style="fill: #4087cf"/>
+                        <path d="M12.33,30.87l.38-.53-.08-.06-.38.53.09.06" style="fill: #3f86cf"/>
+                        <path d="M12.25,30.8l.38-.53-.08-.06-.38.53.09.06" style="fill: #3e85cf"/>
+                        <path d="M12.16,30.74l.38-.53-.08-.06-.39.52.08.06" style="fill: #3d84ce"/>
+                        <path d="M12.08,30.68l.39-.52-.08-.06-.39.52.08.06" style="fill: #3b83ce"/>
+                        <path d="M12,30.62l.39-.52L12.31,30l-.4.52.08.06" style="fill: #3a83ce"/>
+                        <path d="M11.91,30.55l.4-.52L12.23,30l-.4.51.08.06" style="fill: #3982cd"/>
+                        <path d="M11.83,30.49l.4-.51-.08-.06-.4.51.08.06" style="fill: #3781cd"/>
+                        <path d="M11.74,30.42l.4-.51-.08-.06-.41.51.08.06" style="fill: #3680cd"/>
+                        <path d="M11.66,30.36l.41-.51L12,29.79l-.41.5.08.06" style="fill: #357fcc"/>
+                        <path d="M11.59,30.3l.41-.5-.08-.06-.42.5.08.07" style="fill: #337ecc"/>
+                        <path d="M11.51,30.23l.42-.5-.07-.06-.42.5.08.07" style="fill: #327dcb"/>
+                        <path d="M11.43,30.17l.42-.5-.07-.06-.42.49.08.07" style="fill: #307ccb"/>
+                        <path d="M11.35,30.1l.42-.49-.07-.06-.43.49.07.06" style="fill: #2e7bcb"/>
+                        <path d="M11.27,30l.43-.49-.07-.06L11.2,30l.07.06" style="fill: #2d7aca"/>
+                        <path d="M11.2,30l.43-.49-.07-.06-.43.48.07.07" style="fill: #2b79ca"/>
+                        <path d="M11.13,29.9l.43-.48-.07-.06-.44.48.07.07" style="fill: #2978c9"/>
+                        <path d="M11.05,29.84l.44-.48-.07-.06-.44.48.07.07" style="fill: #2777c9"/>
+                        <path d="M11,29.77l.44-.48-.07-.07-.44.47.07.07" style="fill: #2576c8"/>
+                        <path d="M10.91,29.7l.44-.47-.07-.07-.45.47.07.07" style="fill: #2374c8"/>
+                        <path d="M10.83,29.63l.45-.47-.07-.07-.45.47.07.07" style="fill: #2173c7"/>
+                        <path d="M10.76,29.56l.45-.47L11.14,29l-.46.46.07.07" style="fill: #1f71c7"/>
+                        <path d="M10.69,29.49l.46-.46L11.07,29l-.46.46.07.07" style="fill: #1c70c6"/>
+                        <path d="M10.62,29.42l.46-.46,0,0,0,0-.46.46.05.05,0,0" style="fill: #196ec5"/>
+                        <path d="M10.55,29.35l.46-.46-.07-.07-.47.45.07.07" style="fill: #166cc4"/>
+                        <path d="M10.48,29.28l.47-.45-.07-.07-.47.45.07.07" style="fill: #1269c4"/>
+                        <path d="M10.41,29.21l.47-.45-.06-.07-.47.45.07.07" style="fill: #0d66c2"/>
+                        <path d="M10.34,29.14l.47-.45-.06-.07-.48.44.07.07" style="fill: #0561c0"/>
+                        <path d="M10.27,29.07l.48-.44-.06-.07L10.2,29l.07.07" style="fill: #005ebf"/>
+                        <path d="M10.2,29l.48-.44-.06-.07-.48.44.07.07" style="fill: #005ebe"/>
+                        <path d="M10.14,28.92l.48-.44-.06-.07-.49.43.07.07" style="fill: #005dbe"/>
+                        <path d="M10.07,28.84l.49-.43-.06-.07-.49.43.07.07" style="fill: #005dbd"/>
+                        <path d="M10,28.77l.49-.43-.06-.07-.49.43.07.08" style="fill: #005dbd"/>
+                        <path d="M9.94,28.69l.49-.43-.06-.07-.5.42.07.08" style="fill: #005dbc"/>
+                        <path d="M9.87,28.62l.5-.42-.06-.07-.5.42.06.08" style="fill: #005cbc"/>
+                        <path d="M9.81,28.54l.5-.42L10.25,28l-.5.41.06.08" style="fill: #005cbb"/>
+                        <path d="M9.74,28.46l.5-.41L10.19,28l-.5.41.06.08" style="fill: #005cba"/>
+                        <path d="M9.68,28.39l.5-.41-.06-.07-.51.41.06.08" style="fill: #005cba"/>
+                        <path d="M9.62,28.31l.51-.41-.06-.07-.51.4.06.08" style="fill: #005bb9"/>
+                        <path d="M9.56,28.23l.51-.4L10,27.75l-.51.4.06.08" style="fill: #005bb9"/>
+                        <path d="M9.49,28.15l.51-.4-.06-.08-.52.4.06.08" style="fill: #005bb8"/>
+                        <path d="M9.43,28.07l.52-.4-.06-.08L9.37,28l.06.08" style="fill: #005bb8"/>
+                        <path d="M9.37,28l.52-.39-.06-.08-.52.39.06.08" style="fill: #005ab7"/>
+                        <path d="M9.31,27.91l.52-.39-.06-.08-.53.38.06.08" style="fill: #005ab7"/>
+                        <path d="M9.25,27.83l.53-.38-.06-.08-.53.38.06.08" style="fill: #005ab6"/>
+                        <path d="M9.19,27.75l.53-.38-.06-.08-.53.38.06.08" style="fill: #005ab6"/>
+                        <path d="M9.13,27.66l.53-.38-.06-.08-.53.37.06.08" style="fill: #0059b5"/>
+                        <path d="M9.07,27.58l.53-.37-.06-.08L9,27.5l.06.08" style="fill: #0059b5"/>
+                        <path d="M9,27.5l.54-.37L9.5,27,9,27.41,9,27.5" style="fill: #0059b4"/>
+                        <path d="M9,27.41,9.5,27,9.44,27l-.54.36.06.09" style="fill: #0059b4"/>
+                        <path d="M8.9,27.33,9.44,27l-.05-.08-.55.35.06.09" style="fill: #0058b3"/>
+                        <path d="M8.84,27.24l.55-.35-.05-.08-.55.35.06.09" style="fill: #0058b3"/>
+                        <path d="M8.79,27.15l.55-.35-.05-.08-.55.35.06.09" style="fill: #0058b2"/>
+                        <path d="M8.73,27.07l.55-.35-.05-.08L8.68,27l.05.09" style="fill: #0058b2"/>
+                        <path d="M8.68,27l.55-.34-.05-.08-.56.34.05.09" style="fill: #0057b1"/>
+                        <path d="M8.62,26.89l.56-.34-.05-.08-.56.33.05.09" style="fill: #0057b1"/>
+                        <path d="M8.57,26.8l.56-.33-.05-.09-.56.33.05.09" style="fill: #0057b0"/>
+                        <path d="M8.52,26.71l.56-.33,0-.09-.56.32.05.09" style="fill: #0057b0"/>
+                        <path d="M8.46,26.62,9,26.3l0-.09-.57.32.05.09" style="fill: #0056af"/>
+                        <path d="M8.41,26.53,9,26.21l0-.09-.57.31.05.09" style="fill: #0056af"/>
+                        <path d="M8.36,26.43l.57-.31,0-.09-.57.31.05.09" style="fill: #0056ae"/>
+                        <path d="M8.31,26.34,8.88,26l0-.09-.57.31.05.09" style="fill: #0056ae"/>
+                        <path d="M8.26,26.25l.57-.31,0-.09-.58.3,0,.09" style="fill: #0055ad"/>
+                        <path d="M8.21,26.15l.58-.3,0-.09-.58.3,0,.1" style="fill: #0055ad"/>
+                        <path d="M8.16,26.06l.58-.3,0-.09L8.11,26l0,.1" style="fill: #0055ac"/>
+                        <path d="M8.11,26l.58-.29,0-.09-.58.29,0,.1" style="fill: #0055ac"/>
+                        <path d="M8.06,25.86l.58-.29,0-.09L8,25.76l0,.1" style="fill: #0054ab"/>
+                        <path d="M8,25.76l.59-.28,0-.09L8,25.67l0,.1" style="fill: #0054ab"/>
+                        <path d="M8,25.67l.59-.28,0-.1-.59.27,0,.1" style="fill: #0054aa"/>
+                        <path d="M7.92,25.57l.59-.27,0-.1-.59.27,0,.1" style="fill: #0054aa"/>
+                        <path d="M7.87,25.46l.59-.27,0-.1-.6.26,0,.1" style="fill: #0053a9"/>
+                        <path d="M7.83,25.36l.6-.26,0-.1-.6.26,0,.1" style="fill: #0053a9"/>
+                        <path d="M7.78,25.26l.6-.26,0-.1-.6.25,0,.1" style="fill: #0053a8"/>
+                        <path d="M7.74,25.16l.6-.25,0-.1-.6.25,0,.1" style="fill: #0053a8"/>
+                        <path d="M7.7,25.05l.6-.25,0-.1-.6.24,0,.11" style="fill: #0052a7"/>
+                        <path d="M7.65,24.95l.6-.24,0-.1-.61.24,0,.11" style="fill: #0052a7"/>
+                        <path d="M7.61,24.84l.61-.24,0-.1-.61.23,0,.11" style="fill: #0052a6"/>
+                        <path d="M7.57,24.74l.61-.23,0-.1-.61.23,0,.11" style="fill: #0052a6"/>
+                        <path d="M7.53,24.63l.61-.23,0-.1-.61.22,0,.11" style="fill: #0051a5"/>
+                        <path d="M7.49,24.52l.61-.22,0-.1-.61.22,0,.11" style="fill: #0051a5"/>
+                        <path d="M7.45,24.41l.61-.22,0-.1-.62.21,0,.11" style="fill: #0051a4"/>
+                        <path d="M7.41,24.3,8,24.09,8,24l-.62.2,0,.11" style="fill: #0051a4"/>
+                        <path d="M7.38,24.19,8,24l0-.11-.62.2,0,.11" style="fill: #0050a3"/>
+                        <path d="M7.34,24.07l.62-.2,0-.11L7.3,24l0,.11" style="fill: #0050a3"/>
+                        <path d="M7.3,24l.62-.19,0-.11-.62.19,0,.11" style="fill: #0050a2"/>
+                        <path d="M7.27,23.85l.62-.19,0-.11-.62.18,0,.12" style="fill: #0050a2"/>
+                        <path d="M7.23,23.73l.62-.18,0-.11-.63.18,0,.12" style="fill: #004fa1"/>
+                        <path d="M7.2,23.61l.63-.18,0-.11-.63.17,0,.12" style="fill: #004fa1"/>
+                        <path d="M7.17,23.49l.63-.17,0-.11-.63.16,0,.12" style="fill: #004fa0"/>
+                        <path d="M7.13,23.37l.63-.16,0-.11-.63.16,0,.12" style="fill: #004fa0"/>
+                        <path d="M7.1,23.25l.63-.16,0-.12-.63.15,0,.12" style="fill: #004e9f"/>
+                        <path d="M7.07,23.13,7.71,23l0-.12L7,23l0,.12" style="fill: #004e9f"/>
+                        <path d="M7,23l.63-.15,0-.12L7,22.88,7,23" style="fill: #004e9e"/>
+                        <path d="M7,22.88l.64-.14,0-.12L7,22.76l0,.12" style="fill: #004e9d"/>
+                        <path d="M7,22.76l.64-.13,0-.12L7,22.63l0,.13" style="fill: #004d9d"/>
+                        <path d="M7,22.63l.64-.13,0-.12-.64.12,0,.13" style="fill: #004d9c"/>
+                        <path d="M6.94,22.5l.64-.12,0-.12-.64.12,0,.13" style="fill: #004d9c"/>
+                        <path d="M6.91,22.37l.64-.12,0-.12-.64.11,0,.13" style="fill: #004d9b"/>
+                        <path d="M6.89,22.24l.64-.11,0-.13-.64.1,0,.13" style="fill: #004c9b"/>
+                        <path d="M6.87,22.11l.64-.1,0-.13-.64.1,0,.13" style="fill: #004c9a"/>
+                        <path d="M6.85,22l.64-.1,0-.13-.64.09,0,.13" style="fill: #004c9a"/>
+                        <path d="M6.83,21.84l.64-.09,0-.13-.65.08,0,.14" style="fill: #004c99"/>
+                        <path d="M6.81,21.71l.65-.08,0-.13-.65.08,0,.14" style="fill: #004b99"/>
+                        <path d="M6.79,21.57l.65-.08,0-.13-.65.07,0,.14" style="fill: #004b98"/>
+                        <path d="M6.78,21.43l.65-.07v-.13l-.65.06v.14" style="fill: #004b98"/>
+                        <path d="M6.76,21.29l.65-.06v-.13l-.65.06v.14" style="fill: #004a97"/>
+                        <path d="M6.75,21.14l.65-.06V21l-.65,0v.15" style="fill: #004a97"/>
+                        <path d="M6.74,21l.65,0v-.14l-.65,0V21" style="fill: #004a96"/>
+                        <path d="M6.73,20.85l.65,0v-.14l-.65,0v.15" style="fill: #004a96"/>
+                        <path d="M6.72,20.7l.65,0v-.14l-.65,0v.15" style="fill: #004995"/>
+                        <path d="M6.71,20.56l.65,0v-.15l-.65,0v.15" style="fill: #004995"/>
+                        <path d="M6.71,20.4l.65,0s0-.1,0-.15H6.71q0,.08,0,.15" style="fill: #004994"/>
+                        <path d="M6.7,20.25h.65s0-.1,0-.15H6.7q0,.08,0,.15" style="fill: #004994"/>
+                        <path d="M6.7,20.09h.65v-.15H6.7v.16" style="fill: #004893"/>
+                        <path d="M6.7,19.94h.65q0-.08,0-.15H6.7q0,.08,0,.16" style="fill: #004893"/>
+                        <path d="M6.7,19.78h.65q0-.08,0-.15l-.65,0q0,.08,0,.16" style="fill: #004892"/>
+                        <path d="M6.71,19.62l.65,0v-.15l-.65,0q0,.08,0,.16" style="fill: #004892"/>
+                        <path d="M6.71,19.46l.65,0v-.16l-.65,0v.17" style="fill: #004791"/>
+                        <path d="M6.72,19.29l.65,0v-.16l-.65,0v.17" style="fill: #004791"/>
+                        <path d="M6.73,19.13l.65,0V19L6.74,19v.16" style="fill: #004790"/>
+                        <path d="M6.74,19l.65.05v-.16l-.65-.06V19" style="fill: #004790"/>
+                        <path d="M6.76,18.79l.65.06,0-.16-.65-.07,0,.17" style="fill: #00468f"/>
+                        <path d="M6.77,18.62l.65.07,0-.16-.65-.08,0,.17" style="fill: #00468f"/>
+                        <path d="M6.79,18.45l.65.08,0-.16-.65-.08,0,.17" style="fill: #00468e"/>
+                        <path d="M6.81,18.28l.65.08,0-.17-.64-.09,0,.18" style="fill: #00468e"/>
+                        <path d="M6.84,18.11l.64.09,0-.17-.64-.1,0,.17" style="fill: #00458d"/>
+                        <path d="M6.86,17.93l.64.1,0-.17-.64-.11,0,.18" style="fill: #00458d"/>
+                        <path d="M6.89,17.75l.64.11,0-.17-.64-.12,0,.18" style="fill: #00458c"/>
+                        <path d="M6.92,17.57l.64.12,0-.17L7,17.39l0,.18" style="fill: #00458c"/>
+                        <path d="M7,17.39l.64.13,0-.17L7,17.21l0,.18" style="fill: #00448b"/>
+                        <path d="M7,17.21l.64.14,0-.18L7,17l0,.19" style="fill: #00448b"/>
+                        <path d="M7,17l.63.15,0-.18-.63-.15L7,17" style="fill: #00448a"/>
+                        <path d="M7.08,16.84l.63.15,0-.18-.63-.16,0,.19" style="fill: #00448a"/>
+                        <path d="M7.13,16.65l.63.16,0-.18-.63-.17-.05.19" style="fill: #004389"/>
+                        <path d="M7.18,16.46l.63.17.05-.18-.62-.18-.05.19" style="fill: #004389"/>
+                        <path d="M7.23,16.26l.62.18.06-.19-.62-.19-.06.2" style="fill: #004388"/>
+                        <path d="M7.29,16.07l.62.19L8,16.07l-.62-.2-.06.2" style="fill: #004388"/>
+                        <path d="M7.36,15.87l.62.2L8,15.88l-.62-.21-.07.2" style="fill: #004287"/>
+                        <path d="M7.42,15.67l.62.21.07-.19-.61-.22-.07.2" style="fill: #004287"/>
+                        <path d="M7.5,15.46l.61.22.07-.18-.61-.23-.07.19" style="fill: #004286"/>
+                        <path d="M7.57,15.27l.61.23.06-.16-.6-.24-.06.16" style="fill: #004286"/>
+                        <path d="M7.63,15.1l.6.24.06-.16-.6-.25-.07.16" style="fill: #004185"/>
+                        <path d="M7.7,14.94l.6.25L8.37,15l-.6-.26-.08.18" style="fill: #004185"/>
+                        <path d="M7.78,14.76l.6.26.1-.22-.59-.27-.1.23" style="fill: #004184"/>
+                        <path d="M7.88,14.53l.59.27.1-.22L8,14.3l-.11.23" style="fill: #004184"/>
+                        <path d="M8,14.3l.59.28.11-.22-.58-.29L8,14.3" style="fill: #004083"/>
+                        <path d="M8.1,14.07l.58.29.11-.22-.58-.3-.12.24" style="fill: #004083"/>
+                        <path d="M8.22,13.83l.58.3.12-.23-.57-.31-.13.24" style="fill: #004082"/>
+                        <path d="M8.35,13.59l.57.31L9,13.67l-.56-.33-.14.24" style="fill: #004081"/>
+                        <path d="M8.48,13.35l.56.33.14-.24-.56-.34-.15.25" style="fill: #003f81"/>
+                        <path d="M8.63,13.1l.56.34.15-.24-.55-.35-.16.25" style="fill: #003f80"/>
+                        <path d="M8.79,12.85l.55.35L9.49,13,9,12.6l-.17.25" style="fill: #003f80"/>
+                        <path d="M9,12.6l.54.36.17-.25-.53-.38L9,12.6" style="fill: #003f7f"/>
+                        <path d="M9.13,12.34l.53.38.18-.25-.52-.39-.19.26" style="fill: #003e7f"/>
+                        <path d="M9.32,12.07l.52.39.19-.26-.51-.4-.2.27" style="fill: #003e7e"/>
+                        <path d="M9.53,11.8l.51.4.21-.26-.5-.41-.22.27" style="fill: #003e7e"/>
+                        <path d="M9.75,11.53l.5.41.22-.26L10,11.25l-.24.28" style="fill: #003e7d"/>
+                        <path d="M10,11.25l.49.43.24-.27L10.24,11l-.25.28" style="fill: #003d7d"/>
+                        <path d="M10.24,11l.48.44.26-.28-.46-.46-.28.29" style="fill: #003d7c"/>
+                        <path d="M10.52,10.68l.46.46.08-.08.21-.2-.45-.47-.22.21-.08.08" style="fill: #003d7c"/>
+                        <path d="M10.82,10.38l.45.47.31-.29-.43-.49-.33.3" style="fill: #003d7b"/>
+                        <path d="M11.14,10.08l.43.49.34-.29-.42-.5-.36.31" style="fill: #003c7b"/>
+                        <path d="M11.5,9.78l.42.5.37-.3-.4-.52-.39.31" style="fill: #003c7a"/>
+                        <path d="M11.89,9.46l.4.52.41-.3-.38-.53-.43.32" style="fill: #003c7a"/>
+                        <path d="M12.32,9.14l.38.53.46-.31-.35-.55-.48.33" style="fill: #003c79"/>
+                        <path d="M12.8,8.82l.35.55L13.67,9l-.33-.56-.55.33" style="fill: #003b79"/>
+                        <path d="M13.35,8.48l.33.56.6-.32L14,8.14l-.63.34" style="fill: #003b78"/>
+                        <path d="M14,8.14l.29.58.7-.33-.26-.6L14,8.14" style="fill: #003b78"/>
+                        <path d="M14.72,7.79l.26.6q.42-.18.86-.34l-.21-.61q-.46.16-.91.35" style="fill: #003b77"/>
+                        <path d="M15.62,7.44l.21.61q.55-.19,1.13-.33l-.16-.63q-.6.15-1.19.35" style="fill: #003a77"/>
+                        <path d="M16.81,7.09l.16.63a12.61,12.61,0,0,1,1.89-.32l-.06-.65a13.26,13.26,0,0,0-2,.33" style="fill: #003a76"/>
+                        <path d="M18.79,6.76l.06.65q.57-.05,1.15-.05V6.7q-.61,0-1.21.05" style="fill: #003a76"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g style="isolation: isolate">
+                <g style="clip-path: url(#clip-path-6)">
+                  <g style="clip-path: url(#clip-path-43)">
+                    <g style="isolation: isolate">
+                      <g style="clip-path: url(#clip-path-6)">
+                        <path d="M20,7.35V6.7h.4l0,.65H20" style="fill: #68a0d9"/>
+                        <path d="M20.38,7.36l0-.65.79,0-.06.65-.75,0" style="fill: #69a0d9"/>
+                        <path d="M21.13,7.4l.06-.65.74.09-.09.64-.7-.08" style="fill: #68a0d9"/>
+                        <path d="M21.83,7.48l.09-.64.4.06-.11.64-.38-.06" style="fill: #679fd9"/>
+                        <path d="M22.21,7.55l.11-.64.31.06-.13.64-.29-.05" style="fill: #679fd9"/>
+                        <path d="M22.5,7.6,22.63,7,22.9,7l-.14.64L22.5,7.6" style="fill: #669ed9"/>
+                        <path d="M22.76,7.66,22.9,7l.26.06L23,7.71l-.25-.06" style="fill: #659ed8"/>
+                        <path d="M23,7.71l.15-.63.2.05-.16.63-.19,0" style="fill: #649dd8"/>
+                        <path d="M23.21,7.76l.16-.63.2.05-.17.63-.19-.05" style="fill: #649dd8"/>
+                        <path d="M23.39,7.81l.17-.63.19.05-.18.62-.18-.05" style="fill: #639cd8"/>
+                        <path d="M23.57,7.87l.18-.62.18.05-.19.62-.17-.05" style="fill: #629cd8"/>
+                        <path d="M23.75,7.92l.19-.62.18.06-.2.62-.17-.05" style="fill: #619bd7"/>
+                        <path d="M23.92,8l.2-.62.16.05L24.07,8,23.92,8" style="fill: #609bd7"/>
+                        <path d="M24.07,8l.21-.62.15.05-.22.61-.14,0" style="fill: #609ad7"/>
+                        <path d="M24.21,8.07l.22-.61.15.05-.22.61-.14,0" style="fill: #5f9ad7"/>
+                        <path d="M24.35,8.12l.22-.61.14.05-.23.61-.14-.05" style="fill: #5e99d7"/>
+                        <path d="M24.48,8.17l.23-.61.14.05-.24.61-.13-.05" style="fill: #5d99d6"/>
+                        <path d="M24.61,8.22l.24-.61.14.05-.24.6-.13-.05" style="fill: #5c98d6"/>
+                        <path d="M24.74,8.27l.24-.6.14.06-.25.6-.13-.05" style="fill: #5c98d6"/>
+                        <path d="M24.87,8.33l.25-.6.13.05-.26.6-.12-.05" style="fill: #5b97d6"/>
+                        <path d="M25,8.38l.26-.6.12.05-.26.6L25,8.38" style="fill: #5a97d6"/>
+                        <path d="M25.11,8.43l.26-.6.12.05-.27.59-.12-.05" style="fill: #5996d5"/>
+                        <path d="M25.23,8.48l.27-.59.12.06-.27.59-.12-.05" style="fill: #5896d5"/>
+                        <path d="M25.34,8.53l.27-.59.11.05-.28.59-.11,0" style="fill: #5795d5"/>
+                        <path d="M25.45,8.58,25.73,8l.11.05-.29.58-.1,0" style="fill: #5695d5"/>
+                        <path d="M25.55,8.63,25.84,8l.11.05-.29.58-.1-.05" style="fill: #5694d4"/>
+                        <path d="M25.65,8.68l.29-.58.11.05-.3.58-.1-.05" style="fill: #5593d4"/>
+                        <path d="M25.76,8.74l.3-.58.11.05-.3.58-.1-.05" style="fill: #5493d4"/>
+                        <path d="M25.86,8.79l.3-.58.1.05L26,8.84l-.1-.05" style="fill: #5392d4"/>
+                        <path d="M26,8.84l.31-.57.1.06-.31.57L26,8.84" style="fill: #5292d4"/>
+                        <path d="M26.05,8.89l.31-.57.1.06-.32.57-.1-.05" style="fill: #5191d3"/>
+                        <path d="M26.15,8.95l.32-.57.1.06L26.25,9l-.1-.05" style="fill: #5091d3"/>
+                        <path d="M26.25,9l.32-.57.1.06-.33.56L26.25,9" style="fill: #4f90d3"/>
+                        <path d="M26.34,9.05l.33-.56.1.06-.33.56-.09-.05" style="fill: #4e8fd3"/>
+                        <path d="M26.43,9.11l.33-.56.1.06-.34.56-.09-.05" style="fill: #4d8fd2"/>
+                        <path d="M26.52,9.16l.34-.56.09.06-.34.55-.09-.05" style="fill: #4c8ed2"/>
+                        <path d="M26.61,9.22l.34-.55.09.06-.34.55-.09-.05" style="fill: #4b8dd2"/>
+                        <path d="M26.7,9.27,27,8.72l.09.06-.35.55-.09-.05" style="fill: #4a8dd2"/>
+                        <path d="M26.78,9.32l.35-.55.09.06-.35.55-.09-.05" style="fill: #498cd1"/>
+                        <path d="M26.87,9.38l.35-.55.09.06L27,9.43l-.08-.06" style="fill: #488cd1"/>
+                        <path d="M27,9.43l.36-.54L27.4,9,27,9.49,27,9.43" style="fill: #478bd1"/>
+                        <path d="M27,9.49,27.4,9l.09.06-.37.54L27,9.49" style="fill: #468ad1"/>
+                        <path d="M27.12,9.55,27.49,9l.09.06-.37.53-.08-.06" style="fill: #4589d0"/>
+                        <path d="M27.2,9.6l.37-.53.09.06-.37.53L27.2,9.6" style="fill: #4489d0"/>
+                        <path d="M27.29,9.66l.37-.53.09.06-.38.53-.08-.06" style="fill: #4388d0"/>
+                        <path d="M27.37,9.72l.38-.53.09.06-.38.53-.08-.06" style="fill: #4187cf"/>
+                        <path d="M27.45,9.78l.38-.53.08.06-.39.52-.08-.06" style="fill: #4087cf"/>
+                        <path d="M27.53,9.84l.39-.52.08.06-.39.52-.08-.06" style="fill: #3f86cf"/>
+                        <path d="M27.6,9.89,28,9.37l.08.06-.4.52-.08-.06" style="fill: #3e85cf"/>
+                        <path d="M27.68,10l.4-.52.08.06-.4.51L27.68,10" style="fill: #3d84ce"/>
+                        <path d="M27.75,10l.4-.51.08.06-.4.51L27.75,10" style="fill: #3b83ce"/>
+                        <path d="M27.83,10.07l.4-.51.08.06-.41.51-.07-.06" style="fill: #3a83ce"/>
+                        <path d="M27.9,10.13l.41-.51.08.06-.41.5-.07-.06" style="fill: #3982cd"/>
+                        <path d="M28,10.19l.41-.5.08.06-.41.5L28,10.19" style="fill: #3781cd"/>
+                        <path d="M28.05,10.25l.41-.5.08.06-.42.5-.07-.06" style="fill: #3680cd"/>
+                        <path d="M28.13,10.31l.42-.5.08.06-.42.5-.07-.06" style="fill: #357fcc"/>
+                        <path d="M28.2,10.37l.42-.5.08.06-.43.49-.07-.06" style="fill: #337ecc"/>
+                        <path d="M28.27,10.43l.43-.49.07.06-.43.49-.07-.06" style="fill: #327dcb"/>
+                        <path d="M28.34,10.49l.43-.49.07.07-.43.49-.07-.06" style="fill: #307ccb"/>
+                        <path d="M28.41,10.56l.43-.49.07.07-.44.48-.07-.06" style="fill: #2e7bcb"/>
+                        <path d="M28.48,10.62l.44-.48.07.07-.44.48-.07-.06" style="fill: #2d7aca"/>
+                        <path d="M28.55,10.68,29,10.2l.07.07-.44.48-.07-.06" style="fill: #2b79ca"/>
+                        <path d="M28.62,10.75l.44-.48.07.07-.45.47-.07-.06" style="fill: #2978c9"/>
+                        <path d="M28.69,10.81l.45-.47.07.07-.45.47-.07-.06" style="fill: #2777c9"/>
+                        <path d="M28.75,10.87l.45-.47.07.07-.45.47-.07-.06" style="fill: #2576c8"/>
+                        <path d="M28.82,10.94l.45-.47.07.07-.46.46-.07-.06" style="fill: #2374c8"/>
+                        <path d="M28.89,11l.46-.46.06.06h0l-.46.46h0L28.89,11" style="fill: #2173c7"/>
+                        <path d="M29,11.07l.46-.46.07.07-.46.46L29,11.07" style="fill: #1f71c7"/>
+                        <path d="M29,11.13l.46-.46.07.07-.47.45L29,11.13" style="fill: #1c70c6"/>
+                        <path d="M29.08,11.2l.47-.45.07.07-.47.45-.07-.07" style="fill: #196ec5"/>
+                        <path d="M29.15,11.27l.47-.45.07.07-.47.45-.06-.07" style="fill: #166cc4"/>
+                        <path d="M29.21,11.34l.47-.45.07.07-.48.44-.06-.07" style="fill: #1269c4"/>
+                        <path d="M29.28,11.41l.48-.44.07.07-.48.44-.06-.07" style="fill: #0d66c2"/>
+                        <path d="M29.34,11.48l.48-.44.07.07-.48.44-.06-.07" style="fill: #0561c0"/>
+                        <path d="M29.4,11.54l.48-.44.07.07-.49.43-.06-.07" style="fill: #005ebf"/>
+                        <path d="M29.47,11.61l.49-.43.06.07-.49.43-.06-.07" style="fill: #005ebe"/>
+                        <path d="M29.53,11.68l.49-.43.06.07-.49.42-.06-.07" style="fill: #005dbe"/>
+                        <path d="M29.59,11.75l.49-.42.06.07-.5.42-.06-.07" style="fill: #005dbd"/>
+                        <path d="M29.65,11.83l.5-.42.06.08-.5.42-.06-.07" style="fill: #005dbd"/>
+                        <path d="M29.71,11.9l.5-.42.06.08-.5.41-.06-.07" style="fill: #005dbc"/>
+                        <path d="M29.77,12l.5-.41.06.08-.51.41L29.77,12" style="fill: #005cbc"/>
+                        <path d="M29.83,12l.51-.41.06.08-.51.41L29.83,12" style="fill: #005cbb"/>
+                        <path d="M29.89,12.11l.51-.41.06.08-.51.4-.06-.07" style="fill: #005cba"/>
+                        <path d="M29.95,12.19l.51-.4.06.08-.51.4-.06-.08" style="fill: #005cba"/>
+                        <path d="M30,12.26l.51-.4.06.08-.52.39L30,12.26" style="fill: #005bb9"/>
+                        <path d="M30.06,12.34l.52-.39.06.08-.52.39-.06-.08" style="fill: #005bb9"/>
+                        <path d="M30.12,12.41l.52-.39.06.08-.52.39-.06-.08" style="fill: #005bb8"/>
+                        <path d="M30.18,12.49l.52-.39.06.08-.53.38-.06-.08" style="fill: #005bb8"/>
+                        <path d="M30.23,12.57l.53-.38.06.08-.53.38-.06-.08" style="fill: #005ab7"/>
+                        <path d="M30.29,12.64l.53-.38.06.08-.53.37-.05-.08" style="fill: #005ab7"/>
+                        <path d="M30.34,12.72l.53-.37.06.08-.53.37-.05-.08" style="fill: #005ab6"/>
+                        <path d="M30.4,12.8l.53-.37.06.08-.54.37-.05-.08" style="fill: #005ab6"/>
+                        <path d="M30.45,12.88l.54-.37.06.08L30.5,13l-.05-.08" style="fill: #0059b5"/>
+                        <path d="M30.5,13l.54-.36.06.08-.54.36L30.5,13" style="fill: #0059b5"/>
+                        <path d="M30.56,13l.54-.36.06.08-.55.35L30.56,13" style="fill: #0059b4"/>
+                        <path d="M30.61,13.12l.55-.35.05.09-.55.35-.05-.08" style="fill: #0059b4"/>
+                        <path d="M30.66,13.2l.55-.35.05.09-.55.35-.05-.08" style="fill: #0058b3"/>
+                        <path d="M30.71,13.28l.55-.35.05.09-.55.34-.05-.08" style="fill: #0058b3"/>
+                        <path d="M30.77,13.36l.55-.34.05.09-.56.34-.05-.08" style="fill: #0058b2"/>
+                        <path d="M30.82,13.44l.56-.34.05.09-.56.33-.05-.08" style="fill: #0058b2"/>
+                        <path d="M30.87,13.53l.56-.33.05.09-.56.33-.05-.09" style="fill: #0057b1"/>
+                        <path d="M30.92,13.61l.56-.33.05.09L31,13.7l0-.09" style="fill: #0057b1"/>
+                        <path d="M31,13.7l.56-.32.05.09-.57.32,0-.09" style="fill: #0057b0"/>
+                        <path d="M31,13.79l.57-.32.05.09-.57.32,0-.09" style="fill: #0057b0"/>
+                        <path d="M31.07,13.87l.57-.32.05.09-.57.31,0-.09" style="fill: #0056af"/>
+                        <path d="M31.11,14l.57-.31,0,.09-.57.31,0-.09" style="fill: #0056af"/>
+                        <path d="M31.16,14l.57-.31,0,.09-.58.3,0-.09" style="fill: #0056ae"/>
+                        <path d="M31.21,14.14l.58-.3,0,.09-.58.3,0-.09" style="fill: #0056ae"/>
+                        <path d="M31.26,14.23l.58-.3,0,.1-.58.29,0-.09" style="fill: #0055ad"/>
+                        <path d="M31.3,14.32l.58-.29,0,.1-.58.29,0-.09" style="fill: #0055ad"/>
+                        <path d="M31.35,14.41l.58-.29,0,.1-.59.28,0-.09" style="fill: #0055ac"/>
+                        <path d="M31.39,14.5l.59-.28,0,.1-.59.28,0-.09" style="fill: #0055ac"/>
+                        <path d="M31.44,14.59l.59-.28,0,.1-.59.27,0-.09" style="fill: #0054ab"/>
+                        <path d="M31.48,14.69l.59-.27,0,.1-.59.27,0-.1" style="fill: #0054ab"/>
+                        <path d="M31.52,14.78l.59-.27,0,.1-.59.26,0-.1" style="fill: #0054aa"/>
+                        <path d="M31.57,14.88l.59-.26,0,.1-.6.26,0-.1" style="fill: #0054aa"/>
+                        <path d="M31.61,15l.6-.26,0,.1-.6.25,0-.1" style="fill: #0053a9"/>
+                        <path d="M31.65,15.07l.6-.25,0,.1-.6.25,0-.1" style="fill: #0053a9"/>
+                        <path d="M31.69,15.17l.6-.25,0,.1-.6.24,0-.1" style="fill: #0053a8"/>
+                        <path d="M31.73,15.27l.6-.24,0,.1-.61.24,0-.1" style="fill: #0053a8"/>
+                        <path d="M31.77,15.36l.61-.24,0,.1-.61.23,0-.1" style="fill: #0052a7"/>
+                        <path d="M31.81,15.46l.61-.23,0,.11-.61.23,0-.1" style="fill: #0052a7"/>
+                        <path d="M31.85,15.56l.61-.23,0,.11-.61.22,0-.1" style="fill: #0052a6"/>
+                        <path d="M31.88,15.67l.61-.22,0,.11-.61.22,0-.1" style="fill: #0052a6"/>
+                        <path d="M31.92,15.77l.61-.22,0,.11-.62.21,0-.1" style="fill: #0051a5"/>
+                        <path d="M32,15.87l.62-.21,0,.11L32,16l0-.1" style="fill: #0051a5"/>
+                        <path d="M32,16l.62-.21,0,.11-.62.2L32,16" style="fill: #0051a4"/>
+                        <path d="M32,16.08l.62-.2,0,.11-.62.2,0-.11" style="fill: #0051a4"/>
+                        <path d="M32.06,16.19l.62-.2,0,.11-.62.19,0-.11" style="fill: #0050a3"/>
+                        <path d="M32.1,16.3l.62-.19,0,.11-.62.18,0-.11" style="fill: #0050a3"/>
+                        <path d="M32.13,16.41l.62-.18,0,.12-.63.18,0-.11" style="fill: #0050a2"/>
+                        <path d="M32.16,16.52l.63-.18,0,.12-.63.17,0-.11" style="fill: #0050a2"/>
+                        <path d="M32.19,16.63l.63-.17,0,.12-.63.17,0-.11" style="fill: #004fa1"/>
+                        <path d="M32.22,16.74l.63-.17,0,.12-.63.16,0-.11" style="fill: #004fa1"/>
+                        <path d="M32.25,16.85l.63-.16,0,.12-.63.16,0-.11" style="fill: #004fa0"/>
+                        <path d="M32.28,17l.63-.16,0,.12-.63.15,0-.12" style="fill: #004fa0"/>
+                        <path d="M32.31,17.08l.63-.15,0,.12-.63.14,0-.12" style="fill: #004e9f"/>
+                        <path d="M32.34,17.2l.63-.14,0,.12-.64.14,0-.12" style="fill: #004e9f"/>
+                        <path d="M32.36,17.32l.64-.14,0,.12-.64.13,0-.12" style="fill: #004e9e"/>
+                        <path d="M32.39,17.44,33,17.3l0,.13-.64.13,0-.12" style="fill: #004e9d"/>
+                        <path d="M32.41,17.56l.64-.13,0,.13-.64.12,0-.12" style="fill: #004d9d"/>
+                        <path d="M32.43,17.68l.64-.12,0,.13-.64.11,0-.12" style="fill: #004d9c"/>
+                        <path d="M32.46,17.8l.64-.11,0,.13-.64.11,0-.12" style="fill: #004d9c"/>
+                        <path d="M32.48,17.92l.64-.11,0,.13-.64.1,0-.13" style="fill: #004d9b"/>
+                        <path d="M32.5,18.05l.64-.1,0,.13-.64.09,0-.13" style="fill: #004c9b"/>
+                        <path d="M32.52,18.18l.64-.09,0,.13-.64.09,0-.13" style="fill: #004c9a"/>
+                        <path d="M32.53,18.31l.64-.09,0,.14-.65.08,0-.13" style="fill: #004c9a"/>
+                        <path d="M32.55,18.44l.65-.08,0,.14-.65.07,0-.13" style="fill: #004c99"/>
+                        <path d="M32.57,18.57l.65-.07,0,.14-.65.07v-.13" style="fill: #004b99"/>
+                        <path d="M32.58,18.7l.65-.07v.14l-.65.06V18.7" style="fill: #004b98"/>
+                        <path d="M32.59,18.83l.65-.06v.14l-.65.05v-.13" style="fill: #004b98"/>
+                        <path d="M32.61,19l.65-.05v.15l-.65,0V19" style="fill: #004a97"/>
+                        <path d="M32.62,19.11l.65,0v.15l-.65,0v-.14" style="fill: #004a97"/>
+                        <path d="M32.62,19.25l.65,0v.15l-.65,0v-.14" style="fill: #004a96"/>
+                        <path d="M32.63,19.39l.65,0v.15l-.65,0v-.14" style="fill: #004a96"/>
+                        <path d="M32.64,19.53l.65,0v.15l-.65,0s0-.1,0-.15" style="fill: #004995"/>
+                        <path d="M32.64,19.67l.65,0q0,.08,0,.15h-.65s0-.1,0-.15" style="fill: #004995"/>
+                        <path d="M32.65,19.82h.65q0,.08,0,.15h-.65s0-.1,0-.15" style="fill: #004994"/>
+                        <path d="M32.65,20h.65v0s0,.08,0,.12h-.65s0-.08,0-.12v0" style="fill: #004994"/>
+                        <path d="M32.65,20.12h.65q0,.08,0,.16h-.65q0-.08,0-.15" style="fill: #004893"/>
+                        <path d="M32.64,20.27h.65q0,.08,0,.16l-.65,0q0-.08,0-.15" style="fill: #004893"/>
+                        <path d="M32.64,20.42l.65,0v.16l-.65,0v-.15" style="fill: #004892"/>
+                        <path d="M32.63,20.57l.65,0v.16l-.65,0v-.16" style="fill: #004892"/>
+                        <path d="M32.63,20.73l.65,0v.16l-.65,0v-.16" style="fill: #004791"/>
+                        <path d="M32.62,20.89l.65,0v.16L32.6,21v-.16" style="fill: #004791"/>
+                        <path d="M32.6,21l.65.05v.17l-.65-.06V21" style="fill: #004790"/>
+                        <path d="M32.59,21.2l.65.06,0,.17-.65-.07,0-.16" style="fill: #004790"/>
+                        <path d="M32.57,21.36l.65.07,0,.17-.65-.08,0-.16" style="fill: #00468f"/>
+                        <path d="M32.56,21.52l.65.08,0,.17-.64-.09,0-.17" style="fill: #00468f"/>
+                        <path d="M32.53,21.69l.64.09,0,.17-.64-.1,0-.17" style="fill: #00468e"/>
+                        <path d="M32.51,21.85l.64.1,0,.17-.64-.1,0-.16" style="fill: #00468e"/>
+                        <path d="M32.49,22l.64.1,0,.18-.64-.11,0-.17" style="fill: #00458d"/>
+                        <path d="M32.46,22.19l.64.11,0,.18-.64-.12,0-.17" style="fill: #00458d"/>
+                        <path d="M32.43,22.36l.64.12,0,.18-.64-.13,0-.17" style="fill: #00458c"/>
+                        <path d="M32.39,22.53l.64.13,0,.18-.64-.14,0-.18" style="fill: #00458c"/>
+                        <path d="M32.36,22.71l.64.14L33,23l-.63-.15,0-.18" style="fill: #00448b"/>
+                        <path d="M32.32,22.88,33,23l0,.18-.63-.16,0-.18" style="fill: #00448b"/>
+                        <path d="M32.27,23.06l.63.16,0,.19-.63-.17,0-.18" style="fill: #00448a"/>
+                        <path d="M32.23,23.24l.63.17-.05.19-.63-.18,0-.18" style="fill: #00448a"/>
+                        <path d="M32.18,23.42l.63.18-.06.19-.62-.19.05-.18" style="fill: #004389"/>
+                        <path d="M32.13,23.6l.62.19-.06.2-.62-.19.06-.19" style="fill: #004389"/>
+                        <path d="M32.07,23.79l.62.19-.06.2L32,24l.06-.19" style="fill: #004388"/>
+                        <path d="M32,24l.62.2-.07.2-.61-.21L32,24" style="fill: #004388"/>
+                        <path d="M31.94,24.17l.61.21-.07.2-.61-.22.07-.19" style="fill: #004287"/>
+                        <path d="M31.87,24.37l.61.22-.08.21-.61-.23.07-.2" style="fill: #004287"/>
+                        <path d="M31.8,24.56l.61.23-.08.21-.6-.24.08-.2" style="fill: #004286"/>
+                        <path d="M31.72,24.76l.6.24-.08.2-.6-.25.08-.19" style="fill: #004286"/>
+                        <path d="M31.64,25l.6.25-.07.17-.6-.26.07-.16" style="fill: #004185"/>
+                        <path d="M31.57,25.11l.6.26-.08.17-.59-.27.07-.16" style="fill: #004185"/>
+                        <path d="M31.5,25.27l.59.27-.09.19-.59-.28.09-.18" style="fill: #004184"/>
+                        <path d="M31.41,25.45l.59.28-.11.23-.58-.29.11-.22" style="fill: #004184"/>
+                        <path d="M31.3,25.68l.58.29-.12.24-.58-.3.12-.22" style="fill: #004083"/>
+                        <path d="M31.19,25.9l.58.3-.13.24-.57-.32.12-.23" style="fill: #004083"/>
+                        <path d="M31.06,26.13l.57.32-.14.24-.56-.33.13-.23" style="fill: #004082"/>
+                        <path d="M30.93,26.36l.56.33-.15.25-.56-.34.14-.23" style="fill: #004081"/>
+                        <path d="M30.79,26.59l.56.34-.16.25-.55-.35.15-.24" style="fill: #003f81"/>
+                        <path d="M30.64,26.83l.55.35-.17.25-.54-.36.16-.24" style="fill: #003f80"/>
+                        <path d="M30.48,27.07l.54.36-.18.26-.53-.38.17-.25" style="fill: #003f80"/>
+                        <path d="M30.31,27.32l.53.38-.19.26-.52-.39.18-.25" style="fill: #003f7f"/>
+                        <path d="M30.13,27.57l.52.39-.2.27-.51-.4.19-.25" style="fill: #003e7f"/>
+                        <path d="M29.94,27.82l.51.4-.22.27-.5-.42.21-.26" style="fill: #003e7e"/>
+                        <path d="M29.72,28.09l.5.42-.24.28-.49-.43.23-.26" style="fill: #003e7e"/>
+                        <path d="M29.5,28.35l.49.43-.25.28-.48-.44.24-.27" style="fill: #003e7d"/>
+                        <path d="M29.26,28.61l.48.44-.28.29L29,28.89l.26-.27" style="fill: #003d7d"/>
+                        <path d="M29,28.89l.46.46-.06.06-.24.24-.45-.47.23-.22.05-.05" style="fill: #003d7c"/>
+                        <path d="M28.71,29.17l.45.47-.32.3-.43-.49.31-.28" style="fill: #003d7c"/>
+                        <path d="M28.4,29.45l.43.49-.35.3-.42-.5.34-.29" style="fill: #003d7b"/>
+                        <path d="M28.07,29.74l.42.5-.39.31L27.7,30l.37-.29" style="fill: #003c7b"/>
+                        <path d="M27.7,30l.4.52-.43.32-.38-.53.41-.3" style="fill: #003c7a"/>
+                        <path d="M27.29,30.33l.38.53-.48.32-.35-.55.45-.31" style="fill: #003c7a"/>
+                        <path d="M26.84,30.64l.35.55-.54.33L26.33,31l.51-.31" style="fill: #003c79"/>
+                        <path d="M26.33,31l.33.56-.61.33-.3-.58.58-.32" style="fill: #003b79"/>
+                        <path d="M25.74,31.27l.3.58-.72.34-.26-.6.69-.32" style="fill: #003b78"/>
+                        <path d="M25.06,31.59l.26.6q-.43.19-.88.35l-.22-.61q.42-.15.83-.33" style="fill: #003b78"/>
+                        <path d="M24.23,31.92l.22.61q-.56.2-1.13.35l-.16-.63q.55-.14,1.08-.33" style="fill: #003b77"/>
+                        <path d="M23.15,32.25l.16.63a13.25,13.25,0,0,1-1.78.33l-.07-.65a12.6,12.6,0,0,0,1.69-.31" style="fill: #003a77"/>
+                        <path d="M21.46,32.56l.07.65A13.44,13.44,0,0,1,17,33l.15-.63a12.78,12.78,0,0,0,4.29.23" style="fill: #003a76"/>
+                        <path d="M17.17,32.33,17,33a13.18,13.18,0,0,1-1.74-.53l.23-.61a12.55,12.55,0,0,0,1.65.5" style="fill: #003a77"/>
+                        <path d="M15.52,31.83l-.23.61q-.56-.21-1.09-.47l.28-.59q.5.24,1,.45" style="fill: #003b77"/>
+                        <path d="M14.49,31.38,14.2,32q-.43-.21-.84-.44l.32-.56q.39.22.79.42" style="fill: #003b78"/>
+                        <path d="M13.69,31l-.32.56-.68-.42.36-.54.65.4" style="fill: #003b78"/>
+                        <path d="M13,30.56l-.36.54-.58-.4.39-.52.55.38" style="fill: #003b79"/>
+                        <path d="M12.5,30.18l-.39.52-.5-.39.41-.5.47.37" style="fill: #003c79"/>
+                        <path d="M12,29.81l-.41.5-.44-.37.43-.49.42.36" style="fill: #003c7a"/>
+                        <path d="M11.6,29.46l-.43.49-.39-.36.45-.47.37.34" style="fill: #003c7a"/>
+                        <path d="M11.23,29.11l-.45.47-.18-.18-.17-.17.47-.45.16.16.17.17" style="fill: #003c7b"/>
+                        <path d="M10.9,28.78l-.47.45-.32-.34.48-.44.3.32" style="fill: #003d7b"/>
+                        <path d="M10.59,28.45l-.48.44-.29-.33.5-.42.27.32" style="fill: #003d7c"/>
+                        <path d="M10.32,28.14l-.5.42-.26-.32.51-.4.25.31" style="fill: #003d7c"/>
+                        <path d="M10.07,27.83l-.51.4-.24-.31.52-.39.23.3" style="fill: #003d7d"/>
+                        <path d="M9.84,27.53l-.52.39-.22-.31.53-.37.21.29" style="fill: #003e7d"/>
+                        <path d="M9.63,27.24l-.53.37-.2-.3L9.44,27l.19.29" style="fill: #003e7e"/>
+                        <path d="M9.44,27l-.54.36L8.7,27l.55-.34.18.28" style="fill: #003e7e"/>
+                        <path d="M9.26,26.67,8.7,27l-.17-.28.56-.33.16.27" style="fill: #003e7f"/>
+                        <path d="M9.09,26.4l-.56.33-.16-.28.57-.32.15.27" style="fill: #003f7f"/>
+                        <path d="M8.94,26.13l-.57.32-.15-.28.58-.3.14.26" style="fill: #003f80"/>
+                        <path d="M8.8,25.87l-.58.3-.14-.27.58-.29.13.26" style="fill: #003f80"/>
+                        <path d="M8.67,25.62l-.58.29L8,25.64l.59-.28.12.25" style="fill: #003f81"/>
+                        <path d="M8.54,25.36,8,25.64l-.12-.26.6-.26.11.25" style="fill: #004081"/>
+                        <path d="M8.43,25.12l-.6.26-.11-.26.6-.25.11.25" style="fill: #004082"/>
+                        <path d="M8.33,24.87l-.6.25-.1-.25.61-.24.1.24" style="fill: #004083"/>
+                        <path d="M8.23,24.63l-.61.24-.1-.25.61-.23.09.24" style="fill: #004083"/>
+                        <path d="M8.14,24.4l-.61.23-.09-.24.61-.21.08.23" style="fill: #004184"/>
+                        <path d="M8.06,24.17l-.61.21-.08-.22L8,24l.07.21" style="fill: #004184"/>
+                        <path d="M8,24l-.62.2L7.31,24l.62-.19L8,24" style="fill: #004185"/>
+                        <path d="M7.93,23.79,7.31,24l-.05-.17.62-.19.05.16" style="fill: #004185"/>
+                        <path d="M7.88,23.62l-.62.19-.05-.19.63-.18.05.18" style="fill: #004286"/>
+                        <path d="M7.83,23.44l-.63.18-.06-.22.63-.17.06.21" style="fill: #004286"/>
+                        <path d="M7.77,23.24l-.63.17-.06-.22L7.72,23l.05.21" style="fill: #004287"/>
+                        <path d="M7.72,23l-.63.16L7,23l.63-.15,0,.2" style="fill: #004287"/>
+                        <path d="M7.67,22.84,7,23l0-.21.64-.14,0,.2" style="fill: #004388"/>
+                        <path d="M7.63,22.64,7,22.77l0-.2.64-.13,0,.19" style="fill: #004388"/>
+                        <path d="M7.59,22.44,7,22.57l0-.2.64-.12,0,.19" style="fill: #004389"/>
+                        <path d="M7.55,22.25l-.64.12,0-.2.64-.11,0,.19" style="fill: #004389"/>
+                        <path d="M7.52,22.06l-.64.11,0-.19.64-.1,0,.18" style="fill: #00448a"/>
+                        <path d="M7.49,21.87l-.64.1,0-.2.64-.09,0,.19" style="fill: #00448a"/>
+                        <path d="M7.46,21.69l-.64.09,0-.19.65-.08,0,.18" style="fill: #00448b"/>
+                        <path d="M7.44,21.5l-.65.08,0-.19.65-.07,0,.18" style="fill: #00448b"/>
+                        <path d="M7.42,21.32l-.65.07,0-.19.65-.06,0,.18" style="fill: #00458c"/>
+                        <path d="M7.4,21.14l-.65.06,0-.19.65,0v.18" style="fill: #00458c"/>
+                        <path d="M7.39,21l-.65,0v-.18l.65,0V21" style="fill: #00458d"/>
+                        <path d="M7.38,20.79l-.65,0v-.18l.65,0v.17" style="fill: #00458d"/>
+                        <path d="M7.37,20.62l-.65,0v-.18l.65,0v.17" style="fill: #00468e"/>
+                        <path d="M7.36,20.45l-.65,0q0-.09,0-.18h.65q0,.08,0,.17" style="fill: #00468e"/>
+                        <path d="M7.36,20.28H6.71q0-.09,0-.18h.65q0,.08,0,.17" style="fill: #00468f"/>
+                        <path d="M7.35,20.11H6.7v-.18h.65V20s0,.07,0,.11" style="fill: #00468f"/>
+                        <path d="M7.35,19.94H6.7q0-.09,0-.17h.65q0,.08,0,.16" style="fill: #004790"/>
+                        <path d="M7.36,19.78H6.7q0-.08,0-.17l.65,0q0,.08,0,.16" style="fill: #004790"/>
+                        <path d="M7.36,19.62l-.65,0v-.17l.65,0v.16" style="fill: #004791"/>
+                        <path d="M7.36,19.46l-.65,0v-.16l.65,0v.15" style="fill: #004791"/>
+                        <path d="M7.37,19.3l-.65,0v-.16l.65,0v.15" style="fill: #004892"/>
+                        <path d="M7.38,19.15l-.65,0v-.16l.65.05v.15" style="fill: #004892"/>
+                        <path d="M7.39,19l-.65-.05v-.16l.65.06V19" style="fill: #004893"/>
+                        <path d="M7.41,18.85l-.65-.06v-.16l.65.07v.15" style="fill: #004893"/>
+                        <path d="M7.42,18.7l-.65-.07,0-.15.65.07,0,.15" style="fill: #004994"/>
+                        <path d="M7.44,18.55l-.65-.07,0-.15.65.08,0,.14" style="fill: #004994"/>
+                        <path d="M7.45,18.41l-.65-.08,0-.15.64.09,0,.14" style="fill: #004995"/>
+                        <path d="M7.47,18.27l-.64-.09,0-.15.64.1,0,.14" style="fill: #004995"/>
+                        <path d="M7.49,18.13,6.85,18l0-.15.64.1,0,.14" style="fill: #004a96"/>
+                        <path d="M7.51,18l-.64-.1,0-.14.64.11,0,.14" style="fill: #004a96"/>
+                        <path d="M7.54,17.85l-.64-.11,0-.14.64.12,0,.13" style="fill: #004a97"/>
+                        <path d="M7.56,17.71l-.64-.12,0-.14.64.12,0,.13" style="fill: #004a97"/>
+                        <path d="M7.58,17.58l-.64-.12,0-.14.64.13,0,.13" style="fill: #004b98"/>
+                        <path d="M7.61,17.45,7,17.32l0-.14.64.14,0,.13" style="fill: #004b98"/>
+                        <path d="M7.64,17.32,7,17.18,7,17l.63.14,0,.13" style="fill: #004b99"/>
+                        <path d="M7.67,17.19,7,17l0-.14.63.15,0,.13" style="fill: #004c99"/>
+                        <path d="M7.7,17.06l-.63-.15,0-.13.63.16,0,.13" style="fill: #004c9a"/>
+                        <path d="M7.73,16.93l-.63-.16,0-.13.63.16,0,.12" style="fill: #004c9a"/>
+                        <path d="M7.76,16.81l-.63-.16,0-.13.63.17,0,.12" style="fill: #004c9b"/>
+                        <path d="M7.79,16.69l-.63-.17,0-.13.63.18,0,.12" style="fill: #004d9b"/>
+                        <path d="M7.83,16.56l-.63-.18,0-.13.62.18,0,.12" style="fill: #004d9c"/>
+                        <path d="M7.86,16.44l-.62-.18,0-.12.62.19,0,.12" style="fill: #004d9c"/>
+                        <path d="M7.9,16.33l-.62-.19,0-.12.62.19,0,.12" style="fill: #004d9d"/>
+                        <path d="M7.93,16.21,7.31,16l0-.12.62.2,0,.12" style="fill: #004e9d"/>
+                        <path d="M8,16.09l-.62-.2,0-.12L8,16l0,.12" style="fill: #004e9e"/>
+                        <path d="M8,16l-.62-.21,0-.12.61.21L8,16" style="fill: #004e9f"/>
+                        <path d="M8,15.86l-.61-.21,0-.12.61.22,0,.11" style="fill: #004e9f"/>
+                        <path d="M8.09,15.75l-.61-.22,0-.12.61.22,0,.11" style="fill: #004fa0"/>
+                        <path d="M8.13,15.64l-.61-.22,0-.12.61.23,0,.11" style="fill: #004fa0"/>
+                        <path d="M8.17,15.53l-.61-.23,0-.11.61.24,0,.11" style="fill: #004fa1"/>
+                        <path d="M8.21,15.42l-.61-.24,0-.11.6.24,0,.11" style="fill: #004fa1"/>
+                        <path d="M8.25,15.31l-.6-.24,0-.11.6.25,0,.11" style="fill: #0050a2"/>
+                        <path d="M8.3,15.2,7.69,15l0-.11.6.25,0,.11" style="fill: #0050a2"/>
+                        <path d="M8.34,15.1l-.6-.25,0-.11.6.26,0,.1" style="fill: #0050a3"/>
+                        <path d="M8.38,15l-.6-.26,0-.11.6.26,0,.1" style="fill: #0050a3"/>
+                        <path d="M8.43,14.89l-.6-.26,0-.11.59.27,0,.1" style="fill: #0051a4"/>
+                        <path d="M8.47,14.79l-.59-.27,0-.11.59.27,0,.1" style="fill: #0051a4"/>
+                        <path d="M8.52,14.68l-.59-.27,0-.11.59.28,0,.1" style="fill: #0051a5"/>
+                        <path d="M8.57,14.58,8,14.31l0-.1.59.28,0,.1" style="fill: #0051a5"/>
+                        <path d="M8.62,14.49,8,14.2l.05-.1.58.29,0,.1" style="fill: #0052a6"/>
+                        <path d="M8.66,14.39l-.58-.29.05-.1.58.29,0,.1" style="fill: #0052a6"/>
+                        <path d="M8.71,14.29,8.13,14l.05-.1.58.3,0,.1" style="fill: #0052a7"/>
+                        <path d="M8.76,14.19l-.58-.3.05-.1.58.3,0,.1" style="fill: #0052a7"/>
+                        <path d="M8.81,14.1l-.58-.3.05-.1.57.31-.05.09" style="fill: #0053a8"/>
+                        <path d="M8.86,14l-.57-.31.05-.1.57.31L8.86,14" style="fill: #0053a8"/>
+                        <path d="M8.92,13.91l-.57-.31.05-.1.57.32-.05.09" style="fill: #0053a9"/>
+                        <path d="M9,13.81l-.57-.32.06-.1.56.32L9,13.81" style="fill: #0053a9"/>
+                        <path d="M9,13.72l-.56-.32.06-.1.56.33L9,13.72" style="fill: #0054aa"/>
+                        <path d="M9.07,13.63l-.56-.33.06-.09.56.33-.05.09" style="fill: #0054aa"/>
+                        <path d="M9.13,13.54l-.56-.33.06-.09.56.34-.05.09" style="fill: #0054ab"/>
+                        <path d="M9.18,13.45l-.56-.34L8.68,13l.55.34-.05.09" style="fill: #0054ab"/>
+                        <path d="M9.23,13.36,8.68,13l.06-.09.55.35-.05.09" style="fill: #0055ac"/>
+                        <path d="M9.29,13.27l-.55-.35.06-.09.55.35-.05.09" style="fill: #0055ac"/>
+                        <path d="M9.34,13.19l-.55-.35.06-.09.55.36-.06.09" style="fill: #0055ad"/>
+                        <path d="M9.4,13.1l-.55-.36.06-.09.54.36-.06.08" style="fill: #0055ad"/>
+                        <path d="M9.45,13l-.54-.36L9,12.57l.54.36L9.45,13" style="fill: #0056ae"/>
+                        <path d="M9.51,12.93,9,12.57,9,12.48l.54.37-.06.08" style="fill: #0056ae"/>
+                        <path d="M9.57,12.85,9,12.48l.06-.09.53.37-.06.08" style="fill: #0056af"/>
+                        <path d="M9.62,12.77l-.53-.37.06-.09.53.38-.06.08" style="fill: #0056af"/>
+                        <path d="M9.68,12.69l-.53-.38.06-.09.53.38-.06.08" style="fill: #0057b0"/>
+                        <path d="M9.74,12.61l-.53-.38.06-.08.52.38-.06.08" style="fill: #0057b0"/>
+                        <path d="M9.8,12.53l-.52-.38.06-.08.52.39-.06.08" style="fill: #0057b1"/>
+                        <path d="M9.86,12.45l-.52-.39L9.4,12l.52.39-.06.08" style="fill: #0057b1"/>
+                        <path d="M9.92,12.37,9.4,12l.06-.08.52.4-.06.08" style="fill: #0058b2"/>
+                        <path d="M10,12.29l-.52-.4.06-.08.51.4-.06.08" style="fill: #0058b2"/>
+                        <path d="M10,12.21l-.51-.4.06-.08.51.4-.06.08" style="fill: #0058b3"/>
+                        <path d="M10.1,12.13l-.51-.4.06-.08.51.41-.06.08" style="fill: #0058b3"/>
+                        <path d="M10.16,12.06l-.51-.41.06-.08.5.41-.06.08" style="fill: #0059b4"/>
+                        <path d="M10.22,12l-.5-.41.07-.08.5.42-.06.08" style="fill: #0059b4"/>
+                        <path d="M10.28,11.91l-.5-.42.07-.08.5.42-.06.07" style="fill: #0059b5"/>
+                        <path d="M10.35,11.83l-.5-.42.07-.08.49.42-.06.07" style="fill: #0059b5"/>
+                        <path d="M10.41,11.76l-.49-.42.07-.08.49.43-.06.07" style="fill: #005ab6"/>
+                        <path d="M10.47,11.68,10,11.26l.07-.08.49.43-.06.07" style="fill: #005ab6"/>
+                        <path d="M10.53,11.61,10,11.18l.07-.07.48.44-.06.07" style="fill: #005ab7"/>
+                        <path d="M10.6,11.54l-.48-.44.07-.07.48.44-.06.07" style="fill: #005ab7"/>
+                        <path d="M10.66,11.47,10.18,11l.07-.07.48.44-.06.07" style="fill: #005bb8"/>
+                        <path d="M10.73,11.4,10.25,11l.07-.07.47.45-.06.07" style="fill: #005bb8"/>
+                        <path d="M10.79,11.33l-.47-.45.07-.07.47.45-.06.07" style="fill: #005bb9"/>
+                        <path d="M10.86,11.26l-.47-.45.07-.07.47.45-.06.07" style="fill: #005bb9"/>
+                        <path d="M10.92,11.2l-.47-.45.07-.07.46.46-.07.07" style="fill: #005cba"/>
+                        <path d="M11,11.13l-.46-.46.07-.07.46.46-.07.07" style="fill: #005cba"/>
+                        <path d="M11.05,11.06l-.46-.46h0l.06-.06.46.46-.06.06h0" style="fill: #005cbb"/>
+                        <path d="M11.12,11l-.46-.46.07-.07.45.47-.07.07" style="fill: #005cbc"/>
+                        <path d="M11.18,10.93l-.45-.47.07-.07.45.47-.07.06" style="fill: #005dbc"/>
+                        <path d="M11.25,10.87l-.45-.47.07-.07.45.47-.07.06" style="fill: #005dbd"/>
+                        <path d="M11.32,10.8l-.45-.47.07-.07.44.48-.07.06" style="fill: #005dbd"/>
+                        <path d="M11.39,10.74l-.44-.48L11,10.2l.44.48-.07.06" style="fill: #005dbe"/>
+                        <path d="M11.46,10.68,11,10.2l.07-.07.44.48-.07.06" style="fill: #005ebe"/>
+                        <path d="M11.52,10.61l-.44-.48.07-.07.43.49-.07.06" style="fill: #005ebf"/>
+                        <path d="M11.59,10.55l-.43-.49.07-.06.43.49-.07.06" style="fill: #0561c0"/>
+                        <path d="M11.66,10.49,11.23,10l.07-.06.43.49-.07.06" style="fill: #0d66c2"/>
+                        <path d="M11.73,10.43l-.43-.49.07-.06.42.5-.07.06" style="fill: #1269c4"/>
+                        <path d="M11.81,10.37l-.42-.5.08-.06.42.5-.07.06" style="fill: #166cc4"/>
+                        <path d="M11.88,10.31l-.42-.5.08-.06.41.5-.07.06" style="fill: #196ec5"/>
+                        <path d="M11.95,10.25l-.41-.5.08-.06.41.5-.07.06" style="fill: #1c70c6"/>
+                        <path d="M12,10.19l-.41-.5.08-.06.41.51-.07.06" style="fill: #1f71c7"/>
+                        <path d="M12.09,10.13l-.41-.51.08-.06.4.51-.07.06" style="fill: #2173c7"/>
+                        <path d="M12.17,10.07l-.4-.51.08-.06.4.51-.07.06" style="fill: #2374c8"/>
+                        <path d="M12.24,10l-.4-.51.08-.06.4.52-.07.06" style="fill: #2576c8"/>
+                        <path d="M12.31,10l-.4-.52L12,9.38l.39.52-.07.06" style="fill: #2777c9"/>
+                        <path d="M12.39,9.9,12,9.38l.08-.06.39.52-.07.06" style="fill: #2978c9"/>
+                        <path d="M12.46,9.85l-.39-.52.08-.06.38.53-.07.05" style="fill: #2b79ca"/>
+                        <path d="M12.54,9.79l-.38-.53.08-.06.38.53-.08.05" style="fill: #2d7aca"/>
+                        <path d="M12.61,9.74l-.38-.53.08-.06.38.53-.08.05" style="fill: #2e7bcb"/>
+                        <path d="M12.69,9.68l-.38-.53.08-.06.37.53-.08.05" style="fill: #307ccb"/>
+                        <path d="M12.76,9.63l-.37-.53L12.47,9l.37.54-.08.05" style="fill: #327dcb"/>
+                        <path d="M12.84,9.57,12.47,9,12.55,9l.36.54-.08.05" style="fill: #337ecc"/>
+                        <path d="M12.92,9.52,12.55,9l.08-.06.36.54-.08.05" style="fill: #357fcc"/>
+                        <path d="M13,9.47l-.36-.54.08-.06.36.54L13,9.47" style="fill: #3680cd"/>
+                        <path d="M13.08,9.42l-.36-.54.08-.05.35.55-.08.05" style="fill: #3781cd"/>
+                        <path d="M13.16,9.36l-.35-.55.08-.05.35.55-.08.05" style="fill: #3982cd"/>
+                        <path d="M13.24,9.31l-.35-.55L13,8.71l.34.55-.08.05" style="fill: #3a83ce"/>
+                        <path d="M13.32,9.26,13,8.71l.09-.05.34.55-.08.05" style="fill: #3b83ce"/>
+                        <path d="M13.4,9.21l-.34-.55.09-.05.34.56-.08.05" style="fill: #3d84ce"/>
+                        <path d="M13.48,9.16l-.34-.56.09-.05.33.56-.08.05" style="fill: #3e85cf"/>
+                        <path d="M13.57,9.11l-.33-.56.09-.05.33.56-.08,0" style="fill: #3f86cf"/>
+                        <path d="M13.65,9.06l-.33-.56.09-.05.32.57-.08,0" style="fill: #4087cf"/>
+                        <path d="M13.74,9l-.32-.57.09-.05.32.57-.08,0" style="fill: #4187cf"/>
+                        <path d="M13.82,9,13.5,8.4l.09,0,.31.57-.09,0" style="fill: #4388d0"/>
+                        <path d="M13.91,8.92l-.31-.57.09,0,.31.57-.09,0" style="fill: #4489d0"/>
+                        <path d="M14,8.87l-.31-.57.09,0,.3.57-.09,0" style="fill: #4589d0"/>
+                        <path d="M14.08,8.82l-.3-.57.09,0,.3.58-.09,0" style="fill: #468ad1"/>
+                        <path d="M14.16,8.78l-.3-.58.09,0,.3.58-.09,0" style="fill: #478bd1"/>
+                        <path d="M14.25,8.73,14,8.15l.09,0,.29.58-.09,0" style="fill: #488cd1"/>
+                        <path d="M14.34,8.69l-.29-.58.1,0,.29.58-.09,0" style="fill: #498cd1"/>
+                        <path d="M14.43,8.64l-.29-.58.1,0,.28.59-.09,0" style="fill: #4a8dd2"/>
+                        <path d="M14.53,8.6,14.24,8l.1,0,.28.59-.09,0" style="fill: #4b8dd2"/>
+                        <path d="M14.62,8.55,14.34,8l.1,0,.27.59-.1,0" style="fill: #4c8ed2"/>
+                        <path d="M14.71,8.51l-.27-.59.1,0,.27.59-.1,0" style="fill: #4d8fd2"/>
+                        <path d="M14.81,8.46l-.27-.59.1,0,.26.6-.1,0" style="fill: #4e8fd3"/>
+                        <path d="M14.91,8.42l-.26-.6.1,0,.26.6-.1,0" style="fill: #4f90d3"/>
+                        <path d="M15,8.38l-.26-.6.1,0,.25.6-.1,0" style="fill: #5091d3"/>
+                        <path d="M15.1,8.34l-.25-.6.11,0,.25.6-.1,0" style="fill: #5191d3"/>
+                        <path d="M15.2,8.29,15,7.69l.11,0,.24.6-.1,0" style="fill: #5292d4"/>
+                        <path d="M15.31,8.25l-.24-.6.11,0,.24.61-.1,0" style="fill: #5392d4"/>
+                        <path d="M15.41,8.21l-.24-.61.11,0,.23.61-.1,0" style="fill: #5493d4"/>
+                        <path d="M15.52,8.17l-.23-.61.12,0,.22.61-.11,0" style="fill: #5593d4"/>
+                        <path d="M15.63,8.13l-.22-.61.12,0,.22.61-.11,0" style="fill: #5694d4"/>
+                        <path d="M15.74,8.09l-.22-.61.12,0,.21.61-.11,0" style="fill: #5695d5"/>
+                        <path d="M15.85,8l-.21-.61.12,0L16,8l-.11,0" style="fill: #5795d5"/>
+                        <path d="M16,8l-.21-.62.12,0,.2.62L16,8" style="fill: #5896d5"/>
+                        <path d="M16.08,8l-.2-.62.12,0,.2.62-.12,0" style="fill: #5996d5"/>
+                        <path d="M16.2,7.94,16,7.31l.12,0,.19.62-.12,0" style="fill: #5a97d6"/>
+                        <path d="M16.31,7.9l-.19-.62.12,0,.18.62-.12,0" style="fill: #5b97d6"/>
+                        <path d="M16.43,7.86l-.18-.62.14,0,.18.63-.13,0" style="fill: #5c98d6"/>
+                        <path d="M16.56,7.83l-.18-.63.14,0,.17.63-.14,0" style="fill: #5c98d6"/>
+                        <path d="M16.7,7.79l-.17-.63.14,0,.16.63-.14,0" style="fill: #5d99d6"/>
+                        <path d="M16.84,7.75l-.16-.63.15,0,.16.63-.14,0" style="fill: #5e99d7"/>
+                        <path d="M17,7.72l-.16-.63L17,7l.15.63-.15,0" style="fill: #5f9ad7"/>
+                        <path d="M17.13,7.68,17,7l.16,0,.14.64-.16,0" style="fill: #609ad7"/>
+                        <path d="M17.28,7.65,17.14,7l.16,0,.13.64-.16,0" style="fill: #609bd7"/>
+                        <path d="M17.44,7.61,17.31,7l.17,0,.12.64-.17,0" style="fill: #619bd7"/>
+                        <path d="M17.61,7.58l-.12-.64.18,0,.11.64-.17,0" style="fill: #629cd8"/>
+                        <path d="M17.77,7.55l-.11-.64.18,0,.11.64-.17,0" style="fill: #639cd8"/>
+                        <path d="M17.94,7.52l-.11-.64.22,0,.09.64-.21,0" style="fill: #649dd8"/>
+                        <path d="M18.15,7.49l-.09-.64.23,0,.08.65-.22,0" style="fill: #649dd8"/>
+                        <path d="M18.37,7.46l-.08-.65.26,0,.07.65-.25,0" style="fill: #659ed8"/>
+                        <path d="M18.62,7.43l-.07-.65.28,0,.06.65-.27,0" style="fill: #669ed9"/>
+                        <path d="M18.89,7.4l-.06-.65.35,0,0,.65-.33,0" style="fill: #679fd9"/>
+                        <path d="M19.22,7.38l0-.65.44,0,0,.65-.41,0" style="fill: #679fd9"/>
+                        <path d="M19.63,7.36l0-.65H20v.65h-.37" style="fill: #68a0d9"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g style="isolation: isolate">
+                <g style="clip-path: url(#clip-path-12)">
+                  <g style="clip-path: url(#clip-path-13)">
+                    <g style="isolation: isolate">
+                      <g style="clip-path: url(#clip-path-12)">
+                        <path d="M28.94,28.95h0l0,0,0,0" style="fill: #003e7d"/>
+                        <path d="M28.89,29h0l-.16.16.16-.16" style="fill: #003e7e"/>
+                        <path d="M28.73,29.15h0l-.17.16.17-.16" style="fill: #003e7e"/>
+                        <path d="M28.56,29.31h0l-.17.15.17-.15" style="fill: #003e7f"/>
+                        <path d="M28.39,29.46h0l-.17.15.17-.15" style="fill: #003f7f"/>
+                        <path d="M28.22,29.61h0l-.18.15.18-.15" style="fill: #003f80"/>
+                        <path d="M28,29.76h0l-.18.14.18-.14" style="fill: #003f80"/>
+                        <path d="M27.86,29.9h0l-.18.14.18-.14" style="fill: #003f81"/>
+                        <path d="M27.68,30h0l-.19.14.19-.14" style="fill: #004081"/>
+                        <path d="M27.5,30.19h0l-.19.14.19-.14" style="fill: #004082"/>
+                        <path d="M27.31,30.32h0l-.19.13.19-.13" style="fill: #004083"/>
+                        <path d="M27.11,30.46h0l-.2.13.2-.13" style="fill: #004083"/>
+                        <path d="M26.92,30.59h0l-.2.13.2-.13" style="fill: #004184"/>
+                        <path d="M26.71,30.72h0l-.21.13.21-.13" style="fill: #004184"/>
+                        <path d="M26.51,30.85h0L26.3,31l.21-.12" style="fill: #004185"/>
+                        <path d="M26.29,31h0l-.22.12.22-.12" style="fill: #004185"/>
+                        <path d="M26.08,31.09h0l-.22.12.22-.12" style="fill: #004286"/>
+                        <path d="M25.85,31.21h0l-.23.12.23-.12" style="fill: #004286"/>
+                        <path d="M25.62,31.33h0l-.24.12.24-.12" style="fill: #004287"/>
+                        <path d="M25.38,31.45h0l-.25.12.25-.12" style="fill: #004287"/>
+                        <path d="M25.13,31.56h0l-.26.11.26-.11" style="fill: #004388"/>
+                        <path d="M24.87,31.68h0l-.27.11.27-.11" style="fill: #004388"/>
+                        <path d="M24.59,31.79h0l-.29.11.29-.11" style="fill: #004389"/>
+                        <path d="M24.31,31.89h0L24,32l.3-.1" style="fill: #004389"/>
+                        <path d="M24,32h0l-.33.1L24,32" style="fill: #00448a"/>
+                        <path d="M23.68,32.1h0l-.35.1.35-.1" style="fill: #00448a"/>
+                        <path d="M23.33,32.2h0l-.38.1.38-.1" style="fill: #00448b"/>
+                        <path d="M23,32.3h0l-.42.09L23,32.3" style="fill: #00448b"/>
+                        <path d="M22.53,32.39h0l-.49.09.49-.09" style="fill: #00458c"/>
+                        <path d="M22,32.48h0l-.61.08.61-.08" style="fill: #00458c"/>
+                        <path d="M21.43,32.57h0l-.86.07.86-.07" style="fill: #00458d"/>
+                        <path d="M20.57,32.63h0" style="fill: #00458d"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g style="isolation: isolate">
+                <g style="clip-path: url(#clip-path-9)">
+                  <g style="clip-path: url(#clip-path-10)">
+                    <g style="isolation: isolate">
+                      <g style="clip-path: url(#clip-path-9)">
+                        <polygon points="28.94 28.94 28.94 28.94 28.94 28.95 28.94 28.94" style="fill: #003e7d"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g style="isolation: isolate">
+                <g style="clip-path: url(#clip-path-15)">
+                  <g style="clip-path: url(#clip-path-16)">
+                    <g style="isolation: isolate">
+                      <g style="clip-path: url(#clip-path-15)">
+                        <path d="M20,32.65h0a12.75,12.75,0,0,1-2-.15,12.75,12.75,0,0,0,2,.15" style="fill: #00458d"/>
+                        <path d="M18,32.5h0l-.84-.16.84.16" style="fill: #00458d"/>
+                        <path d="M17.2,32.34h0l-.59-.15.59.15" style="fill: #00458c"/>
+                        <path d="M16.61,32.19h0L16.13,32l.48.14" style="fill: #00458c"/>
+                        <path d="M16.13,32h0l-.41-.14.41.14" style="fill: #00448b"/>
+                        <path d="M15.72,31.9h0l-.37-.14.37.14" style="fill: #00448b"/>
+                        <path d="M15.35,31.76h0L15,31.62l.34.14" style="fill: #00448a"/>
+                        <path d="M15,31.62h0l-.31-.14.31.14" style="fill: #00448a"/>
+                        <path d="M14.7,31.49h0l-.29-.14.29.14" style="fill: #004389"/>
+                        <path d="M14.41,31.35h0l-.28-.14.28.14" style="fill: #004389"/>
+                        <path d="M14.14,31.21h0l-.26-.14.26.14" style="fill: #004388"/>
+                        <path d="M13.88,31.07h0l-.25-.14.25.14" style="fill: #004388"/>
+                        <path d="M13.63,30.93h0l-.24-.14.24.14" style="fill: #004287"/>
+                        <path d="M13.39,30.78h0l-.23-.14.23.14" style="fill: #004287"/>
+                        <path d="M13.16,30.64h0l-.22-.15.22.15" style="fill: #004286"/>
+                        <path d="M12.94,30.5h0l-.21-.14.21.14" style="fill: #004286"/>
+                        <path d="M12.73,30.35h0l-.21-.15.21.15" style="fill: #004185"/>
+                        <path d="M12.53,30.2h0l-.2-.15.2.15" style="fill: #004185"/>
+                        <path d="M12.33,30.06h0l-.19-.15.19.15" style="fill: #004184"/>
+                        <path d="M12.14,29.91h0L12,29.75l.19.15" style="fill: #004184"/>
+                        <path d="M12,29.75h0l-.18-.15.18.15" style="fill: #004083"/>
+                        <path d="M11.77,29.6h0l-.18-.15.18.15" style="fill: #004083"/>
+                        <path d="M11.59,29.45h0l-.17-.16.17.16" style="fill: #004082"/>
+                        <path d="M11.42,29.29h0l-.17-.16.17.16" style="fill: #004081"/>
+                        <path d="M11.25,29.13h0L11.08,29l.17.16" style="fill: #003f81"/>
+                        <path d="M11.08,29h0l0,0,0,0" style="fill: #003f80"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g style="isolation: isolate">
+                <g style="clip-path: url(#clip-path-56)">
+                  <g style="clip-path: url(#clip-path-57)">
+                    <g style="isolation: isolate">
+                      <g style="clip-path: url(#clip-path-56)">
+                        <polyline points="11.06 28.94 11.06 28.94 11.05 28.94 11.06 28.94" style="fill: #003f80"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g style="isolation: isolate">
+                <g style="clip-path: url(#clip-path-21)">
+                  <g style="clip-path: url(#clip-path-22)">
+                    <g style="isolation: isolate">
+                      <g style="clip-path: url(#clip-path-21)">
+                        <path d="M11.05,28.94h0l-.13-.13.13.13" style="fill: #003f80"/>
+                        <path d="M10.92,28.8h0l-.16-.17.16.17" style="fill: #003f80"/>
+                        <path d="M10.76,28.64h0l-.16-.17.16.17" style="fill: #003f7f"/>
+                        <path d="M10.61,28.47h0l-.15-.17.15.17" style="fill: #003e7f"/>
+                        <path d="M10.45,28.3h0l-.15-.17.15.17" style="fill: #003e7e"/>
+                        <path d="M10.31,28.12h0l-.15-.18.15.18" style="fill: #003e7e"/>
+                        <path d="M10.16,27.94h0L10,27.76l.14.18" style="fill: #003e7d"/>
+                        <path d="M10,27.76h0l-.14-.18.14.18" style="fill: #003d7d"/>
+                        <path d="M9.88,27.58h0l-.14-.19.14.19" style="fill: #003d7c"/>
+                        <path d="M9.74,27.39h0L9.6,27.2l.14.19" style="fill: #003d7c"/>
+                        <path d="M9.6,27.2h0L9.47,27l.13.2" style="fill: #003d7b"/>
+                        <path d="M9.47,27h0l-.13-.2.13.2" style="fill: #003c7b"/>
+                        <path d="M9.34,26.8h0l-.13-.2.13.2" style="fill: #003c7a"/>
+                        <path d="M9.21,26.6h0l-.13-.21.13.21" style="fill: #003c7a"/>
+                        <path d="M9.08,26.39h0L9,26.17l.12.22" style="fill: #003c79"/>
+                        <path d="M9,26.17H9L8.84,26l.12.22" style="fill: #003b79"/>
+                        <path d="M8.84,26h0l-.12-.23.12.23" style="fill: #003b78"/>
+                        <path d="M8.72,25.72h0l-.12-.24.12.24" style="fill: #003b78"/>
+                        <path d="M8.6,25.49h0l-.12-.25.12.25" style="fill: #003b77"/>
+                        <path d="M8.49,25.24h0L8.37,25l.11.25" style="fill: #003a77"/>
+                        <path d="M8.37,25h0l-.11-.27.11.27" style="fill: #003a76"/>
+                        <path d="M8.26,24.72h0l-.11-.28.11.28" style="fill: #003a76"/>
+                        <path d="M8.15,24.44h0L8,24.14l.11.3" style="fill: #003a75"/>
+                        <path d="M8,24.14H8l-.1-.31.1.31" style="fill: #003975"/>
+                        <path d="M7.94,23.83h0l-.1-.33.1.33" style="fill: #003974"/>
+                        <path d="M7.84,23.49h0l-.1-.37.1.37" style="fill: #003974"/>
+                        <path d="M7.74,23.12h0l-.1-.41.1.41" style="fill: #003973"/>
+                        <path d="M7.65,22.72h0q-.05-.23-.09-.46,0,.23.09.46" style="fill: #003873"/>
+                        <path d="M7.55,22.26h0q0-.27-.09-.55,0,.27.09.55" style="fill: #003872"/>
+                        <path d="M7.47,21.71h0q0-.35-.08-.7,0,.35.08.7" style="fill: #003872"/>
+                        <path d="M7.39,21h0q0-.5,0-1,0,.51,0,1" style="fill: #003871"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g style="isolation: isolate">
+                <g style="clip-path: url(#clip-path-18)">
+                  <g style="clip-path: url(#clip-path-19)">
+                    <g style="isolation: isolate">
+                      <g style="clip-path: url(#clip-path-18)">
+                        <path d="M32.65,20h0a12.72,12.72,0,0,1-.23,2.38A12.72,12.72,0,0,0,32.65,20" style="fill: #003871"/>
+                        <path d="M32.42,22.39h0q-.07.35-.16.7.09-.35.16-.7" style="fill: #003872"/>
+                        <path d="M32.27,23.09h0q-.07.27-.14.53.08-.26.14-.53" style="fill: #003872"/>
+                        <path d="M32.12,23.62h0l-.14.45.14-.45" style="fill: #003873"/>
+                        <path d="M32,24.06h0l-.14.39.14-.39" style="fill: #003973"/>
+                        <path d="M31.84,24.46h0l-.14.35.14-.35" style="fill: #003974"/>
+                        <path d="M31.7,24.8h0l-.14.32.14-.32" style="fill: #003974"/>
+                        <path d="M31.56,25.13h0l-.14.3.14-.3" style="fill: #003975"/>
+                        <path d="M31.42,25.43h0l-.14.28.14-.28" style="fill: #003a75"/>
+                        <path d="M31.29,25.71h0l-.14.27.14-.27" style="fill: #003a76"/>
+                        <path d="M31.15,26h0l-.14.26.14-.26" style="fill: #003a76"/>
+                        <path d="M31,26.24h0l-.14.24.14-.24" style="fill: #003a77"/>
+                        <path d="M30.86,26.48h0l-.14.23.14-.23" style="fill: #003b77"/>
+                        <path d="M30.72,26.71h0l-.14.22.14-.22" style="fill: #003b78"/>
+                        <path d="M30.58,26.93h0l-.15.22.15-.22" style="fill: #003b78"/>
+                        <path d="M30.43,27.15h0l-.15.21.15-.21" style="fill: #003b79"/>
+                        <path d="M30.29,27.36h0l-.15.2.15-.2" style="fill: #003c79"/>
+                        <path d="M30.14,27.56h0l-.15.2.15-.2" style="fill: #003c7a"/>
+                        <path d="M30,27.76h0l-.15.19.15-.19" style="fill: #003c7a"/>
+                        <path d="M29.84,27.95h0l-.15.18.15-.18" style="fill: #003c7b"/>
+                        <path d="M29.69,28.13h0l-.15.18.15-.18" style="fill: #003d7b"/>
+                        <path d="M29.53,28.31h0l-.16.18.16-.18" style="fill: #003d7c"/>
+                        <path d="M29.38,28.49h0l-.16.17.16-.17" style="fill: #003d7c"/>
+                        <path d="M29.22,28.66h0l-.16.17.16-.17" style="fill: #003d7d"/>
+                        <path d="M29.06,28.83h0l-.11.12.11-.12" style="fill: #003e7d"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g style="isolation: isolate">
+                <g style="clip-path: url(#clip-path-24)">
+                  <g style="clip-path: url(#clip-path-25)">
+                    <g style="isolation: isolate">
+                      <g style="clip-path: url(#clip-path-24)">
+                        <path d="M7.35,20h0a12.6,12.6,0,0,1,3.7-8.93A12.6,12.6,0,0,0,7.35,20" style="fill: #003871"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g style="isolation: isolate">
+                <g style="clip-path: url(#clip-path-27)">
+                  <g style="clip-path: url(#clip-path-28)">
+                    <g style="isolation: isolate">
+                      <g style="clip-path: url(#clip-path-27)">
+                        <path d="M28.95,11.06h0A12.61,12.61,0,0,1,32.65,20a12.61,12.61,0,0,0-3.7-8.94" style="fill: #003871"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g style="isolation: isolate">
+                <g style="clip-path: url(#clip-path-30)">
+                  <g style="clip-path: url(#clip-path-31)">
+                    <g style="isolation: isolate">
+                      <g style="clip-path: url(#clip-path-30)">
+                        <polygon points="28.94 11.06 28.94 11.06 28.95 11.06 28.94 11.06" style="fill: #003871"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g style="isolation: isolate">
+                <g style="clip-path: url(#clip-path-76)">
+                  <g style="clip-path: url(#clip-path-77)">
+                    <g style="isolation: isolate">
+                      <g style="clip-path: url(#clip-path-76)">
+                        <polygon points="11.06 11.06 11.06 11.06 11.06 11.05 11.06 11.06" style="fill: #003871"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g style="isolation: isolate">
+                <g style="clip-path: url(#clip-path-36)">
+                  <g style="clip-path: url(#clip-path-37)">
+                    <g style="isolation: isolate">
+                      <g style="clip-path: url(#clip-path-36)">
+                        <path d="M11.06,11.05h0A12.61,12.61,0,0,1,20,7.35a12.61,12.61,0,0,0-8.94,3.7" style="fill: #003871"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g style="isolation: isolate">
+                <g style="clip-path: url(#clip-path-33)">
+                  <g style="clip-path: url(#clip-path-34)">
+                    <g style="isolation: isolate">
+                      <g style="clip-path: url(#clip-path-33)">
+                        <path d="M20,7.35h0a12.6,12.6,0,0,1,8.93,3.7A12.6,12.6,0,0,0,20,7.35" style="fill: #003871"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <path d="M20,7.35a12.65,12.65,0,1,1-8.94,3.7A12.61,12.61,0,0,1,20,7.35" style="fill: #0050a3"/>
+            </g>
+          </g>
+          <path d="M9.4,13.65s5.23-2.31,6.6-3a.21.21,0,0,1,.31.19c0,6.65-.27,5.37,0,20.48a6,6,0,0,1-2.51-1c.18-9.22.08-12.54.07-17.33l-3.43,2Z" style="fill: #fff"/>
+          <g style="mask: url(#mask)">
+            <g style="opacity: 0.6000059843063354">
+              <g style="clip-path: url(#clip-path-85)">
+                <path d="M9.4,13.65s5.23-2.31,6.6-3a.21.21,0,0,1,.31.19c0,6.65-.27,5.37,0,20.48a6,6,0,0,1-2.51-1c.18-9.22.08-12.54.07-17.33l-3.43,2Z"/>
+              </g>
+            </g>
+          </g>
+          <path d="M19.39,13.65s5.23-2.31,6.6-3a.21.21,0,0,1,.31.19c0,6.65-.27,4.36,0,19.46a8.38,8.38,0,0,1-2.51,1c.18-9.22.08-13.55.07-18.34l-3.43,2Z" style="fill: #fff"/>
+          <g style="mask: url(#mask-2)">
+            <g style="opacity: 0.6000059843063354">
+              <g style="clip-path: url(#clip-path-86)">
+                <path d="M19.39,13.65s5.23-2.31,6.6-3a.21.21,0,0,1,.31.19c0,6.65-.27,4.36,0,19.46a8.38,8.38,0,0,1-2.51,1c.18-9.22.08-13.55.07-18.34l-3.43,2Z"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

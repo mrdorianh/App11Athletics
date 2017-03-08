@@ -19,18 +19,19 @@ namespace App11Athletics
         public App()
         {
             InitializeComponent();
-            if (string.IsNullOrEmpty(Settings.UserRefreshToken))
-            {
-                IsUserLoggedIn = false;
-                MainPage = new NavigationPage(new LoginView());
-            }
-            else
-            {
-                IsUserLoggedIn = true;
-                //                DependencyService.Get<IAuthSignIn>().AuthRefresh();
-                MainPage = new NavigationPage(new HomeMenuView());
-            }
-            //            MainPage = new NavigationPage(new Splash());
+            MainPage = new NavigationPage(new SplashWebView());
+            //                        if (string.IsNullOrEmpty(Settings.UserRefreshToken))
+            //                        {
+            //                            IsUserLoggedIn = false;
+            //                            MainPage = new NavigationPage(new LoginView());
+            //                        }
+            //                        else
+            //                        {
+            //                            IsUserLoggedIn = true;
+            //                            //                DependencyService.Get<IAuthSignIn>().AuthRefresh();
+            //                            MainPage = new NavigationPage(new HomeMenuView());
+            //                        }
+
         }
 
 

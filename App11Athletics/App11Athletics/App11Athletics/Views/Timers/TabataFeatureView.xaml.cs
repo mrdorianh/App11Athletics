@@ -5,7 +5,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Android.Bluetooth;
 using App11Athletics.DHCToolkit;
 using App11Athletics.Helpers;
 using App11Athletics.ViewModels.Timers;

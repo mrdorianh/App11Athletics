@@ -9,6 +9,7 @@
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
                 <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="BorderRadius" Value="10" />
+                <Setter Property="FontSize" Value="Small" />
                 <Setter Property="TextColor" Value="White" />
             </Style>
         </ResourceDictionary>

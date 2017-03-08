@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using PropertyChanged;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -26,7 +25,11 @@ namespace App11Athletics.Views.Timers
             {
                 var view = (Label)view1;
                 if (view.StyleId != "titles")
-                    view.FontSize = gridTime.Width / 6;
+                    view.FontSize = gridTime.Width / 6.2;
+                else
+                {
+                    view.FontSize = gridTime.Width / 4 / 10;
+                }
             }
         }
     }

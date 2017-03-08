@@ -31,9 +31,7 @@
                 <RowDefinition Height="2*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <timers1:BaseTimeView Grid.Row="0"
-                                  Padding="10"
-                                  Scale="1" />
+            <timers1:BaseTimeView Grid.Row="0" Scale="1" />
             <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />

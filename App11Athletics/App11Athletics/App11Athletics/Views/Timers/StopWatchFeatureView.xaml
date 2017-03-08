@@ -24,9 +24,7 @@
                 <RowDefinition Height="2*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <svm:BaseTimeView Grid.Row="0"
-                              Padding="10"
-                              Scale="1" />
+            <svm:BaseTimeView Grid.Row="0" Scale="1" />
 
 
             <ListView x:Name="listLapTime"

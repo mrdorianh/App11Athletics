@@ -29,6 +29,7 @@ namespace App11Athletics.Views
         {
             base.OnAppearing();
             disabled = true;
+            await Task.Delay(100);
             this.FadeTo(1, 350U, Easing.CubicIn);
             await AnimatePages.AnimatePageIn(gridDiscover, null);
             disabled = false;
@@ -70,7 +71,7 @@ namespace App11Athletics.Views
             var das = await DisplayActionSheet(TrainerItem.ShortName, "Cancel", null, "View Bio", "Email");
             if (!CrossConnectivity.Current.IsConnected)
             {
-                ((ListView) sender).SelectedItem = null;
+                ((ListView)sender).SelectedItem = null;
                 return;
             }
             switch (das)

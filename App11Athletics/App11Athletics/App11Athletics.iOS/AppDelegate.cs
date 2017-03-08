@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Foundation;
 using ImageCircle.Forms.Plugin.iOS;
+using Octane.Xam.VideoPlayer.iOS;
 using Syncfusion.SfCarousel.XForms.iOS;
 using UIKit;
 
@@ -22,6 +23,7 @@ namespace App11Athletics.iOS
         {
 
             global::Xamarin.Forms.Forms.Init();
+            FormsVideoPlayer.Init();
             LoadApplication(new App());
             new SfCarouselRenderer();
             ImageCircleRenderer.Init();

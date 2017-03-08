@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Android.Media.Audiofx;
 using Xamarin.Forms;
 
 namespace App11Athletics.Views.Controls

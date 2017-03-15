@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using App11Athletics.DHCToolkit;
 using App11Athletics.Helpers;
-using App11Athletics.ViewModels;
 using Plugin.Connectivity;
 using Xamarin.Forms;
 

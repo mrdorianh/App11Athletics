@@ -56,7 +56,6 @@
     <Compile Include="Helpers\ICleanUp.cs" />
     <Compile Include="Helpers\IFileHelper.cs" />
     <Compile Include="Helpers\ISQLite.cs" />
-    <Compile Include="Helpers\ITextToSpeech.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="MarkupExtensions\ImageResourceExtension.cs" />
     <Compile Include="MarkupExtensions\VideoResourceExtension.cs" />
@@ -75,8 +74,6 @@
     <Compile Include="ViewModels\CarouselViewModel.cs" />
     <Compile Include="ViewModels\AuthUserSignIn.cs" />
     <Compile Include="ViewModels\Discover11AthleticsViewModel.cs" />
-    <Compile Include="ViewModels\HomeMenuViewModel.cs" />
-    <Compile Include="ViewModels\OneRepMaxFeatureViewModel.cs" />
     <Compile Include="ViewModels\Timers\BaseTimerViewModel.cs" />
     <Compile Include="ViewModels\Timers\RoundCounterFeatureViewModel.cs" />
     <Compile Include="ViewModels\Timers\StopwatchFeatureViewModel.cs" />
@@ -84,9 +81,6 @@
     <Compile Include="ViewModels\UserProfileViewModel.cs" />
     <Compile Include="Views\Controls\ChangeOptions.xaml.cs">
       <DependentUpon>ChangeOptions.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Controls\ImageCircleProportional.xaml.cs">
-      <DependentUpon>ImageCircleProportional.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Controls\MyEntry.cs" />
     <Compile Include="Views\Controls\OneRepMax.xaml.cs">
@@ -294,12 +288,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\WorkoutLogListView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\Controls\ImageCircleProportional.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

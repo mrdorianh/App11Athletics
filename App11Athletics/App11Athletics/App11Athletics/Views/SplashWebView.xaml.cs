@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Threading.Tasks;
 using App11Athletics.Helpers;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -19,7 +12,13 @@ namespace App11Athletics.Views
         public SplashWebView()
         {
             InitializeComponent();
+            var c = Plugin.Connectivity.CrossConnectivity.Current.IsConnected;
+            if(c)
             videoPlayer.Play();
+            else
+            {
+                VideoPlayer_OnCompleted(null,null);
+            }
             //            var htmlSource = new HtmlWebViewSource();
             //            htmlSource.Html = @"<iframe src='https://player.vimeo.com/video/206658139?autoplay=1&title=0&byline=0&portrait=0' width='100%' height='100%' frameborder='0' ></iframe>";
             //

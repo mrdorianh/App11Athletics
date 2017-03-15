@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using App11Athletics.Models;
 using App11Athletics.ViewModels;
-using ImageCircle.Forms.Plugin.Abstractions;
 using Plugin.Connectivity;
 using Xamarin.Forms;
 using App11Athletics.DHCToolkit;

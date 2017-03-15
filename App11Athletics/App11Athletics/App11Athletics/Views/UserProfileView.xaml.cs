@@ -1,15 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using App11Athletics.Helpers;
-using App11Athletics.Models;
-using App11Athletics.Templates;
 using App11Athletics.DHCToolkit;
-using App11Athletics.ViewModels;
 using Xamarin.Forms;
 
 namespace App11Athletics.Views

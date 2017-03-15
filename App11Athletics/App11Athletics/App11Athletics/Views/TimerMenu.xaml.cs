@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Android.Locations;
 using App11Athletics.DHCToolkit;
 using App11Athletics.Views.Timers;
-using Java.Lang.Annotation;
 using Xamarin.Forms;
 
 namespace App11Athletics.Views

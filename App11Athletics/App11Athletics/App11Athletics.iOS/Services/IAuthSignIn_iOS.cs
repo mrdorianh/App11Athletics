@@ -1,16 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using App11Athletics.iOS;
-using App11Athletics;
 using App11Athletics.Helpers;
 using App11Athletics.iOS.Services;
 using Auth0.SDK;
-using Xamarin.Forms.Platform.iOS;
-using Foundation;
-using Newtonsoft.Json;
 using UIKit;
 
 [assembly: Xamarin.Forms.Dependency(typeof(IAuthSignIn_iOS))]

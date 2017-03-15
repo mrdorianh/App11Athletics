@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Android.Widget;
-using App11Athletics.Helpers;
 using App11Athletics.Models;
 using Xamarin.Forms;
 

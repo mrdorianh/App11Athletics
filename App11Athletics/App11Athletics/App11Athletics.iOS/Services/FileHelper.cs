@@ -1,8 +1,5 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using App11Athletics.Helpers;
 using App11Athletics.iOS.Services;
 using Xamarin.Forms;

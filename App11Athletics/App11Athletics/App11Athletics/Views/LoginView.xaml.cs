@@ -48,7 +48,12 @@ namespace App11Athletics.Views
 
         private void LoginView_OnSizeChanged(object sender, EventArgs e)
         {
-            LabelLoginText = stackLayoutLoginView.Width / 5;
+            while (Width <= 50)
+            {
+
+            }
+            LabelLoginText = Width / 12;
+
         }
 
         #region Overrides of Page

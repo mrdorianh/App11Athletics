@@ -17,7 +17,7 @@ using Android.Widget;
 using App11Athletics;
 namespace App11Athletics.Droid
 {
-    [Activity(Theme = "@style/Theme.Splash", MainLauncher = false, NoHistory = true, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Theme = "@style/Theme.Splash", MainLauncher = true, NoHistory = true, ScreenOrientation = ScreenOrientation.Portrait)]
     public class SplashScreen : Activity, ISurfaceHolderCallback
     {
         VideoView videoView;

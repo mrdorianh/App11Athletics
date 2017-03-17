@@ -296,7 +296,7 @@
     <AndroidResource Include="Resources\drawable\plusgreen.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="SplashVideo\Splash11athletics.mp4" />
+    <AndroidAsset Include="SplashVideo\Splash11athletics.mp4" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\arrows.png" />

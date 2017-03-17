@@ -20,10 +20,10 @@ namespace App11Athletics.Views.Timers
             {
                 var view = (Label)view1;
                 if (view.StyleId != "titles")
-                    view.FontSize = gridTime.Width / 6.2;
+                    view.FontSize = Width / 6.4;
                 else
                 {
-                    view.FontSize = gridTime.Width / 4 / 10;
+                    view.FontSize = Width / 4 / 10;
                 }
             }
         }

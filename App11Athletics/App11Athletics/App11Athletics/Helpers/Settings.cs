@@ -98,7 +98,7 @@ namespace App11Athletics.Helpers
 
         private const string SettingsUserId = "user_id";
         private static readonly string SettingsUserIdDefault = string.Empty;
-        
+
         private const string SettingsUserNickname = "user_nickname";
         private static readonly string SettingsUserNicknameDefault = string.Empty;
 
@@ -119,7 +119,9 @@ namespace App11Athletics.Helpers
 
         private const string SettingsOneRMWeight = "user_OneRMWeight";
         private static readonly string SettingsOneRMWeightDefault = "0";
-        
+        private const string SettingsOneRMAx = "user_OneRMax";
+        private static readonly string SettingsOneRMaxDefault = "0";
+
         public static string UserOneRMLift
         {
             get { return AppSettings.GetValueOrDefault<string>(SettingsOneRMLift, SettingsOneRMLiftDefault); }
@@ -135,6 +137,14 @@ namespace App11Athletics.Helpers
             set
             {
                 AppSettings.AddOrUpdateValue<string>(SettingsOneRMWeight, value);
+            }
+        }
+        public static string UserOneRMAx
+        {
+            get { return AppSettings.GetValueOrDefault<string>(SettingsOneRMAx, SettingsOneRMaxDefault); }
+            set
+            {
+                AppSettings.AddOrUpdateValue<string>(SettingsOneRMAx, value);
             }
         }
 
@@ -257,7 +267,7 @@ namespace App11Athletics.Helpers
 
         public static bool EmailVerified
         {
-            get{ return AppSettings.GetValueOrDefault<bool>(SettingsEmailVerified, SettingsEmailVerifiedDefault); }
+            get { return AppSettings.GetValueOrDefault<bool>(SettingsEmailVerified, SettingsEmailVerifiedDefault); }
             set
             {
                 AppSettings.AddOrUpdateValue<bool>(SettingsEmailVerified, value);

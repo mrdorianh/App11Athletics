@@ -2,8 +2,10 @@
 <ContentPage x:Class="App11Athletics.Views.SplashWebView"
              xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:me="clr-namespace:App11Athletics.MarkupExtensions;assembly=App11Athletics" xmlns:o="clr-namespace:Octane.Xam.VideoPlayer;assembly=Octane.Xam.VideoPlayer"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
     <o:VideoPlayer x:Name="videoPlayer"
-                   AutoPlay="True" Completed="VideoPlayer_OnCompleted" DisplayControls="False" Failed="VideoPlayer_OnFailed" FillMode="ResizeAspectFill"
-                   Source="{me:VimeoVideoId 206658139}" />
+                   AutoPlay="True" Completed="VideoPlayer_OnCompleted" DisplayControls="False" Failed="VideoPlayer_OnFailed" FillMode="ResizeAspectFill" Playing="VideoPlayer_OnPlaying"
+                   Source="{me:VimeoVideoId 206658139}"
+                   BackgroundColor="White" />
 </ContentPage>

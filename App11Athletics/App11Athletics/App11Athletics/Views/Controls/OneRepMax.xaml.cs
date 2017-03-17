@@ -13,6 +13,7 @@ namespace App11Athletics.Views.Controls
             InitializeComponent();
             myEntry.Text = Settings.UserOneRMLift;
             myEntryWeight.Text = Settings.UserOneRMWeight;
+            WeightLifted = Settings.UserOneRMWeight;
             if (myEntry.Text == string.Empty)
             {
                 myEntry.Text = "Add Exercise";

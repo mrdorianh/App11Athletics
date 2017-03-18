@@ -103,14 +103,11 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <!--  <Label x:Name="labelEmptyList"  -->
-        <!--  HorizontalTextAlignment="Center"  -->
-        <!--  FontSize="40" FontAttributes="Bold" TextColor="White"  -->
-        <!--  HorizontalOptions="CenterAndExpand" Text="Add Some Exercises!" VerticalOptions="CenterAndExpand" />  -->
+      
         <Grid x:Name="gridOneRepMax"
               Grid.Row="2"
               Padding="5"
-              TranslationY="-5">
+              >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />

@@ -92,7 +92,7 @@ namespace App11Athletics.Views
         private async void LoggedInNavigate(Image image)
         {
 
-            await DependencyService.Get<IAuthSignIn>().AuthRefresh();
+            await DependencyService.Get<IAuthSignIn>().AuthSignIn();
             if (!App.IsUserLoggedIn)
             {
                 disabled = false;

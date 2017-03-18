@@ -17,9 +17,31 @@ namespace App11Athletics.iOS.Services
 
         #region Implementation of IAuthSignIn
 
-        public Task AuthSignIn()
+        public async Task AuthSignIn()
         {
-            return null;
+            var window = UIApplication.SharedApplication.KeyWindow;
+            var vc = window.RootViewController;
+            while (vc.PresentedViewController != null)
+            {
+                vc = vc.PresentedViewController;
+            }
+            try
+            {
+
+                await this.client.LoginAsync(vc, withRefreshToken: true);
+                var user = this.client.CurrentUser;
+                if (!string.IsNullOrEmpty(user.RefreshToken))
+                {
+                    App.IsUserLoggedIn = true;
+                    SaveUserAttributes(user);
+                }
+                else
+                    App.IsUserLoggedIn = false;
+            }
+            catch (Exception exception)
+            {
+                Settings.UserRefreshToken = string.Empty;
+            }
         }
 
         public async Task AuthLogOut()

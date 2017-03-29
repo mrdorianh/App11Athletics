@@ -13,20 +13,20 @@ namespace App11Athletics
         {
             InitializeComponent();
             /*IOS*/
-            //            MainPage = new NavigationPage(new SplashWebView());
+            MainPage = new NavigationPage(new SplashWebView());
             /**/
             /*Droid*/
-            if (string.IsNullOrEmpty(Settings.UserRefreshToken))
-            {
-                IsUserLoggedIn = false;
-                MainPage = new NavigationPage(new LoginView());
-            }
-            else
-            {
-                IsUserLoggedIn = true;
-                //                DependencyService.Get<IAuthSignIn>().AuthRefresh();
-                MainPage = new NavigationPage(new HomeMenuView());
-            }
+            //            if (string.IsNullOrEmpty(Settings.UserRefreshToken))
+            //            {
+            //                IsUserLoggedIn = false;
+            //                MainPage = new NavigationPage(new LoginView());
+            //            }
+            //            else
+            //            {
+            //                IsUserLoggedIn = true;
+            //                //                DependencyService.Get<IAuthSignIn>().AuthRefresh();
+            //                MainPage = new NavigationPage(new HomeMenuView());
+            //            }
 
         }
 

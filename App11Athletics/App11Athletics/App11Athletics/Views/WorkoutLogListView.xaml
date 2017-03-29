@@ -10,8 +10,8 @@
     <Grid x:Name="gridWorkoutLog">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.10*" />
-            <RowDefinition Height="0.75*" />
-            <RowDefinition Height="0.15*" />
+            <RowDefinition Height="0.70*" />
+            <RowDefinition Height="0.20*" />
         </Grid.RowDefinitions>
         <BoxView x:Name="boxViewBack"
                  HorizontalOptions="FillAndExpand" Opacity=".6" VerticalOptions="FillAndExpand"
@@ -103,11 +103,10 @@
             </ListView.ItemTemplate>
         </ListView>
 
-      
+
         <Grid x:Name="gridOneRepMax"
               Grid.Row="2"
-              Padding="5"
-              >
+              Padding="5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />

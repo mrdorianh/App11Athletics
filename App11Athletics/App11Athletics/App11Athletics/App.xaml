@@ -46,6 +46,9 @@
                 <Setter Property="BorderRadius" Value="10" />
                 <Setter Property="BorderColor" Value="White" />
                 <Setter Property="BorderWidth" Value="2" />
+                <Setter Property="Text" Value="Save" />
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="TextColor" Value="White" />
                 <Setter Property="WidthRequest" Value="100" />
                 <Setter Property="HeightRequest" Value="55" />
             </Style>

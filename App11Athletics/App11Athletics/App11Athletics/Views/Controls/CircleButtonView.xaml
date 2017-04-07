@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView x:Class="App11Athletics.Views.Controls.CircleButtonView" x:Name="contentView"
+             xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView">
+
+    <xfShapeView:ShapeView HeightRequest="100" WidthRequest="100"
+                           BorderColor="Black" BorderWidth="1f" CornerRadius="5" HorizontalOptions="Center" ShapeType="Circle" VerticalOptions="Center"
+                           Color="Black" />
+
+</ContentView>

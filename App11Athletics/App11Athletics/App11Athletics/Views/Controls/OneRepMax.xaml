@@ -24,7 +24,9 @@
             <templates:FrameBoxTemplate Grid.Row="0" Grid.RowSpan="5" />
             <controls:MyEntry x:Name="myEntry"
                               Grid.Row="1"
-                              Focused="MyEntry_OnFocused" IsVisible="False" Keyboard="Text" TextChanged="MyEntry_OnTextChanged" Unfocused="MyEntry_OnUnfocused" Uppercase="True" />
+                              Focused="MyEntry_OnFocused" IsVisible="False" Keyboard="Text"
+                              Text="{Binding WeightLifted}"
+                              TextChanged="MyEntry_OnTextChanged" Unfocused="MyEntry_OnUnfocused" Uppercase="True" />
             <Label Grid.Row="0"
                    FontSize="{Binding TitleFontSize}"
                    Text="One Rep Max" />
@@ -61,8 +63,9 @@
                 <controls:MyEntry x:Name="myEntryWeight"
                                   HorizontalOptions="EndAndExpand" IsVisible="False" Keyboard="Numeric" MaxLength="3" Text="175" TextChanged="MyEntryWeight_OnTextChanged" Unfocused="MyEntryWeight_OnUnfocused" />
                 <Button x:Name="buttonWeight"
+                        WidthRequest="120"
                         FontSize="Micro" TextColor="White"
-                        Margin="5,0" WidthRequest="120"
+                        Margin="5,0"
                         Clicked="Button_OnClicked" HorizontalOptions="EndAndExpand" Text="Change Weight"
                         BackgroundColor="{StaticResource ColorBrandGlobalBlue}" />
             </StackLayout>

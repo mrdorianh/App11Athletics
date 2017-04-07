@@ -14,7 +14,7 @@ namespace App11Athletics.Views
         {
             InitializeComponent();
 
-            imageBG.Opacity = 0;
+
             gridMain.Opacity = 0;
             PageLabels = new List<Label>();
             BigGridLabels = new List<Label>();
@@ -76,15 +76,10 @@ namespace App11Athletics.Views
 
         protected override async void OnAppearing()
         {
-            imageBG.Opacity = 0;
             gridMain.Opacity = 0;
-            imageBG.Scale = 0;
-            imageBG.Opacity = 0.4;
             base.OnAppearing();
             await Task.Delay(100);
-            await imageBG.ScaleTo(0.8, 400U, Easing.SpringOut);
-
-            AnimatePages.AnimatePageIn(gridMain, imageBG);
+            AnimatePages.AnimatePageIn(gridMain);
             await gridMain.FadeTo(1, 350, Easing.CubicOut);
             //            Disable = true;
         }
@@ -155,7 +150,7 @@ namespace App11Athletics.Views
         {
             base.OnDisappearing();
             //            imageBG.ScaleTo(0, 350U, Easing.CubicOut);
-            await AnimatePages.AnimatePageOut(gridMain, imageBG);
+            await AnimatePages.AnimatePageOut(gridMain);
         }
 
         #endregion

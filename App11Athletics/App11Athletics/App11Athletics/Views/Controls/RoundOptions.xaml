@@ -95,9 +95,10 @@
             </StackLayout>
             <Button x:Name="buttonSave"
                     Grid.Row="4"
+                   
                     Clicked="Button_OnClicked"
                     Style="{StaticResource styleGreenSaveButton}"
-                    VerticalOptions="Start" />
+                    Text="Save" VerticalOptions="Start" />
         </Grid>
     </ContentView.Content>
 </ContentView>

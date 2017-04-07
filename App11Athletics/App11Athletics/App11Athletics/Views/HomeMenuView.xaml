@@ -12,12 +12,12 @@
             </DataTemplate>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <Grid>
+    <Grid x:Name="Root">
         <Image x:Name="imageBG"
                BindingContext="{x:Reference pageHomeMenu}"
                Aspect="AspectFit" Opacity="0.5" Source="iconbevel.png" />
-        <Grid x:Name="gridHomeMenu">
 
+        <Grid x:Name="gridHomeMenu">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
@@ -59,6 +59,17 @@
                     </BoxView.GestureRecognizers>
                 </BoxView>
             </Grid>
+        </Grid>
+        <Grid x:Name="gridSchedule"
+              Padding="0,0,0,30"
+              HorizontalOptions="FillAndExpand" VerticalOptions="End">
+            <Button FontSize="Large"
+                    BorderRadius="20" Clicked="Button_OnClicked" HorizontalOptions="Fill" VerticalOptions="EndAndExpand"
+                    BackgroundColor="{StaticResource ColorBrandGlobalBlue}" />
+            <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                   FontSize="Medium" FontAttributes="Bold" TextColor="White"
+                   Margin="30,0,0,0"
+                   HorizontalOptions="Start" InputTransparent="True" Text="S C H E D U L E" />
         </Grid>
     </Grid>
 </ContentPage>

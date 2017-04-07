@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="App11Athletics.Views.debug" x:Name="contentPage" Title="debug"
+             xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:App11Athletics.Views.Controls;assembly=App11Athletics" xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView">
+    <ContentPage.Content>
+        <controls:OneRepMaxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+    </ContentPage.Content>
+
+
+</ContentPage>

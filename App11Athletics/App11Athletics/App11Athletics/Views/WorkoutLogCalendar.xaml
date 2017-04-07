@@ -1,35 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage x:Class="App11Athletics.Views.WorkoutLogListView" x:Name="pageWorkoutLogList" Title="Workout Log"
+<ContentPage x:Class="App11Athletics.Views.WorkoutLogCalendar" x:Name="WorkoutLogCalendarPage" Title="WorkoutLog"
              xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:controls="clr-namespace:App11Athletics.Views.Controls;assembly=App11Athletics" xmlns:templates="clr-namespace:App11Athletics.Templates;assembly=App11Athletics"
-             SizeChanged="WorkoutLogListView_OnSizeChanged">
-    <!--    <ContentPage.ToolbarItems>-->
-    <!--        <ToolbarItem Clicked="OnItemAdded" Icon="plusgreen.png" Text="+" />-->
-    <!--    </ContentPage.ToolbarItems>-->
-
-    <Grid x:Name="gridWorkoutLog">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0.10*" />
-            <RowDefinition Height="0.70*" />
-            <RowDefinition Height="0.20*" />
-        </Grid.RowDefinitions>
-        <BoxView x:Name="boxViewBack"
-                 HorizontalOptions="FillAndExpand" Opacity=".6" VerticalOptions="FillAndExpand"
-                 BackgroundColor="{DynamicResource ColorBrandGlobalBlue}" />
-        <Grid Grid.Row="0" Padding="5">
-            <templates:FrameBoxTemplate />
-            <Image Margin="10"
-                   Aspect="AspectFit" Source="plusgreen.png" />
-            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
-                     Color="Transparent">
-                <BoxView.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnItemAdded" />
-                </BoxView.GestureRecognizers>
-            </BoxView>
-        </Grid>
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms">
+    <StackLayout x:Name="stackLayout">
+        <controls:CalendarView x:Name="calendarView" DateSelected="CalendarViewOnDateSelected" />
+        <Button x:Name="buttonGoToDate"
+                TextColor="White"
+                BorderRadius="15" Clicked="ButtonGoToDate_OnClicked" Font="Large"
+                BackgroundColor="{DynamicResource ColorBrandGlobalBlue}" />
         <ListView x:Name="listView"
-                  Grid.Row="1"
-                  HasUnevenRows="True" ItemSelected="OnListItemSelected" PropertyChanged="ListView_OnPropertyChanged" SeparatorColor="Gray" SeparatorVisibility="Default">
+                  HasUnevenRows="True" ItemSelected="OnListItemSelected" SeparatorColor="Gray" SeparatorVisibility="Default">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -104,80 +84,5 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-
-        <Grid x:Name="gridOneRepMax"
-              Grid.Row="2"
-              Padding="5">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <templates:FrameBoxTemplate Grid.Row="0" Grid.RowSpan="3"
-                                        Grid.Column="0" Grid.ColumnSpan="3" />
-            <Label Grid.Row="2"
-                   Grid.Column="2"
-                   VerticalTextAlignment="End"
-                   FontSize="Micro" FontAttributes="Bold"
-                   TextColor="{DynamicResource ColorBrandGlobalBlue}"
-                   Margin="5"
-                   HorizontalOptions="End" Opacity="0.8" Text="One Rep Max" VerticalOptions="End" />
-
-            <StackLayout Grid.Row="0" Grid.RowSpan="3"
-                         Grid.Column="0" Grid.ColumnSpan="3"
-                         HorizontalOptions="FillAndExpand" Orientation="Horizontal">
-                <Label x:Name="labelMaxLift"
-                       VerticalTextAlignment="Center"
-                       FontSize="{Binding Source={x:Reference pageWorkoutLogList},
-                                          Path=OneRepMaxFontSize}"
-                       TextColor="{DynamicResource ColorBrandGlobalBlue}"
-                       Margin="5,0"
-                       HorizontalOptions="StartAndExpand" />
-                <Label x:Name="labelMaxWeight"
-                       VerticalTextAlignment="Center"
-                       FontSize="{Binding Source={x:Reference pageWorkoutLogList},
-                                          Path=WOneRepMaxFontSize}"
-                       TextColor="{DynamicResource ColorBrandGlobalBlue}"
-                       Margin="5,0"
-                       HorizontalOptions="EndAndExpand" />
-            </StackLayout>
-            <Image Grid.Row="0"
-                   Grid.Column="2"
-                   HeightRequest="15" WidthRequest="15"
-                   Margin="5"
-                   Aspect="AspectFit" HorizontalOptions="End" Opacity="0.8" Source="plusblue" VerticalOptions="Start" />
-            <BoxView x:Name="boxView"
-                     Grid.Row="0" Grid.RowSpan="2"
-                     Grid.Column="2"
-                     HorizontalOptions="Fill" VerticalOptions="Fill"
-                     Color="Transparent" BackgroundColor="Transparent">
-                <BoxView.GestureRecognizers>
-                    <TapGestureRecognizer x:Name="tapGestureRecognizerOneRepMax" Tapped="TapGestureRecognizerOneRepMax_OnTapped" />
-                </BoxView.GestureRecognizers>
-            </BoxView>
-        </Grid>
-        <controls:OneRepMax x:Name="oneRepMaxView"
-                            Grid.Row="0" Grid.RowSpan="2"
-                            LiftClicked="OneRepMaxView_OnLiftClicked" WClicked="OneRepMaxView_OnWClicked" WFocused="OneRepMaxView_OnWFocused" WUnfocused="OneRepMaxView_OnWUnfocused" />
-        <Grid x:Name="viewWeightOptions"
-              Grid.Row="1"
-              HorizontalOptions="FillAndExpand" VerticalOptions="Center">
-            <!--  Margin="30"  -->
-            <templates:FrameBoxTemplate />
-            <Label x:Name="labelWeightOptions"
-                   BindingContext="{x:Reference oneRepMaxView}"
-                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
-                   FontSize="{Binding Source={x:Reference pageWorkoutLogList},
-                                      Path=labelWeightOptionsFontSize}"
-                   TextColor="{StaticResource ColorBrandGlobalBlue}"
-                   Text="{Binding WeightLifted}" />
-        </Grid>
-    </Grid>
-
+    </StackLayout>
 </ContentPage>

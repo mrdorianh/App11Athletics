@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using App11Athletics.DHCToolkit;
 using App11Athletics.ViewModels;
+using Plugin.Connectivity;
 using Syncfusion.SfCarousel.XForms;
 using Xamarin.Forms;
 
@@ -17,7 +18,7 @@ namespace App11Athletics.Views
             InitializeComponent();
             carouselMain.BindingContext = new CarouselViewModel();
             CarouselMain_OnSelectionChanged(null, null);
-            MenuTitle = gridLabel.Width / 8;
+            MenuTitle = Width / 8;
             Opacity = 0;
 
         }
@@ -36,35 +37,18 @@ namespace App11Athletics.Views
         {
             //            Opacity = 0;
             base.OnAppearing();
-            await Task.Delay(100);
+            await Task.Delay(1);
             Opacity = 0;
-            MenuTitle = gridLabel.Width / 8;
-            //            foreach (var view in griddots.Children)
-            //            {
-            //                // if (!string.Equals(view.StyleId, cI, StringComparison.Ordinal))
-            //                if (view.StyleId != carouselMain.SelectedIndex.ToString())
-            //                {
-            //                    view.FadeTo(0.5);
-            //                    view.ScaleTo(1);
-            //                }
-            //                else
-            //                {
-            //                    view.FadeTo(1);
-            //                    view.ScaleTo(2);
-            //                    AnimateDot((Image)view);
-            //                }
-            //            }
-
-            //            null.ScaleTo(1, 350U, Easing.CubicOut);
-            //            this.FadeTo(1, 400U, Easing.CubicOut);
+            gridSchedule.TranslationX = Width * 2;
+            MenuTitle = Width / 8;
             imageBG.TranslationX = Width / 2;
             imageBG.TranslationY = -Height;
             this.FadeTo(1, 400U, Easing.CubicOut);
             AnimatePages.BgLogoTask(imageBG, Width / 2, Height / 2);
 
-            AnimatePages.AnimatePageIn(gridHomeMenu, null);
+            await AnimatePages.AnimatePageIn(gridHomeMenu);
+            await gridSchedule.TranslateTo(Width / 2.1, 0, 250U, Easing.CubicOut);
 
-            await Task.Delay(400);
         }
 
 
@@ -73,7 +57,8 @@ namespace App11Athletics.Views
 
         public void HomeMenuView_OnSizeChanged(object sender, EventArgs e)
         {
-            MenuTitle = gridLabel.Width / 8;
+            MenuTitle = Width / 8;
+
         }
 
 
@@ -347,13 +332,16 @@ namespace App11Athletics.Views
             //            null.ScaleTo(0, 350U, Easing.CubicOut);
             //            await AnimatePages.AnimatePageOut(gridHomeMenu, null); 
 
-            Opacity = 0;
+            //            Opacity = 0;
+            AnimatePages.BgLogoTaskOut(imageBG, Width / 2, -Height * 1.5);
+            await gridSchedule.TranslateTo(Width * 2, gridSchedule.TranslationY, 350U, Easing.SpringIn);
+            await AnimatePages.AnimatePageOut(gridHomeMenu);
             switch (index)
             {
                 case 0:
                     {
                         var nav = new UserProfileView();
-                        await Navigation.PushAsync(nav);
+                        await Navigation.PushAsync(nav, true);
                         disable = false;
                     }
                     break;
@@ -369,7 +357,7 @@ namespace App11Athletics.Views
                 case 2:
                     {
 
-                        var nav = new WorkoutLogListView();
+                        var nav = new WorkoutLogCalendar();
                         await Navigation.PushAsync(nav, true);
                         disable = false;
                     }
@@ -383,6 +371,20 @@ namespace App11Athletics.Views
                     }
                     break;
             }
+
+        }
+
+        private async void Button_OnClicked(object sender, EventArgs e)
+        {
+            if (!CrossConnectivity.Current.IsConnected)
+                return;
+            var x = gridSchedule.TranslationX;
+            Root.RaiseChild(gridSchedule);
+            AnimatePages.BgLogoTaskOut(imageBG, Width / 2, -Height * 1.5);
+            await gridSchedule.TranslateTo(x - 50, gridSchedule.TranslationY, 250U, Easing.SpringOut);
+            await AnimatePages.AnimatePageOut(gridHomeMenu);
+            await gridSchedule.TranslateTo(Width * 2, gridSchedule.TranslationY, 350U, Easing.SpringIn);
+            await Navigation.PushAsync(new ScheduleView());
 
         }
     }

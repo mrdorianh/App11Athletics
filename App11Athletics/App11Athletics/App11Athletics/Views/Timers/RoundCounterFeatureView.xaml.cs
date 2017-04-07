@@ -32,7 +32,7 @@ namespace App11Athletics.Views.Timers
             await AnimatePages.BgLogoTask(imageBG, Width / 2, Height / 2);
             await Task.Delay(200);
             gridRoundCounterPage.FadeTo(1, 200U, Easing.CubicOut);
-            await AnimatePages.AnimatePageIn(gridRoundCounterPage, null);
+            await AnimatePages.AnimatePageIn(gridRoundCounterPage);
 
             await Task.Delay(400);
         }
@@ -40,7 +40,7 @@ namespace App11Athletics.Views.Timers
         {
             base.OnDisappearing();
             //            imageBG.ScaleTo(0, 350U, Easing.CubicOut);
-            await AnimatePages.AnimatePageOut(gridRoundCounterPage, null);
+            await AnimatePages.AnimatePageOut(gridRoundCounterPage);
             await Cleanup();
         }
         public RoundCounterFeatureViewModel RoundCounterFeatureViewModel;

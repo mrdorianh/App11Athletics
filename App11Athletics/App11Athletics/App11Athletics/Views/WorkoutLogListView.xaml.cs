@@ -9,9 +9,11 @@ namespace App11Athletics.Views
 {
     public partial class WorkoutLogListView : ContentPage
     {
-        public WorkoutLogListView()
+        public WorkoutLogListView(DateTime WorkoutDate)
         {
+            WorkoutDateCurrent = App.LogDate(WorkoutDate);
             InitializeComponent();
+            Title = WorkoutDateCurrent;
             oneRepMaxView.TranslationY = 1500;
             viewWeightOptions.TranslationY = -1000;
             //            OneRepMaxView_Clicked(null, null);
@@ -21,7 +23,7 @@ namespace App11Athletics.Views
 
         public string MaxLift { get; set; }
         public string MaxWeight { get; set; }
-
+        public string WorkoutDateCurrent { get; set; }
         public double OneRepMaxFontSize { get; set; }
         public double WOneRepMaxFontSize { get; set; }
 
@@ -32,23 +34,22 @@ namespace App11Athletics.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-
             // Reset the 'resume' id, since we just want to re-start here
             ((App)App.Current).ResumeAtTodoId = -1;
-            listView.ItemsSource = await App.Database.GetItemsAsync();
+            listView.ItemsSource = await App.Database.GetFilteredItemsAsync(WorkoutDateCurrent);
 
         }
 
         async void OnItemAdded(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new WorkoutLogOptionsView { BindingContext = new TodoItem() });
+            await Navigation.PushAsync(new WorkoutLogOptionsView(WorkoutDateCurrent) { BindingContext = new TodoItem() });
         }
 
         async void OnListItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             ((App)App.Current).ResumeAtTodoId = (e.SelectedItem as TodoItem).ID;
             Debug.WriteLine("setting ResumeAtTodoId = " + (e.SelectedItem as TodoItem).ID);
-            await Navigation.PushAsync(new WorkoutLogOptionsView { BindingContext = e.SelectedItem as TodoItem });
+            await Navigation.PushAsync(new WorkoutLogOptionsView(WorkoutDateCurrent) { BindingContext = e.SelectedItem as TodoItem });
         }
 
         private void ListView_OnPropertyChanged(object sender, PropertyChangedEventArgs e)

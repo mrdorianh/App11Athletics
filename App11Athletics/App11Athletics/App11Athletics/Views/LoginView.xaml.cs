@@ -62,7 +62,7 @@ namespace App11Athletics.Views
         {
             base.OnAppearing();
             this.FadeTo(1, 300U, Easing.CubicIn);
-            await AnimatePages.AnimatePageIn(gridLogin, null);
+            await AnimatePages.AnimatePageIn(gridLogin);
         }
 
         #endregion
@@ -107,7 +107,7 @@ namespace App11Athletics.Views
                 //lets test this later as Reset Main
                 await Task.Delay(100);
                 //                imageBG.ScaleTo(0, 350U, Easing.CubicOut);
-                await AnimatePages.AnimatePageOut(gridLogin, null);
+                await AnimatePages.AnimatePageOut(gridLogin);
                 await Navigation.PopAsync();
                 //Navigation.InsertPageBefore(new CarouselPageMenu(), this);
             }

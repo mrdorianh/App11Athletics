@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using App11Athletics.Models;
 using SQLite;
@@ -20,7 +21,10 @@ namespace App11Athletics.Data
         {
             return database.Table<TodoItem>().ToListAsync();
         }
-
+        public Task<List<TodoItem>> GetFilteredItemsAsync(string date)
+        {
+            return database.Table<TodoItem>().Where(i => i.LoggedDate == date).ToListAsync();
+        }
         public Task<List<TodoItem>> GetItemsNotDoneAsync()
         {
             return database.QueryAsync<TodoItem>("SELECT * FROM [TodoItem] WHERE [Done] = 0");

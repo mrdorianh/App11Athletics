@@ -11,7 +11,7 @@ namespace App11Athletics.Views.Controls
         public OneRepMax()
         {
             InitializeComponent();
-            myEntry.Text = Settings.UserOneRMLift;
+            //            myEntry.Text = Settings.UserOneRMLift;
             myEntryWeight.Text = Settings.UserOneRMWeight;
             WeightLifted = Settings.UserOneRMWeight;
             if (myEntry.Text == string.Empty)

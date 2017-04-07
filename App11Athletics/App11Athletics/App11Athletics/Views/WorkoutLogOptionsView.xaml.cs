@@ -6,21 +6,44 @@ namespace App11Athletics.Views
 {
     public partial class WorkoutLogOptionsView : ContentPage
     {
-        public WorkoutLogOptionsView()
+        public WorkoutLogOptionsView(string date)
         {
+            WorkoutDateCurrent = date;
             InitializeComponent();
-            Device.StartTimer(TimeSpan.FromMilliseconds(100), OnTimerTick);
+
+
         }
 
-        private bool OnTimerTick()
+        #region Overrides of Page
+
+        protected override void OnAppearing()
         {
-            buttonSave.IsEnabled = !string.IsNullOrEmpty(nameEntry.Text);
-            return true;
+            base.OnAppearing();
+            CanSave();
+        }
+
+        #endregion
+
+        private string WorkoutDateCurrent { get; }
+        private void CanSave()
+        {
+
+            if (string.IsNullOrEmpty(nameEntry.Text) || (nameEntry == null))
+            {
+                buttonSave.IsEnabled = false;
+            }
+            else
+            {
+                if (buttonSave != null)
+                    buttonSave.IsEnabled = true;
+            }
+
         }
 
         async void OnSaveClicked(object sender, EventArgs e)
         {
             var todoItem = (TodoItem)BindingContext;
+            todoItem.LoggedDate = WorkoutDateCurrent;
             await App.Database.SaveItemAsync(todoItem);
             await Navigation.PopAsync();
         }
@@ -43,18 +66,7 @@ namespace App11Athletics.Views
         //            DependencyService.Get<ITextToSpeech>().Speak(todoItem.Name + " " + todoItem.Notes);
         //        }
 
-        private void NameEntry_OnTextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (nameEntry != null && nameEntry.Text.Length < 1)
-            {
-                buttonSave.IsEnabled = false;
-            }
-            else
-            {
-                if (buttonSave != null)
-                    buttonSave.IsEnabled = true;
-            }
-        }
+
 
         private void SetEntry_OnTextChanged(object sender, TextChangedEventArgs e)
         {
@@ -92,7 +104,7 @@ namespace App11Athletics.Views
             }
         }
 
-        private void SetEntry_OnFocused(object sender, FocusEventArgs e)
+        private void Entry_OnFocused(object sender, FocusEventArgs e)
         {
             var t = (Entry)sender;
             Device.BeginInvokeOnMainThread(() => { t.Text = null; });
@@ -105,5 +117,12 @@ namespace App11Athletics.Views
         }
 
         private void NameEntry_OnPropertyChanging(object sender, PropertyChangingEventArgs e) { }
+
+        private void OptionUnfocused(object sender, FocusEventArgs e)
+        {
+            CanSave();
+        }
+
+
     }
 }

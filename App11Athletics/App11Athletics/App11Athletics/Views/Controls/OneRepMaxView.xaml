@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView x:Class="App11Athletics.Views.Controls.OneRepMaxView" x:Name="contentView"
+             xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:App11Athletics.Views.Controls;assembly=App11Athletics" xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView"
+             SizeChanged="OneRepMaxView_OnSizeChanged">
+    <ContentView.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition x:Name="columnDefinition" Width="*" />
+            </Grid.ColumnDefinitions>
+            <controls:OneRepMax x:Name="oneRepMaxControl" Grid.Column="0" />
+            <Grid x:Name="grid"
+                  Grid.Column="1"
+                  Margin="2"
+                  BackgroundColor="White">
+                <ListView x:Name="percentageListView"
+                          HasUnevenRows="True" HorizontalOptions="FillAndExpand" ItemSelected="PercentageListView_OnItemSelected" ItemTapped="PercentageListView_OnItemTapped"
+                          ItemsSource="{Binding}"
+                          SeparatorVisibility="None" SizeChanged="PercentageListView_OnSizeChanged" VerticalOptions="FillAndExpand">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Margin="0" Padding="3">
+                                    <xfShapeView:ShapeView x:Name="shapeView"
+                                                           HeightRequest="{Binding Source={x:Reference contentView},
+                                                                                   Path=CircleWidth}"
+                                                           WidthRequest="{Binding Source={x:Reference contentView},
+                                                                                  Path=CircleWidth}"
+                                                           BorderColor="{StaticResource ColorBrandGlobalBlue}"
+                                                           BorderWidth="3" CornerRadius="5" Focused="ShapeView_OnFocused" HorizontalOptions="Fill" ShapeType="Circle" SizeChanged="ShapeView_OnSizeChanged" Unfocused="ShapeView_OnUnfocused"
+                                                           Color="White">
+                                        <xfShapeView:ShapeView.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
+                                        </xfShapeView:ShapeView.GestureRecognizers>
+                                        <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                                               FontSize="Medium"
+                                               TextColor="{StaticResource ColorBrandGlobalBlue}"
+                                               LineBreakMode="NoWrap"
+                                               Text="{Binding .,
+                                                              StringFormat='{0}%'}" />
+                                    </xfShapeView:ShapeView>
+                                </Grid>
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Grid>
+    </ContentView.Content>
+</ContentView>
+

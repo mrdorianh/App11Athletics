@@ -32,9 +32,9 @@
         <ToolbarItem Clicked="Logout_OnClicked" Order="Secondary" Text="Logout" />
     </ContentPage.ToolbarItems>
     <Grid>
-        <Image x:Name="imageBG"
-               WidthRequest="{Binding BGWidth}"
-               Aspect="AspectFit" InputTransparent="True" Opacity="0.4" Source="iconbevel.png" />
+        <!--  <Image x:Name="imageBG"  -->
+        <!--  WidthRequest="{Binding BGWidth}"  -->
+        <!--  Aspect="AspectFit" InputTransparent="True" Opacity="0.4" Source="iconbevel.png" />  -->
         <Grid x:Name="gridUserProfile">
 
             <Grid x:Name="gridMain"

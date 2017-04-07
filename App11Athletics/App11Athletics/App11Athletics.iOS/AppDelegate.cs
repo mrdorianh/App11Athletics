@@ -3,6 +3,7 @@ using ImageCircle.Forms.Plugin.iOS;
 using Octane.Xam.VideoPlayer.iOS;
 using Syncfusion.SfCarousel.XForms.iOS;
 using UIKit;
+using XFShapeView.iOS;
 
 namespace App11Athletics.iOS
 {
@@ -20,10 +21,12 @@ namespace App11Athletics.iOS
         {
 
             global::Xamarin.Forms.Forms.Init();
+            new ShapeRenderer();
+            ShapeRenderer.Init();
             FormsVideoPlayer.Init();
-            LoadApplication(new App());
             new SfCarouselRenderer();
             ImageCircleRenderer.Init();
+            LoadApplication(new App());
             return base.FinishedLaunching(app, options);
         }
     }

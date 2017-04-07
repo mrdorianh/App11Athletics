@@ -1,6 +1,8 @@
-﻿using App11Athletics.Data;
+﻿using System;
+using App11Athletics.Data;
 using App11Athletics.Helpers;
 using App11Athletics.Views;
+using App11Athletics.Views.Controls;
 using Xamarin.Forms;
 
 namespace App11Athletics
@@ -12,8 +14,9 @@ namespace App11Athletics
         public App()
         {
             InitializeComponent();
+            MainPage = new NavigationPage(new debug());
             /*IOS*/
-            MainPage = new NavigationPage(new SplashWebView());
+            //            MainPage = new NavigationPage(new SplashWebView());
             /**/
             /*Droid*/
             //            if (string.IsNullOrEmpty(Settings.UserRefreshToken))
@@ -30,7 +33,10 @@ namespace App11Athletics
 
         }
 
-
+        public static string LogDate(DateTime dateTime)
+        {
+            return dateTime.ToString("dddd MMMM dd yyyy");
+        }
         public static TodoItemDatabase Database
         {
             get

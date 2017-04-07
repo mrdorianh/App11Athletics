@@ -6,6 +6,7 @@ namespace App11Athletics.Models
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
+        public string LoggedDate { get; set; }
         public string Name { get; set; }
         public int WSets { get; set; }
         public int WReps { get; set; }

@@ -2,19 +2,20 @@
 
 <ContentPage x:Class="App11Athletics.Views.UserProfileView" x:Name="pageUserProfile"
              xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions" xmlns:app11Athletics="clr-namespace:App11Athletics.Views;assembly=App11Athletics" xmlns:controls="clr-namespace:App11Athletics.Views.Controls;assembly=App11Athletics" xmlns:settings="clr-namespace:App11Athletics.Models;assembly=App11Athletics" xmlns:templates="clr-namespace:App11Athletics.Templates;assembly=App11Athletics"
+             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions" xmlns:app11Athletics="clr-namespace:App11Athletics.Views;assembly=App11Athletics" xmlns:controls="clr-namespace:App11Athletics.Views.Controls;assembly=App11Athletics" xmlns:dhcToolkit="clr-namespace:App11Athletics.DHCToolkit;assembly=App11Athletics" xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:settings="clr-namespace:App11Athletics.Models;assembly=App11Athletics" xmlns:templates="clr-namespace:App11Athletics.Templates;assembly=App11Athletics" xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations" xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView"
              SizeChanged="UserProfileView_OnSizeChanged"
              BackgroundColor="White">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style x:Key="tap" TargetType="BoxView">
+            <Style x:Key="tap"
+                   TargetType="BoxView">
                 <Setter Property="VerticalOptions" Value="Fill" />
                 <Setter Property="HorizontalOptions" Value="Fill" />
                 <Setter Property="Color" Value="Transparent" />
                 <Setter Property="BackgroundColor" Value="Transparent" />
             </Style>
             <Style TargetType="Label">
-                <Setter Property="Text" Value="Sample" />
+                <Setter Property="Text" Value="..." />
                 <Setter Property="FontSize" Value="Small" />
                 <Setter Property="TextColor" Value="{DynamicResource ColorBrandGlobalBlue}" />
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
@@ -66,14 +67,25 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <templates:FrameBoxTemplate Grid.ColumnSpan="3" />
-                    <abstractions:CircleImage x:Name="circleImage"
-                                              Grid.Column="0"
-                                              Margin="10" />
+                    <forms:CachedImage x:Name="cacheImage"
+                                       Grid.Column="0"
+                                       Margin="5"
+                                       Rotation="{Binding ImageRotation}"
+                                       Source="{Binding ProfileImage}"
+                                       Style="{StaticResource styleCachedImage}">
+                        <forms:CachedImage.Transformations>
+                            <transformations:CircleTransformation BorderHexColor="#005EBF" BorderSize="8" />
+                        </forms:CachedImage.Transformations>
+                        <forms:CachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ChangePhotoTapped" />
+                        </forms:CachedImage.GestureRecognizers>
+                    </forms:CachedImage>
+                    <!--                    </dhcToolkit:ImageCircle>-->
                     <Label x:Name="labelName"
                            Grid.Column="1" Grid.ColumnSpan="2"
                            VerticalTextAlignment="End"
                            Margin="15"
-                           HorizontalOptions="EndAndExpand" />
+                           HorizontalOptions="EndAndExpand" InputTransparent="False" />
                 </Grid>
                 <Grid x:Name="gridGender"
                       Grid.Row="1"
@@ -90,15 +102,14 @@
                            Text="Gender" VerticalOptions="End" />
                     <Label x:Name="labelGender"
                            Grid.Row="1"
-                           StyleId="dL"
-                           Text="{Binding GenderSymbol}"
-                           VerticalOptions="CenterAndExpand" />
+                           StyleId="dL" VerticalOptions="CenterAndExpand" />
                     <BoxView Grid.Row="0" Grid.RowSpan="2"
                              Grid.Column="0"
                              Style="{StaticResource tap}"
                              StyleId="Gender">
                         <BoxView.GestureRecognizers>
-                            <TapGestureRecognizer x:Name="tapGestureRecognizerGender" Tapped="TapGestureRecognizerGender_OnTapped" />
+                            <TapGestureRecognizer x:Name="tapGestureRecognizerGender"
+                                                  Tapped="TapGestureRecognizerGender_OnTapped" />
                         </BoxView.GestureRecognizers>
                     </BoxView>
                 </Grid>
@@ -117,15 +128,14 @@
                            Text="Age" VerticalOptions="End" />
                     <Label x:Name="labelAge"
                            Grid.Row="1"
-                           StyleId="dL"
-                           Text="{Binding Age}"
-                           VerticalOptions="CenterAndExpand" />
+                           StyleId="dL" VerticalOptions="CenterAndExpand" />
                     <BoxView Grid.Row="0" Grid.RowSpan="2"
                              Grid.Column="0"
                              Style="{StaticResource tap}"
                              StyleId="Age">
                         <BoxView.GestureRecognizers>
-                            <TapGestureRecognizer x:Name="tapGestureRecognizerAge" Tapped="TapGestureRecognizerAge_OnTapped" />
+                            <TapGestureRecognizer x:Name="tapGestureRecognizerAge"
+                                                  Tapped="TapGestureRecognizerAge_OnTapped" />
                         </BoxView.GestureRecognizers>
                     </BoxView>
                 </Grid>
@@ -144,15 +154,14 @@
                            Text="Weight" VerticalOptions="End" />
                     <Label x:Name="labelWeight"
                            Grid.Row="1"
-                           StyleId="dL"
-                           Text="{Binding Weight}"
-                           VerticalOptions="CenterAndExpand" />
+                           StyleId="dL" VerticalOptions="CenterAndExpand" />
                     <BoxView Grid.Row="0" Grid.RowSpan="2"
                              Grid.Column="0"
                              Style="{StaticResource tap}"
                              StyleId="Weight">
                         <BoxView.GestureRecognizers>
-                            <TapGestureRecognizer x:Name="tapGestureRecognizerWeight" Tapped="TapGestureRecognizerWeight_OnTapped" />
+                            <TapGestureRecognizer x:Name="tapGestureRecognizerWeight"
+                                                  Tapped="TapGestureRecognizerWeight_OnTapped" />
                         </BoxView.GestureRecognizers>
                     </BoxView>
                 </Grid>
@@ -195,7 +204,8 @@
                              Style="{StaticResource tap}"
                              StyleId="Height">
                         <BoxView.GestureRecognizers>
-                            <TapGestureRecognizer x:Name="tapGestureRecognizerHeight" Tapped="TapGestureRecognizerHeight_OnTapped" />
+                            <TapGestureRecognizer x:Name="tapGestureRecognizerHeight"
+                                                  Tapped="TapGestureRecognizerHeight_OnTapped" />
                         </BoxView.GestureRecognizers>
                     </BoxView>
                 </Grid>
@@ -224,7 +234,8 @@
                     </Picker>
                     <BoxView Style="{StaticResource tap}">
                         <BoxView.GestureRecognizers>
-                            <TapGestureRecognizer x:Name="tapGestureRecognizerActivityLevel" Tapped="TapGestureRecognizerActivityLevel_OnTapped" />
+                            <TapGestureRecognizer x:Name="tapGestureRecognizerActivityLevel"
+                                                  Tapped="TapGestureRecognizerActivityLevel_OnTapped" />
                         </BoxView.GestureRecognizers>
                     </BoxView>
                 </Grid>
@@ -273,12 +284,12 @@
                          Grid.Row="1"
                          Orientation="Horizontal">
                 <Button x:Name="buttonMale"
-                        TextColor="White"
+                        FontSize="Small" TextColor="White"
                         Clicked="GenderMaleButton_OnClicked"
                         Style="{StaticResource styleGreenSaveButton}"
                         StyleId="male" Text="MALE" />
                 <Button x:Name="buttonFemale"
-                        TextColor="White"
+                        FontSize="Small" TextColor="White"
                         Clicked="GenderFemaleButton_OnClicked"
                         Style="{StaticResource styleGreenSaveButton}"
                         StyleId="female" Text="FEMALE" />
@@ -396,7 +407,6 @@
                          Margin="0,5,0,15"
                          HorizontalOptions="CenterAndExpand" Increment="1" Maximum="12" Minimum="0" VerticalOptions="CenterAndExpand" />
             </Grid>
-
 
             <Button x:Name="buttonEnterHeight"
                     Grid.Row="3"

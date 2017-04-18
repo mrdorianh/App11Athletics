@@ -49,9 +49,10 @@ namespace App11Athletics.Views.Controls
 
         private void OneRepMax_OnSizeChanged(object sender, EventArgs e)
         {
-            TitleFontSize = Width / 10;
-            LiftFontSize = Width / 6;
-            RepFontSize = Width / 10;
+            var w = Width * 0.75;
+            TitleFontSize = w / 10;
+            LiftFontSize = w / 6;
+            RepFontSize = w / 10;
         }
 
         private void MyEntry_OnTextChanged(object sender, TextChangedEventArgs e)
@@ -76,8 +77,6 @@ namespace App11Athletics.Views.Controls
         {
             if (wdisabled)
                 return;
-
-
             wdisabled = true;
 
             myEntryWeight.Focus();

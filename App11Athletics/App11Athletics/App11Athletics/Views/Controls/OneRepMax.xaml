@@ -27,9 +27,6 @@
                               Focused="MyEntry_OnFocused" IsVisible="False" Keyboard="Text"
                               Text="{Binding WeightLifted}"
                               TextChanged="MyEntry_OnTextChanged" Unfocused="MyEntry_OnUnfocused" Uppercase="True" />
-            <Label Grid.Row="0"
-                   FontSize="{Binding TitleFontSize}"
-                   Text="One Rep Max" />
             <Label x:Name="labelentry"
                    Grid.Row="1"
                    FontSize="{Binding LiftFontSize}"

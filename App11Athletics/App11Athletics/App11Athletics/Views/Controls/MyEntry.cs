@@ -6,7 +6,6 @@ namespace App11Athletics.Views.Controls
     {
         public MyEntry()
         {
-            
             base.TextChanged += EditText;
             base.Focused += ClearText;
         }
@@ -14,27 +13,25 @@ namespace App11Athletics.Views.Controls
         private void ClearText(object sender, FocusEventArgs e)
         {
             Entry d = sender as Entry;
-            if (d != null) d.Text = string.Empty;
+            if (!string.IsNullOrEmpty(d?.Text))
+                d.Text = string.Empty;
         }
 
         public void EditText(object sender, TextChangedEventArgs args)
         {
             Entry e = sender as Entry;
-            if (e != null) {
-                string val = e.Text;
+            var val = e?.Text;
 
-                if (string.IsNullOrEmpty(val))
-                    return;
+            if (string.IsNullOrEmpty(val))
+                return;
 
-                if (Uppercase)
-                    val = val.ToUpper();
-
-                if (MaxLength > 0 && val.Length > MaxLength)
-                {
-                    val = val.Remove(val.Length - 1);
-                }
-                e.Text = val;
+            if (MaxLength > 0 && val.Length > MaxLength)
+            {
+                val = val.Remove(val.Length - 1);
             }
+            if (Uppercase)
+                val = val.ToUpper();
+            e.Text = val;
         }
 
         public static readonly BindableProperty UppercaseProperty =
@@ -42,7 +39,7 @@ namespace App11Athletics.Views.Controls
 
         public bool Uppercase
         {
-            get { return (bool) GetValue(UppercaseProperty); }
+            get { return (bool)GetValue(UppercaseProperty); }
             set { SetValue(UppercaseProperty, value); }
         }
 
@@ -51,7 +48,7 @@ namespace App11Athletics.Views.Controls
 
         public int MaxLength
         {
-            get { return (int) GetValue(MaxLengthProperty); }
+            get { return (int)GetValue(MaxLengthProperty); }
             set { SetValue(MaxLengthProperty, value); }
         }
     }

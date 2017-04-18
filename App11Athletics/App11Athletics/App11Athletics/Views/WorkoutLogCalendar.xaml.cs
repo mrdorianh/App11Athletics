@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using App11Athletics.DHCToolkit;
 using App11Athletics.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -44,7 +45,9 @@ namespace App11Athletics.Views
             calendarView.InactiveDateForegroundColor = inactiveColor.MultiplyAlpha(0.6);
             var today = DateTime.Today;
             calendarView.SelectedDate = today;
-            CalendarViewOnDateSelected(null, today);
+            selectedDateTime = today;
+
+            //            CalendarViewOnDateSelected(null, today);
 
         }
 
@@ -64,10 +67,11 @@ namespace App11Athletics.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-
+            Opacity = 0;
             // Reset the 'resume' id, since we just want to re-start here
             ((App)App.Current).ResumeAtTodoId = -1;
-            listView.ItemsSource = await App.Database.GetItemsAsync();
+            CalendarViewOnDateSelected(null, selectedDateTime);
+            await Task.WhenAll(AnimatePages.AnimatePageIn(stackLayout), this.FadeTo(1));
 
         }
         private async Task GetLogs()
@@ -78,16 +82,26 @@ namespace App11Athletics.Views
 
         private async void OnListItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+            if (((ListView)sender).SelectedItem == null)
+                return;
+            await Navigation.PushAsync(new WorkoutLogListView(selectedDateTime));
+            ((ListView)sender).SelectedItem = null;
             //            ((App)App.Current).ResumeAtTodoId = (e.SelectedItem as TodoItem).ID;
             //            Debug.WriteLine("setting ResumeAtTodoId = " + (e.SelectedItem as TodoItem).ID);
             ////            await Navigation.PushAsync(new WorkoutLogOptionsView(se) { BindingContext = e.SelectedItem as TodoItem });
-            listView.ItemsSource = null;
+            //            listView.ItemsSource = null;
 
         }
 
         private async void ButtonGoToDate_OnClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new WorkoutLogListView(selectedDateTime));
+        }
+
+        private async void OneRepMaxGo(object sender, EventArgs e)
+        {
+            await Task.Delay(50);
+            await Navigation.PushAsync(new OneRepMaxList());
         }
     }
 

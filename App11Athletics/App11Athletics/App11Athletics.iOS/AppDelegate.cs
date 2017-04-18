@@ -1,9 +1,13 @@
-﻿using Foundation;
+﻿using FFImageLoading.Forms.Touch;
+using Foundation;
 using ImageCircle.Forms.Plugin.iOS;
 using Octane.Xam.VideoPlayer.iOS;
 using Syncfusion.SfCarousel.XForms.iOS;
 using UIKit;
 using XFShapeView.iOS;
+using XLabs.Ioc;
+using XLabs.Platform.Device;
+using XLabs.Platform.Services;
 
 namespace App11Athletics.iOS
 {
@@ -26,6 +30,12 @@ namespace App11Athletics.iOS
             FormsVideoPlayer.Init();
             new SfCarouselRenderer();
             ImageCircleRenderer.Init();
+            CachedImageRenderer.Init();
+            var container = new SimpleContainer();
+            container.Register<IDevice>(t => AppleDevice.CurrentDevice);
+            container.Register<IDisplay>(t => t.Resolve<IDevice>().Display);
+            container.Register<INetwork>(t => t.Resolve<IDevice>().Network);
+            Resolver.SetResolver(container.GetResolver());
             LoadApplication(new App());
             return base.FinishedLaunching(app, options);
         }

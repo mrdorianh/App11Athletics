@@ -1807,6 +1807,8 @@ namespace App11Athletics.Droid
 			global::Octane.Xam.VideoPlayer.Android.Resource.Styleable.ViewStubCompat_android_id = global::App11Athletics.Droid.Resource.Styleable.ViewStubCompat_android_id;
 			global::Octane.Xam.VideoPlayer.Android.Resource.Styleable.ViewStubCompat_android_inflatedId = global::App11Athletics.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId;
 			global::Octane.Xam.VideoPlayer.Android.Resource.Styleable.ViewStubCompat_android_layout = global::App11Athletics.Droid.Resource.Styleable.ViewStubCompat_android_layout;
+			global::PCLStorage.Resource.String.ApplicationName = global::App11Athletics.Droid.Resource.String.ApplicationName;
+			global::PCLStorage.Resource.String.Hello = global::App11Athletics.Droid.Resource.String.Hello;
 			global::Plugin.Vibrate.Resource.String.ApplicationName = global::App11Athletics.Droid.Resource.String.ApplicationName;
 			global::Plugin.Vibrate.Resource.String.Hello = global::App11Athletics.Droid.Resource.String.Hello;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::App11Athletics.Droid.Resource.Attribute.actionBarSize;

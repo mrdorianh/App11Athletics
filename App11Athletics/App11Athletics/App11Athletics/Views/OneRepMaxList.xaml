@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="App11Athletics.Views.OneRepMaxList" x:Name="contentPageMaxList" Title="One Rep Max Log"
+             xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:App11Athletics.Views.Controls;assembly=App11Athletics" xmlns:dhcToolkit="clr-namespace:App11Athletics.DHCToolkit;assembly=App11Athletics" xmlns:system="clr-namespace:System;assembly=System.Runtime" xmlns:templates="clr-namespace:App11Athletics.Templates;assembly=App11Athletics">
+    <ContentPage.Resources>
+        <ResourceDictionary />
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Clicked="RemoveItem_OnClicked" Order="Secondary" Text="Remove" />
+    </ContentPage.ToolbarItems>
+    <Grid x:Name="gridMaxLog">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.10*" />
+            <RowDefinition Height="0.90*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0"
+              Grid.Column="0"
+              Padding="5"
+              IsClippedToBounds="False">
+            <templates:FrameBoxTemplate />
+            <Image Margin="10"
+                   Aspect="AspectFit" Source="plusgreen.png" />
+            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                     Color="Transparent">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnItemAdded" />
+                </BoxView.GestureRecognizers>
+            </BoxView>
+        </Grid>
+        <ListView x:Name="listView"
+                  Grid.Row="1"
+                  Grid.Column="0"
+                  HasUnevenRows="True" HorizontalOptions="FillAndExpand" ItemSelected="OnListItemSelected" ItemTapped="ListView_OnItemTapped" SeparatorColor="Gray" SeparatorVisibility="None" VerticalOptions="FillAndExpand">
+            <ListView.Resources>
+                <ResourceDictionary>
+                    <dhcToolkit:StringToBoolConverter x:Key="NullToVisibility" />
+                    <dhcToolkit:BgConverter x:Key="bgConverter" />
+                </ResourceDictionary>
+            </ListView.Resources>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Grid Margin="0,5" IsClippedToBounds="False">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="1"
+                                      Padding="0"
+                                      BackgroundColor="{StaticResource ColorBrandGlobalBlue}" />
+                                <controls:OneRepMaxViewCellView Grid.Row="1"
+                                                                Padding="1"
+                                                                IsClippedToBounds="False" />
+                                <Grid Grid.Row="0"
+                                      ColumnSpacing="2" HorizontalOptions="End"
+                                      IsVisible="{Binding HasRef}"
+                                      TranslationX="-5" VerticalOptions="Start">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30" />
+                                    </Grid.RowDefinitions>
+                                    <Grid HorizontalOptions="Center" VerticalOptions="Fill">
+                                        <templates:FrameBoxTemplate />
+                                        <Label x:Name="labelpercent"
+                                               HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                                               FontSize="15" FontAttributes="Bold"
+                                               TextColor="{StaticResource ColorBrandGlobalBlue}"
+                                               Margin="5"
+                                               Text="{Binding RefPercent,
+                                                              StringFormat='{0}%'}" />
+                                    </Grid>
+                                    <Grid Grid.Column="1"
+                                          HorizontalOptions="Center" VerticalOptions="Fill">
+                                        <templates:FrameBoxTemplate />
+                                        <Label x:Name="rmax"
+                                               HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                                               FontSize="15" FontAttributes="Bold"
+                                               TextColor="{StaticResource ColorBrandGlobalBlue}"
+                                               Margin="5"
+                                               Text="{Binding RefCalculatedPercentage,
+                                                              StringFormat='{0}lbs'}" />
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <controls:OneRepMaxPercentageListView x:Name="percentageList"
+                                              Grid.Row="0" Grid.RowSpan="2"
+                                              Grid.Column="1"
+                                              HorizontalOptions="FillAndExpand" OnPercentageTapped="PercentageList_OnOnPercentageTapped" VerticalOptions="FillAndExpand" />
+    </Grid>
+
+</ContentPage>

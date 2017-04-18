@@ -2,6 +2,9 @@
 <ContentPage x:Class="App11Athletics.Views.WorkoutLogCalendar" x:Name="WorkoutLogCalendarPage" Title="WorkoutLog"
              xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Clicked="OneRepMaxGo" Order="Secondary" Text="One Rep Max" />
+    </ContentPage.ToolbarItems>
     <StackLayout x:Name="stackLayout">
         <controls:CalendarView x:Name="calendarView" DateSelected="CalendarViewOnDateSelected" />
         <Button x:Name="buttonGoToDate"
@@ -33,34 +36,35 @@
                                            Text="{Binding Name}"
                                            VerticalOptions="Center" />
                                     <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Spacing="15" VerticalOptions="CenterAndExpand">
-                                        <StackLayout HorizontalOptions="Center" Orientation="Horizontal" VerticalOptions="Center">
-                                            <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                                        <StackLayout HorizontalOptions="Center"
+                                                     IsVisible="{Binding WSeps,
+                                                                         Converter={StaticResource NullToVisibility}}"
+                                                     Orientation="Horizontal" VerticalOptions="Center">
+                                            <Label x:Name="labelSets"
+                                                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
                                                    FontSize="Medium" FontAttributes="Bold"
                                                    TextColor="{DynamicResource ColorBrandGlobalBlue}"
-                                                   IsVisible="{Binding WSets,
-                                                                       Converter={StaticResource NullToVisibility}}"
                                                    Text="{Binding WSets,
                                                                   StringFormat='{0}'}"
                                                    VerticalOptions="Center" />
                                             <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
                                                    FontSize="Small"
                                                    TextColor="{DynamicResource ColorBrandGlobalBlue}"
-                                                   IsVisible="{Binding WSets}"
                                                    Text="SETS" VerticalOptions="Center" />
                                         </StackLayout>
-                                        <StackLayout HorizontalOptions="Center" Orientation="Horizontal" VerticalOptions="Center">
+                                        <StackLayout HorizontalOptions="Center"
+                                                     IsVisible="{Binding WReps,
+                                                                         Converter={StaticResource NullToVisibility}}"
+                                                     Orientation="Horizontal" VerticalOptions="Center">
                                             <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
                                                    FontSize="Medium" FontAttributes="Bold"
                                                    TextColor="{DynamicResource ColorBrandGlobalBlue}"
-                                                   IsVisible="{Binding WReps,
-                                                                       Converter={StaticResource NullToVisibility}}"
                                                    Text="{Binding WReps,
                                                                   StringFormat='{0}'}"
                                                    VerticalOptions="Center" />
                                             <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
                                                    FontSize="Small"
                                                    TextColor="{DynamicResource ColorBrandGlobalBlue}"
-                                                   IsVisible="{Binding WReps}"
                                                    Text="REPS" VerticalOptions="Center" />
                                         </StackLayout>
                                     </StackLayout>

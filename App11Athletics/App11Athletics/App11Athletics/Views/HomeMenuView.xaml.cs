@@ -1,54 +1,97 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Android.Media.Audiofx;
 using App11Athletics.DHCToolkit;
+using App11Athletics.Helpers;
 using App11Athletics.ViewModels;
+using FFImageLoading;
+using FFImageLoading.Transformations;
+using FFImageLoading.Forms;
+using FFImageLoading.Work;
 using Plugin.Connectivity;
 using Syncfusion.SfCarousel.XForms;
 using Xamarin.Forms;
 
+
 namespace App11Athletics.Views
 {
+    [PropertyChanged.ImplementPropertyChanged]
     public partial class HomeMenuView : ContentPage
     {
         public bool disable = false;
 
         public HomeMenuView()
         {
+            ImageService.Instance.Config.FadeAnimationForCachedImages = true;
+
             InitializeComponent();
-            carouselMain.BindingContext = new CarouselViewModel();
-            CarouselMain_OnSelectionChanged(null, null);
-            MenuTitle = Width / 8;
-            Opacity = 0;
+            var tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Tapped += TapGestureRecognizerBox_OnTapped;
+            cacheImage = new CachedImage { Source = ProfileImage, Transformations = new List<ITransformation>() { new CircleTransformation(8.0, "#005EBF") }, Style = (Style)Application.Current.Resources["styleCachedImage"], Rotation = ImageRotation, GestureRecognizers = { tapGestureRecognizer } };
+            Image TimerImage = new Image() { Source = "lightning.png", Aspect = Aspect.AspectFit, Rotation = 0.0, GestureRecognizers = { tapGestureRecognizer }, BackgroundColor = Color.Fuchsia, HorizontalOptions = LayoutOptions.Center };
+            Debug.WriteLine(cacheImage.IsLoading.ToString());
+            //            carouselMain.SelectionChanged += CarouselMain_OnSelectionChanged;
+            ObservableCollection<SfCarouselItem> collectionOfItems = new ObservableCollection<SfCarouselItem>();
+            //           
+            collectionOfItems.Add(new SfCarouselItem() { ItemContent = cacheImage });
+            collectionOfItems.Add(new SfCarouselItem() { ItemContent = TimerImage });
+            collectionOfItems.Add(new SfCarouselItem() { ItemContent = new Image() { Source = "document.png", Aspect = Aspect.AspectFit, Rotation = 0.0, GestureRecognizers = { tapGestureRecognizer }, BackgroundColor = Color.Fuchsia }, HorizontalOptions = LayoutOptions.CenterAndExpand });
+            collectionOfItems.Add(new SfCarouselItem() { ItemContent = new Image() { Source = "iconbevel.png", Aspect = Aspect.AspectFit, Rotation = 0.0, GestureRecognizers = { tapGestureRecognizer }, BackgroundColor = Color.Fuchsia }, HorizontalOptions = LayoutOptions.Fill });
+            this.sfCarouselX.DataSource = collectionOfItems;
+
+            //            gridCara.Children.Add(SfCarousel);
+            //            carouselMain.BindingContext = new CarouselViewModel();
+            //            CarouselMain_OnSelectionChanged(null, null);
+            //            MenuTitle = Width / 8;
+
 
         }
 
-
-
-
+        //        private static SfCarousel carouselMain;
         public double MenuTitle { get; set; }
 
         public static bool running { get; set; }
 
+        public double CircleWidth { get; set; }
 
         #region Overrides of Page
+        CachedImage cacheImage { get; set; }
+
+
+        #region Overrides of Page
+        public double ImageRotation => Settings.UserProfileImageRotation;
+        public string ProfileImage => Settings.UserPicture;
+
+        protected override async void OnDisappearing()
+        {
+            base.OnDisappearing();
+            GC.Collect();
+        }
+
+        #endregion
 
         protected override async void OnAppearing()
         {
-            //            Opacity = 0;
             base.OnAppearing();
-            await Task.Delay(1);
-            Opacity = 0;
-            gridSchedule.TranslationX = Width * 2;
-            MenuTitle = Width / 8;
-            imageBG.TranslationX = Width / 2;
-            imageBG.TranslationY = -Height;
-            this.FadeTo(1, 400U, Easing.CubicOut);
-            AnimatePages.BgLogoTask(imageBG, Width / 2, Height / 2);
+            /*Opacity = 0;
 
-            await AnimatePages.AnimatePageIn(gridHomeMenu);
-            await gridSchedule.TranslateTo(Width / 2.1, 0, 250U, Easing.CubicOut);
+             //            var cm = (CarouselViewModel)carouselMain.BindingContext;
+             //            cm.ImageCollection[0].ProfileImage = Settings.UserPicture;
+             await Task.Delay(1);
 
+             gridSchedule.TranslationX = Width * -2;
+             MenuTitle = Width / 8;
+             imageBG.TranslationX = Width / 2;
+             imageBG.TranslationY = -Height;
+             this.FadeTo(1, 400U, Easing.CubicOut);
+             AnimatePages.BgLogoTask(imageBG, Width / 2, Height / 2);
+
+             await AnimatePages.AnimatePageIn(gridHomeMenu);
+             await gridSchedule.TranslateTo(Width / -2.1, 0, 250U, Easing.CubicOut);
+ */
         }
 
 
@@ -60,8 +103,6 @@ namespace App11Athletics.Views
             MenuTitle = Width / 8;
 
         }
-
-
         //        private async void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
         //        {
         //            if (this.disable)
@@ -135,56 +176,13 @@ namespace App11Athletics.Views
         //            }
         //        }
 
-
-
-        private void AnimateDotToNav(Image p, Page page)
-        {
-            Animation parentAnimation = new Animation();
-            Animation upAnimation = new Animation(v => p.TranslationY = v, 0, -100, Easing.CubicInOut,
-                () => Debug.WriteLine("up finished"));
-            parentAnimation.Add(0, 0.6, upAnimation);
-            parentAnimation.Commit(this, "AnimationDotToNav", 16, 1200, null, async (v, c) =>
-            {
-                //                await AnimatePages.AnimatePageOut(gridHomeMenu, null);
-                await Task.Delay(250);
-                await Navigation.PushAsync(page);
-                p.Scale = 1;
-                p.TranslationY = 0;
-                disable = false;
-            });
-        }
-
-
-
-        private void AnimateDot(Image p)
-        {
-            running = true;
-            Animation parentAnimation = new Animation();
-
-            // Create "up" animation and add to parent. 
-            Animation upAnimation = new Animation(v => p.TranslationY = v, 0, -10, Easing.CubicInOut,
-                () => Debug.WriteLine("up finished"));
-            parentAnimation.Add(0, 0.6, upAnimation);
-
-            // Create "down" animation and add to parent.
-            Animation downAnimation = new Animation(v => p.TranslationY = v, -10, 0, Easing.CubicOut,
-                () => Debug.WriteLine("down finished"));
-            parentAnimation.Insert(0.4, 1, downAnimation);
-            parentAnimation.Commit(this, "AnimationDot", 16, 1200, null, (v, c) =>
-            {
-                p.TranslateTo(0, 0, 600U, Easing.SinOut);
-                if (running)
-                    AnimateDot(p);
-            });
-        }
-
         private async void CarouselMain_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
             disable = true;
             imageArrowsLeft.IsVisible = false;
             imageArrowsRight.IsVisible = false;
-            var s = carouselMain.SelectedIndex;
+            var s = sfCarouselX.SelectedIndex;
             if (!running)
             {
                 AnimateText(labelMenuTitle);
@@ -195,18 +193,18 @@ namespace App11Athletics.Views
 
             await Task.Delay(400);
 
-            if (s == carouselMain.SelectedIndex)
+            if (s == sfCarouselX.SelectedIndex)
             {
-                ChangeTitleText(carouselMain.SelectedIndex, labelMenuTitle, "Profile", "Timers",
+                ChangeTitleText(sfCarouselX.SelectedIndex, labelMenuTitle, "Profile", "Timers",
                      "Workout Log", "Discover 11");
                 await AnimateTextIn(labelMenuTitle);
             }
-            if (carouselMain.SelectedIndex <= 0)
+            if (sfCarouselX.SelectedIndex <= 0)
             {
                 imageArrowsLeft.IsVisible = false;
                 imageArrowsRight.IsVisible = true;
             }
-            else if (carouselMain.SelectedIndex >= 3)
+            else if (sfCarouselX.SelectedIndex >= 3)
             {
                 imageArrowsLeft.IsVisible = true;
                 imageArrowsRight.IsVisible = false;
@@ -266,9 +264,9 @@ namespace App11Athletics.Views
 
         private async void HoldTextFade(Animation parent2Animation)
         {
-            var s = carouselMain.SelectedIndex;
+            var s = sfCarouselX.SelectedIndex;
             await Task.Delay(700);
-            if (s == carouselMain.SelectedIndex)
+            if (s == sfCarouselX.SelectedIndex)
                 parent2Animation.Commit(this, "Animation2Text", 16, 350U, Easing.CubicInOut);
 
         }
@@ -319,29 +317,27 @@ namespace App11Athletics.Views
 
         private async void TapGestureRecognizerBox_OnTapped(object sender, EventArgs e)
         {
+
             if (running || disable)
                 return;
             disable = true;
-            var index = carouselMain.SelectedIndex;
+            var index = sfCarouselX.SelectedIndex;
             disable = true;
             if (running)
             {
                 running = false;
                 this.AbortAnimation("AnimationText");
             }
-            //            null.ScaleTo(0, 350U, Easing.CubicOut);
-            //            await AnimatePages.AnimatePageOut(gridHomeMenu, null); 
 
-            //            Opacity = 0;
-            AnimatePages.BgLogoTaskOut(imageBG, Width / 2, -Height * 1.5);
-            await gridSchedule.TranslateTo(Width * 2, gridSchedule.TranslationY, 350U, Easing.SpringIn);
-            await AnimatePages.AnimatePageOut(gridHomeMenu);
+            /* AnimatePages.BgLogoTaskOut(imageBG, Width / 2, -Height * 1.5);
+             await gridSchedule.TranslateTo(Width * 2, gridSchedule.TranslationY, 350U, Easing.SpringIn);
+             await AnimatePages.AnimatePageOut(gridHomeMenu);*/
             switch (index)
             {
                 case 0:
                     {
                         var nav = new UserProfileView();
-                        await Navigation.PushAsync(nav, true);
+                        await Navigation.PushAsync(nav);
                         disable = false;
                     }
                     break;
@@ -349,7 +345,7 @@ namespace App11Athletics.Views
                     {
 
                         var nav = new TimerMenu();
-                        await Navigation.PushAsync(nav, true);
+                        await Navigation.PushAsync(nav);
                         disable = false;
 
                     }
@@ -358,7 +354,7 @@ namespace App11Athletics.Views
                     {
 
                         var nav = new WorkoutLogCalendar();
-                        await Navigation.PushAsync(nav, true);
+                        await Navigation.PushAsync(nav);
                         disable = false;
                     }
                     break;
@@ -366,12 +362,11 @@ namespace App11Athletics.Views
                     {
 
                         var nav = new Discover11AthleticsView();
-                        await Navigation.PushAsync(nav, true);
+                        await Navigation.PushAsync(nav);
                         disable = false;
                     }
                     break;
             }
-
         }
 
         private async void Button_OnClicked(object sender, EventArgs e)
@@ -380,12 +375,17 @@ namespace App11Athletics.Views
                 return;
             var x = gridSchedule.TranslationX;
             Root.RaiseChild(gridSchedule);
-            AnimatePages.BgLogoTaskOut(imageBG, Width / 2, -Height * 1.5);
-            await gridSchedule.TranslateTo(x - 50, gridSchedule.TranslationY, 250U, Easing.SpringOut);
-            await AnimatePages.AnimatePageOut(gridHomeMenu);
-            await gridSchedule.TranslateTo(Width * 2, gridSchedule.TranslationY, 350U, Easing.SpringIn);
+            await gridSchedule.TranslateTo(x + 50, gridSchedule.TranslationY, 350U, Easing.CubicOut);
+            gridSchedule.TranslateTo(Width * -2, gridSchedule.TranslationY, 300U, Easing.CubicIn);
+            await Task.WhenAll(AnimatePages.BgLogoTaskOut(imageBG, Width / 2, -Height * 1.5),
+                AnimatePages.AnimatePageOut(gridHomeMenu));
             await Navigation.PushAsync(new ScheduleView());
 
+        }
+
+        private void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
+        {
+            Debug.WriteLine("NOICE!!");
         }
     }
 }

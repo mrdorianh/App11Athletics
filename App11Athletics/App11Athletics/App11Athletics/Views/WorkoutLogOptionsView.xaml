@@ -27,22 +27,37 @@
                                Keyboard="Text" Placeholder="Add Exercise" PlaceholderColor="#4BDF0000" PropertyChanging="NameEntry_OnPropertyChanging"
                                Text="{Binding Name}"
                                Unfocused="OptionUnfocused" Uppercase="True" />
-                <Label Text="Sets" />
-                <Entry x:Name="SetEntry"
-                       Focused="Entry_OnFocused" Keyboard="Numeric" Placeholder="#" PlaceholderColor="Gray"
-                       Text="{Binding WSets}"
-                       TextChanged="SetEntry_OnTextChanged" Unfocused="OptionUnfocused" />
+                <Label IsVisible="{Binding Source={x:Reference contentPage}, Path=IsMaxBool}" Text="Weight(lbs)" />
+                <local:MyEntry x:Name="WeightEntry"
+                               Focused="Entry_OnFocused"
+                               IsVisible="{Binding Source={x:Reference contentPage},
+                                                   Path=IsMaxBool}"
+                               Keyboard="Numeric" MaxLength="4" Placeholder="#" PlaceholderColor="Gray"
+                               Text="{Binding LiftWeight}"
+                               TextChanged="WeightEntry_OnTextChanged" Unfocused="OptionUnfocused" />
+                <Label IsVisible="{Binding Source={x:Reference contentPage}, Path=IsLogBool}" Text="Sets" />
+                <local:MyEntry x:Name="SetEntry"
+                               Focused="Entry_OnFocused"
+                               IsVisible="{Binding Source={x:Reference contentPage},
+                                                   Path=IsLogBool}"
+                               Keyboard="Numeric" MaxLength="2" Placeholder="#" PlaceholderColor="Gray"
+                               Text="{Binding WSets}"
+                               TextChanged="SetEntry_OnTextChanged" Unfocused="OptionUnfocused" />
                 <Label Text="Reps" />
-                <Entry x:Name="RepEntry"
-                       Focused="Entry_OnFocused" Keyboard="Numeric" Placeholder="#" PlaceholderColor="Gray"
-                       Text="{Binding WReps}"
-                       TextChanged="RepEntry_OnTextChanged" Unfocused="OptionUnfocused" />
-                <Label Text="Notes" />
+                <local:MyEntry x:Name="RepEntry"
+                               Focused="Entry_OnFocused" Keyboard="Numeric" MaxLength="2" Placeholder="#" PlaceholderColor="Gray"
+                               Text="{Binding WReps}"
+                               TextChanged="RepEntry_OnTextChanged" Unfocused="OptionUnfocused" />
+                <Label IsVisible="{Binding Source={x:Reference contentPage}, Path=IsLogBool}" Text="Notes" />
                 <Editor x:Name="notesEntry"
                         HeightRequest="100"
+                        IsVisible="{Binding Source={x:Reference contentPage},
+                                            Path=IsLogBool}"
                         Text="{Binding Notes}"
                         VerticalOptions="FillAndExpand" />
                 <StackLayout Margin="5"
+                             IsVisible="{Binding Source={x:Reference contentPage},
+                                                 Path=IsLogBool}"
                              Orientation="Horizontal" VerticalOptions="StartAndExpand">
                     <Label VerticalTextAlignment="Center"
                            FontSize="Large"
@@ -54,7 +69,10 @@
                 <StackLayout VerticalOptions="End">
                     <Button x:Name="buttonSave"
                             TextColor="White"
-                            Clicked="OnSaveClicked" Text="Save"
+                            Clicked="OnSaveClicked"
+                            IsEnabled="{Binding Source={x:Reference contentPage},
+                                                Path=CanSaveBool}"
+                            Text="Save"
                             BackgroundColor="{StaticResource ColorBrandGlobalGreen}" />
                     <Button TextColor="White"
                             Clicked="OnDeleteClicked" Text="Delete"

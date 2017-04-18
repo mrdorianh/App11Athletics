@@ -31,8 +31,6 @@
 	</array>
 	<key>CFBundleShortVersionString</key>
 	<string>1.2</string>
-	<key>UIPrerenderedIcon</key>
-	<false/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -44,5 +42,19 @@
 	<true/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
+	<key>UIPrerenderedIcon</key>
+	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Allow 11athletics to use Camera</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Allow 11athletics to access Phota Library</string>
+	<key>kTCCServiceMediaLibrary</key>
+	<string>Allow 11athletics to access Media Library</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Allow 11athletics to access Calendars for integration options</string>
+	<key>UIRequiresPersistentWiFi</key>
+	<true/>
+	<key>UIViewEdgeAntialiasing</key>
+	<true/>
 </dict>
 </plist>

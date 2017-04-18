@@ -2,8 +2,10 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using App11Athletics.Models;
 using Plugin.Settings;
+using PropertyChanged;
 using Plugin.Settings.Abstractions;
 
 namespace App11Athletics.Helpers
@@ -13,6 +15,7 @@ namespace App11Athletics.Helpers
     /// of your client applications. All settings are laid out the same exact way with getters
     /// and setters. 
     /// </summary>
+    [ImplementPropertyChanged]
     public static class Settings
     {
         private static ISettings AppSettings
@@ -111,8 +114,10 @@ namespace App11Athletics.Helpers
         private const string SettingsUserConnection = "user_connection";
         private static readonly string SettingsUserConnectionDefault = string.Empty;
 
-        private const string SettingsUserIsSocial = "user_provider";
+        private const string SettingsUserIsSocial = "user_is_social";
         private static readonly bool SettingsUserIsSocialDefault = false;
+        private const string SettingsUserProfileImageRotation = "user_profile_image_rotation";
+        private static readonly double SettingsUserProfileImageRotationDefault = 0.0;
 
         private const string SettingsOneRMLift = "user_OneRMLift";
         private static readonly string SettingsOneRMLiftDefault = "ADD EXERCISE";
@@ -121,6 +126,7 @@ namespace App11Athletics.Helpers
         private static readonly string SettingsOneRMWeightDefault = "0";
         private const string SettingsOneRMAx = "user_OneRMax";
         private static readonly string SettingsOneRMaxDefault = "0";
+
 
         public static string UserOneRMLift
         {
@@ -349,6 +355,14 @@ namespace App11Athletics.Helpers
             set
             {
                 AppSettings.AddOrUpdateValue<bool>(SettingsUserIsSocial, value);
+            }
+        }
+        public static double UserProfileImageRotation
+        {
+            get { return AppSettings.GetValueOrDefault<double>(SettingsUserProfileImageRotation, SettingsUserProfileImageRotationDefault); }
+            set
+            {
+                AppSettings.AddOrUpdateValue<double>(SettingsUserProfileImageRotation, value);
             }
         }
     }

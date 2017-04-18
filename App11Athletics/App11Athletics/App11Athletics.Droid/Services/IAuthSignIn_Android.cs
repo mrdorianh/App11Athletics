@@ -33,9 +33,25 @@ namespace App11Athletics.Droid.Services
 
         #region Implementation of IAuthSignIn
 
-        public Task AuthSignIn()
+        public async Task AuthSignIn()
         {
-            return null;
+            var context = Forms.Context as Activity;
+            try
+            {
+                await this.client.LoginAsync(context, withRefreshToken: true);
+                var user = this.client.CurrentUser;
+                if (!string.IsNullOrEmpty(user.RefreshToken))
+                {
+                    App.IsUserLoggedIn = true;
+                    SaveUserAttributes(user);
+                }
+                else
+                    App.IsUserLoggedIn = false;
+            }
+            catch (Exception exception)
+            {
+                Settings.UserRefreshToken = string.Empty;
+            }
         }
 
         public async Task AuthLogOut()
@@ -88,10 +104,16 @@ namespace App11Athletics.Droid.Services
         {
             Settings.UserRefreshToken = user.RefreshToken;
             Settings.UserEmail = user.Profile["email"].ToString();
+            var t = user.Profile["identities"];
+            var c = t.Children();
+            Settings.UserProvider = c["provider"].ToString();
             Settings.UserGivenName = user.Profile["given_name"].ToString();
             Settings.UserFamilyName = user.Profile["family_name"].ToString();
             Settings.UserName = user.Profile["name"].ToString();
-            Settings.UserPicture = user.Profile["picture"]?.ToString();
+            var pic = user.Profile["picture_large"].ToString();
+            if (string.IsNullOrEmpty(pic))
+                pic = user.Profile["picture"]?.ToString();
+            Settings.UserPicture = pic;
             Settings.UserAge = user.Profile["age"]?.ToString();
             Settings.UserGender = user.Profile["gender"].ToString();
         }

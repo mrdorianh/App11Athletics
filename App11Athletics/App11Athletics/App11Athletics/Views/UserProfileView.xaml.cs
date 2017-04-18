@@ -1,21 +1,51 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Android.Graphics;
+using Android.Media;
+using Android.OS;
 using App11Athletics.Helpers;
 using App11Athletics.DHCToolkit;
+using ExifLib;
+using FFImageLoading.Forms;
+using FFImageLoading.Work;
+using PCLStorage;
+using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
+using PropertyChanged;
 using Xamarin.Forms;
+using XLabs;
+using XLabs.Ioc;
+using XLabs.Platform.Device;
+using XLabs.Platform.Services.Media;
+using Debug = System.Diagnostics.Debug;
+using Image = Xamarin.Forms.Image;
+using ImageCircle = App11Athletics.DHCToolkit.ImageCircle;
+using ImageSource = Xamarin.Forms.ImageSource;
 
 namespace App11Athletics.Views
 {
+    [ImplementPropertyChanged]
     public partial class UserProfileView : ContentPage
     {
+        public static string st;
+        private IMediaPicker _mediaPicker;
+        bool busy;
+        public IResolver resolver;
         public UserProfileView()
         {
+
             InitializeComponent();
-
-
-            gridMain.Opacity = 0;
+            Setup();
+            //            dhcCircle.Children.Add(ProImage);
+            //            var tapGestureRecognizer = new TapGestureRecognizer();
+            //            tapGestureRecognizer.Tapped += ChangePhotoTapped;
+            //            tapGestureRecognizer.Tapped -= ChangePhotoTapped;
+            //            dhcCircle.GestureRecognizers.Add(tapGestureRecognizer);
             PageLabels = new List<Label>();
             BigGridLabels = new List<Label>();
             PageLabels.AddRange(new[]
@@ -27,17 +57,18 @@ namespace App11Athletics.Views
             {
                 labelActivityLevel, labelBmr, labelDce
             });
-            //                        gridMain.BindingContext = new UserProfileModel();
-
             gridGenderOptions.TranslationY = 1500;
             gridAgeOptions.TranslationY = 1500;
             gridWeightOptions.TranslationY = 1500;
             gridHeightOptions.TranslationY = 1500;
 
-            circleImage.Source = Settings.UserPicture;
-            labelName.Text = Settings.UserGivenName;
+            //           .Source = Settings.UserPicture;
+            //            labelName.Text = Settings.UserGivenName;
+            labelName.Text = "Dorian";
+
             ActivityLevel = Settings.UserAlfString;
             labelWeight.Text = Settings.UserWeight;
+
             labelAge.Text = Settings.UserAge;
             labelHeightFt.Text = Settings.UserHeightFt;
             labelHeightIn.Text = Settings.UserHeightIn;
@@ -70,21 +101,6 @@ namespace App11Athletics.Views
         public string ActivityLevel { get; set; }
         public string DCE { get; set; }
         public string BMR { get; set; }
-        public static string st;
-
-        #region Overrides of Page
-
-        protected override async void OnAppearing()
-        {
-            gridMain.Opacity = 0;
-            base.OnAppearing();
-            await Task.Delay(100);
-            AnimatePages.AnimatePageIn(gridMain);
-            await gridMain.FadeTo(1, 350, Easing.CubicOut);
-            //            Disable = true;
-        }
-
-        #endregion
 
         public List<Label> PageLabels { get; set; }
         public List<Label> BigGridLabels { get; set; }
@@ -96,7 +112,41 @@ namespace App11Athletics.Views
 
         public double BGWidth { get; set; }
 
+        public double ImageRotation { get; set; } = Settings.UserProfileImageRotation;
 
+        public ImageSource ProfileImage { get; set; } = Settings.UserPicture;
+
+        //        public ImageSource ImageSource => Settings.UserPicture;
+
+        #region Overrides of Page
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+               
+           
+
+            //            gridMain.Opacity = 0;
+            //            //            await Task.Delay(100);
+            //            await Task.WhenAll(AnimatePages.AnimatePageIn(gridMain),
+            //                gridMain.FadeTo(1, 350, Easing.CubicOut));
+            //            Disable = true;
+        }
+
+        #endregion
+
+        private void Setup()
+        {
+            if (_mediaPicker != null)
+            {
+                return;
+            }
+            var device = Resolver.Resolve<IDevice>();
+
+            ////RM: hack for working on windows phone? 
+            _mediaPicker = DependencyService.Get<IMediaPicker>() ?? device.MediaPicker;
+        }
 
         private void UserProfileView_OnSizeChanged(object sender, EventArgs e)
         {
@@ -149,8 +199,18 @@ namespace App11Athletics.Views
         protected override async void OnDisappearing()
         {
             base.OnDisappearing();
+            GC.Collect();
+            //            {
+            //                await Task.Run(() =>
+            //                {
+            //                    Content = null;
+            //                    this.BindingContext = null;
+            //                    GC.Collect();
+            //                });
+            //            }
+
             //            imageBG.ScaleTo(0, 350U, Easing.CubicOut);
-            await AnimatePages.AnimatePageOut(gridMain);
+            //            await AnimatePages.AnimatePageOut(gridMain);
         }
 
         #endregion
@@ -168,26 +228,27 @@ namespace App11Athletics.Views
         {
             //            Women: BMR = 655 + (4.35 x weight in pounds) + (4.7 x height in inches) - (4.7 x age in years)
             //            Men: BMR = 66 + (6.23 x weight in pounds) + (12.7 x height in inches) - (6.8 x age in years)
-            if (labelAge.Text == "" || labelAge.Text == "--" || labelWeight.Text == "" ||
-                labelWeight.Text == "--")
+            await Task.Run(async () =>
             {
-                labelBmr.Text = "";
-                labelDce.Text = "";
-                Settings.UserBmr = labelBmr.Text;
-                Settings.UserDce = labelDce.Text;
-                Settings.UserAge = labelAge.Text;
-                Settings.UserWeight = labelWeight.Text;
-                gridBmr.FadeTo(0.4, 400U, Easing.SinInOut);
-                await gridDce.FadeTo(0.4, 400U, Easing.SinInOut);
-                return;
-            }
-            await Task.Run(() =>
-            {
+                if (labelAge.Text == "" || labelAge.Text == "--" || labelWeight.Text == "" ||
+                    labelWeight.Text == "--")
+                {
+                    labelBmr.Text = "";
+                    labelDce.Text = "";
+                    Settings.UserBmr = labelBmr.Text;
+                    Settings.UserDce = labelDce.Text;
+                    Settings.UserAge = labelAge.Text;
+                    Settings.UserWeight = labelWeight.Text;
+                    gridBmr.FadeTo(0.4, 400U, Easing.SinInOut);
+                    await gridDce.FadeTo(0.4, 400U, Easing.SinInOut);
+                    return;
+                }
+
                 var hF = Settings.UserHeightFt;
                 var hI = Settings.UserHeightIn;
                 var g = Settings.UserGender;
                 var af = Settings.UserAlf;
-                var h = (Convert.ToDouble(hF) * 12) + Convert.ToDouble(hI);
+                var h = Convert.ToDouble(hF) * 12 + Convert.ToDouble(hI);
                 var userWeight = Settings.UserWeight;
 
                 var userAge = Settings.UserAge;
@@ -210,14 +271,14 @@ namespace App11Athletics.Views
                 {
                     case "female":
                         //                    Female BMR
-                        bmr = 655 + (4.35 * Convert.ToDouble(userWeight)) + (4.7 * h) - (4.7 * Convert.ToDouble(userAge));
+                        bmr = 655 + 4.35 * Convert.ToDouble(userWeight) + 4.7 * h - 4.7 * Convert.ToDouble(userAge);
                         dce = af * bmr;
                         Settings.UserDce = $"{dce:#}";
                         Settings.UserBmr = $"{bmr:#}";
                         break;
                     case "male":
                         //                    Male BMR
-                        bmr = 66 + (6.23 * Convert.ToDouble(userWeight)) + (12.7 * h) - (6.8 * Convert.ToDouble(userAge));
+                        bmr = 66 + 6.23 * Convert.ToDouble(userWeight) + 12.7 * h - 6.8 * Convert.ToDouble(userAge);
                         dce = af * bmr;
                         Settings.UserDce = $"{dce:#}";
                         Settings.UserBmr = $"{bmr:#}";
@@ -305,6 +366,7 @@ namespace App11Athletics.Views
             await gridAgeOptions.TranslateTo(0, 0, 400U, Easing.CubicInOut);
             await Task.Delay(50);
             AgeOptionsEntry.Focus();
+
         }
 
         private async void TapGestureRecognizerGender_OnTapped(object sender, EventArgs e)
@@ -330,7 +392,7 @@ namespace App11Athletics.Views
             var g = "female";
             Settings.UserGender = g;
             await gridGenderOptions.TranslateTo(0, 1500, 400U, Easing.CubicInOut);
-            if (Settings.UserGender != v)
+            if (Settings.UserGender != v || !string.IsNullOrEmpty(Settings.UserAge) || !string.IsNullOrEmpty(Settings.UserWeight))
                 CalorieCalc();
         }
 
@@ -368,7 +430,7 @@ namespace App11Athletics.Views
 
         private void WeightOptionsEntry_OnFocused(object sender, FocusEventArgs e) { WeightOptionsEntry.Text = string.Empty; }
 
-        private void WeightOptionsEntry_OnUnfocused(object sender, FocusEventArgs e)
+        private async void WeightOptionsEntry_OnUnfocused(object sender, FocusEventArgs e)
         {
             gridWeightOptions.TranslateTo(0, 1500, 600U, Easing.CubicInOut);
             if (!string.IsNullOrEmpty(WeightOptionsEntry.Text) && !WeightOptionsEntry.Text.Contains("."))
@@ -415,5 +477,117 @@ namespace App11Athletics.Views
             if (b)
                 CalorieCalc();
         }
+
+        private async void ChangePhotoTapped(object sender, EventArgs e)
+        {
+            if (busy)
+                return;
+            StayOnPage = true;
+            busy = true;
+            var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Storage);
+            if (status != PermissionStatus.Granted)
+            {
+                status = (await CrossPermissions.Current.RequestPermissionsAsync(Permission.Storage))[
+                        Permission.Storage];
+            }
+            if (status != PermissionStatus.Granted)
+            {
+                StayOnPage = false;
+                busy = false;
+                return;
+            }
+
+            string photoCurrent = Settings.UserPicture;
+            await SelectPhoto();
+            if (Settings.UserPicture == photoCurrent)
+            {
+                StayOnPage = false;
+                busy = false;
+                return;
+            }
+            Navigation.RemovePage(Navigation.NavigationStack[0]);
+            Navigation.InsertPageBefore(new HomeMenuView(), this);
+            StayOnPage = false;
+            busy = false;
+        }
+
+        private static bool StayOnPage = false;
+        private async Task SelectPhoto()
+        {
+
+            Setup();
+            try
+            {
+                StayOnPage = true;
+                var mediaFile =
+                    await this._mediaPicker.SelectPhotoAsync(new CameraMediaStorageOptions
+                    {
+                        DefaultCamera = CameraDevice.Front,
+                        MaxPixelDimension = 400,
+                    });
+                Settings.UserProfileImageRotation = UpdateImageRotation(mediaFile.Exif.Orientation);
+                Settings.UserPicture = mediaFile.Path;
+                ImageRotation = Settings.UserProfileImageRotation;
+                ProfileImage = Settings.UserPicture;
+                mediaFile.Dispose();
+                //                Navigation.RemovePage(Navigation.NavigationStack[0]);
+                //                Navigation.InsertPageBefore(new HomeMenuView(), this);
+            }
+            catch (System.Exception ex)
+            {
+                // ignored
+            }
+
+        }
+
+        public double UpdateImageRotation(ExifOrientation sourceOrientation)
+        {
+            double imagerotation;
+            switch (sourceOrientation)
+            {
+                case ExifOrientation.Undefined:
+                    {
+                        imagerotation = 0.0;
+                    }
+                    break;
+                case ExifOrientation.TopLeft:
+                    {
+                        imagerotation = 0.0;
+                    }
+                    break;
+                case ExifOrientation.TopRight:
+                    {
+                        imagerotation = 90.0;
+                    }
+                    break;
+                case ExifOrientation.BottomLeft:
+                    {
+                        imagerotation = 270.0;
+                    }
+                    break;
+                case ExifOrientation.BottomRight:
+                    {
+                        imagerotation = 180.0;
+                    }
+                    break;
+                default:
+                    imagerotation = 0.0;
+                    break;
+            }
+            return imagerotation;
+        }
+
+
+        #region IDisposable
+
+        private void ReleaseUnmanagedResources()
+        {
+            // TODO release unmanaged resources here
+        }
+
+        #endregion
+
+
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using App11Athletics.Helpers;
@@ -14,12 +15,14 @@ namespace App11Athletics.Views
             WorkoutDateCurrent = App.LogDate(WorkoutDate);
             InitializeComponent();
             Title = WorkoutDateCurrent;
-            oneRepMaxView.TranslationY = 1500;
-            viewWeightOptions.TranslationY = -1000;
-            //            OneRepMaxView_Clicked(null, null);
-            labelMaxLift.Text = Settings.UserOneRMLift;
-            labelMaxWeight.Text = Settings.UserOneRMAx + "lbs";
+            //            oneRepMaxView.TranslationY = 1500;
+            //            viewWeightOptions.TranslationY = -1000;
+            //            //            OneRepMaxView_Clicked(null, null);
+            //            labelMaxLift.Text = Settings.UserOneRMLift;
+            //            labelMaxWeight.Text = Settings.UserOneRMAx + "lbs";
         }
+
+
 
         public string MaxLift { get; set; }
         public string MaxWeight { get; set; }
@@ -30,13 +33,13 @@ namespace App11Athletics.Views
         public double labelWeightOptionsFontSize { get; set; }
         public bool MaxUp { get; set; }
 
-
         protected override async void OnAppearing()
         {
             base.OnAppearing();
             // Reset the 'resume' id, since we just want to re-start here
             ((App)App.Current).ResumeAtTodoId = -1;
-            listView.ItemsSource = await App.Database.GetFilteredItemsAsync(WorkoutDateCurrent);
+            var itemSource = await App.Database.GetFilteredItemsAsync(WorkoutDateCurrent);
+            listView.ItemsSource = itemSource;
 
         }
 
@@ -52,31 +55,30 @@ namespace App11Athletics.Views
             await Navigation.PushAsync(new WorkoutLogOptionsView(WorkoutDateCurrent) { BindingContext = e.SelectedItem as TodoItem });
         }
 
-        private void ListView_OnPropertyChanged(object sender, PropertyChangedEventArgs e)
-        { }
-
-        private async void TapGestureRecognizerOneRepMax_OnTapped(object sender, EventArgs e)
-        {
-            await oneRepMaxView.TranslateTo(0, 0, 350U, Easing.CubicOut);
-            oneRepMaxView.Clicked += OneRepMaxView_Clicked;
-            oneRepMaxView.FocusEntry();
-            MaxUp = true;
 
 
-        }
-
-        private async void OneRepMaxView_Clicked(object sender, EventArgs e)
-        {
-            labelMaxLift.Text = oneRepMaxView.Lift;
-            if (!string.IsNullOrEmpty(oneRepMaxView.Lift))
-                Settings.UserOneRMAx = OneRepMaxCalc(oneRepMaxView.WeightLifted, oneRepMaxView.StepperRepValue);
-
-            labelMaxWeight.Text = Settings.UserOneRMAx + " lbs";
-
-            await oneRepMaxView.TranslateTo(0, 1500, 350U, Easing.CubicIn);
-            WorkoutLogListView_OnSizeChanged(null, null);
-            MaxUp = false;
-        }
+        //        private async void TapGestureRecognizerOneRepMax_OnTapped(object sender, EventArgs e)
+        //        {
+        //            await oneRepMaxView.TranslateTo(0, 0, 350U, Easing.CubicOut);
+        //            oneRepMaxView.Clicked += OneRepMaxView_Clicked;
+        //            oneRepMaxView.FocusEntry();
+        //            MaxUp = true;
+        //
+        //
+        //        }
+        //
+        //        private async void OneRepMaxView_Clicked(object sender, EventArgs e)
+        //        {
+        //            labelMaxLift.Text = oneRepMaxView.Lift;
+        //            if (!string.IsNullOrEmpty(oneRepMaxView.Lift))
+        //                Settings.UserOneRMAx = OneRepMaxCalc(oneRepMaxView.WeightLifted, oneRepMaxView.StepperRepValue);
+        //
+        //            labelMaxWeight.Text = Settings.UserOneRMAx + " lbs";
+        //
+        //            await oneRepMaxView.TranslateTo(0, 1500, 350U, Easing.CubicIn);
+        //            WorkoutLogListView_OnSizeChanged(null, null);
+        //            MaxUp = false;
+        //        }
         private string OneRepMaxCalc(string weightlifted, double reps)
         {
             if (!string.IsNullOrEmpty(weightlifted))
@@ -93,38 +95,38 @@ namespace App11Athletics.Views
 
         private void WorkoutLogListView_OnSizeChanged(object sender, EventArgs e)
         {
-            if (labelMaxLift.Text != null && labelMaxLift.Text.Length > 12)
-                OneRepMaxFontSize = gridOneRepMax.Width / (labelMaxLift.Text.Length);
-
-            else
-            {
-                OneRepMaxFontSize = gridOneRepMax.Width / 12;
-            }
-            WOneRepMaxFontSize = Width / 12;
-            labelWeightOptionsFontSize = Width / 12;
-            labelMaxLift.FontSize = OneRepMaxFontSize;
-            labelMaxWeight.FontSize = WOneRepMaxFontSize;
+            //            if (labelMaxLift.Text != null && labelMaxLift.Text.Length > 12)
+            //                OneRepMaxFontSize = gridOneRepMax.Width / (labelMaxLift.Text.Length);
+            //
+            //            else
+            //            {
+            //                OneRepMaxFontSize = gridOneRepMax.Width / 12;
+            //            }
+            //            WOneRepMaxFontSize = Width / 12;
+            //            labelWeightOptionsFontSize = Width / 12;
+            //            labelMaxLift.FontSize = OneRepMaxFontSize;
+            //            labelMaxWeight.FontSize = WOneRepMaxFontSize;
 
         }
 
-        private void OneRepMaxView_OnWClicked(object sender, EventArgs e)
-        {
-            viewWeightOptions.TranslateTo(0, 0, 350U, Easing.CubicOut);
-        }
+        //        private void OneRepMaxView_OnWClicked(object sender, EventArgs e)
+        //        {
+        //            viewWeightOptions.TranslateTo(0, 0, 350U, Easing.CubicOut);
+        //        }
 
-        private async void OneRepMaxView_OnWUnfocused(object sender, FocusEventArgs e)
-        {
-            viewWeightOptions.TranslateTo(0, -1000, 350U, Easing.CubicIn);
-
-            await oneRepMaxView.FadeTo(1, 350U, Easing.CubicIn);
-            listView.FadeTo(1, 350U, Easing.CubicIn);
-        }
-
-        private void OneRepMaxView_OnWFocused(object sender, FocusEventArgs e)
-        {
-            oneRepMaxView.FadeTo(0.2, 350U, Easing.CubicIn);
-            listView.FadeTo(0, 350U, Easing.CubicIn);
-        }
+        //        private async void OneRepMaxView_OnWUnfocused(object sender, FocusEventArgs e)
+        //        {
+        //            viewWeightOptions.TranslateTo(0, -1000, 350U, Easing.CubicIn);
+        //
+        //            await oneRepMaxView.FadeTo(1, 350U, Easing.CubicIn);
+        //            listView.FadeTo(1, 350U, Easing.CubicIn);
+        //        }
+        //
+        //        private void OneRepMaxView_OnWFocused(object sender, FocusEventArgs e)
+        //        {
+        //            oneRepMaxView.FadeTo(0.2, 350U, Easing.CubicIn);
+        //            listView.FadeTo(0, 350U, Easing.CubicIn);
+        //        }
 
         public void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
         {
@@ -142,19 +144,19 @@ namespace App11Athletics.Views
 
         #region Overrides of Page
 
-        protected override bool OnBackButtonPressed()
-        {
-            if (!MaxUp)
-                return base.OnBackButtonPressed();
-            oneRepMaxView.TranslateTo(0, 1500, 350U, Easing.CubicIn);
-            return true;
-        }
+        //        protected override bool OnBackButtonPressed()
+        //        {
+        //            if (!MaxUp)
+        //                return base.OnBackButtonPressed();
+        //            oneRepMaxView.TranslateTo(0, 1500, 350U, Easing.CubicIn);
+        //            return true;
+        //        }
 
         #endregion
 
         private async void OneRepMaxView_OnLiftClicked(object sender, EventArgs e)
         {
-            Device.BeginInvokeOnMainThread(() => oneRepMaxView.FocusEntry());
+            //            Device.BeginInvokeOnMainThread(() => oneRepMaxView.FocusEntry());
 
         }
     }

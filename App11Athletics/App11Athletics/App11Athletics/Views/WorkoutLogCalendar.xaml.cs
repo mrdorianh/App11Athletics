@@ -9,21 +9,25 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using App11Athletics.DHCToolkit;
 using App11Athletics.Models;
+using PropertyChanged;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XLabs.Forms.Controls;
+
 
 namespace App11Athletics.Views
 {
 
     [XamlCompilation(XamlCompilationOptions.Compile)]
+    [ImplementPropertyChanged]
     public partial class WorkoutLogCalendar : ContentPage
     {
         public WorkoutLogCalendar()
         {
             InitializeComponent();
-            var color = (Color)Application.Current.Resources["ColorBrandGlobalBlue"];
+
             var inactiveColor = Color.Gray;
+            var color = (Color)Application.Current.Resources["ColorBrandGlobalBlue"];
             calendarView.MinDate = CalendarView.FirstDayOfMonth(new DateTime(2017, 1, 6));
             calendarView.MaxDate = CalendarView.LastDayOfMonth(DateTime.Now.AddMonths(12));
             calendarView.SelectedDateForegroundColor = Color.White;
@@ -33,9 +37,10 @@ namespace App11Athletics.Views
             calendarView.ShouldHighlightDaysOfWeekLabels = false;
             calendarView.SelectionBackgroundStyle = CalendarView.BackgroundStyle.CircleFill;
             calendarView.TodayBackgroundStyle = CalendarView.BackgroundStyle.CircleOutline;
+            calendarView.TodayDateBackgroundColor = color.MultiplyAlpha(0.5);
             //            calendarView.HighlightedDaysOfWeek = new DayOfWeek[] { DayOfWeek.Saturday, DayOfWeek.Sunday };
             calendarView.ShowNavigationArrows = true;
-            calendarView.TodayDateBackgroundColor = color.MultiplyAlpha(0.5);
+            //            calendarView.TodayDateBackgroundColor = color.MultiplyAlpha(0.5);
             calendarView.MonthTitleForegroundColor = color;
             calendarView.TodayDateForegroundColor = Color.White;
             calendarView.DateBackgroundColor = Color.White;
@@ -46,7 +51,7 @@ namespace App11Athletics.Views
             var today = DateTime.Today;
             calendarView.SelectedDate = today;
             selectedDateTime = today;
-
+            calendarView.NotifyDateSelected(DateTime.Today);
             //            CalendarViewOnDateSelected(null, today);
 
         }
@@ -61,24 +66,22 @@ namespace App11Athletics.Views
             listView.BeginRefresh();
             await GetLogs();
             listView.EndRefresh();
-
-
         }
+
+
         protected override async void OnAppearing()
         {
             base.OnAppearing();
             Opacity = 0;
+
             // Reset the 'resume' id, since we just want to re-start here
             ((App)App.Current).ResumeAtTodoId = -1;
             CalendarViewOnDateSelected(null, selectedDateTime);
             await Task.WhenAll(AnimatePages.AnimatePageIn(stackLayout), this.FadeTo(1));
 
         }
-        private async Task GetLogs()
-        {
-            listView.ItemsSource = await App.Database.GetFilteredItemsAsync(selectedDateString);
 
-        }
+        private async Task GetLogs() { listView.ItemsSource = await App.Database.GetFilteredItemsAsync(selectedDateString); }
 
         private async void OnListItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
@@ -86,6 +89,7 @@ namespace App11Athletics.Views
                 return;
             await Navigation.PushAsync(new WorkoutLogListView(selectedDateTime));
             ((ListView)sender).SelectedItem = null;
+
             //            ((App)App.Current).ResumeAtTodoId = (e.SelectedItem as TodoItem).ID;
             //            Debug.WriteLine("setting ResumeAtTodoId = " + (e.SelectedItem as TodoItem).ID);
             ////            await Navigation.PushAsync(new WorkoutLogOptionsView(se) { BindingContext = e.SelectedItem as TodoItem });
@@ -93,15 +97,26 @@ namespace App11Athletics.Views
 
         }
 
-        private async void ButtonGoToDate_OnClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new WorkoutLogListView(selectedDateTime));
-        }
+        private async void ButtonGoToDate_OnClicked(object sender, EventArgs e) { await Navigation.PushAsync(new WorkoutLogListView(selectedDateTime)); }
 
         private async void OneRepMaxGo(object sender, EventArgs e)
         {
             await Task.Delay(50);
             await Navigation.PushAsync(new OneRepMaxList());
+        }
+
+        async void GoToTodayCalendar(object sender, EventArgs e)
+        {
+            await calendarView.FadeTo(0, 250U, Easing.SinIn);
+            calendarView.SelectedDate = DateTime.Today;
+            calendarView.DisplayedMonth = DateTime.Today;
+            calendarView.NotifyDateSelected(DateTime.Today);
+            calendarView.NotifyDisplayedMonthChanged(DateTime.Today);
+            await Task.Delay(50);
+            await calendarView.FadeTo(1, 250U, Easing.CubicIn);
+
+
+
         }
     }
 

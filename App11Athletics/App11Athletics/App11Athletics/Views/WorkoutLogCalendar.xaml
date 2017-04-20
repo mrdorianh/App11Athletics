@@ -1,12 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage x:Class="App11Athletics.Views.WorkoutLogCalendar" x:Name="WorkoutLogCalendarPage" Title="WorkoutLog"
+<ContentPage x:Class="App11Athletics.Views.WorkoutLogCalendar" x:Name="WorkoutLogCalendarPage"
              xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Clicked="OneRepMaxGo" Order="Secondary" Text="One Rep Max" />
+        <ToolbarItem Clicked="OneRepMaxGo" Order="Primary" Text="Open One Rep Max" />
+        <ToolbarItem Clicked="GoToTodayCalendar" Order="Secondary" Text="Go to Today" />
     </ContentPage.ToolbarItems>
     <StackLayout x:Name="stackLayout">
-        <controls:CalendarView x:Name="calendarView" DateSelected="CalendarViewOnDateSelected" />
+        <controls:CalendarView x:Name="calendarView"
+                               DateSelected="CalendarViewOnDateSelected" />
         <Button x:Name="buttonGoToDate"
                 TextColor="White"
                 BorderRadius="15" Clicked="ButtonGoToDate_OnClicked" Font="Large"

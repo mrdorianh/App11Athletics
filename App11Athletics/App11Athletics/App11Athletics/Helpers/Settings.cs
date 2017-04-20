@@ -82,7 +82,7 @@ namespace App11Athletics.Helpers
         private static readonly string SettingsUserGivenNameDefault = string.Empty;
 
         private const string SettingsUserPicture = "user_picture";
-        private static readonly string SettingsUserPictureDefault = "icon.png";
+        private static readonly string SettingsUserPictureDefault = "iconbevel.png";
 
         private const string SettingsUserRefreshToken = "user_refreshToken";
         private static readonly string SettingsUserRefreshTokenDefault = string.Empty;
@@ -246,6 +246,12 @@ namespace App11Athletics.Helpers
                 AppSettings.AddOrUpdateValue<string>(SettingsUserFamilyName, value);
             }
         }
+        //
+        // Summary:
+        //     Event that is raised when the menu item is clicked.
+        //
+        // Remarks:
+        //     To be added.
         public static string UserGivenName
         {
             get { return AppSettings.GetValueOrDefault<string>(SettingsUserGivenName, SettingsUserGivenNameDefault); }

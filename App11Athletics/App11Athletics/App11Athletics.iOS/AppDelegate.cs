@@ -1,10 +1,18 @@
-﻿using FFImageLoading.Forms.Touch;
+﻿
+using FFImageLoading.Forms.Touch;
+using FFImageLoading;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.IO;
 using Foundation;
-using ImageCircle.Forms.Plugin.iOS;
 using Octane.Xam.VideoPlayer.iOS;
 using Syncfusion.SfCarousel.XForms.iOS;
 using UIKit;
+using ImageCircle.Forms.Plugin.iOS;
+using Plugin.Permissions.Abstractions;
 using XFShapeView.iOS;
+using XLabs.Forms;
 using XLabs.Ioc;
 using XLabs.Platform.Device;
 using XLabs.Platform.Services;
@@ -25,19 +33,26 @@ namespace App11Athletics.iOS
         {
 
             global::Xamarin.Forms.Forms.Init();
+            CachedImageRenderer.Init();
             new ShapeRenderer();
             ShapeRenderer.Init();
             FormsVideoPlayer.Init();
             new SfCarouselRenderer();
             ImageCircleRenderer.Init();
-            CachedImageRenderer.Init();
+
+            if (Resolver.IsSet)
+                Resolver.ResetResolver();
             var container = new SimpleContainer();
             container.Register<IDevice>(t => AppleDevice.CurrentDevice);
             container.Register<IDisplay>(t => t.Resolve<IDevice>().Display);
             container.Register<INetwork>(t => t.Resolve<IDevice>().Network);
+            container.Register<IDependencyContainer>(t => container);
+
             Resolver.SetResolver(container.GetResolver());
             LoadApplication(new App());
             return base.FinishedLaunching(app, options);
         }
+
+
     }
 }

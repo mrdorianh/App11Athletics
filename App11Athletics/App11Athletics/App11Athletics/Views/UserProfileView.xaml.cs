@@ -33,13 +33,14 @@ namespace App11Athletics.Views
     public partial class UserProfileView : ContentPage
     {
         public static string st;
-        private IMediaPicker _mediaPicker;
+
         bool busy;
         public IResolver resolver;
         public UserProfileView()
         {
 
             InitializeComponent();
+
             Setup();
             //            dhcCircle.Children.Add(ProImage);
             //            var tapGestureRecognizer = new TapGestureRecognizer();
@@ -64,8 +65,11 @@ namespace App11Athletics.Views
 
             //           .Source = Settings.UserPicture;
             //            labelName.Text = Settings.UserGivenName;
-            labelName.Text = "Dorian";
+            var ChangeNameTapper = new TapGestureRecognizer();
+            ChangeNameTapper.Tapped += (sender, args) => entryLabelName.Focus();
+            boxViewlabelnameTapper.GestureRecognizers.Add(ChangeNameTapper);
 
+            //            entryLabelName.Text = Settings.UserGivenName;
             ActivityLevel = Settings.UserAlfString;
             labelWeight.Text = Settings.UserWeight;
 
@@ -77,8 +81,10 @@ namespace App11Athletics.Views
 
             //            changeOptions.HeightFtValue = Convert.ToDouble(labelHeightFt.Text);
             //            changeOptions.HeightInValue = Convert.ToDouble(labelHeightInch.Text);
-            var g = Settings.UserGender;
 
+            labelBmr.Text = Settings.UserBmr;
+            labelDce.Text = Settings.UserDce;
+            var g = Settings.UserGender;
             if (g == "male")
             {
                 labelGender.Text = "M";
@@ -87,15 +93,17 @@ namespace App11Athletics.Views
             {
                 labelGender.Text = "F";
             }
+            var intro = (string.IsNullOrEmpty(labelBmr.Text) || string.IsNullOrEmpty(labelDce.Text));
             //            labelBmr.Text = Settings.UserBmr;
             //            labelDce.Text = Settings.UserDce;
-            CalorieCalc();
+            CalorieCalc(intro);
 
         }
 
         public bool Disable { get; set; }
 
-        public string GivenName => Settings.UserGivenName;
+
+        public string GivenName { get; set; } = Settings.UserGivenName;
         public string HeightFt { get; set; }
         public string HeightIn { get; set; }
         public string ActivityLevel { get; set; }
@@ -114,7 +122,8 @@ namespace App11Athletics.Views
 
         public double ImageRotation { get; set; } = Settings.UserProfileImageRotation;
 
-        public ImageSource ProfileImage { get; set; } = Settings.UserPicture;
+        public ImageSource ProfileImage { get; set; } = (ImageSource)new Xamarin.Forms.ImageSourceConverter().ConvertFromInvariantString(
+                       Settings.UserPicture);
 
         //        public ImageSource ImageSource => Settings.UserPicture;
 
@@ -124,8 +133,8 @@ namespace App11Athletics.Views
         {
             base.OnAppearing();
 
-               
-           
+
+
 
             //            gridMain.Opacity = 0;
             //            //            await Task.Delay(100);
@@ -136,16 +145,16 @@ namespace App11Athletics.Views
 
         #endregion
 
-        private void Setup()
+        private static IMediaPicker Setup()
         {
-            if (_mediaPicker != null)
-            {
-                return;
-            }
+
+
+
             var device = Resolver.Resolve<IDevice>();
 
             ////RM: hack for working on windows phone? 
-            _mediaPicker = DependencyService.Get<IMediaPicker>() ?? device.MediaPicker;
+            var _mediapicker = DependencyService.Get<IMediaPicker>() ?? device.MediaPicker;
+            return _mediapicker;
         }
 
         private void UserProfileView_OnSizeChanged(object sender, EventArgs e)
@@ -224,17 +233,16 @@ namespace App11Athletics.Views
             alfPicker.Focus();
         }
 
-        private async void CalorieCalc()
+        private async void CalorieCalc(bool intro = false)
         {
             //            Women: BMR = 655 + (4.35 x weight in pounds) + (4.7 x height in inches) - (4.7 x age in years)
             //            Men: BMR = 66 + (6.23 x weight in pounds) + (12.7 x height in inches) - (6.8 x age in years)
             await Task.Run(async () =>
             {
-                if (labelAge.Text == "" || labelAge.Text == "--" || labelWeight.Text == "" ||
-                    labelWeight.Text == "--")
+                if (string.IsNullOrEmpty(labelAge.Text) || string.IsNullOrEmpty(WeightOptionsEntry.Text))
                 {
-                    labelBmr.Text = "";
-                    labelDce.Text = "";
+                    labelBmr.Text = string.Empty;
+                    labelDce.Text = string.Empty;
                     Settings.UserBmr = labelBmr.Text;
                     Settings.UserDce = labelDce.Text;
                     Settings.UserAge = labelAge.Text;
@@ -286,17 +294,21 @@ namespace App11Athletics.Views
                 }
             });
             //            boxView.InputTransparent = true;
-            await AnimateCalories();
+            await AnimateCalories(intro);
         }
 
-        private async Task AnimateCalories()
+        private async Task AnimateCalories(bool intro = false)
         {
             await Task.WhenAny(gridBmr.TranslateTo(1000, 0, 300U, Easing.CubicIn), Task.Delay(150));
             await Task.WhenAny(gridDce.TranslateTo(-1000, 0, 350U, Easing.CubicIn), Task.Delay(150));
-            gridBmr.Opacity = 1;
-            gridDce.Opacity = 1;
-            labelBmr.Text = Settings.UserBmr;
-            labelDce.Text = Settings.UserDce;
+            if (!intro)
+            {
+                gridBmr.Opacity = 1;
+                gridDce.Opacity = 1;
+
+                labelBmr.Text = Settings.UserBmr;
+                labelDce.Text = Settings.UserDce;
+            }
             await Task.Delay(250);
             await Task.WhenAny(gridBmr.TranslateTo(0, 0, 300U, Easing.CubicOut), Task.Delay(150));
             await Task.WhenAny(gridDce.TranslateTo(0, 0, 350U, Easing.CubicOut), Task.Delay(150));
@@ -403,7 +415,7 @@ namespace App11Athletics.Views
                 labelAge.Text = AgeOptionsEntry.Text;
             else
             {
-                labelAge.Text = "--";
+                labelAge.Text = string.Empty;
                 CalorieCalc();
                 return;
             }
@@ -416,10 +428,10 @@ namespace App11Athletics.Views
             }
             else
             {
-                labelAge.Text = "--";
+                labelAge.Text = string.Empty;
             }
             if (Convert.ToDouble(labelAge.Text) < 10 || Convert.ToDouble(labelAge.Text) > 100)
-                labelAge.Text = "--";
+                labelAge.Text = string.Empty;
             CalorieCalc();
         }
 
@@ -437,7 +449,7 @@ namespace App11Athletics.Views
                 labelWeight.Text = WeightOptionsEntry.Text;
             else
             {
-                labelWeight.Text = "--";
+                labelWeight.Text = string.Empty;
                 CalorieCalc();
                 return;
             }
@@ -450,10 +462,10 @@ namespace App11Athletics.Views
             }
             else
             {
-                labelWeight.Text = "--";
+                labelWeight.Text = string.Empty;
             }
             if (Convert.ToDouble(labelWeight.Text) < 85)
-                labelWeight.Text = "--";
+                labelWeight.Text = string.Empty;
 
             CalorieCalc();
         }
@@ -482,60 +494,147 @@ namespace App11Athletics.Views
         {
             if (busy)
                 return;
-            StayOnPage = true;
+
             busy = true;
-            var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Storage);
-            if (status != PermissionStatus.Granted)
+            PermissionStatus status;
+            Device.OnPlatform(async () =>
             {
-                status = (await CrossPermissions.Current.RequestPermissionsAsync(Permission.Storage))[
-                        Permission.Storage];
+                status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Photos);
+                if (status != PermissionStatus.Granted)
+                {
+                    status = (await CrossPermissions.Current.RequestPermissionsAsync(Permission.Photos))[Permission.Photos];
+                }
+                if (status != PermissionStatus.Granted)
+                {
+                    busy = false;
+                    return;
+                }
+                status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Camera);
+                if (status != PermissionStatus.Granted)
+                {
+                    status = (await CrossPermissions.Current.RequestPermissionsAsync(Permission.Camera))[Permission.Camera];
+                }
+                if (status != PermissionStatus.Granted)
+                {
+                    busy = false;
+                    return;
+                }
+                await DisplayPhotoOptions();
+            }, async () =>
+            {
+                status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Storage);
+                if (status != PermissionStatus.Granted)
+                {
+                    status = (await CrossPermissions.Current.RequestPermissionsAsync(Permission.Storage))[Permission.Storage];
+                }
+                if (status != PermissionStatus.Granted)
+                {
+                    busy = false;
+                    return;
+                }
+                status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Camera);
+                if (status != PermissionStatus.Granted)
+                {
+                    status = (await CrossPermissions.Current.RequestPermissionsAsync(Permission.Camera))[Permission.Camera];
+                }
+                if (status != PermissionStatus.Granted)
+                {
+                    busy = false;
+                    return;
+
+                }
+                await DisplayPhotoOptions();
+            });
+
+
+
+        }
+
+        private async Task DisplayPhotoOptions()
+        {
+            var das = await DisplayActionSheet("Select an option", "cancel", null, "Select Photo", "Use Camera");
+
+            switch (das)
+            {
+                case "Select Photo":
+                    SelectPhoto();
+                    break;
+                case "Use Camera":
+                    TakePhoto();
+                    break;
             }
-            if (status != PermissionStatus.Granted)
+        }
+
+        private async void TakePhoto()
+        {
+            try
             {
-                StayOnPage = false;
+                var photoCurrent = Settings.UserPicture;
+                var mediaPicker = Setup();
+                if (mediaPicker == null)
+                    return;
+                var mediaFile =
+                    await mediaPicker.TakePhotoAsync(new CameraMediaStorageOptions()
+                    {
+                        DefaultCamera = CameraDevice.Front,
+                        SaveMediaOnCapture = true,
+                    });
+                ProfileImage = ImageSource.FromStream(() => mediaFile.Source);
+                ImageRotation = UpdateImageRotation(mediaFile.Exif.Orientation);
+                Settings.UserPicture = mediaFile.Path;
+                Settings.UserProfileImageRotation = ImageRotation;
+                if (Settings.UserPicture == photoCurrent)
+                {
+                    busy = false;
+                    return;
+                }
+                Navigation.RemovePage(Navigation.NavigationStack[0]);
+                Navigation.InsertPageBefore(new HomeMenuView(), this);
+                busy = false;
+            }
+            catch (Exception e)
+            {
                 busy = false;
                 return;
             }
 
-            string photoCurrent = Settings.UserPicture;
-            await SelectPhoto();
-            if (Settings.UserPicture == photoCurrent)
-            {
-                StayOnPage = false;
-                busy = false;
-                return;
-            }
-            Navigation.RemovePage(Navigation.NavigationStack[0]);
-            Navigation.InsertPageBefore(new HomeMenuView(), this);
-            StayOnPage = false;
-            busy = false;
         }
 
         private static bool StayOnPage = false;
-        private async Task SelectPhoto()
+        private async void SelectPhoto()
         {
-
-            Setup();
             try
             {
-                StayOnPage = true;
+
+                var photoCurrent = Settings.UserPicture;
+                var mediaPicker = Setup();
+                if (mediaPicker == null)
+                    return;
                 var mediaFile =
-                    await this._mediaPicker.SelectPhotoAsync(new CameraMediaStorageOptions
+                    await mediaPicker.SelectPhotoAsync(new CameraMediaStorageOptions()
                     {
                         DefaultCamera = CameraDevice.Front,
-                        MaxPixelDimension = 400,
+                        SaveMediaOnCapture = true
                     });
-                Settings.UserProfileImageRotation = UpdateImageRotation(mediaFile.Exif.Orientation);
+                ProfileImage = ImageSource.FromStream(() => mediaFile.Source);
+                ImageRotation = UpdateImageRotation(mediaFile.Exif.Orientation);
                 Settings.UserPicture = mediaFile.Path;
-                ImageRotation = Settings.UserProfileImageRotation;
-                ProfileImage = Settings.UserPicture;
-                mediaFile.Dispose();
+                Settings.UserProfileImageRotation = ImageRotation;
+                if (Settings.UserPicture == photoCurrent)
+                {
+                    busy = false;
+                    return;
+                }
+                Navigation.RemovePage(Navigation.NavigationStack[0]);
+                Navigation.InsertPageBefore(new HomeMenuView(), this);
+                busy = false;
                 //                Navigation.RemovePage(Navigation.NavigationStack[0]);
                 //                Navigation.InsertPageBefore(new HomeMenuView(), this);
             }
-            catch (System.Exception ex)
+            catch (System.Exception e)
             {
-                // ignored
+                busy = false;
+                return;
             }
 
         }
@@ -543,6 +642,8 @@ namespace App11Athletics.Views
         public double UpdateImageRotation(ExifOrientation sourceOrientation)
         {
             double imagerotation;
+            if (Device.OS == TargetPlatform.iOS)
+                return 0.0;
             switch (sourceOrientation)
             {
                 case ExifOrientation.Undefined:
@@ -588,6 +689,42 @@ namespace App11Athletics.Views
         #endregion
 
 
+        void CacheImage_OnError(object sender, CachedImageEvents.ErrorEventArgs e)
+        {
+            Debug.WriteLine("ERROR LOADING IMAGE");
+        }
 
+        void CacheImage_OnSuccess(object sender, CachedImageEvents.SuccessEventArgs e)
+        {
+            Debug.WriteLine("LOADED IMAGE SUCCESSFULLY");
+        }
+
+        void CacheImage_OnFileWriteFinished(object sender, CachedImageEvents.FileWriteFinishedEventArgs e)
+        {
+            Debug.WriteLine("IMAGE SAVED TO DISK");
+        }
+
+        void CacheImage_OnFinish(object sender, CachedImageEvents.FinishEventArgs e)
+        {
+            Debug.WriteLine("FINISHED LOADING IMAGE");
+        }
+
+        void EntryLabelName_OnFocused(object sender, FocusEventArgs e)
+        {
+            entryLabelName.Text = GivenName;
+            Debug.WriteLine("Entry = " + entryLabelName.Text);
+            Debug.WriteLine("Label = " + labelName.Text);
+        }
+
+        void EntryLabelName_OnUnfocused(object sender, FocusEventArgs e) { Settings.UserGivenName = GivenName; }
+
+        void EntryLabelName_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            Debug.WriteLine("Entry = " + entryLabelName.Text);
+            Debug.WriteLine("Label = " + labelName.Text);
+            GivenName = entryLabelName.Text;
+
+
+        }
     }
 }

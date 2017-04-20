@@ -306,7 +306,6 @@
   <ItemGroup>
     <Compile Include="FlatButtonRenderer.cs" />
     <Compile Include="Helpers\Settings.cs" />
-    <Compile Include="ImageCircleRenderer.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MainApplication.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />

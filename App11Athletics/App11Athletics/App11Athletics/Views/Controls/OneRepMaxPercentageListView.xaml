@@ -28,7 +28,7 @@
                         <TapGestureRecognizer Tapped="ClearTapped" />
                     </xfShapeView:ShapeView.GestureRecognizers>
                     <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
-                           FontSize="Medium"
+                           FontSize="Small"
                            TextColor="{StaticResource ColorBrandGlobalRed}"
                            InputTransparent="True" LineBreakMode="NoWrap" Text="CLEAR" />
                 </xfShapeView:ShapeView>

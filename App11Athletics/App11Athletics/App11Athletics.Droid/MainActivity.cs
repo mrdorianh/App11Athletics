@@ -7,6 +7,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using App11Athletics;
+using FFImageLoading;
 using FFImageLoading.Forms.Droid;
 using ImageCircle.Forms.Plugin.Droid;
 using Octane.Xam.VideoPlayer.Android;
@@ -27,12 +28,12 @@ namespace App11Athletics.Droid
             Window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-
             base.OnCreate(bundle);
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            CachedImageRenderer.Init();
             ImageCircle.Forms.Plugin.Droid.ImageCircleRenderer.Init();
             FormsVideoPlayer.Init();
-            CachedImageRenderer.Init();
+
             //            Resolver.ResetResolver();
             if (Resolver.IsSet)
                 Resolver.ResetResolver();

@@ -25,21 +25,24 @@ namespace App11Athletics.Views
 
         public HomeMenuView()
         {
-            ImageService.Instance.Config.FadeAnimationForCachedImages = true;
 
             InitializeComponent();
             var tapGestureRecognizer = new TapGestureRecognizer();
             tapGestureRecognizer.Tapped += TapGestureRecognizerBox_OnTapped;
-            cacheImage = new CachedImage { Source = ProfileImage, Transformations = new List<ITransformation>() { new CircleTransformation(8.0, "#005EBF") }, Style = (Style)Application.Current.Resources["styleCachedImage"], Rotation = ImageRotation, GestureRecognizers = { tapGestureRecognizer } };
-            Image TimerImage = new Image() { Source = "lightning.png", Aspect = Aspect.AspectFit, Rotation = 0.0, GestureRecognizers = { tapGestureRecognizer }, BackgroundColor = Color.Fuchsia, HorizontalOptions = LayoutOptions.Center };
+            cacheImage = new CachedImage { Source = ProfileImage, Transformations = new List<ITransformation>() { new CircleTransformation(8.0, "#005EBF") }, Style = (Style)Application.Current.Resources["styleCachedImage"], Rotation = ImageRotation, GestureRecognizers = { tapGestureRecognizer }, HorizontalOptions = LayoutOptions.Center };
+            Image TimerImage = new Image() { Source = "lightning.png", Aspect = Aspect.AspectFit, Rotation = 0.0, GestureRecognizers = { tapGestureRecognizer }, HorizontalOptions = LayoutOptions.Center };
             Debug.WriteLine(cacheImage.IsLoading.ToString());
+            cacheImage.Error += CacheImage_OnError;
+            cacheImage.Success += CacheImage_OnSuccess;
+            cacheImage.Finish += CacheImage_OnFinish;
+            cacheImage.FileWriteFinished += CacheImage_OnFileWriteFinished;
             //            carouselMain.SelectionChanged += CarouselMain_OnSelectionChanged;
             ObservableCollection<SfCarouselItem> collectionOfItems = new ObservableCollection<SfCarouselItem>();
             //           
             collectionOfItems.Add(new SfCarouselItem() { ItemContent = cacheImage });
             collectionOfItems.Add(new SfCarouselItem() { ItemContent = TimerImage });
-            collectionOfItems.Add(new SfCarouselItem() { ItemContent = new Image() { Source = "document.png", Aspect = Aspect.AspectFit, Rotation = 0.0, GestureRecognizers = { tapGestureRecognizer }, BackgroundColor = Color.Fuchsia }, HorizontalOptions = LayoutOptions.CenterAndExpand });
-            collectionOfItems.Add(new SfCarouselItem() { ItemContent = new Image() { Source = "iconbevel.png", Aspect = Aspect.AspectFit, Rotation = 0.0, GestureRecognizers = { tapGestureRecognizer }, BackgroundColor = Color.Fuchsia }, HorizontalOptions = LayoutOptions.Fill });
+            collectionOfItems.Add(new SfCarouselItem() { ItemContent = new Image() { Source = "document.png", Aspect = Aspect.AspectFit, Rotation = 0.0, GestureRecognizers = { tapGestureRecognizer }, }, HorizontalOptions = LayoutOptions.CenterAndExpand });
+            collectionOfItems.Add(new SfCarouselItem() { ItemContent = new Image() { Source = "iconbevel.png", Aspect = Aspect.AspectFit, Rotation = 0.0, GestureRecognizers = { tapGestureRecognizer }, }, HorizontalOptions = LayoutOptions.Fill });
             this.sfCarouselX.DataSource = collectionOfItems;
 
             //            gridCara.Children.Add(SfCarousel);
@@ -57,13 +60,14 @@ namespace App11Athletics.Views
 
         public double CircleWidth { get; set; }
 
-        #region Overrides of Page
+
         CachedImage cacheImage { get; set; }
 
 
-        #region Overrides of Page
+
         public double ImageRotation => Settings.UserProfileImageRotation;
-        public string ProfileImage => Settings.UserPicture;
+        public Xamarin.Forms.ImageSource ProfileImage => (Xamarin.Forms.ImageSource)new Xamarin.Forms.ImageSourceConverter().ConvertFromInvariantString(
+            Settings.UserPicture);
 
         protected override async void OnDisappearing()
         {
@@ -71,7 +75,7 @@ namespace App11Athletics.Views
             GC.Collect();
         }
 
-        #endregion
+
 
         protected override async void OnAppearing()
         {
@@ -91,12 +95,12 @@ namespace App11Athletics.Views
 
              await AnimatePages.AnimatePageIn(gridHomeMenu);
              await gridSchedule.TranslateTo(Width / -2.1, 0, 250U, Easing.CubicOut);
- */
+              */
+            CarouselMain_OnSelectionChanged(null, null);
         }
 
 
 
-        #endregion
 
         public void HomeMenuView_OnSizeChanged(object sender, EventArgs e)
         {
@@ -383,9 +387,25 @@ namespace App11Athletics.Views
 
         }
 
-        private void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
+
+        void CacheImage_OnError(object sender, CachedImageEvents.ErrorEventArgs e)
         {
-            Debug.WriteLine("NOICE!!");
+            Debug.WriteLine("ERROR LOADING IMAGE");
+        }
+
+        void CacheImage_OnSuccess(object sender, CachedImageEvents.SuccessEventArgs e)
+        {
+            Debug.WriteLine("LOADED IMAGE SUCCESSFULLY");
+        }
+
+        void CacheImage_OnFileWriteFinished(object sender, CachedImageEvents.FileWriteFinishedEventArgs e)
+        {
+            Debug.WriteLine("IMAGE SAVED TO DISK");
+        }
+
+        void CacheImage_OnFinish(object sender, CachedImageEvents.FinishEventArgs e)
+        {
+            Debug.WriteLine("FINISHED LOADING IMAGE");
         }
     }
 }

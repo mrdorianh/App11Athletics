@@ -45,7 +45,8 @@
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.View>
-                            <Grid Margin="0,5" IsClippedToBounds="False">
+                            <Grid Margin="0,5"
+                                  IsClippedToBounds="False">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="10" />
                                     <RowDefinition Height="*" />

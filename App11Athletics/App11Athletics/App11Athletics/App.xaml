@@ -34,9 +34,8 @@
             <Style x:Key="styleCachedImage"
                    TargetType="forms:CachedImage">
                 <Setter Property="BitmapOptimizations" Value="True" />
-                <Setter Property="DownsampleToViewSize" Value="True" />
+                <Setter Property="DownsampleHeight" Value="400" />
                 <Setter Property="FadeAnimationEnabled" Value="True" />
-                <Setter Property="LoadingDelay" Value="10" />
                 <Setter Property="LoadingPriority" Value="Highest" />
                 <Setter Property="LoadingPlaceholder" Value="bluedot.png" />
 

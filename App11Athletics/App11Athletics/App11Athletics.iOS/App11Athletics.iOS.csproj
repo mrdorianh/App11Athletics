@@ -417,16 +417,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\addToProfile.png" />
     <BundleResource Include="Resources\check.png" />
     <BundleResource Include="Resources\checkgreen.png" />
-    <BundleResource Include="Resources\document.png" />
     <BundleResource Include="Resources\icon.png" />
     <BundleResource Include="Resources\iconbevel.png" />
     <BundleResource Include="Resources\lightning.png" />
     <BundleResource Include="Resources\plusblue.png" />
     <BundleResource Include="Resources\plusgreen.png" />
-    <BundleResource Include="Resources\speedtimer.png" />
     <BundleResource Include="Resources\arrows.png" />
     <BundleResource Include="Resources\bluedot.png" />
     <BundleResource Include="Resources\iconbevel%402x.png" />
@@ -450,6 +447,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MenuItemLog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\TimerMenuIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

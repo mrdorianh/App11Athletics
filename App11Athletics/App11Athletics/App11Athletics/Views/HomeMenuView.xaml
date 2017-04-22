@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
-<ContentPage x:Class="App11Athletics.Views.HomeMenuView" x:Name="pageHomeMenu"
+<ContentPage x:Class="App11Athletics.Views.HomeMenuView" x:Name="pageHomeMenu" Title="Main Menu"
              xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:xForms="clr-namespace:Syncfusion.SfCarousel.XForms;assembly=Syncfusion.SfCarousel.XForms"
              NavigationPage.HasBackButton="False" SizeChanged="HomeMenuView_OnSizeChanged"
@@ -64,7 +64,7 @@
             </Grid>
             <Grid x:Name="gridCara"
                   Grid.Row="1"
-                  IsClippedToBounds="False">
+                  Focused="GridCara_OnFocused" IsClippedToBounds="False">
                 <Image x:Name="imageArrowsLeft"
                        Aspect="AspectFit" HorizontalOptions="Start" Opacity="0.3" Source="arrows.png" VerticalOptions="Center" />
                 <Image x:Name="imageArrowsRight"
@@ -76,7 +76,6 @@
                 <!--  RotationAngle="45" SelectedItemOffset="500" SelectionChanged="CarouselMain_OnSelectionChanged" VerticalOptions="CenterAndExpand"  -->
                 <!--  Offset="100" />  -->
                 <xForms:SfCarousel x:Name="sfCarouselX"
-                                   HeightRequest="200"
                                    HorizontalOptions="FillAndExpand" ItemHeight="175" RotationAngle="45" SelectedItemOffset="500" SelectionChanged="CarouselMain_OnSelectionChanged"
                                    Offset="100" />
                 <!--  <BoxView x:Name="boxViewTap"  -->

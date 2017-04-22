@@ -6,17 +6,26 @@
         <ToolbarItem Clicked="OneRepMaxGo" Order="Primary" Text="Open One Rep Max" />
         <ToolbarItem Clicked="GoToTodayCalendar" Order="Secondary" Text="Go to Today" />
     </ContentPage.ToolbarItems>
-    <StackLayout x:Name="stackLayout">
+    <Grid x:Name="gridLayout">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
         <controls:CalendarView x:Name="calendarView"
+                               Grid.Row="0"
                                DateSelected="CalendarViewOnDateSelected" />
         <Button x:Name="buttonGoToDate"
+                Grid.Row="1"
                 TextColor="White"
                 Margin="15,5"
                 BorderRadius="15" Clicked="ButtonGoToDate_OnClicked" Font="Medium"
                 BackgroundColor="{DynamicResource ColorBrandGlobalBlue}" />
-        <Grid>
+        <Grid Grid.Row="2">
             <ListView x:Name="listView"
-                      HasUnevenRows="True" ItemSelected="OnListItemSelected" Opacity="0.5" SeparatorColor="Gray" SeparatorVisibility="Default">
+                      HasUnevenRows="True" ItemSelected="OnListItemSelected" Opacity="0.5"
+                      SeparatorColor="{StaticResource ColorBrandGlobalBlue}"
+                      SeparatorVisibility="Default">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -100,5 +109,5 @@
                    HorizontalOptions="Start" InputTransparent="True" Text="PREVIEW" VerticalOptions="Start"
                    BackgroundColor="Transparent" />
         </Grid>
-    </StackLayout>
+    </Grid>
 </ContentPage>

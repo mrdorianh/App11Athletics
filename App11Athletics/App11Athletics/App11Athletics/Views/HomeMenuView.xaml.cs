@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Android.Media;
 using Android.Media.Audiofx;
 using App11Athletics.DHCToolkit;
 using App11Athletics.Helpers;
@@ -27,30 +28,34 @@ namespace App11Athletics.Views
         {
 
             InitializeComponent();
+
             var tapGestureRecognizer = new TapGestureRecognizer();
             tapGestureRecognizer.Tapped += TapGestureRecognizerBox_OnTapped;
             cacheImage = new CachedImage { Source = ProfileImage, Transformations = new List<ITransformation>() { new CircleTransformation(8.0, "#005EBF") }, Style = (Style)Application.Current.Resources["styleCachedImage"], Rotation = ImageRotation, GestureRecognizers = { tapGestureRecognizer }, HorizontalOptions = LayoutOptions.Center };
-            Image TimerImage = new Image() { Source = "TimerMenuIcon.png", Aspect = Aspect.AspectFit, Rotation = 0.0, GestureRecognizers = { tapGestureRecognizer }, HorizontalOptions = LayoutOptions.Center };
+            Xamarin.Forms.Image TimerImage = new Xamarin.Forms.Image() { Source = "TimerMenuIcon.png", Aspect = Aspect.AspectFit, Rotation = 0.0, GestureRecognizers = { tapGestureRecognizer }, HorizontalOptions = LayoutOptions.Center };
             Debug.WriteLine(cacheImage.IsLoading.ToString());
             cacheImage.Error += CacheImage_OnError;
             cacheImage.Success += CacheImage_OnSuccess;
             cacheImage.Finish += CacheImage_OnFinish;
             cacheImage.FileWriteFinished += CacheImage_OnFileWriteFinished;
+
             //            carouselMain.SelectionChanged += CarouselMain_OnSelectionChanged;
             ObservableCollection<SfCarouselItem> collectionOfItems = new ObservableCollection<SfCarouselItem>();
+
             //           
-            collectionOfItems.Add(new SfCarouselItem() { ItemContent = cacheImage });
+            collectionOfItems.Add(new SfCarouselItem() { ItemContent = new Grid() { Children = { cacheImage }, Padding = 15 } });
             collectionOfItems.Add(new SfCarouselItem() { ItemContent = TimerImage });
-            collectionOfItems.Add(new SfCarouselItem() { ItemContent = new Image() { Source = "MenuItemLog.png", Aspect = Aspect.AspectFit, Rotation = 0.0, GestureRecognizers = { tapGestureRecognizer }, }, HorizontalOptions = LayoutOptions.CenterAndExpand });
-            collectionOfItems.Add(new SfCarouselItem() { ItemContent = new Image() { Source = "iconbevel.png", Aspect = Aspect.AspectFit, Rotation = 0.0, GestureRecognizers = { tapGestureRecognizer }, }, HorizontalOptions = LayoutOptions.Fill });
-            this.sfCarouselX.DataSource = collectionOfItems;
+            collectionOfItems.Add(new SfCarouselItem() { ItemContent = new Xamarin.Forms.Image() { Source = "MenuItemLog.png", Aspect = Aspect.AspectFit, Rotation = 0.0, GestureRecognizers = { tapGestureRecognizer }, }, HorizontalOptions = LayoutOptions.CenterAndExpand });
+            collectionOfItems.Add(new SfCarouselItem() { ItemContent = new Grid() { Children = { new Xamarin.Forms.Image() { Source = "iconbevel.png", Aspect = Aspect.AspectFit, Rotation = 0.0, GestureRecognizers = { tapGestureRecognizer }, HorizontalOptions = LayoutOptions.Fill, HeightRequest = 175 } }, Padding = 15 } });
+            sfCarouselX.DataSource = collectionOfItems;
 
             //            gridCara.Children.Add(SfCarousel);
             //            carouselMain.BindingContext = new CarouselViewModel();
             //            CarouselMain_OnSelectionChanged(null, null);
             //            MenuTitle = Width / 8;
 
-            CarouselMain_OnSelectionChanged(null, null);
+            //            CarouselMain_OnSelectionChanged(null, null);
+
         }
 
         //        private static SfCarousel carouselMain;
@@ -72,6 +77,7 @@ namespace App11Athletics.Views
         protected override async void OnDisappearing()
         {
             base.OnDisappearing();
+
             GC.Collect();
         }
 
@@ -81,11 +87,11 @@ namespace App11Athletics.Views
         {
             disable = true;
             Opacity = 0;
+            sfCarouselX.SelectedIndex = 1;
             Debug.WriteLine(Width.ToString() + "preAppear");
             base.OnAppearing();
             Debug.WriteLine(Width.ToString() + "postAppear");
             Debug.WriteLine(Width);
-            //            CarouselMain_OnSelectionChanged(null, null);
             await Task.Delay(1);
             Debug.WriteLine(Width);
             imageBG.TranslationX = Width / 2;
@@ -94,7 +100,6 @@ namespace App11Athletics.Views
             AnimatePages.AnimatePageIn(gridHomeMenu);
             AnimatePages.BgLogoTask(imageBG, Width / 2, Height / 2);
             await this.FadeTo(1, 350U, Easing.CubicOut);
-            disable = true;
             await Task.Delay(100);
             await gridSchedule.TranslateTo(Width / -1.9, 0, 250U, Easing.CubicOut);
             disable = false;
@@ -424,6 +429,7 @@ namespace App11Athletics.Views
         void CacheImage_OnSuccess(object sender, CachedImageEvents.SuccessEventArgs e)
         {
             Debug.WriteLine("LOADED IMAGE SUCCESSFULLY");
+
         }
 
         void CacheImage_OnFileWriteFinished(object sender, CachedImageEvents.FileWriteFinishedEventArgs e)
@@ -434,6 +440,11 @@ namespace App11Athletics.Views
         void CacheImage_OnFinish(object sender, CachedImageEvents.FinishEventArgs e)
         {
             Debug.WriteLine("FINISHED LOADING IMAGE");
+        }
+
+        void GridCara_OnFocused(object sender, FocusEventArgs e)
+        {
+            Debug.WriteLine("Focused sfCara");
         }
     }
 }

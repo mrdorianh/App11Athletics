@@ -15,7 +15,8 @@
         <BoxView x:Name="boxViewBack"
                  HorizontalOptions="FillAndExpand" Opacity=".6" VerticalOptions="FillAndExpand"
                  BackgroundColor="{DynamicResource ColorBrandGlobalBlue}" />
-        <Grid Grid.Row="0" Padding="5">
+        <Grid Grid.Row="0"
+              Padding="5">
             <templates:FrameBoxTemplate />
             <Image Margin="10"
                    Aspect="AspectFit" Source="plusgreen.png" />
@@ -28,7 +29,9 @@
         </Grid>
         <ListView x:Name="listView"
                   Grid.Row="1"
-                  HasUnevenRows="True" ItemSelected="OnListItemSelected" SeparatorColor="Gray" SeparatorVisibility="Default">
+                  HasUnevenRows="True" ItemSelected="OnListItemSelected"
+                  SeparatorColor="{StaticResource ColorBrandGlobalBlue}"
+                  SeparatorVisibility="Default">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

@@ -11,21 +11,25 @@ using FFImageLoading;
 using FFImageLoading.Forms.Droid;
 using ImageCircle.Forms.Plugin.Droid;
 using Octane.Xam.VideoPlayer.Android;
+using Xamarin.Forms.Platform.Android;
 using XFShapeView.Droid;
 using XLabs.Forms;
 using XLabs.Ioc;
+
+//using Xamarin.Forms.Platform.Android;
 using XLabs.Platform.Device;
 using XLabs.Platform.Services;
 
 namespace App11Athletics.Droid
 {
     [Activity(Label = "App11Athletics", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize, ScreenOrientation = ScreenOrientation.Portrait)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+    public class MainActivity : XFormsAppCompatDroid
     {
 
         protected override void OnCreate(Bundle bundle)
         {
             Window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
+
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
             base.OnCreate(bundle);
@@ -51,3 +55,4 @@ namespace App11Athletics.Droid
     }
 }
 
+//global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity

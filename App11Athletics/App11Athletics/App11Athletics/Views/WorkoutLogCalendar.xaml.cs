@@ -41,10 +41,12 @@ namespace App11Athletics.Views
             calendarView.ShowNavigationArrows = true;
             //            calendarView.TodayDateBackgroundColor = color.MultiplyAlpha(0.5);
             calendarView.MonthTitleForegroundColor = color;
+            calendarView.MonthTitleBackgroundColor = Color.White;
             calendarView.TodayDateForegroundColor = Color.White;
             calendarView.DateBackgroundColor = Color.White;
             calendarView.DateForegroundColor = color;
-            calendarView.DayOfWeekLabelForegroundColor = color;
+            calendarView.DayOfWeekLabelForegroundColor = Color.White;
+            calendarView.DayOfWeekLabelBackgroundColor = color;
             calendarView.InactiveDateBackgroundColor = inactiveColor.MultiplyAlpha(0.3);
             calendarView.InactiveDateForegroundColor = inactiveColor.MultiplyAlpha(0.6);
             var today = DateTime.Today;
@@ -78,7 +80,7 @@ namespace App11Athletics.Views
             // Reset the 'resume' id, since we just want to re-start here
             ((App)App.Current).ResumeAtTodoId = -1;
             CalendarViewOnDateSelected(null, selectedDateTime);
-            await Task.WhenAll(AnimatePages.AnimatePageIn(stackLayout), this.FadeTo(1));
+            await Task.WhenAll(AnimatePages.AnimatePageIn(gridLayout), this.FadeTo(1));
 
         }
 

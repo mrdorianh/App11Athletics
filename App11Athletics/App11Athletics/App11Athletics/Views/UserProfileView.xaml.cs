@@ -128,7 +128,7 @@ namespace App11Athletics.Views
 
         public double BGWidth { get; set; }
 
-        public double ImageRotation { get; set; } = Settings.UserProfileImageRotation;
+        public double ImageRotation { get; set; }
 
         public ImageSource ProfileImage { get; set; } = (ImageSource)new Xamarin.Forms.ImageSourceConverter().ConvertFromInvariantString(
                        Settings.UserPicture);
@@ -141,6 +141,8 @@ namespace App11Athletics.Views
         {
             Opacity = 0;
             base.OnAppearing();
+            if (CheckingPermission)
+                return;
             await Task.Delay(100);
             await Task.WhenAll(AnimatePages.AnimatePageIn(gridMain),
                 this.FadeTo(1, 350, Easing.CubicOut));
@@ -241,7 +243,7 @@ namespace App11Athletics.Views
             //            Men: BMR = 66 + (6.23 x weight in pounds) + (12.7 x height in inches) - (6.8 x age in years)
             await Task.Run(async () =>
             {
-                if (string.IsNullOrEmpty(labelAge.Text) || string.IsNullOrEmpty(WeightOptionsEntry.Text))
+                if (string.IsNullOrEmpty(labelAge.Text) || string.IsNullOrEmpty(labelWeight.Text))
                 {
                     labelBmr.Text = string.Empty;
                     labelDce.Text = string.Empty;
@@ -498,17 +500,22 @@ namespace App11Athletics.Views
                 return;
             busy = true;
             PermissionStatus status;
-
+            CheckingPermission = true;
             Device.OnPlatform(async () =>
             {
                 status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Photos);
                 if (status != PermissionStatus.Granted)
                 {
+                    Opacity = 0;
+                    BackgroundColor = Xamarin.Forms.Color.Black;
                     status = (await CrossPermissions.Current.RequestPermissionsAsync(Permission.Photos))[Permission.Photos];
                 }
                 if (status != PermissionStatus.Granted)
                 {
                     busy = false;
+                    Opacity = 1;
+                    BackgroundColor = Xamarin.Forms.Color.White;
+                    CheckingPermission = false;
                     return;
                 }
                 status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Camera);
@@ -519,19 +526,30 @@ namespace App11Athletics.Views
                 if (status != PermissionStatus.Granted)
                 {
                     busy = false;
+                    Opacity = 1;
+                    BackgroundColor = Xamarin.Forms.Color.White;
+                    CheckingPermission = false;
                     return;
                 }
+                Opacity = 1;
+                BackgroundColor = Xamarin.Forms.Color.White;
+                CheckingPermission = false;
                 await DisplayPhotoOptions();
             }, async () =>
             {
                 status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Storage);
                 if (status != PermissionStatus.Granted)
                 {
+                    Opacity = 0;
+                    BackgroundColor = Xamarin.Forms.Color.Black;
                     status = (await CrossPermissions.Current.RequestPermissionsAsync(Permission.Storage))[Permission.Storage];
                 }
                 if (status != PermissionStatus.Granted)
                 {
                     busy = false;
+                    Opacity = 1;
+                    BackgroundColor = Xamarin.Forms.Color.White;
+                    CheckingPermission = false;
                     return;
                 }
                 status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Camera);
@@ -542,9 +560,14 @@ namespace App11Athletics.Views
                 if (status != PermissionStatus.Granted)
                 {
                     busy = false;
+                    Opacity = 1;
+                    BackgroundColor = Xamarin.Forms.Color.White;
                     return;
 
                 }
+                Opacity = 1;
+                BackgroundColor = Xamarin.Forms.Color.White;
+                CheckingPermission = false;
                 await DisplayPhotoOptions();
             });
 
@@ -552,9 +575,11 @@ namespace App11Athletics.Views
 
         }
 
+        public bool CheckingPermission { get; set; }
+
         private async Task DisplayPhotoOptions()
         {
-            var das = await DisplayActionSheet("Select an option", "cancel", null, "Select Photo", "Use Camera", "Use Original");
+            var das = await DisplayActionSheet("Select an option", "Cancel", null, "Select Photo", "Use Camera", "Use Original");
 
             switch (das)
             {
@@ -576,12 +601,15 @@ namespace App11Athletics.Views
 
         void GetOriginalPhoto()
         {
+            if (string.IsNullOrEmpty(Settings.UserPictureOriginal))
+                Settings.UserPictureOriginal = "iconbevel.png";
             Settings.UserPicture = Settings.UserPictureOriginal;
             Settings.UserProfileImageRotation = 0;
             ProfileImage = Settings.UserPictureOriginal;
-            ImageRotation = 0;
+
             Navigation.RemovePage(Navigation.NavigationStack[0]);
             Navigation.InsertPageBefore(new HomeMenuView(), this);
+            ImageRotation = 0;
         }
 
         private async void TakePhoto()
@@ -598,10 +626,11 @@ namespace App11Athletics.Views
                         DefaultCamera = CameraDevice.Front,
                         SaveMediaOnCapture = true,
                     });
+                ImageRotation = 0;
                 ProfileImage = ImageSource.FromStream(() => mediaFile.Source);
-                ImageRotation = UpdateImageRotation(mediaFile.Exif.Orientation);
+                Settings.UserProfileImageRotation = UpdateImageRotation(mediaFile.Exif.Orientation);
                 Settings.UserPicture = mediaFile.Path;
-                Settings.UserProfileImageRotation = ImageRotation;
+
                 if (Settings.UserPicture == photoCurrent)
                 {
                     busy = false;
@@ -716,6 +745,7 @@ namespace App11Athletics.Views
         void CacheImage_OnSuccess(object sender, CachedImageEvents.SuccessEventArgs e)
         {
             Debug.WriteLine("LOADED IMAGE SUCCESSFULLY");
+            ImageRotation = Settings.UserProfileImageRotation;
         }
 
         void CacheImage_OnFileWriteFinished(object sender, CachedImageEvents.FileWriteFinishedEventArgs e)

@@ -35,7 +35,9 @@
         <ListView x:Name="listView"
                   Grid.Row="1"
                   Grid.Column="0"
-                  HasUnevenRows="True" HorizontalOptions="FillAndExpand" ItemSelected="OnListItemSelected" ItemTapped="ListView_OnItemTapped" SeparatorColor="Gray" SeparatorVisibility="None" VerticalOptions="FillAndExpand">
+                  HasUnevenRows="True" HorizontalOptions="FillAndExpand" ItemSelected="OnListItemSelected" ItemTapped="ListView_OnItemTapped"
+                  SeparatorColor="{StaticResource ColorBrandGlobalBlue}"
+                  SeparatorVisibility="None" VerticalOptions="FillAndExpand">
             <ListView.Resources>
                 <ResourceDictionary>
                     <dhcToolkit:StringToBoolConverter x:Key="NullToVisibility" />

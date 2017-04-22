@@ -7,6 +7,7 @@
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
         <ToolbarItem Clicked="RemoveItem_OnClicked" Order="Secondary" Text="Remove" />
+        <ToolbarItem Clicked="Edit_OnClicked" Order="Primary" Text="Edit" />
     </ContentPage.ToolbarItems>
     <Grid x:Name="gridMaxLog">
         <Grid.RowDefinitions>

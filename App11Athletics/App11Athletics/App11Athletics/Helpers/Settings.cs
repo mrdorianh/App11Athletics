@@ -52,13 +52,13 @@ namespace App11Athletics.Helpers
         private static readonly string SettingsUserDceDefault = string.Empty;
 
         private const string SettingsUserAge = "user_age";
-        private static readonly string SettingsUserAgeDefault = "23";
+        private static readonly string SettingsUserAgeDefault = string.Empty;
 
         private const string SettingsUserHeightFt = "user_heightFt";
         private static readonly string SettingsUserHeightFtDefault = "5";
 
         private const string SettingsUserHeightIn = "user_heightIn";
-        private static readonly string SettingsUserHeightInDefault = "9";
+        private static readonly string SettingsUserHeightInDefault = "6";
 
         private const string SettingsUserWeight = "user_weight";
         private static readonly string SettingsUserWeightDefault = string.Empty;
@@ -83,6 +83,9 @@ namespace App11Athletics.Helpers
 
         private const string SettingsUserPicture = "user_picture";
         private static readonly string SettingsUserPictureDefault = "iconbevel.png";
+
+        private const string SettingsUserPictureOriginal = "user_picture_original";
+        private static readonly string SettingsUserPictureOriginalDefault = string.Empty;
 
         private const string SettingsUserRefreshToken = "user_refreshToken";
         private static readonly string SettingsUserRefreshTokenDefault = string.Empty;
@@ -266,6 +269,14 @@ namespace App11Athletics.Helpers
             set
             {
                 AppSettings.AddOrUpdateValue<string>(SettingsUserPicture, value);
+            }
+        }
+        public static string UserPictureOriginal
+        {
+            get { return AppSettings.GetValueOrDefault<string>(SettingsUserPictureOriginal, SettingsUserPictureOriginalDefault); }
+            set
+            {
+                AppSettings.AddOrUpdateValue<string>(SettingsUserPictureOriginal, value);
             }
         }
         public static string UserRefreshToken

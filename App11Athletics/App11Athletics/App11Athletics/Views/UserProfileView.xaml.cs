@@ -40,7 +40,6 @@ namespace App11Athletics.Views
         {
 
             InitializeComponent();
-
             Setup();
             //            dhcCircle.Children.Add(ProImage);
             //            var tapGestureRecognizer = new TapGestureRecognizer();
@@ -100,6 +99,15 @@ namespace App11Athletics.Views
 
         }
 
+
+        #region Overrides of Page
+        protected override bool OnBackButtonPressed()
+        {
+            return base.OnBackButtonPressed();
+        }
+        #endregion
+
+
         public bool Disable { get; set; }
 
 
@@ -131,27 +139,19 @@ namespace App11Athletics.Views
 
         protected override async void OnAppearing()
         {
+            Opacity = 0;
             base.OnAppearing();
-
-
-
-
-            //            gridMain.Opacity = 0;
-            //            //            await Task.Delay(100);
-            //            await Task.WhenAll(AnimatePages.AnimatePageIn(gridMain),
-            //                gridMain.FadeTo(1, 350, Easing.CubicOut));
-            //            Disable = true;
+            await Task.Delay(100);
+            await Task.WhenAll(AnimatePages.AnimatePageIn(gridMain),
+                this.FadeTo(1, 350, Easing.CubicOut));
+            Disable = true;
         }
 
         #endregion
 
         private static IMediaPicker Setup()
         {
-
-
-
             var device = Resolver.Resolve<IDevice>();
-
             ////RM: hack for working on windows phone? 
             var _mediapicker = DependencyService.Get<IMediaPicker>() ?? device.MediaPicker;
             return _mediapicker;
@@ -207,8 +207,10 @@ namespace App11Athletics.Views
 
         protected override async void OnDisappearing()
         {
+
             base.OnDisappearing();
             GC.Collect();
+
             //            {
             //                await Task.Run(() =>
             //                {
@@ -368,15 +370,15 @@ namespace App11Athletics.Views
 
         private async void TapGestureRecognizerWeight_OnTapped(object sender, EventArgs e)
         {
-            await gridWeightOptions.TranslateTo(0, 0, 400U, Easing.CubicInOut);
-            await Task.Delay(50);
+            await gridWeightOptions.TranslateTo(0, 0, 300U, Easing.CubicInOut);
+            await Task.Delay(1);
             WeightOptionsEntry.Focus();
         }
 
         private async void TapGestureRecognizerAge_OnTapped(object sender, EventArgs e)
         {
-            await gridAgeOptions.TranslateTo(0, 0, 400U, Easing.CubicInOut);
-            await Task.Delay(50);
+            await gridAgeOptions.TranslateTo(0, 0, 300U, Easing.CubicInOut);
+            await Task.Delay(1);
             AgeOptionsEntry.Focus();
 
         }
@@ -494,9 +496,9 @@ namespace App11Athletics.Views
         {
             if (busy)
                 return;
-
             busy = true;
             PermissionStatus status;
+
             Device.OnPlatform(async () =>
             {
                 status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Photos);
@@ -552,7 +554,7 @@ namespace App11Athletics.Views
 
         private async Task DisplayPhotoOptions()
         {
-            var das = await DisplayActionSheet("Select an option", "cancel", null, "Select Photo", "Use Camera");
+            var das = await DisplayActionSheet("Select an option", "cancel", null, "Select Photo", "Use Camera", "Use Original");
 
             switch (das)
             {
@@ -562,7 +564,24 @@ namespace App11Athletics.Views
                 case "Use Camera":
                     TakePhoto();
                     break;
+                case "Use Original":
+                    GetOriginalPhoto();
+                    busy = false;
+                    break;
+                default:
+                    busy = false;
+                    break;
             }
+        }
+
+        void GetOriginalPhoto()
+        {
+            Settings.UserPicture = Settings.UserPictureOriginal;
+            Settings.UserProfileImageRotation = 0;
+            ProfileImage = Settings.UserPictureOriginal;
+            ImageRotation = 0;
+            Navigation.RemovePage(Navigation.NavigationStack[0]);
+            Navigation.InsertPageBefore(new HomeMenuView(), this);
         }
 
         private async void TakePhoto()

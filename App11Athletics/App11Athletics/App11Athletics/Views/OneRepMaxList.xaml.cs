@@ -27,6 +27,8 @@ namespace App11Athletics.Views
         public OneRepMaxList()
         {
             InitializeComponent();
+            percentageList.Deselected = true;
+            percentageList.ScrollReset();
             CurrentItem = new TodoItem();
         }
         protected override async void OnAppearing()
@@ -127,6 +129,8 @@ namespace App11Athletics.Views
 
         private async void RemoveItem_OnClicked(object sender, EventArgs e)
         {
+            if (percentageList.Deselected)
+                return;
 
             var das = await DisplayActionSheet("Remove Item?", "Cancel", null, "Yes");
 
@@ -139,6 +143,9 @@ namespace App11Athletics.Views
                             await App.Database.DeleteItemAsync(t);
                     }
                     listView.ItemsSource = await App.Database.GetFilteredItemsAsync(true);
+                    percentageList.Deselected = true;
+                    percentageList.ScrollReset();
+                    CurrentItem = null;
                     break;
             }
         }
@@ -171,6 +178,14 @@ namespace App11Athletics.Views
                 return;
             CurrentItem.RefPercent = percentageList.CurrentPercentage;
             App.Database.SaveItemAsync(CurrentItem);
+        }
+
+        async void Edit_OnClicked(object sender, EventArgs e)
+        {
+            if (percentageList.Deselected || (CurrentItem == null))
+                return;
+            await Navigation.PushAsync(new WorkoutLogOptionsView(null, true) { BindingContext = CurrentItem });
+
         }
     }
 

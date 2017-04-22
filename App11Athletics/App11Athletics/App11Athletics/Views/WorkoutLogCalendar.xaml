@@ -11,84 +11,94 @@
                                DateSelected="CalendarViewOnDateSelected" />
         <Button x:Name="buttonGoToDate"
                 TextColor="White"
-                BorderRadius="15" Clicked="ButtonGoToDate_OnClicked" Font="Large"
+                Margin="15,5"
+                BorderRadius="15" Clicked="ButtonGoToDate_OnClicked" Font="Medium"
                 BackgroundColor="{DynamicResource ColorBrandGlobalBlue}" />
-        <ListView x:Name="listView"
-                  HasUnevenRows="True" ItemSelected="OnListItemSelected" SeparatorColor="Gray" SeparatorVisibility="Default">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <ViewCell.View>
-                            <Grid VerticalOptions="Center">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="4*" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <StackLayout Grid.Row="0"
-                                             Grid.Column="0"
-                                             Padding="10"
-                                             HorizontalOptions="Center" VerticalOptions="Center">
-                                    <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
-                                           FontSize="Large" FontAttributes="Bold"
-                                           TextColor="{DynamicResource ColorBrandGlobalBlue}"
-                                           HorizontalOptions="Center" LineBreakMode="TailTruncation"
-                                           Text="{Binding Name}"
-                                           VerticalOptions="Center" />
-                                    <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Spacing="15" VerticalOptions="CenterAndExpand">
-                                        <StackLayout HorizontalOptions="Center"
-                                                     IsVisible="{Binding WSeps,
-                                                                         Converter={StaticResource NullToVisibility}}"
-                                                     Orientation="Horizontal" VerticalOptions="Center">
-                                            <Label x:Name="labelSets"
-                                                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
-                                                   FontSize="Medium" FontAttributes="Bold"
-                                                   TextColor="{DynamicResource ColorBrandGlobalBlue}"
-                                                   Text="{Binding WSets,
-                                                                  StringFormat='{0}'}"
-                                                   VerticalOptions="Center" />
-                                            <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
-                                                   FontSize="Small"
-                                                   TextColor="{DynamicResource ColorBrandGlobalBlue}"
-                                                   Text="SETS" VerticalOptions="Center" />
-                                        </StackLayout>
-                                        <StackLayout HorizontalOptions="Center"
-                                                     IsVisible="{Binding WReps,
-                                                                         Converter={StaticResource NullToVisibility}}"
-                                                     Orientation="Horizontal" VerticalOptions="Center">
-                                            <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
-                                                   FontSize="Medium" FontAttributes="Bold"
-                                                   TextColor="{DynamicResource ColorBrandGlobalBlue}"
-                                                   Text="{Binding WReps,
-                                                                  StringFormat='{0}'}"
-                                                   VerticalOptions="Center" />
-                                            <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
-                                                   FontSize="Small"
-                                                   TextColor="{DynamicResource ColorBrandGlobalBlue}"
-                                                   Text="REPS" VerticalOptions="Center" />
+        <Grid>
+            <ListView x:Name="listView"
+                      HasUnevenRows="True" ItemSelected="OnListItemSelected" Opacity="0.5" SeparatorColor="Gray" SeparatorVisibility="Default">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Grid VerticalOptions="Center">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="4*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout Grid.Row="0"
+                                                 Grid.Column="0"
+                                                 Padding="10"
+                                                 HorizontalOptions="Center" VerticalOptions="Center">
+                                        <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                                               FontSize="Large" FontAttributes="Bold"
+                                               TextColor="{DynamicResource ColorBrandGlobalBlue}"
+                                               HorizontalOptions="Center" LineBreakMode="TailTruncation"
+                                               Text="{Binding Name}"
+                                               VerticalOptions="Center" />
+                                        <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Spacing="15" VerticalOptions="CenterAndExpand">
+                                            <StackLayout HorizontalOptions="Center"
+                                                         IsVisible="{Binding WSeps,
+                                                                             Converter={StaticResource NullToVisibility}}"
+                                                         Orientation="Horizontal" VerticalOptions="Center">
+                                                <Label x:Name="labelSets"
+                                                       HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                                                       FontSize="Medium" FontAttributes="Bold"
+                                                       TextColor="{DynamicResource ColorBrandGlobalBlue}"
+                                                       Text="{Binding WSets,
+                                                                      StringFormat='{0}'}"
+                                                       VerticalOptions="Center" />
+                                                <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                                                       FontSize="Small"
+                                                       TextColor="{DynamicResource ColorBrandGlobalBlue}"
+                                                       Text="SETS" VerticalOptions="Center" />
+                                            </StackLayout>
+                                            <StackLayout HorizontalOptions="Center"
+                                                         IsVisible="{Binding WReps,
+                                                                             Converter={StaticResource NullToVisibility}}"
+                                                         Orientation="Horizontal" VerticalOptions="Center">
+                                                <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                                                       FontSize="Medium" FontAttributes="Bold"
+                                                       TextColor="{DynamicResource ColorBrandGlobalBlue}"
+                                                       Text="{Binding WReps,
+                                                                      StringFormat='{0}'}"
+                                                       VerticalOptions="Center" />
+                                                <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                                                       FontSize="Small"
+                                                       TextColor="{DynamicResource ColorBrandGlobalBlue}"
+                                                       Text="REPS" VerticalOptions="Center" />
+                                            </StackLayout>
                                         </StackLayout>
                                     </StackLayout>
-                                </StackLayout>
 
-                                <Image Grid.Column="1"
-                                       WidthRequest="50"
-                                       HorizontalOptions="Center"
-                                       IsVisible="{Binding NotDone}"
-                                       Source="check.png" VerticalOptions="Center" />
-                                <Image x:Name="imageCheck"
-                                       Grid.Column="1"
-                                       WidthRequest="50"
-                                       HorizontalOptions="Center"
-                                       IsVisible="{Binding Done,
-                                                           Mode=TwoWay}"
-                                       Source="checkgreen.png" StyleId="d" VerticalOptions="Center" />
-                            </Grid>
-                        </ViewCell.View>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                                    <Image Grid.Column="1"
+                                           WidthRequest="50"
+                                           HorizontalOptions="Center"
+                                           IsVisible="{Binding NotDone}"
+                                           Source="check.png" VerticalOptions="Center" />
+                                    <Image x:Name="imageCheck"
+                                           Grid.Column="1"
+                                           WidthRequest="50"
+                                           HorizontalOptions="Center"
+                                           IsVisible="{Binding Done,
+                                                               Mode=TwoWay}"
+                                           Source="checkgreen.png" StyleId="d" VerticalOptions="Center" />
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label x:Name="labelPreview"
+                   HorizontalTextAlignment="Start" VerticalTextAlignment="Start"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource ColorBrandGlobalBlue}"
+                   Margin="15,5"
+                   HorizontalOptions="Start" InputTransparent="True" Text="PREVIEW" VerticalOptions="Start"
+                   BackgroundColor="Transparent" />
+        </Grid>
     </StackLayout>
 </ContentPage>

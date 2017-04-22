@@ -33,8 +33,9 @@ namespace App11Athletics.Views
         private bool CanSave()
         {
             if (IsMaxBool)
-                return !(string.IsNullOrEmpty(nameEntry.Text) || nameEntry == null || string.IsNullOrEmpty(RepEntry.Text) || string.IsNullOrEmpty(RepEntry.Text));
-            return !(string.IsNullOrEmpty(nameEntry.Text) && nameEntry == null);
+                return !(string.IsNullOrEmpty(nameEntry.Text) || nameEntry == null || string.IsNullOrEmpty(RepEntry.Text));
+
+            return !(string.IsNullOrEmpty(nameEntry.Text) || nameEntry == null);
         }
         private string OneRepMaxCalc(string weightlifted = null, string reps = null)
         {

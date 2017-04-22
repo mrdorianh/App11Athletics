@@ -27,7 +27,9 @@
                                Keyboard="Text" Placeholder="Add Exercise" PlaceholderColor="#4BDF0000" PropertyChanging="NameEntry_OnPropertyChanging"
                                Text="{Binding Name}"
                                Unfocused="OptionUnfocused" Uppercase="True" />
-                <Label IsVisible="{Binding Source={x:Reference contentPage}, Path=IsMaxBool}" Text="Weight(lbs)" />
+                <Label IsVisible="{Binding Source={x:Reference contentPage},
+                                           Path=IsMaxBool}"
+                       Text="Weight(lbs)" />
                 <local:MyEntry x:Name="WeightEntry"
                                Focused="Entry_OnFocused"
                                IsVisible="{Binding Source={x:Reference contentPage},
@@ -35,7 +37,9 @@
                                Keyboard="Numeric" MaxLength="4" Placeholder="#" PlaceholderColor="Gray"
                                Text="{Binding LiftWeight}"
                                TextChanged="WeightEntry_OnTextChanged" Unfocused="OptionUnfocused" />
-                <Label IsVisible="{Binding Source={x:Reference contentPage}, Path=IsLogBool}" Text="Sets" />
+                <Label IsVisible="{Binding Source={x:Reference contentPage},
+                                           Path=IsLogBool}"
+                       Text="Sets" />
                 <local:MyEntry x:Name="SetEntry"
                                Focused="Entry_OnFocused"
                                IsVisible="{Binding Source={x:Reference contentPage},
@@ -48,7 +52,9 @@
                                Focused="Entry_OnFocused" Keyboard="Numeric" MaxLength="2" Placeholder="#" PlaceholderColor="Gray"
                                Text="{Binding WReps}"
                                TextChanged="RepEntry_OnTextChanged" Unfocused="OptionUnfocused" />
-                <Label IsVisible="{Binding Source={x:Reference contentPage}, Path=IsLogBool}" Text="Notes" />
+                <Label IsVisible="{Binding Source={x:Reference contentPage},
+                                           Path=IsLogBool}"
+                       Text="Notes" />
                 <Editor x:Name="notesEntry"
                         HeightRequest="100"
                         IsVisible="{Binding Source={x:Reference contentPage},

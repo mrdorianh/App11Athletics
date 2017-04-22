@@ -25,7 +25,6 @@ namespace App11Athletics.Views
         public WorkoutLogCalendar()
         {
             InitializeComponent();
-
             var inactiveColor = Color.Gray;
             var color = (Color)Application.Current.Resources["ColorBrandGlobalBlue"];
             calendarView.MinDate = CalendarView.FirstDayOfMonth(new DateTime(2017, 1, 6));
@@ -65,6 +64,8 @@ namespace App11Athletics.Views
             buttonGoToDate.Text = $"Go to {selectedDateString}";
             listView.BeginRefresh();
             await GetLogs();
+            labelPreview.IsVisible = listView.ItemsSource.Cast<object>().Any();
+
             listView.EndRefresh();
         }
 
@@ -85,9 +86,7 @@ namespace App11Athletics.Views
 
         private async void OnListItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            if (((ListView)sender).SelectedItem == null)
-                return;
-            await Navigation.PushAsync(new WorkoutLogListView(selectedDateTime));
+            //            await Navigation.PushAsync(new WorkoutLogListView(selectedDateTime));
             ((ListView)sender).SelectedItem = null;
 
             //            ((App)App.Current).ResumeAtTodoId = (e.SelectedItem as TodoItem).ID;

@@ -3,7 +3,7 @@
 <ContentPage x:Class="App11Athletics.Views.HomeMenuView" x:Name="pageHomeMenu"
              xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:xForms="clr-namespace:Syncfusion.SfCarousel.XForms;assembly=Syncfusion.SfCarousel.XForms"
-             NavigationPage.HasNavigationBar="False" SizeChanged="HomeMenuView_OnSizeChanged"
+             NavigationPage.HasBackButton="False" SizeChanged="HomeMenuView_OnSizeChanged"
              BackgroundColor="White">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -97,7 +97,7 @@
                     BackgroundColor="{StaticResource ColorBrandGlobalBlue}" />
             <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
                    FontSize="Medium" FontAttributes="Bold" TextColor="White"
-                   Margin="0,0,30,0"
+                   Margin="0,0,15,0"
                    HorizontalOptions="End" InputTransparent="True" Text="S C H E D U L E" />
         </Grid>
     </Grid>

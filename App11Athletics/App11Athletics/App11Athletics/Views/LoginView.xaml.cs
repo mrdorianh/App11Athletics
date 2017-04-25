@@ -11,7 +11,6 @@ namespace App11Athletics.Views
     {
         public LoginView()
         {
-
             InitializeComponent();
             LabelLoginText = stackLayoutLoginView.Width / 5;
             labelNoConnection.IsVisible = false;
@@ -62,7 +61,7 @@ namespace App11Athletics.Views
         {
             base.OnAppearing();
             this.FadeTo(1, 300U, Easing.CubicIn);
-            await AnimatePages.AnimatePageIn(gridLogin, null);
+            await AnimatePages.AnimatePageIn(gridLogin);
         }
 
         #endregion
@@ -80,7 +79,7 @@ namespace App11Athletics.Views
             }
             var p = (Image)sender;
             await Task.WhenAll(p.FadeTo(0, 300), p.ScaleTo(2, 350), label.FadeTo(0, 300));
-            LoggedInNavigate(p);
+            await LoggedInNavigate(p);
             await Task.Delay(300);
             disabled = false;
         }
@@ -89,7 +88,7 @@ namespace App11Athletics.Views
 
         public bool NotConnected { get; set; }
 
-        private async void LoggedInNavigate(Image image)
+        private async Task LoggedInNavigate(Image image)
         {
 
             await DependencyService.Get<IAuthSignIn>().AuthSignIn();
@@ -107,7 +106,7 @@ namespace App11Athletics.Views
                 //lets test this later as Reset Main
                 await Task.Delay(100);
                 //                imageBG.ScaleTo(0, 350U, Easing.CubicOut);
-                await AnimatePages.AnimatePageOut(gridLogin, null);
+                await AnimatePages.AnimatePageOut(gridLogin);
                 await Navigation.PopAsync();
                 //Navigation.InsertPageBefore(new CarouselPageMenu(), this);
             }

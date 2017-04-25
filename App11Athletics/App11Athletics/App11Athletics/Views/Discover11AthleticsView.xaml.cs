@@ -28,7 +28,7 @@ namespace App11Athletics.Views
             disabled = true;
             await Task.Delay(100);
             this.FadeTo(1, 350U, Easing.CubicIn);
-            await AnimatePages.AnimatePageIn(gridDiscover, null);
+            await AnimatePages.AnimatePageIn(gridDiscover);
             disabled = false;
         }
 
@@ -47,7 +47,7 @@ namespace App11Athletics.Views
         protected override async void OnDisappearing()
         {
             base.OnDisappearing();
-            await AnimatePages.AnimatePageOut(gridDiscover, null);
+            await AnimatePages.AnimatePageOut(gridDiscover);
 
         }
 
@@ -77,18 +77,17 @@ namespace App11Athletics.Views
 
                     if (!string.IsNullOrEmpty(TrainerItem.BioUrl))
                         Device.OpenUri(new Uri(TrainerItem.BioUrl));
-                    ((ListView)sender).SelectedItem = null;
                     break;
 
                 case "Email":
                     if (!string.IsNullOrEmpty(TrainerItem.Email))
                         Device.OpenUri(new Uri(TrainerItem.Email));
-                    ((ListView)sender).SelectedItem = null;
                     break;
                 default:
                     ((ListView)sender).SelectedItem = null;
                     break;
             }
+             ((ListView)sender).SelectedItem = null;
         }
 
         public bool disabled { get; set; }
@@ -103,7 +102,7 @@ namespace App11Athletics.Views
             Device.OpenUri(new Uri("tel:16147452868"));
         }
 
-        private async void Schedule_OnClicked(object sender, EventArgs e)
+        public async void Schedule_OnClicked(object sender, EventArgs e)
         {
             if (!CrossConnectivity.Current.IsConnected)
                 return;
@@ -115,5 +114,7 @@ namespace App11Athletics.Views
         {
 
         }
+
+
     }
 }

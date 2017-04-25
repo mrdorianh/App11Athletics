@@ -3,6 +3,6 @@
 <ContentPage x:Class="App11Athletics.Views.ScheduleView"
              xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <Grid>
-        <WebView Source="https://calendar.google.com/calendar/embed?showNav=0&amp;showPrint=0&amp;wkst=1&amp;showCalendars=0&amp;showTz=0&amp;bgcolor=%23ffffff&amp;src=o0uuo8e01nqo8fhn4otvtrge74%40group.calendar.google.com&amp;color=%2342104A&amp;ctz=America%2FNew_York" />
+        <WebView   Source="https://calendar.google.com/calendar/embed?showNav=0&amp;showPrint=0&amp;wkst=1&amp;showCalendars=0&amp;showTz=0&amp;bgcolor=%23ffffff&amp;src=o0uuo8e01nqo8fhn4otvtrge74%40group.calendar.google.com&amp;color=%2342104A&amp;ctz=America%2FNew_York" />
     </Grid>
 </ContentPage>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Threading.Tasks;
 using App11Athletics.DHCToolkit;
 using App11Athletics.Views.Timers;
@@ -13,22 +14,17 @@ namespace App11Athletics.Views
         public TimerMenu()
         {
             InitializeComponent();
-            TimerSize = grid.Width / 4;
-            imagetimer.WidthRequest = TimerSize;
-            grid.Opacity = 0;
         }
 
         #region Overrides of Page
 
         protected override async void OnAppearing()
         {
-            grid.Opacity = 0;
             base.OnAppearing();
+
             disabled = true;
             CurrentButton = null;
-            AnimatePages.AnimatePageIn(gridTimer, null);
-            grid.FadeTo(1, 200U, Easing.CubicIn);
-            await AnimatePages.AnimatePageIn(gridButtons, null);
+            await AnimatePages.AnimatePageIn(stackLayout);
             await Task.Delay(100);
             disabled = false;
         }
@@ -36,125 +32,76 @@ namespace App11Athletics.Views
         #endregion
 
         public Button CurrentButton { get; set; }
-        public double TimerSize { get; set; }
-        public double ButtonSizeX { get; set; }
-        public double ButtonSizeY { get; set; }
+
+        public double ButtonSizeX => Width / 2.5;
+
+        public double ButtonSizeY => ButtonSizeX * 0.75;
 
 
         private async void Button_OnClicked(object sender, EventArgs e)
         {
             if (disabled)
                 return;
-            disabled = false;
+            disabled = true;
             var button = (Button)sender;
-            if (button != CurrentButton)
+            stackLayout.RaiseChild(button);
+            await AnimateTimerSelect(stackLayout, button.StyleId);
+
+
+
+            //                                if (disabled)
+            //                                    return;
+            await Task.Delay(50);
+            await AnimatePages.AnimatePageOut(stackLayout);
+            switch (button.StyleId)
             {
-                CurrentButton = button;
-                gridButtons.RaiseChild(button);
-                disabled = true;
-                switch (button.StyleId)
-                {
-                    case "t":
+                case "t":
 
-                        AnimateTimerSelect(button.StyleId, -25, 0, gridButtons);
-
-                        break;
-                    case "r":
-                        AnimateTimerSelect(button.StyleId, 0, .5, gridButtons);
-
-                        break;
-                    case "s":
-                        AnimateTimerSelect(button.StyleId, 25, 1, gridButtons);
-
-                        break;
-                }
-                //                await Task.Delay(350);
-
+                    await Navigation.PushAsync(new TabataFeatureView());
+                    break;
+                case "r":
+                    await Navigation.PushAsync(new RoundCounterFeatureView());
+                    break;
+                case "s":
+                    await Navigation.PushAsync(new StopwatchFeatureView());
+                    break;
             }
-            else
-            {
-                //                                if (disabled)
-                //                                    return;
-                disabled = true;
-                await imagetimer.RotateTo(180, 350U, Easing.CubicOut);
-                await Task.Delay(100);
-                await AnimatePages.AnimatePageOut(gridTimer, null);
-                await AnimatePages.AnimatePageOut(gridButtons, null);
-                switch (button.StyleId)
-                {
-                    case "t":
+            await AnimateTimerSelect(stackLayout);
+            disabled = false;
 
-                        await Navigation.PushAsync(new TabataFeatureView());
-                        disabled = false;
-                        TapGestureRecognizerResetSelection_OnTapped(null, null);
-                        break;
-                    case "r":
-                        await Navigation.PushAsync(new RoundCounterFeatureView());
-                        disabled = false;
-                        TapGestureRecognizerResetSelection_OnTapped(null, null);
-                        break;
-                    case "s":
-                        await Navigation.PushAsync(new StopwatchFeatureView());
-                        disabled = false;
-                        TapGestureRecognizerResetSelection_OnTapped(null, null);
-                        break;
-                }
-
-            }
 
         }
 
-        public void AnimateTimerSelect(string styleid, double degrees, double anchor, Grid Lparent)
+        public Task<bool> AnimateTimerSelect(StackLayout Lparent, string styleid = null)
         {
+
             foreach (var view in Lparent.Children)
             {
-
-                if (view.GetType() != typeof(Button))
-                    return;
                 if (view.StyleId != styleid)
-                {
-                    view.FadeTo(0.4, 300U, Easing.CubicOut);
-                    view.ScaleTo(1.0, 250U, Easing.CubicOut);
-                    view.AnchorX = 0.5;
-                    view.BackgroundColor = Color.FromHex("#005EBF");
-                }
-                else
-                {
-
-                    imagetimer.RotateTo(degrees, 350U, Easing.CubicOut);
-                    view.FadeTo(1, 300U, Easing.CubicOut);
-                    view.ScaleTo(1.2, 250U, Easing.CubicOut);
-                    view.AnchorX = anchor;
-                    view.BackgroundColor = Color.FromHex("#029902");
-
-                }
+                    continue;
+                view.ScaleTo(1.2, 250U, Easing.SpringOut);
+                view.BackgroundColor = Color.FromHex("#029902");
             }
-            disabled = false;
+            foreach (var view in Lparent.Children)
+            {
+                if (view.StyleId == styleid)
+                    continue;
+                view.ScaleTo(1.0, 250U, Easing.CubicIn);
+                view.BackgroundColor = Color.FromHex("#005EBF");
+            }
+            return Task.FromResult(true);
+
         }
 
         public void TimerMenu_OnSizeChanged(object sender, EventArgs e)
         {
-            TimerSize = grid.Width / 4;
-            ButtonSizeX = gridButtons.Width / 3;
-            ButtonSizeY = gridButtons.Height / 2;
-            imagetimer.WidthRequest = TimerSize;
-
-        }
-
-        private void TapGestureRecognizerResetSelection_OnTapped(object sender, EventArgs e)
-        {
-            if (disabled)
-                return;
-            CurrentButton = null;
-            imagetimer.RotateTo(0, 350U, Easing.CubicOut);
-            foreach (var view in gridButtons.Children)
+            foreach (var button in stackLayout.Children)
             {
-                view.FadeTo(1, 300U, Easing.CubicOut);
-                view.ScaleTo(1, 250U, Easing.CubicOut);
-                view.AnchorX = 0.5;
-                view.BackgroundColor = Color.FromHex("#005EBF");
+                button.HeightRequest = ButtonSizeY;
+                button.WidthRequest = ButtonSizeX;
             }
-
         }
+
+
     }
 }

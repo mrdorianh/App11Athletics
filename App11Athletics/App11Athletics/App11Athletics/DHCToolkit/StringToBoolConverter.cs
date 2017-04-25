@@ -8,15 +8,10 @@ namespace App11Athletics.DHCToolkit
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            string valueAsString = value.ToString();
-            if ((string.IsNullOrWhiteSpace(valueAsString) || valueAsString == "0"))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            if (value == null)
+                return null;
+            var valueAsString = (string)value;
+            return !string.IsNullOrWhiteSpace(valueAsString) && valueAsString != "0";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

@@ -22,7 +22,7 @@ using XLabs.Platform.Services;
 
 namespace App11Athletics.Droid
 {
-    [Activity(Label = "App11Athletics", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "App11Athletics", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize, ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : XFormsAppCompatDroid
     {
 

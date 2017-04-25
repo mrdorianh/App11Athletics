@@ -68,6 +68,7 @@
     <AndroidEnableMultiDex>False</AndroidEnableMultiDex>
     <EnableProguard>False</EnableProguard>
     <DebugSymbols>False</DebugSymbols>
+    <Debugger>.Net (Xamarin)</Debugger>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Auth0Client.Android">

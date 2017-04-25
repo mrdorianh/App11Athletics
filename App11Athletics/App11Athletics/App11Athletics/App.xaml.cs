@@ -25,7 +25,7 @@ namespace App11Athletics
 
             InitializeComponent();
             ImageService.Instance.Initialize();
-//            MainPage = new NavigationPage(new HomeMenuView());
+            //            MainPage = new NavigationPage(new HomeMenuView());
             //          
             /*IOS*/
             ///////*Lets Do It */
@@ -33,17 +33,17 @@ namespace App11Athletics
             //            MainPage = new NavigationPage(new SplashWebView());
             /**/
             /*Droid*/
-                        if (string.IsNullOrEmpty(Settings.UserRefreshToken))
-                        {
-                            IsUserLoggedIn = false;
-                            MainPage = new NavigationPage(new LoginView());
-                        }
-                        else
-                        {
-                            IsUserLoggedIn = true;
-                            DependencyService.Get<IAuthSignIn>().AuthRefresh();
-                            MainPage = new NavigationPage(new HomeMenuView());
-                        }
+            if (string.IsNullOrEmpty(Settings.UserRefreshToken))
+            {
+                IsUserLoggedIn = false;
+                MainPage = new NavigationPage(new LoginView());
+            }
+            else
+            {
+                IsUserLoggedIn = true;
+                //                            DependencyService.Get<IAuthSignIn>().AuthRefresh();
+                MainPage = new NavigationPage(new HomeMenuView());
+            }
         }
 
 

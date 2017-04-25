@@ -33,6 +33,7 @@ namespace App11Athletics.Views
         }
         protected override async void OnAppearing()
         {
+            CurrentItem = null;
             base.OnAppearing();
             ((App)Application.Current).ResumeAtTodoId = -1;
             var itemSource = await App.Database.GetFilteredItemsAsync(true);
@@ -81,6 +82,9 @@ namespace App11Athletics.Views
             CurrentItem = itm;
             Device.BeginInvokeOnMainThread(() =>
             {
+                if (itm == null)
+                    return;
+
                 itm.IsSelected = !itm.IsSelected;
 
                 foreach (TodoItem item in listView.ItemsSource)
@@ -100,7 +104,6 @@ namespace App11Athletics.Views
                     }
 
                 }
-
             });
 
 
@@ -130,7 +133,10 @@ namespace App11Athletics.Views
         private async void RemoveItem_OnClicked(object sender, EventArgs e)
         {
             if (percentageList.Deselected)
+            {
+                await DisplayAlert("Please make a selection", null, "Ok");
                 return;
+            }
 
             var das = await DisplayActionSheet("Remove Item?", "Cancel", null, "Yes");
 
@@ -142,6 +148,7 @@ namespace App11Athletics.Views
                         if (t.IsSelected)
                             await App.Database.DeleteItemAsync(t);
                     }
+
                     listView.ItemsSource = await App.Database.GetFilteredItemsAsync(true);
                     percentageList.Deselected = true;
                     percentageList.ScrollReset();
@@ -183,7 +190,10 @@ namespace App11Athletics.Views
         async void Edit_OnClicked(object sender, EventArgs e)
         {
             if (percentageList.Deselected || (CurrentItem == null))
+            {
+                await DisplayAlert("Please make a selection", null, "Ok");
                 return;
+            }
             await Navigation.PushAsync(new WorkoutLogOptionsView(null, true) { BindingContext = CurrentItem });
 
         }

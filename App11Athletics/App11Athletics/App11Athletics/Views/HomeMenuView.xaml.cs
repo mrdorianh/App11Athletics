@@ -87,6 +87,7 @@ namespace App11Athletics.Views
         {
             disable = true;
             Opacity = 0;
+            gridLabel.Opacity = 0;
             sfCarouselX.SelectedIndex = 1;
             Debug.WriteLine(Width.ToString() + "preAppear");
             base.OnAppearing();
@@ -99,7 +100,7 @@ namespace App11Athletics.Views
             gridSchedule.TranslationX = Width * -2;
             AnimatePages.AnimatePageIn(gridHomeMenu);
             AnimatePages.BgLogoTask(imageBG, Width / 2, Height / 2);
-            await this.FadeTo(1, 350U, Easing.CubicOut);
+            await Task.WhenAny(this.FadeTo(1, 350U, Easing.CubicOut), gridLabel.FadeTo(1, 350U, Easing.CubicOut));
             await Task.Delay(100);
             await gridSchedule.TranslateTo(Width / -1.9, 0, 250U, Easing.CubicOut);
             disable = false;

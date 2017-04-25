@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 
 namespace App11Athletics.Views.Controls
 {
@@ -8,30 +9,37 @@ namespace App11Athletics.Views.Controls
         {
             base.TextChanged += EditText;
             base.Focused += ClearText;
+            base.Unfocused += OnUnfocused;
         }
 
-        private void ClearText(object sender, FocusEventArgs e)
+        void OnUnfocused(object sender, FocusEventArgs focusEventArgs)
         {
-            Entry d = sender as Entry;
+            var e = sender as Entry;
+            if (!Uppercase)
+                return;
+            if (e != null)
+                e.Text = e.Text.ToUpper();
+        }
+
+        private static void ClearText(object sender, FocusEventArgs e)
+        {
+            var d = sender as Entry;
             if (!string.IsNullOrEmpty(d?.Text))
                 d.Text = string.Empty;
         }
 
         public void EditText(object sender, TextChangedEventArgs args)
         {
-            Entry e = sender as Entry;
-            var val = e?.Text;
-
+            var e = sender as Entry;
+            string val = null;
+            if (e != null)
+                val = ((Entry)sender).Text;
             if (string.IsNullOrEmpty(val))
                 return;
+            if ((MaxLength <= 0) || (val.Length <= MaxLength))
+                return;
 
-            if (MaxLength > 0 && val.Length > MaxLength)
-            {
-                val = val.Remove(val.Length - 1);
-            }
-            if (Uppercase)
-                val = val.ToUpper();
-            e.Text = val;
+            e.Text = val.Remove(val.Length - 1);
         }
 
         public static readonly BindableProperty UppercaseProperty =

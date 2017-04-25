@@ -10,24 +10,28 @@
     <Grid x:Name="gridWorkoutLog">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.10*" />
-            <RowDefinition Height="0.70*" />
-            <RowDefinition Height="0.20*" />
+            <RowDefinition Height="0.90*" />
         </Grid.RowDefinitions>
         <BoxView x:Name="boxViewBack"
                  HorizontalOptions="FillAndExpand" Opacity=".6" VerticalOptions="FillAndExpand"
                  BackgroundColor="{DynamicResource ColorBrandGlobalBlue}" />
-        <Grid Grid.Row="0" Padding="5">
+        <Grid Grid.Row="0"
+              Padding="5">
             <templates:FrameBoxTemplate />
             <Image Margin="10"
-                   Aspect="AspectFit" Source="plusgreen.png">
-                <Image.GestureRecognizers>
+                   Aspect="AspectFit" Source="plusgreen.png" />
+            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                     Color="Transparent">
+                <BoxView.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnItemAdded" />
-                </Image.GestureRecognizers>
-            </Image>
+                </BoxView.GestureRecognizers>
+            </BoxView>
         </Grid>
         <ListView x:Name="listView"
                   Grid.Row="1"
-                  HasUnevenRows="True" ItemSelected="OnListItemSelected" PropertyChanged="ListView_OnPropertyChanged" SeparatorColor="Gray" SeparatorVisibility="Default">
+                  HasUnevenRows="True" ItemSelected="OnListItemSelected"
+                  SeparatorColor="{StaticResource ColorBrandGlobalBlue}"
+                  SeparatorVisibility="Default">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -51,34 +55,34 @@
                                            Text="{Binding Name}"
                                            VerticalOptions="Center" />
                                     <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Spacing="15" VerticalOptions="CenterAndExpand">
-                                        <StackLayout HorizontalOptions="Center" Orientation="Horizontal" VerticalOptions="Center">
+                                        <StackLayout HorizontalOptions="Center"
+                                                     IsVisible="{Binding WSets,
+                                                                         Converter={StaticResource NullToVisibility}}"
+                                                     Orientation="Horizontal" VerticalOptions="Center">
                                             <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
                                                    FontSize="Medium" FontAttributes="Bold"
                                                    TextColor="{DynamicResource ColorBrandGlobalBlue}"
-                                                   IsVisible="{Binding WSets,
-                                                                       Converter={StaticResource NullToVisibility}}"
                                                    Text="{Binding WSets,
                                                                   StringFormat='{0}'}"
                                                    VerticalOptions="Center" />
                                             <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
                                                    FontSize="Small"
                                                    TextColor="{DynamicResource ColorBrandGlobalBlue}"
-                                                   IsVisible="{Binding WSets}"
                                                    Text="SETS" VerticalOptions="Center" />
                                         </StackLayout>
-                                        <StackLayout HorizontalOptions="Center" Orientation="Horizontal" VerticalOptions="Center">
+                                        <StackLayout HorizontalOptions="Center"
+                                                     IsVisible="{Binding WReps,
+                                                                         Converter={StaticResource NullToVisibility}}"
+                                                     Orientation="Horizontal" VerticalOptions="Center">
                                             <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
                                                    FontSize="Medium" FontAttributes="Bold"
                                                    TextColor="{DynamicResource ColorBrandGlobalBlue}"
-                                                   IsVisible="{Binding WReps,
-                                                                       Converter={StaticResource NullToVisibility}}"
                                                    Text="{Binding WReps,
                                                                   StringFormat='{0}'}"
                                                    VerticalOptions="Center" />
                                             <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
                                                    FontSize="Small"
                                                    TextColor="{DynamicResource ColorBrandGlobalBlue}"
-                                                   IsVisible="{Binding WReps}"
                                                    Text="REPS" VerticalOptions="Center" />
                                         </StackLayout>
                                     </StackLayout>
@@ -93,8 +97,7 @@
                                        Grid.Column="1"
                                        WidthRequest="50"
                                        HorizontalOptions="Center"
-                                       IsVisible="{Binding Done,
-                                                           Mode=TwoWay}"
+                                       IsVisible="{Binding Done}"
                                        Source="checkgreen.png" StyleId="d" VerticalOptions="Center" />
                             </Grid>
                         </ViewCell.View>
@@ -104,78 +107,78 @@
         </ListView>
 
 
-        <Grid x:Name="gridOneRepMax"
-              Grid.Row="2"
-              Padding="5">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <templates:FrameBoxTemplate Grid.Row="0" Grid.RowSpan="3"
-                                        Grid.Column="0" Grid.ColumnSpan="3" />
-            <Label Grid.Row="2"
-                   Grid.Column="2"
-                   VerticalTextAlignment="End"
-                   FontSize="Micro" FontAttributes="Bold"
-                   TextColor="{DynamicResource ColorBrandGlobalBlue}"
-                   Margin="5"
-                   HorizontalOptions="End" Opacity="0.8" Text="One Rep Max" VerticalOptions="End" />
-
-            <StackLayout Grid.Row="0" Grid.RowSpan="3"
-                         Grid.Column="0" Grid.ColumnSpan="3"
-                         HorizontalOptions="FillAndExpand" Orientation="Horizontal">
-                <Label x:Name="labelMaxLift"
-                       VerticalTextAlignment="Center"
-                       FontSize="{Binding Source={x:Reference pageWorkoutLogList},
-                                          Path=OneRepMaxFontSize}"
-                       TextColor="{DynamicResource ColorBrandGlobalBlue}"
-                       Margin="5,0"
-                       HorizontalOptions="StartAndExpand" />
-                <Label x:Name="labelMaxWeight"
-                       VerticalTextAlignment="Center"
-                       FontSize="{Binding Source={x:Reference pageWorkoutLogList},
-                                          Path=WOneRepMaxFontSize}"
-                       TextColor="{DynamicResource ColorBrandGlobalBlue}"
-                       Margin="5,0"
-                       HorizontalOptions="EndAndExpand" />
-            </StackLayout>
-            <Image Grid.Row="0"
-                   Grid.Column="2"
-                   HeightRequest="15" WidthRequest="15"
-                   Margin="5"
-                   Aspect="AspectFit" HorizontalOptions="End" Opacity="0.8" Source="plusblue" VerticalOptions="Start" />
-            <BoxView x:Name="boxView"
-                     Grid.Row="0" Grid.RowSpan="2"
-                     Grid.Column="2"
-                     HorizontalOptions="Fill" VerticalOptions="Fill"
-                     Color="Transparent" BackgroundColor="Transparent">
-                <BoxView.GestureRecognizers>
-                    <TapGestureRecognizer x:Name="tapGestureRecognizerOneRepMax" Tapped="TapGestureRecognizerOneRepMax_OnTapped" />
-                </BoxView.GestureRecognizers>
-            </BoxView>
-        </Grid>
-        <controls:OneRepMax x:Name="oneRepMaxView"
-                            Grid.Row="0" Grid.RowSpan="2"
-                            LiftClicked="OneRepMaxView_OnLiftClicked" WClicked="OneRepMaxView_OnWClicked" WFocused="OneRepMaxView_OnWFocused" WUnfocused="OneRepMaxView_OnWUnfocused" />
-        <Grid x:Name=" viewWeightOptions"
-              Grid.Row="1"
-              HorizontalOptions="FillAndExpand" VerticalOptions="Center">
-            <!--  Margin="30"  -->
-            <templates:FrameBoxTemplate />
-            <Label x:Name="labelWeightOptions"
-                   BindingContext="{x:Reference oneRepMaxView}"
-                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
-                   FontSize="{Binding Source={x:Reference pageWorkoutLogList},
-                                      Path=labelWeightOptionsFontSize}"
-                   TextColor="{StaticResource ColorBrandGlobalBlue}"
-                   Text="{Binding WeightLifted}" />
-        </Grid>
+        <!--  <Grid x:Name="gridOneRepMax"  -->
+        <!--  Grid.Row="2"  -->
+        <!--  Padding="5">  -->
+        <!--            <Grid.ColumnDefinitions>-->
+        <!--                <ColumnDefinition Width="*" />-->
+        <!--                <ColumnDefinition Width="*" />-->
+        <!--                <ColumnDefinition Width="Auto" />-->
+        <!--            </Grid.ColumnDefinitions>-->
+        <!--            <Grid.RowDefinitions>-->
+        <!--                <RowDefinition Height="Auto" />-->
+        <!--                <RowDefinition Height="*" />-->
+        <!--                <RowDefinition Height="Auto" />-->
+        <!--            </Grid.RowDefinitions>-->
+        <!--  <templates:FrameBoxTemplate Grid.Row="0" Grid.RowSpan="3"  -->
+        <!--  Grid.Column="0" Grid.ColumnSpan="3" />  -->
+        <!--  <Label Grid.Row="2"  -->
+        <!--  Grid.Column="2"  -->
+        <!--  VerticalTextAlignment="End"  -->
+        <!--  FontSize="Micro" FontAttributes="Bold"  -->
+        <!--  TextColor="{DynamicResource ColorBrandGlobalBlue}"  -->
+        <!--  Margin="5"  -->
+        <!--  HorizontalOptions="End" Opacity="0.8" Text="One Rep Max" VerticalOptions="End" />  -->
+        <!--    -->
+        <!--  <StackLayout Grid.Row="0" Grid.RowSpan="3"  -->
+        <!--  Grid.Column="0" Grid.ColumnSpan="3"  -->
+        <!--  HorizontalOptions="FillAndExpand" Orientation="Horizontal">  -->
+        <!--  <Label x:Name="labelMaxLift"  -->
+        <!--  VerticalTextAlignment="Center"  -->
+        <!--  FontSize="{Binding Source={x:Reference pageWorkoutLogList},  -->
+        <!--  Path=OneRepMaxFontSize}"  -->
+        <!--  TextColor="{DynamicResource ColorBrandGlobalBlue}"  -->
+        <!--  Margin="5,0"  -->
+        <!--  HorizontalOptions="StartAndExpand" />  -->
+        <!--  <Label x:Name="labelMaxWeight"  -->
+        <!--  VerticalTextAlignment="Center"  -->
+        <!--  FontSize="{Binding Source={x:Reference pageWorkoutLogList},  -->
+        <!--  Path=WOneRepMaxFontSize}"  -->
+        <!--  TextColor="{DynamicResource ColorBrandGlobalBlue}"  -->
+        <!--  Margin="5,0"  -->
+        <!--  HorizontalOptions="EndAndExpand" />  -->
+        <!--            </StackLayout>-->
+        <!--  <Image Grid.Row="0"  -->
+        <!--  Grid.Column="2"  -->
+        <!--  HeightRequest="15" WidthRequest="15"  -->
+        <!--  Margin="5"  -->
+        <!--  Aspect="AspectFit" HorizontalOptions="End" Opacity="0.8" Source="plusblue" VerticalOptions="Start" />  -->
+        <!--  <BoxView x:Name="boxView"  -->
+        <!--  Grid.Row="0" Grid.RowSpan="2"  -->
+        <!--  Grid.Column="2"  -->
+        <!--  HorizontalOptions="Fill" VerticalOptions="Fill"  -->
+        <!--  Color="Transparent" BackgroundColor="Transparent">  -->
+        <!--                <BoxView.GestureRecognizers>-->
+        <!--                    <TapGestureRecognizer x:Name="tapGestureRecognizerOneRepMax" Tapped="TapGestureRecognizerOneRepMax_OnTapped" />-->
+        <!--                </BoxView.GestureRecognizers>-->
+        <!--            </BoxView>-->
+        <!--        </Grid>-->
+        <!--  <controls:OneRepMax x:Name="oneRepMaxView"  -->
+        <!--  Grid.Row="0" Grid.RowSpan="2"  -->
+        <!--  LiftClicked="OneRepMaxView_OnLiftClicked" WClicked="OneRepMaxView_OnWClicked" WFocused="OneRepMaxView_OnWFocused" WUnfocused="OneRepMaxView_OnWUnfocused" />  -->
+        <!--  <Grid x:Name="viewWeightOptions"  -->
+        <!--  Grid.Row="1"  -->
+        <!--  HorizontalOptions="FillAndExpand" VerticalOptions="Center">  -->
+        <!--  ~1~  Margin="30"  @1@  -->
+        <!--            <templates:FrameBoxTemplate />-->
+        <!--  <Label x:Name="labelWeightOptions"  -->
+        <!--  BindingContext="{x:Reference oneRepMaxView}"  -->
+        <!--  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  -->
+        <!--  FontSize="{Binding Source={x:Reference pageWorkoutLogList},  -->
+        <!--  Path=labelWeightOptionsFontSize}"  -->
+        <!--  TextColor="{StaticResource ColorBrandGlobalBlue}"  -->
+        <!--  Text="{Binding WeightLifted}" />  -->
+        <!--        </Grid>-->
     </Grid>
 
 </ContentPage>

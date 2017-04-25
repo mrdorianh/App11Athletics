@@ -12,12 +12,14 @@
     <Grid x:Name="gridDiscover">
 
         <ListView x:Name="trainersListView"
-                  ChildAdded="TrainersListView_OnChildAdded" ItemSelected="TrainersListView_ItemSelected"
+                  ChildAdded="TrainersListView_OnChildAdded" HasUnevenRows="True" ItemSelected="TrainersListView_ItemSelected"
                   ItemsSource="{Binding}"
-                  ListView.HasUnevenRows="True" SeparatorVisibility="None">
+                  SeparatorVisibility="None">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
+                        <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                                 Color="White" />
                         <Frame Margin="10" Padding="5"
                                BackgroundColor="White">
                             <Grid>
@@ -33,7 +35,7 @@
                                                                                  Path=Width}"
                                                           Aspect="AspectFill"
                                                           BorderColor="{Binding Color}"
-                                                          BorderThickness="2" HorizontalOptions="Center"
+                                                          BorderThickness="2" FillColor="White" HorizontalOptions="Center"
                                                           Source="{Binding ImageUrl}"
                                                           VerticalOptions="Center" />
                                 </Grid>

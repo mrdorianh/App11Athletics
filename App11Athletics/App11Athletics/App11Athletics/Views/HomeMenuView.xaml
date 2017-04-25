@@ -1,29 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
-<ContentPage x:Class="App11Athletics.Views.HomeMenuView" x:Name="pageHomeMenu"
+<ContentPage x:Class="App11Athletics.Views.HomeMenuView" x:Name="pageHomeMenu" Title="Main Menu"
              xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:carousel="clr-namespace:Syncfusion.SfCarousel.XForms;assembly=Syncfusion.SfCarousel.XForms" xmlns:controls="clr-namespace:ImageCircle;assembly=ImageCircle.Forms.Plugin.Abstractions"
-             NavigationPage.HasNavigationBar="False" SizeChanged="HomeMenuView_OnSizeChanged"
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:xForms="clr-namespace:Syncfusion.SfCarousel.XForms;assembly=Syncfusion.SfCarousel.XForms"
+             NavigationPage.HasBackButton="False" SizeChanged="HomeMenuView_OnSizeChanged"
              BackgroundColor="White">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <DataTemplate x:Key="itemTemplate">
-                <Image Aspect="AspectFit" Source="{Binding Image}" />
-            </DataTemplate>
+            <Style x:Key="styleCaraImage"
+                   TargetType="Image">
+                <Setter Property="Aspect" Value="AspectFit" />
+                <Setter Property="Rotation" Value="0.0" />
+            </Style>
+            <!--            <DataTemplate x:Key="itemTemplate">-->
+            <!--                <Grid>-->
+            <!--  <Image Aspect="AspectFit"  -->
+            <!--  Rotation="{Binding ImageRotation}"  -->
+            <!--  Source="{Binding Image}"  -->
+            <!--  VerticalOptions="CenterAndExpand">  -->
+            <!--                        <Image.GestureRecognizers>-->
+            <!--                            <TapGestureRecognizer Tapped="TapGestureRecognizerBox_OnTapped" />-->
+            <!--                        </Image.GestureRecognizers>-->
+            <!--                    </Image>-->
+            <!--  ~1~  <dhcToolkit:ImageCircle x:Name="circleImage"  @1@  -->
+            <!--  ~1~  BorderColor="{StaticResource ColorBrandGlobalBlue}"  @1@  -->
+            <!--  ~1~  BorderThickness="8"  @1@  -->
+            <!--  ~1~  InputTransparent="{Binding NotProfile}"  @1@  -->
+            <!--  ~1~  IsVisible="{Binding IsProfile}">  @1@  -->
+            <!--                    ~1~                        <dhcToolkit:ImageCircle.GestureRecognizers>@1@-->
+            <!--                    ~1~                            <TapGestureRecognizer Tapped="TapGestureRecognizerBox_OnTapped" />@1@-->
+            <!--                    ~1~                        </dhcToolkit:ImageCircle.GestureRecognizers>@1@-->
+            <!--  ~1~  <Image Aspect="AspectFill" InputTransparent="False"  @1@  -->
+            <!--  ~1~  Rotation="{Binding ImageRotation}"  @1@  -->
+            <!--  ~1~  Source="{Binding Image}" />  @1@  -->
+            <!--                    ~1~                    </dhcToolkit:ImageCircle>@1@-->
+            <!--                </Grid>-->
+            <!--            </DataTemplate>-->
         </ResourceDictionary>
     </ContentPage.Resources>
-    <Grid>
+    <Grid x:Name="Root">
         <Image x:Name="imageBG"
                BindingContext="{x:Reference pageHomeMenu}"
                Aspect="AspectFit" Opacity="0.5" Source="iconbevel.png" />
-        <Grid x:Name="gridHomeMenu">
 
+        <Grid x:Name="gridHomeMenu">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
@@ -38,27 +64,40 @@
             </Grid>
             <Grid x:Name="gridCara"
                   Grid.Row="1"
-                  IsClippedToBounds="False">
+                  Focused="GridCara_OnFocused" IsClippedToBounds="False">
                 <Image x:Name="imageArrowsLeft"
                        Aspect="AspectFit" HorizontalOptions="Start" Opacity="0.3" Source="arrows.png" VerticalOptions="Center" />
                 <Image x:Name="imageArrowsRight"
                        HorizontalOptions="End" Opacity="0.3" Rotation="180" Source="arrows.png" VerticalOptions="Center" />
-                <carousel:SfCarousel x:Name="carouselMain"
-                                     DataSource="{Binding ImageCollection}"
-                                     ItemHeight="200"
-                                     ItemTemplate="{StaticResource itemTemplate}"
-                                     RotationAngle="45" SelectedItemOffset="500" SelectionChanged="CarouselMain_OnSelectionChanged" VerticalOptions="CenterAndExpand"
-                                     Offset="100" />
-
-                <BoxView x:Name="boxViewTap"
-                         HeightRequest="200" WidthRequest="100"
-                         HorizontalOptions="Center" Opacity="0.1" VerticalOptions="Center"
-                         Color="Transparent">
-                    <BoxView.GestureRecognizers>
-                        <TapGestureRecognizer x:Name="tapGestureRecognizerBox" Tapped="TapGestureRecognizerBox_OnTapped" />
-                    </BoxView.GestureRecognizers>
-                </BoxView>
+                <!--  <carousel:SfCarousel x:Name="carouselMain"  -->
+                <!--  DataSource="{Binding ImageCollection}"  -->
+                <!--  ItemHeight="200"  -->
+                <!--  ItemTemplate="{StaticResource itemTemplate}"  -->
+                <!--  RotationAngle="45" SelectedItemOffset="500" SelectionChanged="CarouselMain_OnSelectionChanged" VerticalOptions="CenterAndExpand"  -->
+                <!--  Offset="100" />  -->
+                <xForms:SfCarousel x:Name="sfCarouselX"
+                                   HorizontalOptions="FillAndExpand" ItemHeight="175" RotationAngle="45" SelectedItemOffset="500" SelectionChanged="CarouselMain_OnSelectionChanged"
+                                   Offset="100" />
+                <!--  <BoxView x:Name="boxViewTap"  -->
+                <!--  HeightRequest="200" WidthRequest="100"  -->
+                <!--  HorizontalOptions="Center" Opacity="0.1" VerticalOptions="Center"  -->
+                <!--  Color="Transparent">  -->
+                <!--                    <BoxView.GestureRecognizers>-->
+                <!--                        <TapGestureRecognizer x:Name="tapGestureRecognizerBox" Tapped="TapGestureRecognizerBox_OnTapped" />-->
+                <!--                    </BoxView.GestureRecognizers>-->
+                <!--                </BoxView>-->
             </Grid>
+        </Grid>
+        <Grid x:Name="gridSchedule"
+              Padding="0,0,0,30"
+              HorizontalOptions="FillAndExpand" VerticalOptions="End">
+            <Button FontSize="Large"
+                    BorderRadius="20" Clicked="Button_OnClicked" HorizontalOptions="Fill" VerticalOptions="EndAndExpand"
+                    BackgroundColor="{StaticResource ColorBrandGlobalBlue}" />
+            <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                   FontSize="Medium" FontAttributes="Bold" TextColor="White"
+                   Margin="0,0,15,0"
+                   HorizontalOptions="End" InputTransparent="True" Text="S C H E D U L E" />
         </Grid>
     </Grid>
 </ContentPage>

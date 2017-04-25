@@ -1,10 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using App11Athletics.Models;
+using PropertyChanged;
 using SQLite;
 
 namespace App11Athletics.Data
 {
+    [ImplementPropertyChanged]
     public class TodoItemDatabase
     {
         readonly SQLiteAsyncConnection database;
@@ -15,12 +18,20 @@ namespace App11Athletics.Data
             database.CreateTableAsync<TodoItem>().Wait();
         }
 
-
         public Task<List<TodoItem>> GetItemsAsync()
         {
             return database.Table<TodoItem>().ToListAsync();
         }
+        public Task<List<TodoItem>> GetFilteredItemsAsync(string date)
+        {
+            return database.Table<TodoItem>().Where(i => i.LoggedDate == date).ToListAsync();
+        }
 
+
+        public Task<List<TodoItem>> GetFilteredItemsAsync(bool isMaxLift)
+        {
+            return database.Table<TodoItem>().Where(i => i.IsMaxLift == isMaxLift).ToListAsync();
+        }
         public Task<List<TodoItem>> GetItemsNotDoneAsync()
         {
             return database.QueryAsync<TodoItem>("SELECT * FROM [TodoItem] WHERE [Done] = 0");
@@ -30,6 +41,7 @@ namespace App11Athletics.Data
         {
             return database.Table<TodoItem>().Where(i => i.ID == id).FirstOrDefaultAsync();
         }
+
 
         public Task<int> SaveItemAsync(TodoItem item)
         {

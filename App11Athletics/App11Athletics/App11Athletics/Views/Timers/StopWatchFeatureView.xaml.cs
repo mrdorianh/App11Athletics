@@ -28,7 +28,7 @@ namespace App11Athletics.Views.Timers
             AnimatePages.BgLogoTask(imageBG, Width / 2, Height / 2);
             await Task.Delay(1000);
             gridStopwatch.FadeTo(1, 200U, Easing.CubicOut);
-            await AnimatePages.AnimatePageIn(gridStopwatch, imageBG);
+            await AnimatePages.AnimatePageIn(gridStopwatch);
 
             await Task.Delay(400);
             //            imageBG.ScaleTo(1, 350U, Easing.CubicOut);
@@ -39,7 +39,7 @@ namespace App11Athletics.Views.Timers
         {
             base.OnAppearing();
             //            imageBG.ScaleTo(0, 350U, Easing.CubicOut);
-            await AnimatePages.AnimatePageOut(gridStopwatch, imageBG);
+            await AnimatePages.AnimatePageOut(gridStopwatch);
         }
     }
 }

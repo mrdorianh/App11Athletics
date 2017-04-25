@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="App11Athletics.Views.WorkoutLogCalendar" x:Name="WorkoutLogCalendarPage"
+             xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Clicked="OneRepMaxGo" Order="Primary" Text="Open One Rep Max" />
+        <ToolbarItem Clicked="GoToTodayCalendar" Order="Secondary" Text="Go to Today" />
+    </ContentPage.ToolbarItems>
+    <Grid x:Name="gridLayout">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <controls:CalendarView x:Name="calendarView"
+                               Grid.Row="0"
+                               DateSelected="CalendarViewOnDateSelected" />
+        <Button x:Name="buttonGoToDate"
+                Grid.Row="1"
+                TextColor="White"
+                Margin="15,5"
+                BorderRadius="15" Clicked="ButtonGoToDate_OnClicked" Font="Medium"
+                BackgroundColor="{DynamicResource ColorBrandGlobalBlue}" />
+        <Grid Grid.Row="2">
+            <ListView x:Name="listView"
+                      HasUnevenRows="True" ItemSelected="OnListItemSelected" Opacity="0.5"
+                      SeparatorColor="{StaticResource ColorBrandGlobalBlue}"
+                      SeparatorVisibility="Default">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Grid VerticalOptions="Center">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="4*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout Grid.Row="0"
+                                                 Grid.Column="0"
+                                                 Padding="10"
+                                                 HorizontalOptions="Center" VerticalOptions="Center">
+                                        <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                                               FontSize="Large" FontAttributes="Bold"
+                                               TextColor="{DynamicResource ColorBrandGlobalBlue}"
+                                               HorizontalOptions="Center" LineBreakMode="TailTruncation"
+                                               Text="{Binding Name}"
+                                               VerticalOptions="Center" />
+                                        <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Spacing="15" VerticalOptions="CenterAndExpand">
+                                            <StackLayout HorizontalOptions="Center"
+                                                         IsVisible="{Binding WSeps,
+                                                                             Converter={StaticResource NullToVisibility}}"
+                                                         Orientation="Horizontal" VerticalOptions="Center">
+                                                <Label x:Name="labelSets"
+                                                       HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                                                       FontSize="Medium" FontAttributes="Bold"
+                                                       TextColor="{DynamicResource ColorBrandGlobalBlue}"
+                                                       Text="{Binding WSets,
+                                                                      StringFormat='{0}'}"
+                                                       VerticalOptions="Center" />
+                                                <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                                                       FontSize="Small"
+                                                       TextColor="{DynamicResource ColorBrandGlobalBlue}"
+                                                       Text="SETS" VerticalOptions="Center" />
+                                            </StackLayout>
+                                            <StackLayout HorizontalOptions="Center"
+                                                         IsVisible="{Binding WReps,
+                                                                             Converter={StaticResource NullToVisibility}}"
+                                                         Orientation="Horizontal" VerticalOptions="Center">
+                                                <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                                                       FontSize="Medium" FontAttributes="Bold"
+                                                       TextColor="{DynamicResource ColorBrandGlobalBlue}"
+                                                       Text="{Binding WReps,
+                                                                      StringFormat='{0}'}"
+                                                       VerticalOptions="Center" />
+                                                <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                                                       FontSize="Small"
+                                                       TextColor="{DynamicResource ColorBrandGlobalBlue}"
+                                                       Text="REPS" VerticalOptions="Center" />
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+
+                                    <Image Grid.Column="1"
+                                           WidthRequest="50"
+                                           HorizontalOptions="Center"
+                                           IsVisible="{Binding NotDone}"
+                                           Source="check.png" VerticalOptions="Center" />
+                                    <Image x:Name="imageCheck"
+                                           Grid.Column="1"
+                                           WidthRequest="50"
+                                           HorizontalOptions="Center"
+                                           IsVisible="{Binding Done,
+                                                               Mode=TwoWay}"
+                                           Source="checkgreen.png" StyleId="d" VerticalOptions="Center" />
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label x:Name="labelPreview"
+                   HorizontalTextAlignment="Start" VerticalTextAlignment="Start"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource ColorBrandGlobalBlue}"
+                   Margin="15,5"
+                   HorizontalOptions="Start" InputTransparent="True" Text="PREVIEW" VerticalOptions="Start"
+                   BackgroundColor="Transparent" />
+        </Grid>
+    </Grid>
+</ContentPage>

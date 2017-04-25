@@ -2,8 +2,10 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using App11Athletics.Models;
 using Plugin.Settings;
+using PropertyChanged;
 using Plugin.Settings.Abstractions;
 
 namespace App11Athletics.Helpers
@@ -13,6 +15,7 @@ namespace App11Athletics.Helpers
     /// of your client applications. All settings are laid out the same exact way with getters
     /// and setters. 
     /// </summary>
+    [ImplementPropertyChanged]
     public static class Settings
     {
         private static ISettings AppSettings
@@ -49,13 +52,13 @@ namespace App11Athletics.Helpers
         private static readonly string SettingsUserDceDefault = string.Empty;
 
         private const string SettingsUserAge = "user_age";
-        private static readonly string SettingsUserAgeDefault = "23";
+        private static readonly string SettingsUserAgeDefault = string.Empty;
 
         private const string SettingsUserHeightFt = "user_heightFt";
         private static readonly string SettingsUserHeightFtDefault = "5";
 
         private const string SettingsUserHeightIn = "user_heightIn";
-        private static readonly string SettingsUserHeightInDefault = "9";
+        private static readonly string SettingsUserHeightInDefault = "6";
 
         private const string SettingsUserWeight = "user_weight";
         private static readonly string SettingsUserWeightDefault = string.Empty;
@@ -79,7 +82,10 @@ namespace App11Athletics.Helpers
         private static readonly string SettingsUserGivenNameDefault = string.Empty;
 
         private const string SettingsUserPicture = "user_picture";
-        private static readonly string SettingsUserPictureDefault = "icon.png";
+        private static readonly string SettingsUserPictureDefault = "iconbevel.png";
+
+        private const string SettingsUserPictureOriginal = "user_picture_original";
+        private static readonly string SettingsUserPictureOriginalDefault = string.Empty;
 
         private const string SettingsUserRefreshToken = "user_refreshToken";
         private static readonly string SettingsUserRefreshTokenDefault = string.Empty;
@@ -111,8 +117,10 @@ namespace App11Athletics.Helpers
         private const string SettingsUserConnection = "user_connection";
         private static readonly string SettingsUserConnectionDefault = string.Empty;
 
-        private const string SettingsUserIsSocial = "user_provider";
+        private const string SettingsUserIsSocial = "user_is_social";
         private static readonly bool SettingsUserIsSocialDefault = false;
+        private const string SettingsUserProfileImageRotation = "user_profile_image_rotation";
+        private static readonly double SettingsUserProfileImageRotationDefault = 0.0;
 
         private const string SettingsOneRMLift = "user_OneRMLift";
         private static readonly string SettingsOneRMLiftDefault = "ADD EXERCISE";
@@ -121,6 +129,7 @@ namespace App11Athletics.Helpers
         private static readonly string SettingsOneRMWeightDefault = "0";
         private const string SettingsOneRMAx = "user_OneRMax";
         private static readonly string SettingsOneRMaxDefault = "0";
+
 
         public static string UserOneRMLift
         {
@@ -240,6 +249,12 @@ namespace App11Athletics.Helpers
                 AppSettings.AddOrUpdateValue<string>(SettingsUserFamilyName, value);
             }
         }
+        //
+        // Summary:
+        //     Event that is raised when the menu item is clicked.
+        //
+        // Remarks:
+        //     To be added.
         public static string UserGivenName
         {
             get { return AppSettings.GetValueOrDefault<string>(SettingsUserGivenName, SettingsUserGivenNameDefault); }
@@ -254,6 +269,14 @@ namespace App11Athletics.Helpers
             set
             {
                 AppSettings.AddOrUpdateValue<string>(SettingsUserPicture, value);
+            }
+        }
+        public static string UserPictureOriginal
+        {
+            get { return AppSettings.GetValueOrDefault<string>(SettingsUserPictureOriginal, SettingsUserPictureOriginalDefault); }
+            set
+            {
+                AppSettings.AddOrUpdateValue<string>(SettingsUserPictureOriginal, value);
             }
         }
         public static string UserRefreshToken
@@ -349,6 +372,14 @@ namespace App11Athletics.Helpers
             set
             {
                 AppSettings.AddOrUpdateValue<bool>(SettingsUserIsSocial, value);
+            }
+        }
+        public static double UserProfileImageRotation
+        {
+            get { return AppSettings.GetValueOrDefault<double>(SettingsUserProfileImageRotation, SettingsUserProfileImageRotationDefault); }
+            set
+            {
+                AppSettings.AddOrUpdateValue<double>(SettingsUserProfileImageRotation, value);
             }
         }
     }

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView x:Class="App11Athletics.Views.Controls.OneRepMaxViewCellView" x:Name="contentViewCell"
+             xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dhcToolkit="clr-namespace:App11Athletics.DHCToolkit;assembly=App11Athletics" xmlns:templates="clr-namespace:App11Athletics.Templates;assembly=App11Athletics"
+             SizeChanged="OneRepMaxViewCellView_OnSizeChanged">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <dhcToolkit:BgConverter x:Key="bgConverter" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid x:Name="gridCell"
+              VerticalOptions="Center"
+              BackgroundColor="{Binding IsSelected,
+                                        Converter={StaticResource bgConverter}}">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackLayout Grid.Row="0"
+                         Grid.Column="0"
+                         Padding="10"
+                         HorizontalOptions="Center" VerticalOptions="Center">
+                <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                       FontSize="Large" FontAttributes="Bold"
+                       TextColor="{Binding NotSelected,
+                                           Converter={StaticResource bgConverter}}"
+                       HorizontalOptions="Center" LineBreakMode="TailTruncation"
+                       Text="{Binding Name}"
+                       VerticalOptions="Center" />
+
+                <StackLayout HorizontalOptions="Center" Orientation="Horizontal" VerticalOptions="Center">
+                    <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                           FontSize="Medium"
+                           TextColor="{Binding NotSelected,
+                                               Converter={StaticResource bgConverter}}"
+                           Text="One Rep Max" VerticalOptions="Center" />
+                    <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                           FontSize="Medium" FontAttributes="Bold"
+                           TextColor="{Binding NotSelected,
+                                               Converter={StaticResource bgConverter}}"
+                           Text="{Binding OneRepMax,
+                                          StringFormat='{0}lbs'}"
+                           VerticalOptions="Center" />
+                </StackLayout>
+            </StackLayout>
+
+
+        </Grid>
+    </ContentView.Content>
+</ContentView>
+

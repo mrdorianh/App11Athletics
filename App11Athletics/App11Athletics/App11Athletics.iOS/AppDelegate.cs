@@ -1,8 +1,21 @@
-﻿using Foundation;
-using ImageCircle.Forms.Plugin.iOS;
+﻿
+using FFImageLoading.Forms.Touch;
+using FFImageLoading;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.IO;
+using Foundation;
 using Octane.Xam.VideoPlayer.iOS;
 using Syncfusion.SfCarousel.XForms.iOS;
 using UIKit;
+using ImageCircle.Forms.Plugin.iOS;
+using Plugin.Permissions.Abstractions;
+using XFShapeView.iOS;
+using XLabs.Forms;
+using XLabs.Ioc;
+using XLabs.Platform.Device;
+using XLabs.Platform.Services;
 
 namespace App11Athletics.iOS
 {
@@ -10,7 +23,8 @@ namespace App11Athletics.iOS
     // User Interface of the application, as well as listening (and optionally responding) to 
     // application events from iOS.
     [Register("AppDelegate")]
-    public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
+
+    public partial class AppDelegate : XFormsApplicationDelegate
     {
         // This method is invoked when the application has loaded and is ready to run. In this 
         // method you should instantiate the window, load the UI into it and then make the window
@@ -20,11 +34,27 @@ namespace App11Athletics.iOS
         {
 
             global::Xamarin.Forms.Forms.Init();
+            CachedImageRenderer.Init();
+            new ShapeRenderer();
+            ShapeRenderer.Init();
             FormsVideoPlayer.Init();
-            LoadApplication(new App());
             new SfCarouselRenderer();
             ImageCircleRenderer.Init();
+
+            if (Resolver.IsSet)
+                Resolver.ResetResolver();
+            var container = new SimpleContainer();
+            container.Register<IDevice>(t => AppleDevice.CurrentDevice);
+            container.Register<IDisplay>(t => t.Resolve<IDevice>().Display);
+            container.Register<INetwork>(t => t.Resolve<IDevice>().Network);
+            container.Register<IDependencyContainer>(t => container);
+
+            Resolver.SetResolver(container.GetResolver());
+            LoadApplication(new App());
             return base.FinishedLaunching(app, options);
         }
+
+
     }
 }
+//global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate

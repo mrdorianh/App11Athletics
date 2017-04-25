@@ -125,7 +125,7 @@
                 </Grid>
             </StackLayout>
             <Button x:Name="buttonSave"
-                    Grid.Row="4"
+                    Grid.Row="4" 
                     Clicked="Button_OnClicked"
                     Style="{DynamicResource styleGreenSaveButton}"
                     VerticalOptions="Start" />

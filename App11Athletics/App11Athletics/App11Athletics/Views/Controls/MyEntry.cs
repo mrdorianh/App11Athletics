@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 
 namespace App11Athletics.Views.Controls
 {
@@ -6,35 +7,39 @@ namespace App11Athletics.Views.Controls
     {
         public MyEntry()
         {
-            
             base.TextChanged += EditText;
             base.Focused += ClearText;
+            base.Unfocused += OnUnfocused;
         }
 
-        private void ClearText(object sender, FocusEventArgs e)
+        void OnUnfocused(object sender, FocusEventArgs focusEventArgs)
         {
-            Entry d = sender as Entry;
-            if (d != null) d.Text = string.Empty;
+            var e = sender as Entry;
+            if (!Uppercase)
+                return;
+            if (e != null)
+                e.Text = e.Text.ToUpper();
+        }
+
+        private static void ClearText(object sender, FocusEventArgs e)
+        {
+            var d = sender as Entry;
+            if (!string.IsNullOrEmpty(d?.Text))
+                d.Text = string.Empty;
         }
 
         public void EditText(object sender, TextChangedEventArgs args)
         {
-            Entry e = sender as Entry;
-            if (e != null) {
-                string val = e.Text;
+            var e = sender as Entry;
+            string val = null;
+            if (e != null)
+                val = ((Entry)sender).Text;
+            if (string.IsNullOrEmpty(val))
+                return;
+            if ((MaxLength <= 0) || (val.Length <= MaxLength))
+                return;
 
-                if (string.IsNullOrEmpty(val))
-                    return;
-
-                if (Uppercase)
-                    val = val.ToUpper();
-
-                if (MaxLength > 0 && val.Length > MaxLength)
-                {
-                    val = val.Remove(val.Length - 1);
-                }
-                e.Text = val;
-            }
+            e.Text = val.Remove(val.Length - 1);
         }
 
         public static readonly BindableProperty UppercaseProperty =
@@ -42,7 +47,7 @@ namespace App11Athletics.Views.Controls
 
         public bool Uppercase
         {
-            get { return (bool) GetValue(UppercaseProperty); }
+            get { return (bool)GetValue(UppercaseProperty); }
             set { SetValue(UppercaseProperty, value); }
         }
 
@@ -51,7 +56,7 @@ namespace App11Athletics.Views.Controls
 
         public int MaxLength
         {
-            get { return (int) GetValue(MaxLengthProperty); }
+            get { return (int)GetValue(MaxLengthProperty); }
             set { SetValue(MaxLengthProperty, value); }
         }
     }

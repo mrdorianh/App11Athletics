@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="App11Athletics.Views.debug" x:Name="contentPage" Title="debug"
+             xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:App11Athletics.Views.Controls;assembly=App11Athletics" xmlns:dhcToolkit="clr-namespace:App11Athletics.DHCToolkit;assembly=App11Athletics" xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:templates="clr-namespace:App11Athletics.Templates;assembly=App11Athletics" xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations" xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView"
+             BackgroundColor="White">
+    <ContentPage.Resources>
+
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource ColorBrandGlobalBlue}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid x:Name="grid" BindingContext="{x:Reference contentPage}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <forms:CachedImage x:Name="cachedImage"
+                               Grid.Row="0"
+                               Grid.Column="1"
+                               Source="{Binding ProfileImage}"
+                               Success="CacheSuccess">
+                <forms:CachedImage.Transformations>
+                    <transformations:CircleTransformation BorderHexColor="#005EBF" BorderSize="8" />
+                </forms:CachedImage.Transformations>
+            </forms:CachedImage>
+            <forms:CachedImage x:Name="image"
+                               Grid.Row="2"
+                               Grid.Column="1"
+                               Source="{Binding ProfileImage}"
+                               Success="CachBaseeSuccess" />
+            <ScrollView Grid.Row="1"
+                        Grid.Column="0" Grid.ColumnSpan="3">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0"
+                           HorizontalTextAlignment="Start"
+                           LineBreakMode="WordWrap"
+                           Text="{Binding ImageInfo}"
+                           VerticalOptions="FillAndExpand" />
+                    <Label Grid.Column="1"
+                           HorizontalTextAlignment="End"
+                           LineBreakMode="WordWrap"
+                           Text="{Binding ImageBaseInfo}"
+                           VerticalOptions="FillAndExpand" />
+                </Grid>
+            </ScrollView>
+            <Button Clicked="Button_OnClicked" Style="{StaticResource styleGreenSaveButton}" />
+        </Grid>
+    </ContentPage.Content>
+
+
+</ContentPage>

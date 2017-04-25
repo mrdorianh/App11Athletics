@@ -1,42 +1,92 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage x:Class="App11Athletics.Views.WorkoutLogOptionsView" Title="{Binding Name}"
+<ContentPage x:Class="App11Athletics.Views.WorkoutLogOptionsView" x:Name="contentPage" Title="{Binding Name}"
              xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:App11Athletics.Views.Controls;assembly=App11Athletics">
+             xmlns:local="clr-namespace:App11Athletics.Views.Controls;assembly=App11Athletics"
+             BackgroundColor="White">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="Margin" Value="0" />
 
-    <Grid RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}">
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="VerticalOptions" Value="EndAndExpand" />
+                <Setter Property="Margin" Value="0" />
+
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
         <ScrollView>
-            <StackLayout Padding="20" VerticalOptions="StartAndExpand">
+            <StackLayout Padding="20"
+                         Spacing="2" VerticalOptions="FillAndExpand">
                 <Label Text="Name" />
                 <local:MyEntry x:Name="nameEntry"
-                               Keyboard="Text" Placeholder="Add Exercise" PlaceholderColor="Gray" PropertyChanging="NameEntry_OnPropertyChanging"
+                               Keyboard="Text" Placeholder="Add Exercise" PlaceholderColor="#4BDF0000" PropertyChanging="NameEntry_OnPropertyChanging"
                                Text="{Binding Name}"
-                               TextChanged="NameEntry_OnTextChanged" Uppercase="True" />
-                <Label Text="Sets" />
-                <Entry x:Name="SetEntry"
-                       Focused="SetEntry_OnFocused" Keyboard="Numeric" Placeholder="#" PlaceholderColor="Gray"
-                       Text="{Binding WSets}"
-                       TextChanged="SetEntry_OnTextChanged" />
+                               Unfocused="OptionUnfocused" Uppercase="True" />
+                <Label IsVisible="{Binding Source={x:Reference contentPage},
+                                           Path=IsMaxBool}"
+                       Text="Weight(lbs)" />
+                <local:MyEntry x:Name="WeightEntry"
+                               Focused="Entry_OnFocused"
+                               IsVisible="{Binding Source={x:Reference contentPage},
+                                                   Path=IsMaxBool}"
+                               Keyboard="Numeric" MaxLength="4" Placeholder="#" PlaceholderColor="Gray"
+                               Text="{Binding LiftWeight}"
+                               TextChanged="WeightEntry_OnTextChanged" Unfocused="OptionUnfocused" />
+                <Label IsVisible="{Binding Source={x:Reference contentPage},
+                                           Path=IsLogBool}"
+                       Text="Sets" />
+                <local:MyEntry x:Name="SetEntry"
+                               Focused="Entry_OnFocused"
+                               IsVisible="{Binding Source={x:Reference contentPage},
+                                                   Path=IsLogBool}"
+                               Keyboard="Numeric" MaxLength="2" Placeholder="#" PlaceholderColor="Gray"
+                               Text="{Binding WSets}"
+                               TextChanged="SetEntry_OnTextChanged" Unfocused="OptionUnfocused" />
                 <Label Text="Reps" />
-                <Entry x:Name="RepEntry"
-                       Focused="RepEntry_OnFocused" Keyboard="Numeric" Placeholder="#" PlaceholderColor="Gray"
-                       Text="{Binding WReps}"
-                       TextChanged="RepEntry_OnTextChanged" />
-                <Label Text="Notes" />
-                <Entry x:Name="notesEntry" Text="{Binding Notes}" />
-                <Label Text="Done" />
-                <Switch x:Name="doneEntry"
-                        HeightRequest="50"
-                        IsToggled="{Binding Done}" />
-                <Button x:Name="buttonSave"
-                        TextColor="White"
-                        Clicked="OnSaveClicked" Text="Save"
-                        BackgroundColor="{StaticResource ColorBrandGlobalGreen}" />
-                <Button TextColor="White"
-                        Clicked="OnDeleteClicked" Text="Delete"
-                        BackgroundColor="{StaticResource ColorBrandGlobalRed}" />
-                <Button TextColor="White"
-                        Clicked="OnCancelClicked" Text="Cancel"
-                        BackgroundColor="Silver" />
+                <local:MyEntry x:Name="RepEntry"
+                               Focused="Entry_OnFocused" Keyboard="Numeric" MaxLength="2" Placeholder="#" PlaceholderColor="Gray"
+                               Text="{Binding WReps}"
+                               TextChanged="RepEntry_OnTextChanged" Unfocused="OptionUnfocused" />
+                <Label IsVisible="{Binding Source={x:Reference contentPage},
+                                           Path=IsLogBool}"
+                       Text="Notes" />
+                <Editor x:Name="notesEntry"
+                        HeightRequest="100"
+                        IsVisible="{Binding Source={x:Reference contentPage},
+                                            Path=IsLogBool}"
+                        Text="{Binding Notes}"
+                        VerticalOptions="FillAndExpand" />
+                <StackLayout Margin="5"
+                             IsVisible="{Binding Source={x:Reference contentPage},
+                                                 Path=IsLogBool}"
+                             Orientation="Horizontal" VerticalOptions="StartAndExpand">
+                    <Label VerticalTextAlignment="Center"
+                           FontSize="Large"
+                           Text="Done" VerticalOptions="CenterAndExpand" />
+                    <Switch HorizontalOptions="EndAndExpand"
+                            IsToggled="{Binding Done}"
+                            VerticalOptions="CenterAndExpand" />
+                </StackLayout>
+                <StackLayout VerticalOptions="End">
+                    <Button x:Name="buttonSave"
+                            TextColor="White"
+                            Clicked="OnSaveClicked"
+                            IsEnabled="{Binding Source={x:Reference contentPage},
+                                                Path=CanSaveBool}"
+                            Text="Save"
+                            BackgroundColor="{StaticResource ColorBrandGlobalGreen}" />
+                    <Button TextColor="White"
+                            Clicked="OnDeleteClicked" Text="Delete"
+                            BackgroundColor="{StaticResource ColorBrandGlobalRed}" />
+                    <Button TextColor="White"
+                            Clicked="OnCancelClicked" Text="Cancel"
+                            BackgroundColor="Silver" />
+                </StackLayout>
                 <!--                                        <Button Clicked="OnSpeakClicked" Text="Speak" />-->
             </StackLayout>
         </ScrollView>

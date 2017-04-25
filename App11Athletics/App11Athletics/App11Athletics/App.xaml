@@ -1,22 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
-<Application x:Class="App11Athletics.App"
+<Application x:Class="App11Athletics.App" x:Name="application"
              xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions" xmlns:dhcToolkit="clr-namespace:App11Athletics.DHCToolkit;assembly=App11Athletics">
+             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions" xmlns:dhcToolkit="clr-namespace:App11Athletics.DHCToolkit;assembly=App11Athletics" xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:helpers="clr-namespace:App11Athletics.Helpers;assembly=App11Athletics" xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations">
     <Application.Resources>
         <!--  Application resource dictionary  -->
         <ResourceDictionary>
             <OnPlatform x:Key="MyPadding"
                         x:TypeArguments="Thickness" Android="0, 0, 0, 0" iOS="0, 20, 0, 0" />
             <!--  Colors  -->
-            <Color x:Key="ColorBrandGlobalBlue">#005EBF</Color>
-            <Color x:Key="ColorBrandGlobalGreen">#029902</Color>
-            <Color x:Key="ColorBrandGlobalRed">#DF0000</Color>
+            <Color x:Key="ColorBrandGlobalBlue">
+                #005EBF
+            </Color>
+            <Color x:Key="ColorBrandGlobalGreen">
+                #029902
+            </Color>
+            <Color x:Key="ColorBrandGlobalRed">
+                #DF0000
+            </Color>
             <!--      <ControlTemplate/>-->
             <ControlTemplate x:Key="ControlTemplateFrameContainer">
                 <Grid>
                     <Frame HasShadow="False" />
-                    <Frame Margin="4" BackgroundColor="White" />
+                    <Frame Margin="4"
+                           BackgroundColor="White" />
                     <ContentPresenter />
                 </Grid>
             </ControlTemplate>
@@ -24,6 +31,21 @@
             <Style TargetType="Frame">
                 <Setter Property="BackgroundColor" Value="{StaticResource ColorBrandGlobalBlue}" />
             </Style>
+            <Style x:Key="styleCachedImage"
+                   TargetType="forms:CachedImage">
+                <Setter Property="BitmapOptimizations" Value="True" />
+                <Setter Property="DownsampleHeight" Value="400" />
+                <Setter Property="FadeAnimationEnabled" Value="True" />
+                <Setter Property="LoadingPriority" Value="Highest" />
+                <Setter Property="LoadingPlaceholder" Value="bluedot.png" />
+                <Setter Property="RetryCount" Value="10" />
+                <Setter Property="RetryDelay" Value="200" />
+
+                <Setter Property="Aspect" Value="AspectFit" />
+                <Setter Property="TransformPlaceholders" Value="True" />
+            </Style>
+            <!--    -->
+
             <Style TargetType="BoxView">
                 <Setter Property="Margin" Value="4" />
                 <Setter Property="Color" Value="White" />
@@ -32,20 +54,25 @@
             </Style>
             <Style TargetType="ContentPage">
                 <Setter Property="Padding" Value="{StaticResource MyPadding}" />
+                <Setter Property="NavigationPage.BackButtonTitle" Value="" />
             </Style>
             <Style TargetType="abstractions:CircleImage">
-                <Setter Property="BorderColor" Value="{DynamicResource ColorBrandGlobalBlue}" />
-                <Setter Property="BorderThickness" Value="3" />
-                <Setter Property="FillColor" Value="{DynamicResource ColorBrandGlobalBlue}" />
+                <Setter Property="BorderColor" Value="{StaticResource ColorBrandGlobalBlue}" />
+                <Setter Property="BorderThickness" Value="2" />
+                <Setter Property="FillColor" Value="{StaticResource ColorBrandGlobalBlue}" />
                 <Setter Property="Aspect" Value="AspectFill" />
             </Style>
-            <Style x:Key="styleGreenSaveButton" TargetType="Button">
+            <Style x:Key="styleGreenSaveButton"
+                   TargetType="Button">
                 <Setter Property="VerticalOptions" Value="CenterAndExpand" />
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
                 <Setter Property="BackgroundColor" Value="{StaticResource ColorBrandGlobalGreen}" />
                 <Setter Property="BorderRadius" Value="10" />
                 <Setter Property="BorderColor" Value="White" />
                 <Setter Property="BorderWidth" Value="2" />
+                <Setter Property="Text" Value="Save" />
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="TextColor" Value="White" />
                 <Setter Property="WidthRequest" Value="100" />
                 <Setter Property="HeightRequest" Value="55" />
             </Style>

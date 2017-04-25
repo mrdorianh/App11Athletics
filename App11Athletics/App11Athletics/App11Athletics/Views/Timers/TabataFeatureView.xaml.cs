@@ -56,7 +56,7 @@ namespace App11Athletics.Views.Timers
             await AnimatePages.BgLogoTask(imageBG, Width / 2, Height / 2);
             await Task.Delay(200);
             gridTabataPage.FadeTo(1, 200U, Easing.CubicOut);
-            await AnimatePages.AnimatePageIn(gridTabataPage, null);
+            await AnimatePages.AnimatePageIn(gridTabataPage);
 
             await Task.Delay(400);
             //            imageBG.ScaleTo(1, 350U, Easing.CubicOut);
@@ -66,7 +66,7 @@ namespace App11Athletics.Views.Timers
         {
             base.OnDisappearing();
             //            imageBG.ScaleTo(0, 350U, Easing.CubicOut);
-            await AnimatePages.AnimatePageOut(gridTabataPage, null);
+            await AnimatePages.AnimatePageOut(gridTabataPage);
             await Cleanup();
         }
         #endregion

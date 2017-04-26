@@ -40,7 +40,9 @@ namespace App11Athletics.Views
         {
 
             InitializeComponent();
+            Opacity = 0;
             Setup();
+
             //            dhcCircle.Children.Add(ProImage);
             //            var tapGestureRecognizer = new TapGestureRecognizer();
             //            tapGestureRecognizer.Tapped += ChangePhotoTapped;
@@ -65,7 +67,7 @@ namespace App11Athletics.Views
             //           .Source = Settings.UserPicture;
             //            labelName.Text = Settings.UserGivenName;
             var ChangeNameTapper = new TapGestureRecognizer();
-            ChangeNameTapper.Tapped += (sender, args) => entryLabelName.Focus();
+            ChangeNameTapper.Tapped += (sender, args) => Device.BeginInvokeOnMainThread(() => entryLabelName.Focus());
             boxViewlabelnameTapper.GestureRecognizers.Add(ChangeNameTapper);
 
             //            entryLabelName.Text = Settings.UserGivenName;
@@ -209,7 +211,7 @@ namespace App11Athletics.Views
 
         protected override async void OnDisappearing()
         {
-
+            Opacity = 0;
             base.OnDisappearing();
             GC.Collect();
 
@@ -233,36 +235,35 @@ namespace App11Athletics.Views
             //            Disable = false;
             if (alfPicker.IsFocused)
                 return;
-            await Task.Delay(100);
-            alfPicker.Focus();
+            Device.BeginInvokeOnMainThread(async () =>
+    alfPicker.Focus());
         }
 
         private async void CalorieCalc(bool intro = false)
         {
             //            Women: BMR = 655 + (4.35 x weight in pounds) + (4.7 x height in inches) - (4.7 x age in years)
             //            Men: BMR = 66 + (6.23 x weight in pounds) + (12.7 x height in inches) - (6.8 x age in years)
+            if (string.IsNullOrEmpty(labelAge.Text) || string.IsNullOrEmpty(labelWeight.Text))
+            {
+                labelBmr.Text = string.Empty;
+                labelDce.Text = string.Empty;
+                Settings.UserBmr = labelBmr.Text;
+                Settings.UserDce = labelDce.Text;
+                Settings.UserAge = labelAge.Text;
+                Settings.UserWeight = labelWeight.Text;
+                await Task.WhenAll(
+                gridBmr.FadeTo(0.4, 400U, Easing.SinInOut),
+                gridDce.FadeTo(0.4, 400U, Easing.SinInOut));
+                return;
+            }
             await Task.Run(async () =>
             {
-                if (string.IsNullOrEmpty(labelAge.Text) || string.IsNullOrEmpty(labelWeight.Text))
-                {
-                    labelBmr.Text = string.Empty;
-                    labelDce.Text = string.Empty;
-                    Settings.UserBmr = labelBmr.Text;
-                    Settings.UserDce = labelDce.Text;
-                    Settings.UserAge = labelAge.Text;
-                    Settings.UserWeight = labelWeight.Text;
-                    gridBmr.FadeTo(0.4, 400U, Easing.SinInOut);
-                    await gridDce.FadeTo(0.4, 400U, Easing.SinInOut);
-                    return;
-                }
-
                 var hF = Settings.UserHeightFt;
                 var hI = Settings.UserHeightIn;
                 var g = Settings.UserGender;
                 var af = Settings.UserAlf;
                 var h = Convert.ToDouble(hF) * 12 + Convert.ToDouble(hI);
                 var userWeight = Settings.UserWeight;
-
                 var userAge = Settings.UserAge;
                 var listD = new List<double> { af, h, Convert.ToDouble(userWeight), Convert.ToDouble(userAge) };
                 var listS = new List<string> { hF, hI, g };
@@ -373,15 +374,15 @@ namespace App11Athletics.Views
         private async void TapGestureRecognizerWeight_OnTapped(object sender, EventArgs e)
         {
             await gridWeightOptions.TranslateTo(0, 0, 300U, Easing.CubicInOut);
-            await Task.Delay(1);
-            WeightOptionsEntry.Focus();
+            Device.BeginInvokeOnMainThread(async () =>
+             WeightOptionsEntry.Focus());
         }
 
         private async void TapGestureRecognizerAge_OnTapped(object sender, EventArgs e)
         {
             await gridAgeOptions.TranslateTo(0, 0, 300U, Easing.CubicInOut);
-            await Task.Delay(1);
-            AgeOptionsEntry.Focus();
+            Device.BeginInvokeOnMainThread(async () =>
+      AgeOptionsEntry.Focus());
 
         }
 
@@ -412,9 +413,9 @@ namespace App11Athletics.Views
                 CalorieCalc();
         }
 
-        private void AgeOptionsEntry_OnUnfocused(object sender, FocusEventArgs e)
+        private async void AgeOptionsEntry_OnUnfocused(object sender, FocusEventArgs e)
         {
-            gridAgeOptions.TranslateTo(0, 1500, 600U, Easing.CubicInOut);
+            await gridAgeOptions.TranslateTo(0, 1500, 600U, Easing.CubicInOut);
             if (!string.IsNullOrEmpty(AgeOptionsEntry.Text) && !AgeOptionsEntry.Text.Contains("."))
                 labelAge.Text = AgeOptionsEntry.Text;
             else
@@ -448,7 +449,7 @@ namespace App11Athletics.Views
 
         private async void WeightOptionsEntry_OnUnfocused(object sender, FocusEventArgs e)
         {
-            gridWeightOptions.TranslateTo(0, 1500, 600U, Easing.CubicInOut);
+            await gridWeightOptions.TranslateTo(0, 1500, 600U, Easing.CubicInOut);
             if (!string.IsNullOrEmpty(WeightOptionsEntry.Text) && !WeightOptionsEntry.Text.Contains("."))
                 labelWeight.Text = WeightOptionsEntry.Text;
             else

@@ -14,18 +14,19 @@ namespace App11Athletics.Views
         public TimerMenu()
         {
             InitializeComponent();
+            Opacity = 0;
         }
 
         #region Overrides of Page
 
         protected override async void OnAppearing()
         {
+            Opacity = 0;
             base.OnAppearing();
-
             disabled = true;
             CurrentButton = null;
-            await AnimatePages.AnimatePageIn(stackLayout);
-            await Task.Delay(100);
+            await Task.WhenAny(AnimatePages.AnimatePageIn(stackLayout), Task.Delay(50));
+            await this.FadeTo(1);
             disabled = false;
         }
 

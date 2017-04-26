@@ -7,12 +7,12 @@
         <ResourceDictionary>
             <Style TargetType="Label">
                 <Setter Property="TextColor" Value="Black" />
-                <Setter Property="Margin" Value="0" />
+                <Setter Property="Margin" Value="0,5,0,0" />
 
             </Style>
             <Style TargetType="Button">
                 <Setter Property="VerticalOptions" Value="EndAndExpand" />
-                <Setter Property="Margin" Value="0" />
+                <Setter Property="Margin" Value="0,5,0,0" />
 
             </Style>
 
@@ -21,7 +21,7 @@
     <Grid>
         <ScrollView>
             <StackLayout Padding="20"
-                         Spacing="2" VerticalOptions="FillAndExpand">
+                         Spacing="5" VerticalOptions="FillAndExpand">
                 <Label Text="Name" />
                 <local:MyEntry x:Name="nameEntry"
                                Keyboard="Text" Placeholder="Add Exercise" PlaceholderColor="#4BDF0000" PropertyChanging="NameEntry_OnPropertyChanging"
@@ -72,7 +72,7 @@
                             IsToggled="{Binding Done}"
                             VerticalOptions="CenterAndExpand" />
                 </StackLayout>
-                <StackLayout VerticalOptions="End">
+                <StackLayout VerticalOptions="EndAndExpand">
                     <Button x:Name="buttonSave"
                             TextColor="White"
                             Clicked="OnSaveClicked"

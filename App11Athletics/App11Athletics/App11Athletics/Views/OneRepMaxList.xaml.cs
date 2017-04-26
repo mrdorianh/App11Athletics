@@ -29,18 +29,33 @@ namespace App11Athletics.Views
             InitializeComponent();
             percentageList.Deselected = true;
             percentageList.ScrollReset();
-            CurrentItem = new TodoItem();
+            Opacity = 0;
         }
         protected override async void OnAppearing()
         {
-            CurrentItem = null;
-            base.OnAppearing();
+            Opacity = 0;
+
+
             ((App)Application.Current).ResumeAtTodoId = -1;
+            base.OnAppearing();
+            await Task.Delay(1);
             var itemSource = await App.Database.GetFilteredItemsAsync(true);
             listView.ItemsSource = itemSource;
             foreach (TodoItem item in listView.ItemsSource)
                 item.IsSelected = false;
+            CurrentItem = new TodoItem();
+            await this.FadeTo(1);
         }
+
+
+        #region Overrides of Page
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            Opacity = 0;
+        }
+        #endregion
+
 
         private async void OnItemAdded(object sender, EventArgs e)
         {
@@ -50,12 +65,12 @@ namespace App11Athletics.Views
 
         }
 
-
-
-
         private async void OnListItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            //ItemSelected is called on deselection
+            if (e.SelectedItem == null)
+            {
+                return;
+            }
             ((ListView)sender).SelectedItem = null;
 
             #region WorkingButLowPerformance
@@ -80,31 +95,30 @@ namespace App11Athletics.Views
 
             var itm = e.Item as TodoItem;
             CurrentItem = itm;
-            Device.BeginInvokeOnMainThread(() =>
+            if (itm == null)
+                return;
+            //            Device.BeginInvokeOnMainThread(() =>
+            //            {
+            itm.IsSelected = !itm.IsSelected;
+
+            foreach (TodoItem item in listView.ItemsSource)
             {
-                if (itm == null)
-                    return;
-
-                itm.IsSelected = !itm.IsSelected;
-
-                foreach (TodoItem item in listView.ItemsSource)
+                if (item != itm)
+                    item.IsSelected = false;
+                else if (item == itm && item.IsSelected)
                 {
-                    if (item != itm)
-                        item.IsSelected = false;
-                    else if (item == itm && item.IsSelected)
-                    {
-                        percentageList.Deselected = false;
-
-                    }
-                    else
-                    {
-                        percentageList.Deselected = true;
-                        percentageList.ScrollReset();
-                        CurrentItem = null;
-                    }
+                    percentageList.Deselected = false;
 
                 }
-            });
+                else
+                {
+                    percentageList.Deselected = true;
+                    percentageList.ScrollReset();
+                    CurrentItem = null;
+                }
+
+            }
+            //            });
 
 
         }

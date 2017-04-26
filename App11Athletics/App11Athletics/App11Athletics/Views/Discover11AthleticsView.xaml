@@ -27,12 +27,13 @@
                                     <ColumnDefinition Width="0.45*" />
                                     <ColumnDefinition Width="0.55*" />
                                 </Grid.ColumnDefinitions>
-                                <Grid x:Name="gridCircle" Grid.Column="0">
+                                <Grid x:Name="gridCircle"
+                                      Grid.Column="0">
                                     <controls:CircleImage Grid.Column="0"
-                                                          HeightRequest="{Binding Source={x:Reference gridCircle},
-                                                                                  Path=Width}"
-                                                          WidthRequest="{Binding Source={x:Reference gridCircle},
-                                                                                 Path=Width}"
+                                                          HeightRequest="{Binding Source={x:Reference pageDiscover},
+                                                                                  Path=CircleDiameter}"
+                                                          WidthRequest="{Binding Source={x:Reference pageDiscover},
+                                                                                 Path=CircleDiameter}"
                                                           Aspect="AspectFill"
                                                           BorderColor="{Binding Color}"
                                                           BorderThickness="2" FillColor="White" HorizontalOptions="Center"

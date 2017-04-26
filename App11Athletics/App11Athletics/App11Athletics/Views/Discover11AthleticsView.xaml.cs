@@ -6,10 +6,12 @@ using App11Athletics.ViewModels;
 using Plugin.Connectivity;
 using Xamarin.Forms;
 using App11Athletics.DHCToolkit;
+using PropertyChanged;
 
 
 namespace App11Athletics.Views
 {
+    [ImplementPropertyChanged]
     public partial class Discover11AthleticsView : ContentPage
     {
         public Discover11AthleticsView()
@@ -27,8 +29,7 @@ namespace App11Athletics.Views
             base.OnAppearing();
             disabled = true;
             await Task.Delay(100);
-            this.FadeTo(1, 350U, Easing.CubicIn);
-            await AnimatePages.AnimatePageIn(gridDiscover);
+            await Task.WhenAll(this.FadeTo(1, 350U, Easing.CubicIn), AnimatePages.AnimatePageIn(gridDiscover));
             disabled = false;
         }
 
@@ -91,11 +92,8 @@ namespace App11Athletics.Views
         }
 
         public bool disabled { get; set; }
-
-        public void ContentPage_OnSizeChanged(object sender, EventArgs e)
-        {
-
-        }
+        public double CircleDiameter { get; set; } = 0.0;
+        public void ContentPage_OnSizeChanged(object sender, EventArgs e) { CircleDiameter = Width / 3; }
 
         private void OnCall(object sender, EventArgs e)
         {

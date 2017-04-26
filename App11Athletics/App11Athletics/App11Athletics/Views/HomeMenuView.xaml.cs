@@ -26,9 +26,9 @@ namespace App11Athletics.Views
 
         public HomeMenuView()
         {
-
             InitializeComponent();
-
+            Opacity = 0;
+            labelMenuTitle.Opacity = 0;
             var tapGestureRecognizer = new TapGestureRecognizer();
             tapGestureRecognizer.Tapped += TapGestureRecognizerBox_OnTapped;
             cacheImage = new CachedImage { Source = ProfileImage, Transformations = new List<ITransformation>() { new CircleTransformation(8.0, "#005EBF") }, Style = (Style)Application.Current.Resources["styleCachedImage"], Rotation = ImageRotation, GestureRecognizers = { tapGestureRecognizer }, HorizontalOptions = LayoutOptions.Center };
@@ -48,7 +48,8 @@ namespace App11Athletics.Views
             collectionOfItems.Add(new SfCarouselItem() { ItemContent = new Xamarin.Forms.Image() { Source = "MenuItemLog.png", Aspect = Aspect.AspectFit, Rotation = 0.0, GestureRecognizers = { tapGestureRecognizer }, }, HorizontalOptions = LayoutOptions.CenterAndExpand });
             collectionOfItems.Add(new SfCarouselItem() { ItemContent = new Grid() { Children = { new Xamarin.Forms.Image() { Source = "iconbevel.png", Aspect = Aspect.AspectFit, Rotation = 0.0, GestureRecognizers = { tapGestureRecognizer }, HorizontalOptions = LayoutOptions.Fill, HeightRequest = 175 } }, Padding = 15 } });
             sfCarouselX.DataSource = collectionOfItems;
-
+            sfCarouselX.SelectedIndex = 1;
+            CarouselMain_OnSelectionChanged(null, null);
             //            gridCara.Children.Add(SfCarousel);
             //            carouselMain.BindingContext = new CarouselViewModel();
             //            CarouselMain_OnSelectionChanged(null, null);
@@ -76,6 +77,7 @@ namespace App11Athletics.Views
 
         protected override async void OnDisappearing()
         {
+            Opacity = 0;
             base.OnDisappearing();
 
             GC.Collect();
@@ -87,8 +89,8 @@ namespace App11Athletics.Views
         {
             disable = true;
             Opacity = 0;
-            gridLabel.Opacity = 0;
-            sfCarouselX.SelectedIndex = 1;
+            labelMenuTitle.Opacity = 0;
+
             Debug.WriteLine(Width.ToString() + "preAppear");
             base.OnAppearing();
             Debug.WriteLine(Width.ToString() + "postAppear");
@@ -98,11 +100,9 @@ namespace App11Athletics.Views
             imageBG.TranslationX = Width / 2;
             imageBG.TranslationY = -Height;
             gridSchedule.TranslationX = Width * -2;
-            AnimatePages.AnimatePageIn(gridHomeMenu);
-            AnimatePages.BgLogoTask(imageBG, Width / 2, Height / 2);
-            await Task.WhenAny(this.FadeTo(1, 350U, Easing.CubicOut), gridLabel.FadeTo(1, 350U, Easing.CubicOut));
-            await Task.Delay(100);
+            await Task.WhenAll(AnimatePages.AnimatePageIn(gridHomeMenu), AnimatePages.BgLogoTask(imageBG, Width / 2, Height / 2), this.FadeTo(1, 350U, Easing.CubicOut));
             await gridSchedule.TranslateTo(Width / -1.9, 0, 250U, Easing.CubicOut);
+            await labelMenuTitle.FadeTo(1, 350U, Easing.CubicOut);
             disable = false;
             /*Opacity = 0;
 

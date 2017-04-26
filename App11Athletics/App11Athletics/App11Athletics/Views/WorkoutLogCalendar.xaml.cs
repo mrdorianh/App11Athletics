@@ -25,6 +25,7 @@ namespace App11Athletics.Views
         public WorkoutLogCalendar()
         {
             InitializeComponent();
+            Opacity = 0;
             var inactiveColor = Color.Gray;
             var color = (Color)Application.Current.Resources["ColorBrandGlobalBlue"];
             calendarView.MinDate = CalendarView.FirstDayOfMonth(new DateTime(2017, 1, 6));
@@ -35,7 +36,7 @@ namespace App11Athletics.Views
             calendarView.HighlightedDateForegroundColor = Color.White;
             calendarView.ShouldHighlightDaysOfWeekLabels = false;
             calendarView.SelectionBackgroundStyle = CalendarView.BackgroundStyle.CircleFill;
-            calendarView.TodayBackgroundStyle = CalendarView.BackgroundStyle.CircleOutline;
+            calendarView.TodayBackgroundStyle = CalendarView.BackgroundStyle.CircleFill;
             calendarView.TodayDateBackgroundColor = color.MultiplyAlpha(0.5);
             //            calendarView.HighlightedDaysOfWeek = new DayOfWeek[] { DayOfWeek.Saturday, DayOfWeek.Sunday };
             calendarView.ShowNavigationArrows = true;
@@ -72,10 +73,15 @@ namespace App11Athletics.Views
         }
 
 
+        #region Overrides of Page
+        protected override void OnDisappearing() { base.OnDisappearing(); Opacity = 0; }
+        #endregion
+
+
         protected override async void OnAppearing()
         {
-            base.OnAppearing();
             Opacity = 0;
+            base.OnAppearing();
 
             // Reset the 'resume' id, since we just want to re-start here
             ((App)App.Current).ResumeAtTodoId = -1;

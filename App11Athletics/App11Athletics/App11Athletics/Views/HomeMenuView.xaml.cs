@@ -40,8 +40,7 @@ namespace App11Athletics.Views
             cacheImage.Success += CacheImage_OnSuccess;
             cacheImage.Finish += CacheImage_OnFinish;
             cacheImage.FileWriteFinished += CacheImage_OnFileWriteFinished;
-            sfCarouselX.SelectedIndex = 0;
-            labelMenuTitle.Text = "Profile";
+            labelMenuTitle.Text = "Timers";
 
             //            carouselMain.SelectionChanged += CarouselMain_OnSelectionChanged;
 
@@ -80,7 +79,9 @@ namespace App11Athletics.Views
 
         protected override async void OnAppearing()
         {
+
             base.OnAppearing();
+            await Task.Delay(10);
             disable = true;
             Opacity = 0;
             labelMenuTitle.Opacity = 0;

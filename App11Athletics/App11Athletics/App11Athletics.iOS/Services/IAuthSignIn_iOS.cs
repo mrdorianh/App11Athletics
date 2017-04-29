@@ -95,17 +95,36 @@ namespace App11Athletics.iOS.Services
         }
         #endregion
 
-        public void SaveUserAttributes(Auth0User user)
+        public Task SaveUserAttributes(Auth0User user)
         {
 
+            //            Settings.UserRefreshToken = user.RefreshToken;
+            //            Settings.UserEmail = user.Profile["email"].ToString();
+            //            Settings.UserGivenName = user.Profile["given_name"].ToString();
+            //            Settings.UserFamilyName = user.Profile["family_name"].ToString();
+            //            Settings.UserName = user.Profile["name"].ToString();
+            //            Settings.UserPicture = user.Profile["picture"]?.ToString();
+            //            Settings.UserAge = user.Profile["age"]?.ToString();
+            //            Settings.UserGender = user.Profile["gender"].ToString();
             Settings.UserRefreshToken = user.RefreshToken;
-            Settings.UserEmail = user.Profile["email"].ToString();
-            Settings.UserGivenName = user.Profile["given_name"].ToString();
-            Settings.UserFamilyName = user.Profile["family_name"].ToString();
-            Settings.UserName = user.Profile["name"].ToString();
-            Settings.UserPicture = user.Profile["picture"]?.ToString();
-            Settings.UserAge = user.Profile["age"]?.ToString();
-            Settings.UserGender = user.Profile["gender"].ToString();
+            Settings.UserEmail = user.Profile["email"]?.ToString();
+            var t = user.Profile["identities"];
+            var c = t.Children();
+            Settings.UserProvider = c["provider"]?.ToString();
+            Settings.UserGivenName = user.Profile["given_name"]?.ToString();
+            Settings.UserFamilyName = user.Profile["family_name"]?.ToString();
+            Settings.UserName = user.Profile["name"]?.ToString();
+            string pic = user.Profile["picture_large"]?.ToString();
+            if (string.IsNullOrEmpty(pic))
+                pic = user.Profile["picture"]?.ToString();
+            Settings.UserPictureOriginal = pic;
+            if (string.IsNullOrEmpty(Settings.UserPicture) || (Settings.UserPicture == "iconbevel.png"))
+                Settings.UserPicture = pic;
+            if (string.IsNullOrEmpty(Settings.UserAge))
+                Settings.UserAge = user.Profile["age"]?.ToString();
+            if (string.IsNullOrEmpty(Settings.UserGender))
+                Settings.UserGender = user.Profile["gender"]?.ToString();
+            return Task.CompletedTask;
         }
 
     }

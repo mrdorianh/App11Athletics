@@ -19,15 +19,14 @@ namespace App11Athletics
     {
         static TodoItemDatabase database;
         //        public UserProfileModel AppUser;
-
+        public static bool IsAsleep;
         public App()
         {
 
             InitializeComponent();
             ImageService.Instance.Initialize();
-            MainPage = new NavigationPage(new HomeMenuView());
+            //            MainPage = new NavigationPage(new HomeMenuView());
 
-            /*
             Device.OnPlatform(iOS: () =>
             {
                 MainPage = new NavigationPage(new SplashWebView());
@@ -44,7 +43,7 @@ namespace App11Athletics
                     //                            DependencyService.Get<IAuthSignIn>().AuthRefresh();
                     MainPage = new NavigationPage(new HomeMenuView());
                 }
-            });*/
+            });
 
         }
 
@@ -74,20 +73,21 @@ namespace App11Athletics
 
         protected override void OnStart()
         {
+            IsAsleep = false;
 
             // Handle when your app starts
         }
 
         protected override void OnSleep()
         {
-
+            IsAsleep = true;
             //            Resolver.ResetResolver();
             // Handle when your app sleeps
         }
 
         protected override void OnResume()
         {
-
+            IsAsleep = false;
             // Handle when your app resumes
         }
     }

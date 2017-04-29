@@ -41,8 +41,12 @@ namespace App11Athletics.Views.Timers
             base.OnDisappearing();
             //            imageBG.ScaleTo(0, 350U, Easing.CubicOut);
             await AnimatePages.AnimatePageOut(gridRoundCounterPage);
-            await Cleanup();
+            if (!App.IsAsleep)
+            {
+                await Cleanup();
+            }
         }
+        //           
         public RoundCounterFeatureViewModel RoundCounterFeatureViewModel;
 
         public bool RoundOptionsUp { get; set; }

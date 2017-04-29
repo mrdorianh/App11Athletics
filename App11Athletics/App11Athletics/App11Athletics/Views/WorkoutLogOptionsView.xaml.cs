@@ -122,8 +122,8 @@ namespace App11Athletics.Views
 
         private void Entry_OnFocused(object sender, FocusEventArgs e)
         {
-            var t = (Entry)sender;
-            Device.BeginInvokeOnMainThread(() => { t.Text = null; });
+            //            var t = (Entry)sender;
+            //            Device.BeginInvokeOnMainThread(() => { t.Text = null; });
         }
 
         private void RepEntry_OnFocused(object sender, FocusEventArgs e)

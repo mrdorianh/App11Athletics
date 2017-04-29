@@ -67,7 +67,10 @@ namespace App11Athletics.Views.Timers
             base.OnDisappearing();
             //            imageBG.ScaleTo(0, 350U, Easing.CubicOut);
             await AnimatePages.AnimatePageOut(gridTabataPage);
-            await Cleanup();
+            if (!App.IsAsleep)
+            {
+                await Cleanup();
+            }
         }
         #endregion
 

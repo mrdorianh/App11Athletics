@@ -35,11 +35,12 @@ namespace App11Athletics.Views
 
         protected override async void OnAppearing()
         {
+            var itemSource = await App.Database.GetFilteredItemsAsync(WorkoutDateCurrent);
+            listView.ItemsSource = itemSource;
             base.OnAppearing();
             // Reset the 'resume' id, since we just want to re-start here
             ((App)App.Current).ResumeAtTodoId = -1;
-            var itemSource = await App.Database.GetFilteredItemsAsync(WorkoutDateCurrent);
-            listView.ItemsSource = itemSource;
+
 
         }
 

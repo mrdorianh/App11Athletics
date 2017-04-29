@@ -11,6 +11,7 @@ using FFImageLoading;
 using FFImageLoading.Forms.Droid;
 using ImageCircle.Forms.Plugin.Droid;
 using Octane.Xam.VideoPlayer.Android;
+using Syncfusion.SfCarousel.XForms;
 using Xamarin.Forms.Platform.Android;
 using XFShapeView.Droid;
 using XLabs.Forms;
@@ -35,7 +36,7 @@ namespace App11Athletics.Droid
             base.OnCreate(bundle);
             global::Xamarin.Forms.Forms.Init(this, bundle);
             CachedImageRenderer.Init();
-            ImageCircle.Forms.Plugin.Droid.ImageCircleRenderer.Init();
+          ImageCircle.Forms.Plugin.Droid.ImageCircleRenderer.Init();
             FormsVideoPlayer.Init();
 
             //            Resolver.ResetResolver();

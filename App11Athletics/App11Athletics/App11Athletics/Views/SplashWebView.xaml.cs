@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using App11Athletics.Helpers;
 using Octane.Xam.VideoPlayer.Events;
 using Xamarin.Forms;
@@ -12,16 +13,21 @@ namespace App11Athletics.Views
     {
         public SplashWebView()
         {
-            InitializeComponent();
-            var c = Plugin.Connectivity.CrossConnectivity.Current.IsConnected;
-            if (!c)
-                VideoPlayer_OnCompleted(null, null);
-
-            //            var htmlSource = new HtmlWebViewSource();
-            //            htmlSource.Html = @"<iframe src='https://player.vimeo.com/video/206658139?autoplay=1&title=0&byline=0&portrait=0' width='100%' height='100%' frameborder='0' ></iframe>";
-            //
-            //            webView.Source = htmlSource;
-            CheckForDelay();
+            Device.OnPlatform(() =>
+            {
+                InitializeComponent();
+                bool c = Plugin.Connectivity.CrossConnectivity.Current.IsConnected;
+                if (!c)
+                    VideoPlayer_OnCompleted(null, null);
+                else
+                {
+                    videoPlayer.Play();
+                    CheckForDelay();
+                }
+            }, () => VideoPlayer_OnCompleted(null, null));
+            /*          var htmlSource = new HtmlWebViewSource();
+                        htmlSource.Html = @"<iframe src='https://player.vimeo.com/video/206658139?autoplay=1&title=0&byline=0&portrait=0' width='100%' height='100%' frameborder='0' ></iframe>";
+                        webView.Source = htmlSource;*/
         }
 
         private async void CheckForDelay()
@@ -40,7 +46,7 @@ namespace App11Athletics.Views
 
         private async void VideoPlayer_OnCompleted(object sender, Octane.Xam.VideoPlayer.Events.VideoPlayerEventArgs e)
         {
-
+            await Task.Delay(1);
             if (string.IsNullOrEmpty(Settings.UserRefreshToken))
             {
                 App.IsUserLoggedIn = false;

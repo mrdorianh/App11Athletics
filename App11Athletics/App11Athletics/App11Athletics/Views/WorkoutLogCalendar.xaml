@@ -50,7 +50,7 @@
                                                VerticalOptions="Center" />
                                         <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Spacing="15" VerticalOptions="CenterAndExpand">
                                             <StackLayout HorizontalOptions="Center"
-                                                         IsVisible="{Binding WSeps,
+                                                         IsVisible="{Binding WSets,
                                                                              Converter={StaticResource NullToVisibility}}"
                                                          Orientation="Horizontal" VerticalOptions="Center">
                                                 <Label x:Name="labelSets"

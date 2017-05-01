@@ -104,10 +104,10 @@ namespace App11Athletics.Views
                 await this.FadeTo(0, 350U, Easing.CubicIn);
                 Navigation.InsertPageBefore(new HomeMenuView(), this);
                 //lets test this later as Reset Main
-                await Task.Delay(100);
+                await Task.Delay(1);
                 //                imageBG.ScaleTo(0, 350U, Easing.CubicOut);
                 await AnimatePages.AnimatePageOut(gridLogin);
-                await Navigation.PopAsync();
+                Navigation.PopAsync();
                 //Navigation.InsertPageBefore(new CarouselPageMenu(), this);
             }
 

@@ -53,14 +53,14 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <Grid x:Name="gridLabel">
+            <Grid x:Name="gridLabel"
+                  Grid.Row="0">
                 <Label x:Name="labelMenuTitle"
                        BindingContext="{x:Reference pageHomeMenu}"
                        HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
                        FontSize="{Binding MenuTitle}"
                        FontAttributes="Bold"
-                       TextColor="{StaticResource ColorBrandGlobalBlue}"
-                       Text="{Binding Title}" />
+                       TextColor="{StaticResource ColorBrandGlobalBlue}" />
             </Grid>
             <Grid x:Name="gridCara"
                   Grid.Row="1"
@@ -76,7 +76,7 @@
                 <!--  RotationAngle="45" SelectedItemOffset="500" SelectionChanged="CarouselMain_OnSelectionChanged" VerticalOptions="CenterAndExpand"  -->
                 <!--  Offset="100" />  -->
                 <xForms:SfCarousel x:Name="sfCarouselX"
-                                   HorizontalOptions="FillAndExpand" ItemHeight="175" RotationAngle="45" SelectedItemOffset="500" SelectionChanged="CarouselMain_OnSelectionChanged"
+                                   HorizontalOptions="FillAndExpand" ItemHeight="175" RotationAngle="45" SelectedIndex="1" SelectedItemOffset="500" SelectionChanged="CarouselMain_OnSelectionChanged"
                                    Offset="100" />
                 <!--  <BoxView x:Name="boxViewTap"  -->
                 <!--  HeightRequest="200" WidthRequest="100"  -->
@@ -87,12 +87,14 @@
                 <!--                    </BoxView.GestureRecognizers>-->
                 <!--                </BoxView>-->
             </Grid>
+
+
         </Grid>
         <Grid x:Name="gridSchedule"
-              Padding="0,0,0,30"
-              HorizontalOptions="FillAndExpand" VerticalOptions="End">
+              Margin="0,0,0,30"
+              HorizontalOptions="Fill" VerticalOptions="End">
             <Button FontSize="Large"
-                    BorderRadius="20" Clicked="Button_OnClicked" HorizontalOptions="Fill" VerticalOptions="EndAndExpand"
+                    BorderRadius="20" Clicked="Button_OnClicked" HorizontalOptions="Fill"
                     BackgroundColor="{StaticResource ColorBrandGlobalBlue}" />
             <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
                    FontSize="Medium" FontAttributes="Bold" TextColor="White"

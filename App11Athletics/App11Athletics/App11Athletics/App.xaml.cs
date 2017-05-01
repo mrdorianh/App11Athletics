@@ -25,8 +25,6 @@ namespace App11Athletics
 
             InitializeComponent();
             ImageService.Instance.Initialize();
-            MainPage = new NavigationPage(new HomeMenuView());
-            return;
 
             Device.OnPlatform(iOS: () =>
             {

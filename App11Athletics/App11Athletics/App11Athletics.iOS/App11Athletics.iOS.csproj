@@ -422,7 +422,6 @@
     <BundleResource Include="Resources\checkgreen.png" />
     <BundleResource Include="Resources\icon.png" />
     <BundleResource Include="Resources\iconbevel.png" />
-    <BundleResource Include="Resources\lightning.png" />
     <BundleResource Include="Resources\plusblue.png" />
     <BundleResource Include="Resources\plusgreen.png" />
     <BundleResource Include="Resources\arrows.png" />

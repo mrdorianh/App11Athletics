@@ -19,11 +19,8 @@
                 <Setter Property="TextColor" Value="{DynamicResource ColorBrandGlobalBlue}" />
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
                 <Setter Property="VerticalTextAlignment" Value="Center" />
-                <!--  <Setter Property = "BackgroundColor"  -->
-                <!--  Value = "#1FFF0000" />  -->
                 <Setter Property="InputTransparent" Value="True" />
             </Style>
-            <Style TargetType="ContentView" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
@@ -111,7 +108,7 @@
                            Text="Gender" VerticalOptions="End" />
                     <Label x:Name="labelGender"
                            Grid.Row="1"
-                           StyleId="dL" VerticalOptions="CenterAndExpand" />
+                           HorizontalOptions="CenterAndExpand" StyleId="dL" VerticalOptions="CenterAndExpand" />
                     <BoxView Grid.Row="0" Grid.RowSpan="2"
                              Grid.Column="0"
                              Style="{StaticResource tap}"
@@ -137,7 +134,7 @@
                            Text="Age" VerticalOptions="End" />
                     <Label x:Name="labelAge"
                            Grid.Row="1"
-                           StyleId="dL" VerticalOptions="CenterAndExpand" />
+                           HorizontalOptions="CenterAndExpand" StyleId="dL" VerticalOptions="CenterAndExpand" />
                     <BoxView Grid.Row="0" Grid.RowSpan="2"
                              Grid.Column="0"
                              Style="{StaticResource tap}"
@@ -163,7 +160,7 @@
                            Text="Weight" VerticalOptions="End" />
                     <Label x:Name="labelWeight"
                            Grid.Row="1"
-                           StyleId="dL" VerticalOptions="CenterAndExpand" />
+                           HorizontalOptions="CenterAndExpand" StyleId="dL" VerticalOptions="CenterAndExpand" />
                     <BoxView Grid.Row="0" Grid.RowSpan="2"
                              Grid.Column="0"
                              Style="{StaticResource tap}"

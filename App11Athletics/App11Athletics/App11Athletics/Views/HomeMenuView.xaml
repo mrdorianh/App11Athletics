@@ -76,7 +76,7 @@
                 <!--  RotationAngle="45" SelectedItemOffset="500" SelectionChanged="CarouselMain_OnSelectionChanged" VerticalOptions="CenterAndExpand"  -->
                 <!--  Offset="100" />  -->
                 <xForms:SfCarousel x:Name="sfCarouselX"
-                                   HorizontalOptions="FillAndExpand" ItemHeight="175" RotationAngle="45" SelectedItemOffset="500" SelectionChanged="CarouselMain_OnSelectionChanged"
+                                   HorizontalOptions="FillAndExpand" ItemHeight="175" RotationAngle="45" SelectedIndex="1" SelectedItemOffset="500" SelectionChanged="CarouselMain_OnSelectionChanged"
                                    Offset="100" />
                 <!--  <BoxView x:Name="boxViewTap"  -->
                 <!--  HeightRequest="200" WidthRequest="100"  -->
